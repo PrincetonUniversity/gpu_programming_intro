@@ -350,11 +350,9 @@ tiger-i20g7  Sun Oct 27 22:56:31 2019
 
 ## Traverse
 
-46 nodes
+This new cluster consists of 46 IBM PowerPC nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.53 GHz.
 
-Tesla V100-SXM2-32GB
-major: 7 minor: 0
-memoryClockRate(GHz): 1.53
+Additional info:
 
 ```
 $ ssh traverse-k02g3
