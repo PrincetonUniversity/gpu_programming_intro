@@ -1,10 +1,12 @@
 # What is a GPU?
 
+A GPU, or Graphics Processing Unit, is an electronic device originally designed for manipulating the images that appear on a computer monitor.  However GPUs have become widely used for accelerating computation in various fields including image processing and machine learning.
+
+Relative to the CPU, GPUs have a far greater number of processing cores with slower clock speeds. Within a block of threads, each thread carries out the same operation on a different piece of data. This is the SIMD paradigm (single instruction, multiple data).
+
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/2019/06/)).
 
-An accelerator different from TPU, FPGA, KNL.
-
-While we are using NVIDIA, the market landscape changed in May or June when it was announced that Frontier would be AMD and Cray. The first exascale machine in the US.
+While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when it was announced that Frontier, what is expected to be the first exascale cluster in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
 
 Many cores with slow clocks.
 
