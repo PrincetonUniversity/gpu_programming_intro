@@ -22,7 +22,7 @@ int main() {
 This can be compiled and run with:
 
 ```
-$ cd 01_hello_world
+$ cd gpu_programming_intro/07_cuda_kernels/01_hello_world
 $ gcc -o hello_world hello_world.c
 $ ./hello_world
 ```
