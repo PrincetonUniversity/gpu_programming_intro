@@ -114,6 +114,8 @@ $ sbatch job.slurm
 # view the output file and note the execution time
 ```
 
+Run jobs to fill in the table below:
+
 | cpus-per-task (or threads)| execution time (s) |
 |:--------------------------:|:--------:|
 | 1                          |  4.2     |
