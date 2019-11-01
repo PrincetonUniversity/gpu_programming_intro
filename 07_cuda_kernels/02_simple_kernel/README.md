@@ -54,4 +54,4 @@ $ nvcc -o first_parallel first_parallel.cu
 $ sbatch job.slurm
 ```
 
-One possible solution to this exercise is [here](solution.cu).
+One possible solution to this exercise is [here](solution.cu) (try for yourself first).
