@@ -8,7 +8,7 @@ CUDA kernels have access to special variables identifying both the index of the 
 
 ```C
 __global__ void GPUFunction() {
-  printf("My thread index is: %g\n", threadIdx.x);
+  printf("My thread index is: %d\n", threadIdx.x);
 }
 ```
 
