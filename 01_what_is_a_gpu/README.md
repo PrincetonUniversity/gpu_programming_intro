@@ -10,7 +10,7 @@ While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 w
 
 # Overview of using a GPU
 
-This is the essence of how every GPU is used:
+This is the essence of how every GPU is used as an accelerator:
 
 + Copy data from the CPU (host) to the GPU (device)
 
