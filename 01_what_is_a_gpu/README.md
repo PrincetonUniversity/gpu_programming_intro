@@ -2,7 +2,7 @@
 
 A GPU, or Graphics Processing Unit, is an electronic device originally designed for manipulating the images that appear on a computer monitor.  However GPUs have become widely used for accelerating computation in various fields including image processing and machine learning.
 
-Relative to the CPU, GPUs have a far greater number of processing cores with slower clock speeds. Within a block of threads, each thread carries out the same operation on a different piece of data. This is the SIMD paradigm (single instruction, multiple data).
+Relative to the CPU, GPUs have a far greater number of processing cores with slower clock speeds. Within a block of threads, each thread carries out the same operation on a different piece of data. This is the SIMD paradigm (single instruction, multiple data). GPUs tend to have less memory that what is available to a CPU. The P100 GPUs on TigerGPU have 16 GB. This is an important consideration in designing algorithms and pipelines.
 
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/2019/06/)).
 
