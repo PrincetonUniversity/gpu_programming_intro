@@ -195,19 +195,22 @@ int main( int argc, char* argv[] )
 }
 ```
 
-Now take a look at `vector_add_gpu.cu`. You will see that the `vecAdd` function has been replaced
-with a CUDA kernel:
+The `vecAdd` function has been replaced with a CUDA kernel:
 
 ```C
-__global__ void vecAdd(double *a, double *b, double *c, int n) {
+__global__ void vecAdd(double *a, double *b, double *c, int n)
+{
     // Get our global thread ID
     int id = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = gridDim.x * blockDim.x;
  
     // Make sure we do not go out of bounds
-    if (id < n)
-        c[id] = a[id] + b[id];
+    int i;
+    for (i = id; i < n; i += stride)
+      c[i] = a[i] + b[i];
 }
 ```
+
 The kernel uses special variables which are CUDA extensions to allow threads to distinguish themselves and operate on different data. Specifically, `blockIdx.x` is the block index within a grid, `blockDim.x` is the number of threads per block and `threadIdx.x` is the thread index within a block. Let's build and run the code. The `nvcc` compiler will compile the kernel function while `gcc` will be used in the background to compile the CPU code.
 
 ```
