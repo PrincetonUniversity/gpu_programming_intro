@@ -33,9 +33,8 @@ Run the CPU code above by following these commands:
 
 ```bash
 $ cd gpu_programming_intro/07_cuda_kernels/03_thread_indices
-$ module load cudatoolkit
 $ nvcc -o for_loop for_loop.c
-$ sbatch job.slurm
+$ ./for_loop
 ```
 
 The output of the above is
@@ -56,6 +55,13 @@ In the CPU code above, the loop is carried out in serial. That is, loop iteratio
 
 ```
 // write a GPU kernel to produce the output above
+```
+
+```bash
+$ cd 03_thread_indices
+$ module load cudatoolkit
+$ nvcc -o for_loop for_loop.cu
+$ sbatch job.slurm
 ```
 
 Click [here](hint.md) to see some hints.
