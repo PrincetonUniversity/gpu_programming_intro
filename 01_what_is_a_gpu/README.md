@@ -243,12 +243,23 @@ Options for steering GPU code generation.
         'sm_52','sm_53','sm_60','sm_61','sm_62','sm_70','sm_72'.
 ```
 
-Hence, a starting point for optimization flags on the V100's would be:
+Hence, a starting point for optimization flags on the V100's on Adroit or Traverse would be:
 
 ```
 nvcc -O3 --use_fast_math --gpu-architecture=sm_70 --gpu-code=sm_70 -o myapp myapp.cu
 ```
 
+For the P100 GPUs on TigerGPU:
+
+```
+nvcc -O3 --use_fast_math --gpu-architecture=sm_60 --gpu-code=sm_60 -o myapp myapp.cu
+```
+
+And for the K40c GPUs on Adroit:
+
+```
+nvcc -O3 --use_fast_math --gpu-architecture=sm_35 --gpu-code=sm_35 -o myapp myapp.cu
+```
 
 ## TigerGPU
 
