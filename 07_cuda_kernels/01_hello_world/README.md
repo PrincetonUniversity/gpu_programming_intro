@@ -22,9 +22,9 @@ int main() {
 This can be compiled and run with:
 
 ```
-$ cd hello_world
+$ cd 01_hello_world
 $ gcc -o hello_world hello_world.c
-$ sbatch job.slurm
+$ ./hello_world
 ```
 
 The output is
@@ -63,7 +63,7 @@ int main() {
 The GPU code above can be compiled and executed with:
 
 ```
-$ cd hello_world_gpu
+$ cd 01_hello_world
 $ module load cudatoolkit
 $ nvcc -o hello_world_gpu hello_world_gpu.cu
 $ sbatch job.slurm
