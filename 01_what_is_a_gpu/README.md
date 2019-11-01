@@ -14,16 +14,13 @@ This is the essence of how every GPU is used as an accelerator:
 
 + Copy data from the CPU (host) to the GPU (device)
 
-+ Launch a GPU kernel to carry out computations
++ Launch a kernel to carry out computations on the GPU
 
 + Copy data from the GPU (device) back to the CPU (host)
 
 ![gpu-overview](https://blogandcode.files.wordpress.com/2013/12/cudac-1.jpeg?w=597&h=372)
 
 # What GPU resources does Princeton have?
-
-
-Only codes explicitly written to run a GPU will use the GPU. A code written to run on a CPU cannot take advantage of a GPU. Users on our HPC make this mistake. Your queue time is in part determined by the amount of resources your are requesting. Your fairshare value, which in part determines the priority of your next job, is decreased in proportion to the resources you request. In short, only request a GPU if your code was explicitly written to use one (or more than one).
 
 ## Adroit
 
