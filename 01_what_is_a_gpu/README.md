@@ -268,7 +268,7 @@ TigerGPU has 80 Intel Broadwell nodes each with four NVIDIA P100 GPUs. See the P
 All the GPUs are the same so to request a GPU add this line to your Slurm script:
 
 ```
-#SBATCH --gres=gpu:tesla_k40c:1
+#SBATCH --gres=gpu:1
 ```
 
 The following was obtained by running a MATLAB script:
