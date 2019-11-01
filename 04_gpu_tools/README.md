@@ -46,8 +46,6 @@ Sun Oct 27 22:56:23 2019
 $ nvidia-smi --query-gpu=timestamp,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5
 ```
 
-Some description:
-
 # gpustat
 
 An alternative to `nvidia-smi` is gpustat. It also pulls its data from the NVML.
@@ -65,7 +63,7 @@ For a comparison of various GPU tools see [this post](https://www.andrey-melenty
 
 # nvprof
 
-This is NVIDIA profiler. It can be used to identify the "hot spots" in the code or the parts which are running slow and need attention. `nvprof` has a summary mode and trace mode. To use the profiler, run your code 
+This is the NVIDIA profiler. It can be used to identify the "hot spots" in the code or the parts which are running slow and need attention. `nvprof` has a summary mode and trace mode.
 
 ### Summary mode
 
