@@ -32,7 +32,7 @@ openmpi/cuda-8.0/gcc/3.0.0/64        openmpi/cuda-8.0/intel-17.0/3.0.0/64 openmp
 
 Many GPU applications only use the GPU for a fraction of the time. For many years, a goal of GPU vendors has been to allow for GPU sharing between applications. Slurm is capable of supporting this through the `--gpu-mps` option.
 
-## OpenCL/Sycl
+## OpenCL/SYCL
 
 NVIDIA is a private company. If you chose to do organize your GPU hardware and software around CUDA then you are locked in to a single vendor. An alternative to NVIDIA CUDA is the Open Computing Langauage or [OpenCL](https://www.khronos.org/opencl/).
 
