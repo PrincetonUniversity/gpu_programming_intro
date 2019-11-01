@@ -45,7 +45,7 @@ This should be running in parallel.
 This should be running in parallel.
 ```
 
-Run your GPU code with different values of `NUMBER_OF_BLOCKS` and `NUMBER_OF_THREADS_PER_BLOCK` to see how the execution configuration works.
+To get started:
 
 ```
 $ cd gpu_programming_intro/07_cuda_kernels/02_simple_kernel
@@ -53,5 +53,7 @@ $ cd gpu_programming_intro/07_cuda_kernels/02_simple_kernel
 $ nvcc -o first_parallel first_parallel.cu
 $ sbatch job.slurm
 ```
+
+Run your GPU code with different values of `NUMBER_OF_BLOCKS` and `NUMBER_OF_THREADS_PER_BLOCK` to see how the execution configuration works.
 
 One possible solution to this exercise is [here](solution.cu) (try for yourself first).
