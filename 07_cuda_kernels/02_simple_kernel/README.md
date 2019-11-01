@@ -34,7 +34,7 @@ int main()
 # save your file as first_parallel.cu (a starting file by this name is given -- see below)
 ```
 
-To be clear, you are trying to write a GPU code that produces something like the following:
+To be clear, you are trying to write a GPU code with one kernel launch that produces something like the following:
 
 ```
 This should be running in parallel.
