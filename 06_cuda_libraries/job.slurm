@@ -10,4 +10,4 @@
 
 module load cudatoolkit
 
-srun ./vector_add_gpu
+srun ./gesvdj_example
