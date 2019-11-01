@@ -145,7 +145,6 @@ int main( int argc, char* argv[] )
     size_t bytes = n*sizeof(double);
  
     // Allocate memory for each vector on host
-    fprintf(stderr, "Allocating CPU memory and populating arrays of length %d ...", n);
     h_a = (double*)malloc(bytes);
     h_b = (double*)malloc(bytes);
     h_c = (double*)malloc(bytes);
@@ -156,10 +155,6 @@ int main( int argc, char* argv[] )
         h_a[i] = sin(i)*sin(i);
         h_b[i] = cos(i)*cos(i);
     }
-    fprintf(stderr, " done.\n");
-
-    fprintf(stderr, "Performing vector addition (timer started) ...");
-    StartTimer();
 
     // Allocate memory for each vector on GPU
     cudaMalloc(&d_a, bytes);
@@ -178,7 +173,6 @@ int main( int argc, char* argv[] )
     // Number of thread blocks in grid
     gridSize = (int)ceil((double)n/blockSize);
     if (gridSize > 65535) gridSize = 32000;
-    printf("GridSize %d and total_threads %d\n", gridSize, gridSize * blockSize); 
     // Execute the kernel
     vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);
  
@@ -191,9 +185,6 @@ int main( int argc, char* argv[] )
     cudaFree(d_c);
 
     cudaDeviceSynchronize();
- 
-    double runtime = GetTimer();
-    fprintf(stderr, " done in %.2f s.\n", runtime / 1000);
  
     // Release host memory
     free(h_a);
