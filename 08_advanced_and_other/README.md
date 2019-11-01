@@ -34,7 +34,7 @@ Many GPU applications only use the GPU for a fraction of the time. For many year
 
 ## OpenCL/SYCL
 
-NVIDIA is a private company. If you chose to do organize your GPU hardware and software around CUDA then you are locked in to a single vendor. An alternative to NVIDIA CUDA is the Open Computing Langauage or [OpenCL](https://www.khronos.org/opencl/).
+NVIDIA is a private company. If you chose to organize your GPU software and hardware around CUDA then you are locked in to a single vendor. A non-proprietary alternative to NVIDIA CUDA is the Open Computing Language or [OpenCL](https://www.khronos.org/opencl/).
 
 ## OpenMP 4.5+
 
