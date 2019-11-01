@@ -6,13 +6,7 @@ Relative to the CPU, GPUs have a far greater number of processing cores with slo
 
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/2019/06/)).
 
-While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when it was announced that Frontier, what is expected to be the first exascale cluster in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
-
-Many cores with slow clocks.
-
-Summit, Sierra and Traverse.
-
-Frontier will be Cray and AMD GPUs. Where will the software come from? The government.
+While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when it was announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
 
 # Overview of using a GPU
 
