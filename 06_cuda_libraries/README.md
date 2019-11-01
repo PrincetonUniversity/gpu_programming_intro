@@ -101,7 +101,7 @@ Run the following command to obtain a copy of the NVIDIA CUDA Samples:
 ```
 $ module load cudatoolkit/10.1
 $ mkdir ~/nvidia_samples
-$ /usr/local/cuda-10.1/cuda-install-samples-10.1.sh ~/nvidia_samples
+$ /usr/local/cuda-10.1/bin/cuda-install-samples-10.1.sh ~/nvidia_samples
 ```
 
 Then browse the directories:
