@@ -7,6 +7,6 @@ __global__ void firstParallel()
 
 int main()
 {
-  firstParallel<<<5, 5>>>();
+  firstParallel<<<2, 3>>>();
   cudaDeviceSynchronize();
 }
