@@ -30,7 +30,7 @@ int main()
 ## Exercise: GPU implementation
 
 ```
-# rewrite the CPU code above so that is runs on a GPU
+# rewrite the CPU code above so that it runs on a GPU
 ```
 
 Run your GPU code with different values of `NUMBER_OF_BLOCKS` and `NUMBER_OF_THREADS_PER_BLOCK` to see how the execution configuration works.
