@@ -107,7 +107,7 @@ $ /usr/local/cuda-10.1/bin/cuda-install-samples-10.1.sh ~/nvidia_samples
 Then browse the directories:
 
 ```
-$ cd ~/nvidia/NVIDIA_CUDA-10.1_Samples
+$ cd ~/nvidia_samples/NVIDIA_CUDA-10.1_Samples
 $ ls -ltrh
 total 84K
 drwxr-xr-x. 52 jdh4 cses 4.0K Oct 25 16:17 0_Simple
