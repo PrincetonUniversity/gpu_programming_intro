@@ -96,7 +96,7 @@ number of executed sweeps = 1
 
 ## NVIDIA CUDA Samples
 
-Run the following command to obtain a copy of the NVIDIA CUDA Samples:
+Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://docs.nvidia.com/cuda/cuda-samples/index.html):
 
 ```
 $ module load cudatoolkit/10.1
