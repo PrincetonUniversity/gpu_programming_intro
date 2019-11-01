@@ -41,7 +41,7 @@ $ cat gesvdj_example.cpp | less
 Compile the code as follows
 
 ```
-$ module load cudatoolkit
+$ module load cudatoolkit/10.1
 $ nvcc -c gesvdj_example.cpp
 $ g++ -o gesvdj_example gesvdj_example.o -lcudart -lcusolver
 ```
@@ -99,6 +99,7 @@ number of executed sweeps = 1
 Run the following command to obtain a copy of the NVIDIA CUDA Samples:
 
 ```
+$ module load cudatoolkit/10.1
 $ mkdir ~/nvidia_samples
 $ /usr/local/cuda-10.1/cuda-install-samples-10.1.sh ~/nvidia_samples
 ```
