@@ -131,7 +131,7 @@ $ make TARGET_ARCH=x86_64 SMS="60" HOST_COMPILER=g++
 $ cp gpu_programming_intro/06_cuda_libraries/job.slurm .
 ```
 
-Edit the Slurm script as follows:
+Edit the Slurm script by **changing the last line** as follows:
 
 ```bash
 #!/bin/bash
