@@ -33,6 +33,17 @@ int main()
 # rewrite the CPU code above so that it runs on a GPU
 ```
 
+To be clear, you are trying to write a GPU code that produces something like the following:
+
+```
+This should be running in parallel.
+This should be running in parallel.
+This should be running in parallel.
+This should be running in parallel.
+This should be running in parallel.
+This should be running in parallel.
+```
+
 Run your GPU code with different values of `NUMBER_OF_BLOCKS` and `NUMBER_OF_THREADS_PER_BLOCK` to see how the execution configuration works.
 
 ```
