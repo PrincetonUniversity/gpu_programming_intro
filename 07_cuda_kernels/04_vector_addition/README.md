@@ -81,7 +81,7 @@ int main( int argc, char* argv[] )
 }
 ```
 
-Take a look at `vector_add_cpu.c`. You will see that it allocates three arrays of size `n` and then fills `a` and `b` with values. The `addVec` function is then called to perform the elementwise addition of the two arrays producing a third array `c`:
+Take a look at `vector_add_cpu.c`. You will see that it allocates three arrays of size `n` and then fills `a` and `b` with values. The `vecAdd` function is then called to perform the elementwise addition of the two arrays producing a third array `c`:
 
 ```C
 void vecAdd(double *a, double *b, double *c, int n) {
