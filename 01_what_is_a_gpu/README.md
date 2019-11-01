@@ -53,9 +53,9 @@ adroit-16     alloc    32   2:16:1   32/0/0/32       31.68    384000   (null)   
 
 ### `adroit-h11g1`
 
-This node has 4 NVIDIA V100 GPUs with 16 GB of memory each. [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-16-gb.c2957)
+This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-16-gb.c2957) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2).
 
-Add this line to your Slurm script to use a V100 GPU:
+Add this line to your Slurm script to use a V100 GPUs:
 
 ```
 #SBATCH --gres=gpu:tesla_v100:1
@@ -131,9 +131,7 @@ $ nvidia-smi -q
 
 ### `adroit-h11g4`
 
-`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505)
-
-Buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
+`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. View the technical specifications for the [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505) or buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
 
 Add this line to your Slurm script to use a K40c GPU:
 
@@ -340,8 +338,6 @@ tiger-i20g7  Sun Oct 27 22:56:31 2019
 ## Traverse
 
 46 nodes
-
-View the V100 on Amazon: [v100](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2)
 
 Tesla V100-SXM2-32GB
 major: 7 minor: 0
