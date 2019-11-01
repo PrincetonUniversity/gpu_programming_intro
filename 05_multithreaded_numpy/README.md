@@ -128,14 +128,14 @@ Run jobs to fill in the table below:
 
 The following data was found using one of the Skylake nodes on Adroit:
 
-| cpus-per-task (or threads)| execution time (s) |  parallel efficiency |
-|:--------------------------:|:--------:|:-------------------:|
-| 1                          |  4.2     |  100%               |
-| 2                          |  2.2     |   95%               | 
-| 4                          |  1.6     |   66%               |
-| 8                          |  0.78    |   67%               |
-| 16                         |  0.65    |   40%               |
-| 32                         |  0.71    |   18%               |
+| cpus-per-task (or threads)| execution time (s) | speed-up ratio |  parallel efficiency |
+|:--------------------------:|:--------:|:---------:|:-------------------:|
+| 1                          |  4.2     |     1.0   |   100%              |
+| 2                          |  2.2     |   1.9     |   95%               | 
+| 4                          |  1.6     |   2.6     |   66%               |
+| 8                          |  0.78    |   5.4     |   67%               |
+| 16                         |  0.65    |   6.5     |   40%               |
+| 32                         |  0.71    |   5.9     |   18%               |
 
 We see that by dividing the computation across several threads, which run on the CPU-cores, the execution time is dramatically reduced. The same can be done with GPUs which have 1000's of cores.
 
