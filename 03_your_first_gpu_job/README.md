@@ -38,7 +38,7 @@ $ conda create --prefix /scratch/network/$USER/py-gpu cupy
 Examine the Python script before running the code:
 
 ```bash
-$ cd gpu_programming_intro/02_your_first_gpu_job/cupy
+$ cd gpu_programming_intro/03_your_first_gpu_job/cupy
 $ cat svd_cupy.py
 ```
 
@@ -99,7 +99,7 @@ $ conda create --prefix /scratch/network/$USER/torch-env pytorch cudatoolkit --c
 Examine the Python script before running the code:
 
 ```bash
-$ cd gpu_programming_intro/02_your_first_gpu_job/pytorch
+$ cd gpu_programming_intro/03_your_first_gpu_job/pytorch
 $ cat svd_torch.py
 ```
 
@@ -163,7 +163,7 @@ $ conda create --prefix /scratch/network/$USER/tf-gpu tensorflow-gpu=2.0
 Examine the Python script before running the code:
 
 ```bash
-$ cd gpu_programming_intro/02_your_first_gpu_job/tensorflow
+$ cd gpu_programming_intro/03_your_first_gpu_job/tensorflow
 $ cat svd_tensorflow.py
 ```
 
@@ -263,7 +263,7 @@ See the [user guide](https://docs.nvidia.com/cuda/nvblas/index.html) for NVBLAS.
 MATLAB is already installed on the cluster. Simply follow these steps:
 
 ```bash
-$ cd gpu_programming_intro/02_your_first_gpu_job/matlab
+$ cd gpu_programming_intro/03_your_first_gpu_job/matlab
 $ cat svd_matlab.m
 ```
 
