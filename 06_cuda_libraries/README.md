@@ -126,9 +126,21 @@ drwxr-xr-x.  6 jdh4 cses   95 Oct 25 16:18 common
 Pick an example and then build and run it. For example:
 
 ```
-$ cd 2_Graphics
-$ make
+$ cd 0_Simple/matrixMul
+$ make TARGET_ARCH=x86_64 SMS="60" HOST_COMPILER=g++
 $ cp gpu_programming_intro/06_cuda_libraries/job.slurm .
-# edit job.slurm
+```
+
+Edit the Slurm script as follows:
+
+```
+
+```
+
+Submit the job:
+
+```
 $ sbatch job.slurm
 ```
+
+Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work.
