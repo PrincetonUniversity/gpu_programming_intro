@@ -41,7 +41,6 @@ $ cat gesvdj_example.cpp | less
 Compile the code as follows
 
 ```
-$ module purge
 $ module load cudatoolkit
 $ nvcc -c gesvdj_example.cpp
 $ g++ -o gesvdj_example gesvdj_example.o -lcudart -lcusolver
