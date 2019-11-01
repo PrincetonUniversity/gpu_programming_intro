@@ -31,6 +31,7 @@ int main()
 
 ```
 # rewrite the CPU code above so that it runs on a GPU
+# save your file as first_parallel.cu (a starting file by this name is given -- see below)
 ```
 
 To be clear, you are trying to write a GPU code that produces something like the following:
