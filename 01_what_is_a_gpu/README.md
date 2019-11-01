@@ -8,6 +8,8 @@ Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://
 
 While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when it was announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
 
+![cpu-vs-gpu](http://blog.itvce.com/wp-content/uploads/2016/03/032216_1532_DustFreeNVI2.png)
+
 # Overview of using a GPU
 
 This is the essence of how every GPU is used as an accelerator:
