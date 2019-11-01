@@ -127,6 +127,7 @@ Pick an example and then build and run it. For example:
 ```
 $ cd 2_Graphics
 $ make
-$ cp <slurm script> .
+$ cp gpu_programming_intro/06_cuda_libraries/job.slurm .
+# edit job.slurm
 $ sbatch job.slurm
 ```
