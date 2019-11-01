@@ -8,7 +8,7 @@
 
 + Open a terminal (e.g., Terminal, PowerShell, PuTTY) [<a href="https://researchcomputing.princeton.edu/education/training/hardware-and-software-requirements-picscie-workshops" target="_blank">click here</a> for help]
 
-+ If a faculty member has sponsored an account for you on TigerGPU then please use that for this workshop since we have limited GPUs on the training cluster. Traverse can be used for most of the exercises.
++ If a faculty member has sponsored an account for you on TigerGPU then please use that for this workshop since we have a limited number of GPUs on the training cluster. Traverse can be used for most of the exercises.
 
 + Otherwise, please SSH to Adroit in the terminal: `ssh <NetID>@adroit.princeton.edu` [click [here](https://researchcomputing.princeton.edu/faq/why-cant-i-login-to-a-clu) for help]
 
