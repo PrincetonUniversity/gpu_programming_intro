@@ -58,7 +58,6 @@ int main( int argc, char* argv[] )
     size_t bytes = n*sizeof(double);
  
     // Allocate memory for each vector on host
-    fprintf(stderr, "Allocating memory and populating arrays of length %d ...", n);
     h_a = (double*)malloc(bytes);
     h_b = (double*)malloc(bytes);
     h_c = (double*)malloc(bytes);
@@ -70,15 +69,8 @@ int main( int argc, char* argv[] )
         h_b[i] = cos(i)*cos(i);
     }
 
-    fprintf(stderr, " done.\n");
-    fprintf(stderr, "Performing vector addition (timer started) ...");
-    StartTimer();
-
     // add the two vectors
     vecAdd(h_a, h_b, h_c, n);
- 
-    double runtime = GetTimer();
-    fprintf(stderr, " done in %.2f s.\n", runtime / 1000);
  
     // Release host memory
     free(h_a);
