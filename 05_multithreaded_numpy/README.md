@@ -99,7 +99,7 @@ srun python svd_np.py
 Step-by-step directions:
 
 ```
-$ cd /gpu_programming_intro/03_multithreaded_numpy
+$ cd /gpu_programming_intro/05_multithreaded_numpy
 
 # modify job.slurm by setting --cpus-per-task=2
 $ sbatch job.slurm
