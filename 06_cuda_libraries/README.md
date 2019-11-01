@@ -127,7 +127,7 @@ Pick an example and then build and run it. For example:
 
 ```
 $ cd 0_Simple/matrixMul
-$ make TARGET_ARCH=x86_64 SMS="60" HOST_COMPILER=g++
+$ make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++
 $ cp gpu_programming_intro/06_cuda_libraries/job.slurm .
 ```
 
