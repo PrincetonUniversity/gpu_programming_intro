@@ -192,7 +192,7 @@ Then do `nvvp` on the output of the trace file.
 
 # nvcc
 
-This is the NVIDIA compiler. It is based on LLVM. To compile a simple code:
+This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 
 ```
 $ nvcc -o hello_world hello_world.cu
