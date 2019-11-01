@@ -10,7 +10,14 @@ $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro
 
 [CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). Note that the installation requires 3.5 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
 
-Install the software as follows:
+Before installing the software make sure that you are on the head node:
+
+```
+$ hostname
+adroit4
+```
+
+Then proceed as follows:
 
 ```
 $ module load anaconda3
@@ -71,7 +78,14 @@ In addition to CuPy, Python programmers looking to run their code on GPUs should
 
 [PyTorch](https://pytorch.org) is a popular alternative to TensorFlow for deep learning researchers. See its documentation for [Tensor operations](https://pytorch.org/docs/stable/tensors.html). The installation requires 2.7 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
 
-Install the software as follows:
+Before installing the software make sure that you are on the head node:
+
+```
+$ hostname
+adroit4
+```
+
+Then proceed as follows:
 
 ```
 $ module load anaconda3
@@ -135,7 +149,14 @@ You can monitor the progress of the job with `squeue -u $USER`. Once the job com
 
 [TensorFlow](https://www.tensorflow.org) is popular library for training deep neural networks. It can also be used for various numerical computations (see [documentation](https://www.tensorflow.org/api_docs/python/tf)). The installation requires 3.0 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
 
-Install the software as follows:
+Before installing the software make sure that you are on the head node:
+
+```
+$ hostname
+adroit4
+```
+
+Then proceed as follows:
 
 ```
 $ module load anaconda3
