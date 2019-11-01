@@ -6,24 +6,6 @@ Using the GPUs on the Princeton HPC clusters is easy. Pick one of the applicatio
 $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro
 ```
 
-To monitor the GPU usage:
-
-```
-$ ssh adroit-h11g1   # 4x V100
-$ nvidia-smi
-```
-
-```
-$ ssh adroit-h11g4   # 2x K40c
-$ nvidia-smi
-```
-
-To monitor jobs in our reservation:
-
-```
-$ squeue -R gpuworkshop
-```
-
 ## CuPy
 
 [CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). Note that the installation requires 3.5 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
@@ -311,6 +293,26 @@ Here is an [intro](https://www.mathworks.com/help/parallel-computing/run-matlab-
 ## Julia
 
 During the workshop use this command `salloc -t 5:00 --gres=gpu:k40c:1` as a substitute to the `salloc` command that appears in [this post](https://oncomputingwell.princeton.edu/2019/05/getting-started-with-julia-and-gpus). This is because the installation requires a few minutes which is too long to tie up the V100 GPUs.
+
+## Monitoring GPU Usage
+
+To monitor the GPU usage:
+
+```
+$ ssh adroit-h11g1   # 4x V100
+$ nvidia-smi
+```
+
+```
+$ ssh adroit-h11g4   # 2x K40c
+$ nvidia-smi
+```
+
+To monitor jobs in our reservation:
+
+```
+$ watch -n 1 squeue -R <reservation-name>
+```
 
 ## A Reminder About the Filesystems
 
