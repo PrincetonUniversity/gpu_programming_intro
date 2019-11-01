@@ -6,8 +6,6 @@ An accelerator different from TPU, FPGA, KNL.
 
 While we are using NVIDIA, the market landscape changed in May or June when it was announced that Frontier would be AMD and Cray. The first exascale machine in the US.
 
-# What is a GPU?
-
 Many cores with slow clocks.
 
 Summit, Sierra and Traverse.
@@ -23,6 +21,8 @@ This is the essence of how every GPU is used:
 + Launch a GPU kernel to carry out computations
 
 + Copy data from the GPU (device) back to the CPU (host)
+
+![gpu-overview](https://blogandcode.files.wordpress.com/2013/12/cudac-1.jpeg?w=597&h=372)
 
 # What GPU resources does Princeton have?
 
