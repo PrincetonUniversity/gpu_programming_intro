@@ -96,7 +96,7 @@ void vecAdd(double *a, double *b, double *c, int n) {
 The output reports the time taken to perform the addition ignoring the memory allocation and initialization. Build and run the code:
 
 ```
-$ cd 06f_vector_addition
+$ cd gpu_programming_intro/07_cuda_kernels/04_vector_addition
 $ gcc -O3 -march=native -o vector_add_cpu vector_add_cpu.c -lm
 $ ./vector_add_cpu
 ```
