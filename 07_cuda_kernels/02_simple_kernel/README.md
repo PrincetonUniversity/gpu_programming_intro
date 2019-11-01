@@ -36,8 +36,8 @@ int main()
 Run your GPU code with different values of `NUMBER_OF_BLOCKS` and `NUMBER_OF_THREADS_PER_BLOCK` to see how the execution configuration works.
 
 ```
-$ cd 06a_first_parallel
-$ vim first_parallel.cu   # edit this file (use a text editor of your choice)
+$ cd gpu_programming_intro/07_cuda_kernels/02_simple_kernel
+# edit first_parallel.cu   (use a text editor of your choice)
 $ nvcc -o first_parallel first_parallel.cu
 $ sbatch job.slurm
 ```
