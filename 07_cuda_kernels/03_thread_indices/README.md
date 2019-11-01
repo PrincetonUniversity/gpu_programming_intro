@@ -57,13 +57,15 @@ In the CPU code above, the loop is carried out in serial. That is, loop iteratio
 // write a GPU kernel to produce the output above
 ```
 
+To get started:
+
 ```bash
-$ cd 03_thread_indices
 $ module load cudatoolkit
+# edit for_loop.cu
 $ nvcc -o for_loop for_loop.cu
 $ sbatch job.slurm
 ```
 
 Click [here](hint.md) to see some hints.
 
-One possible solution is [here](solution.cu).
+One possible solution is [here](solution.cu) (try for yourself first).
