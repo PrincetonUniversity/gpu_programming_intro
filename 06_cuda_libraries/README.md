@@ -34,7 +34,7 @@ ls -lL /usr/local/cuda-10.1/lib64/lib*.so
 Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU. First look over the source code:
 
 ```
-$ cd gpu_programming_intro/03_gpu_libraries
+$ cd gpu_programming_intro/06_cuda_libraries
 $ cat gesvdj_example.cpp | less
 ```
 
