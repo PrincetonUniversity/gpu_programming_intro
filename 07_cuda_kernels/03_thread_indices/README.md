@@ -32,7 +32,7 @@ int main() {
 Run the CPU code above by following these commands:
 
 ```bash
-$ cd 
+$ cd gpu_programming_intro/07_cuda_kernels/03_thread_indices
 $ module load cudatoolkit
 $ nvcc -o for_loop for_loop.c
 $ sbatch job.slurm
