@@ -1,6 +1,6 @@
 # GPU-Accelerated Libraries
 
-Let's say you have a CPU code and you are thinking about writing GPU kernels yourself to accelerate the performance of certain parts of the code. Before doing this, you should see if there are GPU libraries that already have implemented the routines that you need. This page presents an overview of the NVIDIA GPU-accelerated libraries (see list of [code samples](http://docs.nvidia.com/cuda/cuda-samples/index.html#cudalibraries)).
+Let's say you have a CPU code and you are thinking about writing GPU kernels to accelerate the performance of certain parts of the code. Before doing this, you should see if there are GPU libraries that already have implemented the routines that you need. This page presents an overview of the NVIDIA GPU-accelerated libraries.
 
 According to NVIDIA: "NVIDIA GPU-accelerated libraries provide highly-optimized functions that perform 2x-10x faster than CPU-only alternatives. Using drop-in interfaces, you can replace CPU-only libraries such as MKL, IPP and FFTW with GPU-accelerated versions with almost no code changes. The libraries can optimally scale your application across multiple GPUs."
 
