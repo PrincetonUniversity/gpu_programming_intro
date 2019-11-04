@@ -3,10 +3,10 @@
 ## About
 
 This guide provides materials for getting started with writing and running GPU code on the Princeton HPC clusters. It covers the NVIDIA GPU-accelerated libraries and CUDA kernels.
-<!--
+
 ## Workshop Survey
-Please complete [this survey](https://forms.gle/WhoAcb1J82XVTqq38) toward the end of the workshop.
--->
+Please complete [this survey](https://forms.gle/XYXeVKLVyWCTtBFX8) toward the end of the workshop.
+
 ## GPU Resources
 
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
