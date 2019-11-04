@@ -28,4 +28,4 @@
 
 + To cancel a job use the command `scancel <JobID>` where `<JobID>` can be obtained from the command `squeue -u $USER`.
 
-+ Go to the main page of this repo by [clicking here](https://github.com/PrincetonUniversity/gpu_programming_intro).
++ Go to the [main page](https://github.com/PrincetonUniversity/gpu_programming_intro) of this repo
