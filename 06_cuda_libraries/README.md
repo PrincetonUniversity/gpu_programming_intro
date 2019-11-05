@@ -59,9 +59,11 @@ Submit the job to the scheduler with:
 $ sbatch job.slurm
 ```
 
-You ouput should appears as:
+The ouput should appears as:
 
 ```
+$ cat slurm-*.out
+
 example of gesvdj 
 tol = 1.000000E-07, default value is machine zero 
 max. sweeps = 15, default value is 100
