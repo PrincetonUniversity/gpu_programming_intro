@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 void printLoopIndex() {
+  int i;
   int N = 100;
-  for (int i = 0; i < N; ++i)
+  for (i = 0; i < N; ++i)
     printf("%d\n", i);
 }
 
