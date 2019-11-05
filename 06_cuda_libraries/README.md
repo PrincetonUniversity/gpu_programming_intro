@@ -12,7 +12,7 @@ According to NVIDIA: "NVIDIA GPU-accelerated libraries provide highly-optimized 
 + **cuBLAS** - GPU-accelerated standard BLAS library
 + **cuSPARSE** - GPU-accelerated BLAS for sparse matrices
 + **cuRAND** - GPU-accelerated random number generation (RNG)
-+ **cuSOLVER** - Dense and sparse direct solvers for computer vision, CFD, computational chemistry, and linear optimization applications
++ **cuSOLVER** - Dense and sparse direct solvers for computer vision, CFD and other applications
 + **cuFFT** - GPU-accelerated library for Fast Fourier Transforms
 + **NPP** - GPU-accelerated image, video, and signal processing functions
 + **NCCL** - Collective Communications Library for scaling apps across multiple GPUs and nodes
