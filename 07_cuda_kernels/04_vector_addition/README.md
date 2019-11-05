@@ -231,3 +231,7 @@ Performing vector addition (timer started) ... done in 0.19 s.
 Note that the reported time include all operations beyond those needed to carry out the operation on the GPU. This includes the time required to allocate and deallocate memory on the GPU and the time required to move the data to and from the GPU.
 
 To use a GPU effectively the problem you are solving must have a vast amount of data parallelism. In the example here one can assign a different thread to each of the individual elements. For problems involving recursion or sorting or small amounts of data, it becomes difficult to take advantage of a GPU.
+
+## Advanced Examples
+
+For more advanced examples return to the NVIDIA CUDA samples at the bottom of [this page](https://github.com/PrincetonUniversity/gpu_programming_intro/tree/master/06_cuda_libraries).
