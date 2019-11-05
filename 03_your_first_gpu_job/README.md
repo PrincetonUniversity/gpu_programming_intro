@@ -1,8 +1,10 @@
 # Your First GPU Job
 
-Using the GPUs on the Princeton HPC clusters is easy. Pick one of the applications below to get started. To obtain the materials to run the examples, use this command:
+Using the GPUs on the Princeton HPC clusters is easy. Pick one of the applications below to get started. To obtain the materials to run the examples, use these commands:
 
 ```
+$ ssh <NetID>@adroit.princeton.edu
+$ cd /scratch/network/<NetId>
 $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro
 ```
 
