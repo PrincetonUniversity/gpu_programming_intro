@@ -38,7 +38,14 @@ $ cd gpu_programming_intro/06_cuda_libraries
 $ cat gesvdj_example.cpp | less
 ```
 
-Compile the code as follows
+Make sure that you are on the head node:
+
+```
+$ hostname
+adroit4
+```
+
+Next, compile the code as follows
 
 ```
 $ module load cudatoolkit/10.1
