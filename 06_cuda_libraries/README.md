@@ -130,7 +130,7 @@ drwxr-xr-x.  6 jdh4 cses   95 Oct 25 16:18 common
 -rw-r--r--.  1 jdh4 cses 2.6K Oct 25 16:18 Makefile
 ```
 
-Pick an example and then build and run it. For example:
+Pick an example and then build and run it. For instance:
 
 ```
 $ cd 0_Simple/matrixMul
