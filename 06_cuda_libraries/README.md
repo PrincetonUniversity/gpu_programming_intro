@@ -31,18 +31,18 @@ $ ls -lL /usr/local/cuda-10.1/lib64/lib*.so
 
 ## Example
 
-Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU. First look over the source code:
-
-```
-$ cd gpu_programming_intro/06_cuda_libraries
-$ cat gesvdj_example.cpp | less
-```
-
 Make sure that you are on the head node:
 
 ```
 $ hostname
 adroit4
+```
+
+Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU. First look over the source code:
+
+```
+$ cd gpu_programming_intro/06_cuda_libraries
+$ cat gesvdj_example.cpp | less
 ```
 
 Next, compile and link the code as follows:
