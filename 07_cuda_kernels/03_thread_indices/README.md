@@ -69,3 +69,5 @@ $ sbatch job.slurm
 Click [here](hint.md) to see some hints.
 
 One possible solution is [here](solution.cu) (try for yourself first).
+
+For NVIDIA, there are 32 threads per warf. Are you seeing any behavior which is a multiple of 32 in this exercise?
