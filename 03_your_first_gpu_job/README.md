@@ -10,7 +10,7 @@ $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro
 
 ## CuPy
 
-[CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). You can roughly think of CuPy on NumPy for GPUs. Note that the installation requires 3.5 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
+[CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). You can roughly think of CuPy as NumPy for GPUs. Note that the installation requires 3.5 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
 
 Before installing the software make sure that you are on the head node:
 
