@@ -45,7 +45,7 @@ $ hostname
 adroit4
 ```
 
-Next, compile the code as follows
+Next, compile and link the code as follows:
 
 ```
 $ module load cudatoolkit/10.1
