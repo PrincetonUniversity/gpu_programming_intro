@@ -184,7 +184,7 @@ import tensorflow as tf
 print("TensorFlow version: ", tf.__version__)
 
 N = 100
-x = tf.random.uniform((N, N), dtype=tf.dtypes.float64)
+x = tf.random.normal((N, N), dtype=tf.dtypes.float64)
 t0 = perf_counter()
 s, u, v = tf.linalg.svd(x)
 elapsed_time = perf_counter() - t0
