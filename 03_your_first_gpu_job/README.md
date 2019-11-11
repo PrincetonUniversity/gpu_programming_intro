@@ -342,3 +342,52 @@ $ watch -n 1 squeue -R <reservation-name>
 ![hpc-filesystems](https://camo.githubusercontent.com/ed86150645340521984b71a82ca6c4afb75565be/68747470733a2f2f746967726573732d7765622e7072696e6365746f6e2e6564752f7e6a6468342f6870635f7072696e6365746f6e5f66696c6573797374656d732e706e67)
 
 The directions above indicate to perform the installations on `/scratch/network`. In general, one should store executables and source files in `/home`.
+
+## Benchmarks
+
+# GPU Benchmarks
+
+## Matrix Multiplication
+
+| cluster              | code |  CPU-cores  | time (s) |
+|:--------------------:|:----:|:-----------:|:--------:|
+|  adroit (CPU)        | NumPy |    1       |  24.2    |
+|  adroit (CPU)        | NumPy |    2       |  15.5    |
+|  adroit (CPU)        | NumPy |    4       |   5.3    |  
+|  adroit (V100)       | CuPy  |    1       |   0.3   |
+|  adroit (K40c)       | CuPy  |    1       |   1.7   |
+
+Times are best of 5 for a square matrix with N=10000 in double precision.
+
+## LU Decomposition
+
+| cluster              | code        |  CPU-cores | time (s) |
+|:--------------------:|:-----------:|:----------:|:--------:|
+|  adroit (CPU)        | SciPy       |    1       |   9.4   |
+|  adroit (CPU)        | SciPy       |    2       |   7.9   |
+|  adroit (CPU)        | SciPy       |    4       |   6.5   |  
+|  adroit (V100)       | CuPy        |    1       |   0.3   |
+|  adroit (K40c)       | CuPy        |    1       |   1.1   |
+|  adroit (V100)       | Tensorflow  |    1       |   0.3   |
+|  adroit (K40c)       | Tensorflow  |    1       |   1.1   |
+|  adroit (CPU)        | Tensorflow  |    1       |  50.8   |
+
+Times are best of 5 for a square matrix with N=10000 in double precision.
+
+## Singular Value Decomposition
+
+| cluster              | code       |  CPU-cores | time (s) |
+|:--------------------:|:----------:|:----------:|:--------:|
+|  adroit (CPU)        | NumPy      |    1       |    3.6   |
+|  adroit (CPU)        | NumPy      |    2       |    3.0   |
+|  adroit (CPU)        | NumPy      |    4       |    1.2   |
+|  adroit (V100)       | CuPy       |    1       |   24.7   |
+|  adroit (K40c)       | CuPy       |    1       |   30.5   |
+|  adroit (V100)       | Torch      |    1       |   0.9    |
+|  adroit (K40c)       | Torch      |    1       |   1.5    |
+|  adroit (CPU)        | Torch      |    1       |   3.0    |
+|  adroit (V100)       | TensorFlow |    1       |   24.8   |
+|  adroit (K40c)       | TensorFlow |    1       |   29.7   |
+|  adroit (CPU)        | TensorFlow |    1       |    9.2   |
+
+Times are best of 5 for a square matrix with N=2000 in double precision.
