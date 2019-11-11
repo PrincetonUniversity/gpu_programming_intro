@@ -12,7 +12,9 @@ While Princeton has decided on NVIDIA, the GPU market landscape changed in May 2
 
 Like a CPU, a GPU has a hierarchical structure with respect to both computation and memory. A warp is a unit of 32 threads. NVIDIA GPUs impose a limit of 1024 threads per block. Some integral number of warps are grouped into a streaming multiprocessor (SM). There are tens of SMs per GPU. Each thread has its own memory. There is limited shared memory between a block of threads. And, finally, there is the global memory which is accessible to each grid or collection of blocks.
 
-![fermi](https://miro.medium.com/max/2796/1*Wj6gB_MhhnmGu3OuToAjJg.jpeg)
+![volta](https://devblogs.nvidia.com/wp-content/uploads/2017/05/image3.png)
+
+The figure above is a diagram of a streaming multiprocessor (SM) for the NVIDIA V100 GPU.
 
 # Overview of using a GPU
 
