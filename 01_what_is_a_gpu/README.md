@@ -536,6 +536,16 @@ GPU 00000004:04:00.0
 ...
 ```
 
+## Comparison of GPU Resources
+
+|   Cluster  | Number of Nodes | GPUs per Node | GPU Model | GPU Clock (GHz) | Number of Cores | Number of TensorCores | GPU Memory (GB) |
+|:---------------------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Adroit (adroit-h11g1) |      1           |     4         |  V100    |   1.38        | 5120   | 640  | 32 |
+| Adroit (adroit-h11g4) |      1           |     2         |  K40c    |   0.745       | 2880   |  0   | 12 |     
+| TigerGPU              |     80           |     4         |  P100    |   1.33        | 3584   |  0   | 16 |
+| Traverse              |     46           |     4         |  V100    |   1.38        | 5120   | 640  | 32 | 
+
+
 ## Should you buy an NVIDIA V100 for your research use?
 
 Below is the answer from one of the sys admins:
