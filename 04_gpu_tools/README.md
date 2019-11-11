@@ -171,6 +171,8 @@ srun nvprof -o trace.sqlite --print-gpu-trace <executable> <inputfile1>
 
 **Step 2**: Use the [NVIDIA visual profiler](https://developer.nvidia.com/nvidia-visual-profiler) to view the output:
 
+Note that you may need to do this on your own laptop by first installing the CUDA toolkit. It is presently not working on Adroit.
+
 ```
 # X11 forwarding must be enabled for the next line (i.e., ssh -X)
 $ nvvp trace.sqlite
@@ -180,7 +182,7 @@ See the documentation [here](https://docs.nvidia.com/cuda/profiler-users-guide/i
 
 The following lines can be used to profile CuPy code:
 
-```
+```python
 from cupy.cuda.nvtx import RangePush
 from cupy.cuda.nvtx import RangePop
 RangePush('Query score', 0)
