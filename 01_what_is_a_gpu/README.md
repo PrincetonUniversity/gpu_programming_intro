@@ -545,7 +545,7 @@ GPU 00000004:04:00.0
 | TigerGPU   |     80           |     4         |  P100    |   1.33        | 3584   | 56  | 16 |
 | Traverse   |     46           |     4         |  V100    |   1.38        | 5120   | 80  | 32 | 
 
-Note that the V100 GPUs have 640 TensorCores where half-precision WARF Matrix-Matrix and Accumulate (WMMA) operations can be carried out. Each cores does a 4x4 matrix multiply.
+SM is streaming multiprocessor. Note that the V100 GPUs have 640 TensorCores where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix multiply and add the result to a third matrix.
 
 ## Should you buy an NVIDIA V100 for your research use?
 
