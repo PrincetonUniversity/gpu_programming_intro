@@ -1,8 +1,8 @@
 # What is a GPU?
 
-A GPU, or Graphics Processing Unit, is an electronic device originally designed for manipulating the images that appear on a computer monitor. However, GPUs have become widely used for accelerating computation in various fields including image processing and machine learning.
+A GPU, or Graphics Processing Unit, is an electronic device originally designed for manipulating the images that appear on a computer monitor. However, beginning around 2007, GPUs have become widely used for accelerating computation in various fields including image processing and machine learning.
 
-Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp, each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available to a CPU. For instance, the P100 GPUs on TigerGPU have 16 GB. This is an important consideration in designing algorithms and pipelines.
+Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp, each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available to a CPU. For instance, the P100 GPUs on TigerGPU have only 16 GB compared to 256 GB available to the CPU cores. This is an important consideration in designing algorithms and pipelines.
 
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/2019/06/)).
 
