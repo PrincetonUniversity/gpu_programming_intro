@@ -57,7 +57,7 @@ Below is a sample Slurm script:
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --mem=1G                 # total memory (RAM) per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=gpuworkshop  # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load anaconda3
@@ -131,7 +131,7 @@ Here is a sample Slurm script:
 #SBATCH --mem-per-cpu=1G         # memory per cpu-core
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=gpuworkshop  # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
 conda activate /scratch/network/$USER/torch-env
@@ -203,7 +203,7 @@ Below is a sample Slurm script:
 #SBATCH --mem=1G                 # total memory (RAM) per node
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=gpuworkshop  # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
 conda activate /scratch/network/$USER/tf-gpu
@@ -297,7 +297,7 @@ Below is a sample Slurm script:
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
-#SBATCH --reservation=gpuworkshop  # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load matlab/R2019a
@@ -345,9 +345,7 @@ The directions above indicate to perform the installations on `/scratch/network`
 
 ## Benchmarks
 
-# GPU Benchmarks
-
-## Matrix Multiplication
+### Matrix Multiplication
 
 | cluster              | code |  CPU-cores  | time (s) |
 |:--------------------:|:----:|:-----------:|:--------:|
@@ -359,7 +357,7 @@ The directions above indicate to perform the installations on `/scratch/network`
 
 Times are best of 5 for a square matrix with N=10000 in double precision.
 
-## LU Decomposition
+### LU Decomposition
 
 | cluster              | code        |  CPU-cores | time (s) |
 |:--------------------:|:-----------:|:----------:|:--------:|
@@ -374,7 +372,7 @@ Times are best of 5 for a square matrix with N=10000 in double precision.
 
 Times are best of 5 for a square matrix with N=10000 in double precision.
 
-## Singular Value Decomposition
+### Singular Value Decomposition
 
 | cluster              | code       |  CPU-cores | time (s) |
 |:--------------------:|:----------:|:----------:|:--------:|
