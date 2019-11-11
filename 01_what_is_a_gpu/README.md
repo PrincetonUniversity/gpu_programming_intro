@@ -544,7 +544,7 @@ GPU 00000004:04:00.0
 
 ## Comparison of GPU Resources
 
-|   Cluster  | Number of Nodes | GPUs per Node | GPU Model | GPU Clock (GHz) | Number of Cores| SM Count | GPU Memory (GB) |
+|   Cluster  | Number of Nodes | GPUs per Node | NVIDIA GPU Model | GPU Clock (GHz) | Number of CUDA Cores| SM Count | GPU Memory (GB) |
 |:----------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | Adroit     |      1           |     4         |  V100    |   1.230        | 5120   | 80  | 32 |
 | Adroit     |      1           |     2         |  K40c    |   0.745       | 2880   | 15  | 12 |     
