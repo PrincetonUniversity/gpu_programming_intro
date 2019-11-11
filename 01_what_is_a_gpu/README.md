@@ -538,13 +538,14 @@ GPU 00000004:04:00.0
 
 ## Comparison of GPU Resources
 
-|   Cluster  | Number of Nodes | GPUs per Node | GPU Model | GPU Clock (GHz) | Number of Cores | Number of TensorCores | GPU Memory (GB) |
-|:---------------------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| Adroit (adroit-h11g1) |      1           |     4         |  V100    |   1.38        | 5120   | 640  | 32 |
-| Adroit (adroit-h11g4) |      1           |     2         |  K40c    |   0.745       | 2880   |  0   | 12 |     
-| TigerGPU              |     80           |     4         |  P100    |   1.33        | 3584   |  0   | 16 |
-| Traverse              |     46           |     4         |  V100    |   1.38        | 5120   | 640  | 32 | 
+|   Cluster  | Number of Nodes | GPUs per Node | GPU Model | GPU Clock (GHz) | Number of Cores| SM Count | GPU Memory (GB) |
+|:----------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Adroit     |      1           |     4         |  V100    |   1.38        | 5120   | 80  | 32 |
+| Adroit     |      1           |     2         |  K40c    |   0.745       | 2880   | 15  | 12 |     
+| TigerGPU   |     80           |     4         |  P100    |   1.33        | 3584   | 56  | 16 |
+| Traverse   |     46           |     4         |  V100    |   1.38        | 5120   | 80  | 32 | 
 
+Note that the V100 GPUs have 640 TensorCores where half-precision WARF Matrix-Matrix and Accumulate (WMMA) operations can be carried out. Each cores does a 4x4 matrix multiply.
 
 ## Should you buy an NVIDIA V100 for your research use?
 
