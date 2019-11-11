@@ -2,11 +2,11 @@
 
 A GPU, or Graphics Processing Unit, is an electronic device originally designed for manipulating the images that appear on a computer monitor.  However GPUs have become widely used for accelerating computation in various fields including image processing and machine learning.
 
-Relative to the CPU, GPUs have a far greater number of processing cores with slower clock speeds. Within a block of threads, each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have less memory that what is available to a CPU. The P100 GPUs on TigerGPU have 16 GB. This is an important consideration in designing algorithms and pipelines.
+Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp, each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available to a CPU. For instance, the P100 GPUs on TigerGPU have 16 GB. This is an important consideration in designing algorithms and pipelines.
 
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/2019/06/)).
 
-While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when it was announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
+While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
 
 ![cpu-vs-gpu](http://blog.itvce.com/wp-content/uploads/2016/03/032216_1532_DustFreeNVI2.png)
 
