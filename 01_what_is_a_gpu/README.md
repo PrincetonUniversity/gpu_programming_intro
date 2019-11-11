@@ -14,7 +14,7 @@ Like a CPU, a GPU has a hierarchical structure with respect to both computation 
 
 ![volta](https://devblogs.nvidia.com/wp-content/uploads/2017/05/image3.png)
 
-The figure above is a diagram of a streaming multiprocessor (SM) for the NVIDIA V100 GPU. The V100 is composed of 80 SMs.
+The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA V100 GPU](https://devblogs.nvidia.com/inside-volta/). The V100 is composed of 80 SMs.
 
 # Overview of using a GPU
 
