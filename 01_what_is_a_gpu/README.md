@@ -61,7 +61,7 @@ adroit-16     alloc    32   2:16:1   32/0/0/32       31.68    384000   (null)   
 
 ### adroit-h11g1
 
-This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM). This means each SM has 2 warps.
+This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
 
 Add this line to your Slurm script to use a V100 GPUs:
 
@@ -139,7 +139,7 @@ $ nvidia-smi -q
 
 ### adroit-h11g4
 
-`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. Each GPU has 15 streaming multiprocessors (SM) and 192 CUDA cores per SM. This means each SM has 6 warps. View the technical specifications for the [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505) or buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
+`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. Each GPU has 15 streaming multiprocessors (SM) and 192 CUDA cores per SM. View the technical specifications for the [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505) or buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
 
 Add this line to your Slurm script to use a K40c GPU:
 
@@ -269,7 +269,7 @@ nvcc -O3 --use_fast_math --gpu-architecture=sm_35 --gpu-code=sm_35 -o myapp myap
 
 ## TigerGPU
 
-TigerGPU has 80 Intel Broadwell nodes each with four NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU has 56 streaming multiprocessors (SM) and 64 cores per SM (or 2 warps per SM).
+TigerGPU has 80 Intel Broadwell nodes each with four NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU has 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM.
 
 All the GPUs are the same so to request a GPU add this line to your Slurm script:
 
