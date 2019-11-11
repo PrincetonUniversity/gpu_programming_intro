@@ -6,7 +6,7 @@
 #SBATCH --mem-per-cpu=1G         # memory per cpu-core (4G is default)
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=gpuworkshop  # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
 conda activate /scratch/network/$USER/torch-env
