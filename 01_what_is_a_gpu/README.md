@@ -269,7 +269,7 @@ nvcc -O3 --use_fast_math --gpu-architecture=sm_35 --gpu-code=sm_35 -o myapp myap
 
 ## TigerGPU
 
-TigerGPU has 80 Intel Broadwell nodes each with four NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU has 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM.
+TigerGPU is composed of 80 Intel Broadwell nodes each with four NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU has 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM.
 
 All the GPUs are the same so to request a GPU add this line to your Slurm script:
 
