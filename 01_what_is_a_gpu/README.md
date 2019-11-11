@@ -10,6 +10,8 @@ While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 w
 
 ![cpu-vs-gpu](http://blog.itvce.com/wp-content/uploads/2016/03/032216_1532_DustFreeNVI2.png)
 
+NVIDIA GPUs 32 threads
+
 # Overview of using a GPU
 
 This is the essence of how every GPU is used as an accelerator:
@@ -55,7 +57,7 @@ adroit-16     alloc    32   2:16:1   32/0/0/32       31.68    384000   (null)   
 
 ### adroit-h11g1
 
-This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each GPU has 80 streaming multiprocessors (SM) and 64 cores per SM (or 2 warps per SM).
+This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM). This means each SM has 2 warps.
 
 Add this line to your Slurm script to use a V100 GPUs:
 
@@ -133,7 +135,7 @@ $ nvidia-smi -q
 
 ### adroit-h11g4
 
-`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. Each GPU has 15 streaming multiprocessors (SM) and 192 cores per SM  (or 6 warps per SM). View the technical specifications for the [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505) or buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
+`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. Each GPU has 15 streaming multiprocessors (SM) and 192 CUDA cores per SM. This means each SM has 6 warps. View the technical specifications for the [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505) or buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
 
 Add this line to your Slurm script to use a K40c GPU:
 
@@ -350,7 +352,7 @@ tiger-i20g7  Sun Oct 27 22:56:31 2019
 
 ## Traverse
 
-This new cluster consists of 46 IBM Power9 nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.29 GHz.
+This new cluster consists of 46 IBM Power9 nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.29 GHz. Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
 
 Additional info:
 
