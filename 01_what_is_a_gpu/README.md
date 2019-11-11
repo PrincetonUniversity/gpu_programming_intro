@@ -6,13 +6,11 @@ Relative to the CPU, GPUs have a far greater number of processing cores but with
 
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/2019/06/)).
 
-While Princeton relies on NVIDIA, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
+While Princeton has decided on NVIDIA, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
 
 ![cpu-vs-gpu](http://blog.itvce.com/wp-content/uploads/2016/03/032216_1532_DustFreeNVI2.png)
 
-Like a CPU, a GPU has a heirarchical structure with respect to both the processing cores and memory. A warp is a unit of 32 threads. NVIDIA GPUs impose a limit of 1024 threads per block. Some number of warps are grouped into a streaming multiprocessor (SM). There are tens of SMs per GPU.
-
-Each thread has its own memory. There is limited shared memory between threads in a warp.
+Like a CPU, a GPU has a hierarchical structure with respect to both computation and memory. A warp is a unit of 32 threads. NVIDIA GPUs impose a limit of 1024 threads per block. Some integral number of warps are grouped into a streaming multiprocessor (SM). There are tens of SMs per GPU. Each thread has its own memory. There is limited shared memory between threads in a warp.
 
 ![fermi](https://miro.medium.com/max/2796/1*Wj6gB_MhhnmGu3OuToAjJg.jpeg)
 
