@@ -13,7 +13,7 @@ a = (int*)malloc(size);
 free(a);
 ```
 
-One the GPU:
+On the GPU:
 
 ```C
 int N = 10;
