@@ -28,6 +28,8 @@ This is the essence of how every GPU is used as an accelerator:
 
 ![gpu-overview](https://blogandcode.files.wordpress.com/2013/12/cudac-1.jpeg?w=597&h=372)
 
+[NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction.
+
 # What GPU resources does Princeton have?
 
 ## Adroit
