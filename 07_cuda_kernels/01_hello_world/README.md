@@ -85,14 +85,14 @@ Notice the return type of `void` for GPUFunction. It is required that GPU functi
 
 ### Exercises
 
-What happens if you comment out the `cudaDeviceSynchronize()` line by preceding it with `//`?
+1. What happens if you remove `__global__`?
 
-What happens if you remove `__global__`?
-
-Can you rewrite the code so that the output is:
+2. Can you rewrite the code so that the output is:
 
 ```
 Hello world from the CPU.
 Hello world from the GPU.
 Hello world from the CPU.
 ```
+
+3. What happens if you comment out the `cudaDeviceSynchronize()` line by preceding it with `//`?
