@@ -92,7 +92,7 @@ What happens if you remove `__global__`?
 Can you rewrite the code so that the output is:
 
 ```
-Hello world from the GPU.
 Hello world from the CPU.
 Hello world from the GPU.
+Hello world from the CPU.
 ```
