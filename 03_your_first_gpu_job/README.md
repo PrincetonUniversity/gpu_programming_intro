@@ -39,11 +39,14 @@ Here is the Python script:
 from time import perf_counter
 import numpy as np
 import cupy as cp
+# import cupyx.scipy.linalg
 
 N = 1000
 X = cp.random.randn(N, N, dtype=np.float64)
 t0 = perf_counter()
 u, s, v = cp.linalg.decomposition.svd(X)
+# Y = cp.matmul(X, X)
+# lu, piv = cupyx.scipy.linalg.lu_factor(X, check_finite=False)
 cp.cuda.Device(0).synchronize()
 elapsed_time = perf_counter() - t0
 
@@ -395,3 +398,53 @@ Times are best of 5 for a square matrix with N=10000 in double precision.
 |  adroit (CPU)        | TensorFlow |    1       |    9.2   |
 
 Times are best of 5 for a square matrix with N=2000 in double precision.
+
+For the LU decomposition using SciPy:
+
+```
+from time import perf_counter
+
+import numpy as np
+import scipy as sp
+from scipy.linalg import lu
+
+N = 10000
+cpu_runs = 5
+
+times = []
+X = np.random.randn(N, N).astype(np.float64)
+for _ in range(cpu_runs):
+  t0 = perf_counter()
+  p, l, u = lu(X, check_finite=False)
+  times.append(perf_counter() - t0)
+print("CPU time: ", min(times))
+print("NumPy version: ", np.__version__)
+print("SciPy version: ", sp.__version__)
+print(p.sum())
+print(times)
+```
+
+For the LU decomposition on the CPU:
+
+```
+from time import perf_counter
+
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
+
+import tensorflow as tf
+print("TensorFlow version: ", tf.__version__)
+
+times = []
+N = 10000
+with tf.device("/cpu:0"):
+  x = tf.random.normal((N, N), dtype=tf.dtypes.float64)
+  for _ in range(5):
+    t0 = perf_counter()
+    lu, p = tf.linalg.lu(x)
+    elapsed_time = perf_counter() - t0
+    times.append(elapsed_time)
+print("Execution time: ", min(times))
+print(times)
+print("Result: ", tf.reduce_sum(p).numpy())
+```
