@@ -69,8 +69,8 @@ int main()
 The C++11 language standard introduced the `auto` keyword. To compile the code with the Intel compiler for TigerGPU:
 
 ```
-module load intel
-nvcc -ccbin=icpc -std=c++11 -arch=sm_60 -o simple simple.cu
+$ module load intel
+$ nvcc -ccbin=icpc -std=c++11 -arch=sm_60 -o simple simple.cu
 ```
 
 Note that you may need to also load the `rh` module to get the compilation to work. The `rh` module make a newer GCC available. The Intel compiler depends on GCC.
