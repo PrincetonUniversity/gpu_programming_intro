@@ -46,7 +46,7 @@ CUDA kernels are written at a low level. OpenACC is a high-level programmaing mo
 
 [See the materials](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf) for an OpenACC workshop by Stephane Ethier.
 
-## Using the Intel Compiler for Host Code
+## Using the Intel Compiler
 
 Note the use of `auto` in the code below:
 
@@ -73,4 +73,4 @@ $ module load intel
 $ nvcc -ccbin=icpc -std=c++11 -arch=sm_60 -o simple simple.cu
 ```
 
-Note that you may need to also load the `rh` module to get the compilation to work. The `rh` module make a newer GCC available. The Intel compiler depends on GCC.
+Note that you may need to also load the `rh` module to get the compilation to work. The `rh` module make a newer GCC available. The Intel compiler depends on GCC. In general, NVIDIA engineers recommend using GCC and not the Intel compiler.
