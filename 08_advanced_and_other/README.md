@@ -50,10 +50,10 @@ CUDA kernels are written at a low level. OpenACC is a high-level programmaing mo
 
 Note the use of `auto` in the code below:
 
-```
+```c++
 #include <stdio.h>
 
-__global__ void firstParallel()
+__global__ void simpleKernel()
 {
   auto i = blockDim.x * blockIdx.x + threadIdx.x;
   printf("Index: %d\n", i);
@@ -61,13 +61,12 @@ __global__ void firstParallel()
 
 int main()
 {
-  firstParallel<<<2, 3>>>();
+  simpleKernel<<<2, 3>>>();
   cudaDeviceSynchronize();
 }
-
 ```
 
-C++ 11 introduced the `auto` keyword. To compile the code with the Intel compiler for TigerGPU:
+The C++11 language standard introduced the `auto` keyword. To compile the code with the Intel compiler for TigerGPU:
 
 ```
 module load intel
