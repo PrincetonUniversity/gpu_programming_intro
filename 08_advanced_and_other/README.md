@@ -48,10 +48,30 @@ CUDA kernels are written at a low level. OpenACC is a high-level programmaing mo
 
 ## Using the Intel Compiler for Host Code
 
+Note the use of `auto` in the code below:
+
 ```
+#include <stdio.h>
+
+__global__ void firstParallel()
+{
+  auto i = blockDim.x * blockIdx.x + threadIdx.x;
+  printf("Index: %d\n", i);
+}
+
+int main()
+{
+  firstParallel<<<2, 3>>>();
+  cudaDeviceSynchronize();
+}
 
 ```
 
+C++ 11 introduced the `auto` keyword. To compile the code with the Intel compiler for TigerGPU:
+
 ```
-nvcc -v -std=c++11 -ccbin=icpc hw.cu
+module load intel
+nvcc -ccbin=icpc -std=c++11 -arch=sm_60 -o simple simple.cu
 ```
+
+Note that you may need to also load the `rh` module to get the compilation to work. The `rh` module make a newer GCC available. The Intel compiler depends on GCC.
