@@ -45,3 +45,13 @@ Recent implementations of [OpenMP](https://www.openmp.org/) support GPU programm
 CUDA kernels are written at a low level. OpenACC is a high-level programmaing model. Because GPU hardware is changing rapidly, some argue that writing GPU codes with OpenACC is a better choice because there is much less work do to when new hardware comes out.
 
 [See the materials](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf) for an OpenACC workshop by Stephane Ethier.
+
+## Using the Intel Compiler for Host Code
+
+```
+
+```
+
+```
+nvcc -v -std=c++11 -ccbin=icpc hw.cu
+```
