@@ -8,9 +8,10 @@ This guide provides materials for getting started with writing and running GPU c
 
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
 [Online Book Available through PU Library](https://catalog.princeton.edu/catalog/11361691)
-
+<!--
 ## Workshop Survey
 Please complete [this survey](https://forms.gle/XYXeVKLVyWCTtBFX8) toward the end of the workshop.
+-->
 
 ## Useful Links
 [Getting Started with HPC at Princeton](https://researchcomputing.princeton.edu/education/online-tutorials/getting-started)  
