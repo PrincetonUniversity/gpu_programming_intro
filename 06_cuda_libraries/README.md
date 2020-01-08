@@ -164,4 +164,4 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work.
+Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Simulations/nbody` use `GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++`.
