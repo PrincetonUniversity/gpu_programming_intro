@@ -10,4 +10,4 @@
 
 module load cudatoolkit
 
-srun ./gesvdj_example
+./gesvdj_example
