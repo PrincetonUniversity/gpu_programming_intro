@@ -1,6 +1,6 @@
 # Multi-threaded NumPy
 
-Before writing code to harness the power of 1000's of GPU cores, let's look at what is possible with NumPy on a CPU with 10's of cores. NumPy on our HPC clusters is built against the Intel Math Kernel library (MKL). This means that several common numerical routines can take advantage of multi-threading.
+Before writing code to harness the power of 1000's of GPU cores, let's look at what is possible with NumPy on a CPU with 10's of cores. NumPy on our HPC clusters is built against the Intel Math Kernel library (MKL). This means that several [common numerical routines](https://numpy.org/devdocs/reference/routines.linalg.html?highlight=multithreading) can take advantage of multi-threading.
 
 To see how NumPy was built, run the following commands:
 
