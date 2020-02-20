@@ -345,7 +345,7 @@ Sun Oct 27 22:56:23 2019
 +-----------------------------------------------------------------------------+
 ```
 
-The `nvidia-smi` command gives the driver version: `Driver Version: 418.67`. Some software will specify a minimun driver version in order to be installed on our systems.
+The `nvidia-smi` command gives the driver version: `Driver Version: 418.67`. Some software will specify a minimum driver version in order to be installed on our systems.
 
 Below is the output of the `gpustat` command:
 
