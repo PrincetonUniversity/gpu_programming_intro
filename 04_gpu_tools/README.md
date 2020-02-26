@@ -217,4 +217,6 @@ $ ddt
 # check cuda, uncheck "submit to queue", and click on "Run"
 ```
 
+The `-g` debugging flag is for CPU code while the `-G` flag is for GPU code. `-G` turns off compiler optimizations. Note that as of February 2020 CUDA Toolkit 10.2 is not supported.
+
 If the graphics are not displaying fast enough then consider using [TurboVNC](https://researchcomputing.princeton.edu/faq/how-do-i-use-vnc-on-tigre).
