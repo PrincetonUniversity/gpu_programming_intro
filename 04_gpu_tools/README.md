@@ -206,12 +206,14 @@ The general directions for using the DDT debugger are [here](https://researchcom
 
 ```
 $ ssh -X <NetID>@adroit.princeton.edu
-$ cd gpu_programming_intro/03_gpu_tools
-$ module load cudatoolkit/8.0
-$ export ALLINEA_FORCE_CUDA_VERSION=8.0
-$ nvcc -O0 -g -o simple simple.cu
-$ salloc --nodes=1 --ntasks=1 --time=00:05:00 --gres=gpu:1 --x11
-$ /usr/licensed/bin/ddt
+$ git clone https://github.com/PrincetonUniversity/hpc_beginning_workshop
+$ cd hpc_beginning_workshop/RC_example_jobs/simple_gpu_kernel
+$ salloc -N 1 -n 1 -t 10:00 --gres=gpu:tesla_k40c:1 --x11
+$ module load cudatoolkit/10.1
+$ nvcc -g -G hello_world_gpu.cu
+$ module load ddt/20.0.1
+$ export ALLINEA_FORCE_CUDA_VERSION=10.1
+$ ddt
 # check cuda, uncheck "submit to queue", and click on "Run"
 ```
 
