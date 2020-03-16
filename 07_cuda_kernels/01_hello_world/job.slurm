@@ -8,4 +8,4 @@
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
 
-srun ./hello_world_gpu
+./hello_world_gpu
