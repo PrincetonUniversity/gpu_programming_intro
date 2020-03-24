@@ -137,4 +137,6 @@ The following data was found using one of the Skylake nodes on Adroit:
 | 16                         |  0.65    |   6.5     |   40%               |
 | 32                         |  0.71    |   5.9     |   18%               |
 
+Given the data above, which value of cpus-per-task should be used? Clearly using all 32 cores is not optimal. The parallel efficiency is not very good when 16 cores are used. Maybe the best choice is 8. The parallel efficiency is the serial execution time divided by the product of the execution time and number of cores (i.e., for 2 cores pe = 4.2 / (2.2 * 2) = 0.95).
+
 We see that by dividing the computation across several threads, which run on the CPU-cores, the execution time is dramatically reduced. The same can be done with GPUs which have 1000's of cores.
