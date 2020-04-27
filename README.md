@@ -13,12 +13,6 @@ This guide provides materials for getting started with writing and running GPU c
 Please complete [this survey](https://forms.gle/XYXeVKLVyWCTtBFX8) toward the end of the workshop.
 -->
 
-## Useful Links
-[Getting Started with HPC at Princeton](https://researchcomputing.princeton.edu/education/online-tutorials/getting-started)  
-[OnComputingWell](https://oncomputingwell.princeton.edu)  
-[Research Computing FAQ](https://researchcomputing.princeton.edu/faq)  
-[AskRC](https://researchcomputing.princeton.edu/about/contact/ask-research-computing)
-
 ## Getting Help
 
 If you encounter any difficulties with building or running GPU codes on our HPC clusters then please send an email to <a href="mailto:cses@princeton.edu">cses@princeton.edu</a> or attend a <a href="https://researchcomputing.princeton.edu/education/help-sessions">help session</a>.
