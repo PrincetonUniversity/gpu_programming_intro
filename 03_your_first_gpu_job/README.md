@@ -72,7 +72,7 @@ module purge
 module load anaconda3
 conda activate /scratch/network/$USER/py-gpu
 
-srun python svd_cupy.py
+python svd_cupy.py
 ```
 
 Submit the job:
