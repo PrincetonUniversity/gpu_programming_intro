@@ -20,7 +20,7 @@
 
 + For the live workshop, to get access to the GPU nodes on Adroit, add this line to your Slurm scripts:
 
-   `#SBATCH --reservation=introgpu`
+   `#SBATCH --reservation=gpuprimer`
    
 + Because we have a limited number of GPUs on Adroit, keep the total run time limit of your jobs to 30 seconds:
 
