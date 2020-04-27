@@ -200,6 +200,10 @@ This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 $ nvcc -o hello_world hello_world.cu
 ```
 
+# TigerGPU Utilization Dashboard
+
+See [this page](https://researchcomputing.princeton.edu/node/7171) to view the GPU usage on TigerGPU.
+
 # ARM DDT
 
 The general directions for using the DDT debugger are [here](https://researchcomputing.princeton.edu/faq/debugging-with-ddt-on-the).
