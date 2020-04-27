@@ -100,7 +100,7 @@ Then proceed as follows:
 
 ```
 $ module load anaconda3
-$ conda create --prefix /scratch/network/$USER/torch-env pytorch cudatoolkit=10.1 --channel pytorch
+$ conda create --prefix /scratch/network/$USER/torch-env pytorch cudatoolkit=10.2 --channel pytorch
 ```
 
 Examine the Python script before running the code:
