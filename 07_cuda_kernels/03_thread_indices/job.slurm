@@ -6,6 +6,6 @@
 #SBATCH --mem-per-cpu=1G         # memory per cpu-core (4G is default)
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-srun ./for_loop
+./for_loop
