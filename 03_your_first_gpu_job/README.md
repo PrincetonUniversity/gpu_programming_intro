@@ -66,7 +66,7 @@ Below is a sample Slurm script:
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --mem=1G                 # total memory (RAM) per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load anaconda3
@@ -140,7 +140,7 @@ Here is a sample Slurm script:
 #SBATCH --mem-per-cpu=1G         # memory per cpu-core
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
 conda activate /scratch/network/$USER/torch-env
@@ -212,7 +212,7 @@ Below is a sample Slurm script:
 #SBATCH --mem=1G                 # total memory (RAM) per node
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
 conda activate /scratch/network/$USER/tf-gpu
@@ -306,7 +306,7 @@ Below is a sample Slurm script:
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
-#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load matlab/R2019a
