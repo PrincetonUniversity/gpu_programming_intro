@@ -112,7 +112,7 @@ module show cudnn
 
 ## Conda Installations
 
-When you install CuPy, for instance, Conda will include the CUDA Toolkit:
+When you install CuPy, for instance, Conda will include a CUDA Toolkit package (not the development version):
 
 <pre>
 $ module load anaconda3
