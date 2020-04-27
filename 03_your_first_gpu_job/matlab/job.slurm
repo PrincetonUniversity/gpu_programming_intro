@@ -6,9 +6,9 @@
 #SBATCH --mem-per-cpu=1G         # memory per cpu-core (4G is default)
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --gres=gpu:tesla_v100:1  # number of gpus per node
-#SBATCH --reservation=introgpu   # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load matlab/R2019a
 
-srun matlab -singleCompThread -nodisplay -nosplash -nojvm -r svd_matlab
+matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
