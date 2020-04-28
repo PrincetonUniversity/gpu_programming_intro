@@ -311,7 +311,7 @@ Below is a sample Slurm script:
 module purge
 module load matlab/R2019a
 
-srun matlab -singleCompThread -nodisplay -nosplash -nojvm -r svd_matlab
+srun matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
 ```
 
 Submit the job:
