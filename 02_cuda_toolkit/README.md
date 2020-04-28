@@ -118,37 +118,38 @@ When you install CuPy, for instance, Conda will include a CUDA Toolkit package (
 $ module load anaconda3
 $ conda create --prefix /scratch/network/$USER/py-gpu cupy
 
-_libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
-blas               pkgs/main/linux-64::blas-1.0-mkl
-ca-certificates    pkgs/main/linux-64::ca-certificates-2019.10.16-0
-certifi            pkgs/main/linux-64::certifi-2019.9.11-py37_0
-<b>cudatoolkit        pkgs/main/linux-64::cudatoolkit-10.0.130-0</b>
-cudnn              pkgs/main/linux-64::cudnn-7.6.0-cuda10.0_0
-cupy               pkgs/main/linux-64::cupy-6.0.0-py37hc0ce245_0
-fastrlock          pkgs/main/linux-64::fastrlock-0.4-py37he6710b0_0
-intel-openmp       pkgs/main/linux-64::intel-openmp-2019.4-243
-libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
-libffi             pkgs/main/linux-64::libffi-3.2.1-hd88cf55_4
-libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
-libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-7.3.0-hdf63c60_0
-libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
-mkl                pkgs/main/linux-64::mkl-2019.4-243
-mkl-service        pkgs/main/linux-64::mkl-service-2.3.0-py37he904b0f_0
-mkl_fft            pkgs/main/linux-64::mkl_fft-1.0.14-py37ha843d7b_0
-mkl_random         pkgs/main/linux-64::mkl_random-1.1.0-py37hd6b4f25_0
-nccl               pkgs/main/linux-64::nccl-1.3.5-cuda10.0_0
-ncurses            pkgs/main/linux-64::ncurses-6.1-he6710b0_1
-numpy              pkgs/main/linux-64::numpy-1.17.2-py37haad9e8e_0
-numpy-base         pkgs/main/linux-64::numpy-base-1.17.2-py37hde5b4d6_0
-openssl            pkgs/main/linux-64::openssl-1.1.1d-h7b6447c_3
-pip                pkgs/main/linux-64::pip-19.3.1-py37_0
-python             pkgs/main/linux-64::python-3.7.5-h0371630_0
-readline           pkgs/main/linux-64::readline-7.0-h7b6447c_5
-setuptools         pkgs/main/linux-64::setuptools-41.4.0-py37_0
-six                pkgs/main/linux-64::six-1.12.0-py37_0
-sqlite             pkgs/main/linux-64::sqlite-3.30.1-h7b6447c_0
-tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
-wheel              pkgs/main/linux-64::wheel-0.33.6-py37_0
-xz                 pkgs/main/linux-64::xz-5.2.4-h14c3975_4
-zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  blas               pkgs/main/linux-64::blas-1.0-mkl
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2020.1.1-0
+  certifi            pkgs/main/linux-64::certifi-2020.4.5.1-py37_0
+  <b>cudatoolkit        pkgs/main/linux-64::cudatoolkit-10.0.130-0</b>
+  cudnn              pkgs/main/linux-64::cudnn-7.6.5-cuda10.0_0
+  cupy               pkgs/main/linux-64::cupy-6.0.0-py37hc0ce245_0
+  fastrlock          pkgs/main/linux-64::fastrlock-0.4-py37he6710b0_0
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2020.0-166
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.33.1-h53a641e_7
+  libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
+  libffi             pkgs/main/linux-64::libffi-3.2.1-hd88cf55_4
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-7.3.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+  mkl                pkgs/main/linux-64::mkl-2020.0-166
+  mkl-service        pkgs/main/linux-64::mkl-service-2.3.0-py37he904b0f_0
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.0.15-py37ha843d7b_0
+  mkl_random         pkgs/main/linux-64::mkl_random-1.1.0-py37hd6b4f25_0
+  nccl               pkgs/main/linux-64::nccl-1.3.5-cuda10.0_0
+  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_0
+  numpy              pkgs/main/linux-64::numpy-1.18.1-py37h4f9e942_0
+  numpy-base         pkgs/main/linux-64::numpy-base-1.18.1-py37hde5b4d6_1
+  openssl            pkgs/main/linux-64::openssl-1.1.1g-h7b6447c_0
+  pip                pkgs/main/linux-64::pip-20.0.2-py37_1
+  python             pkgs/main/linux-64::python-3.7.7-hcf32534_0_cpython
+  readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
+  setuptools         pkgs/main/linux-64::setuptools-46.1.3-py37_0
+  six                pkgs/main/linux-64::six-1.14.0-py37_0
+  sqlite             pkgs/main/linux-64::sqlite-3.31.1-h62c20be_1
+  tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
+  wheel              pkgs/main/linux-64::wheel-0.34.2-py37_0
+  xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
 </pre>
