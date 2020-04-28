@@ -171,7 +171,7 @@ Then proceed as follows:
 
 ```
 $ module load anaconda3
-$ conda create --prefix /scratch/network/$USER/tf-gpu tensorflow-gpu=2.0
+$ conda create --prefix /scratch/network/$USER/tf2-gpu tensorflow-gpu
 ```
 
 Examine the Python script before running the code:
@@ -215,7 +215,7 @@ Below is a sample Slurm script:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
-conda activate /scratch/network/$USER/tf-gpu
+conda activate /scratch/network/$USER/tf2-gpu
 
 srun python svd_tensorflow.py
 ```
