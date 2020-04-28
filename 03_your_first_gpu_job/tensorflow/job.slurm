@@ -9,6 +9,6 @@
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module load anaconda3
-conda activate /scratch/network/$USER/tf-gpu
+conda activate /scratch/network/$USER/tf2-gpu
 
 srun python svd_tensorflow.py
