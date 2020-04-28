@@ -228,11 +228,11 @@ $ sbatch job.slurm
 
 You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`.
 
-### Benchmarks
+<!--### Benchmarks
 
 Below is benchmark data for the SVD of an N x N matrix in double precision using NumPy with a single CPU-core on Adroit versus TensorFlow on Traverse using a single CPU-core and a V100 GPU:
 
-![svd-data](svd_adroit_traverse_log_log.png)
+![svd-data](svd_adroit_traverse_log_log.png)-->
 
 ## R with NVBLAS
 
