@@ -242,6 +242,7 @@ Take a look at [this page](https://github.com/PrincetonUniversity/HPC_R_Workshop
 $ git clone https://github.com/PrincetonUniversity/HPC_R_Workshop
 $ cd HPC_R_Workshop/07_NVBLAS
 $ mv nvblas.conf ~
+# edit 07_NVBLAS.cmd by adding your email address
 $ sbatch 07_NVBLAS.cmd
 ```
 
