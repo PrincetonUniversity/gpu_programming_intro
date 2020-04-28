@@ -14,7 +14,10 @@
 
 + Clone this repo on your chosen HPC cluster (e.g., Adroit):
 
-   `git clone https://github.com/PrincetonUniversity/gpu_programming_intro`
+   ```
+   cd /scratch/network/<NetID>
+   git clone https://github.com/PrincetonUniversity/gpu_programming_intro
+   ```
 
 + For the live workshop, to get access to the GPU nodes on Adroit, add this line to your Slurm scripts:
 
