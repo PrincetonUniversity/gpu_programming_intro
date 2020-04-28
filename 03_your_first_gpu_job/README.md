@@ -324,7 +324,7 @@ Here is an [intro](https://www.mathworks.com/help/parallel-computing/run-matlab-
 
 ## Julia
 
-During the workshop use this command `salloc -t 5:00 --gres=gpu:k40c:1` as a substitute to the `salloc` command that appears in [this post](https://oncomputingwell.princeton.edu/2019/05/getting-started-with-julia-and-gpus). This is because the installation requires a few minutes which is too long to tie up the V100 GPUs.
+See the section on "Julia Environments and GPU Packages" on [this page](https://researchcomputing.princeton.edu/julia).
 
 ## Monitoring GPU Usage
 
