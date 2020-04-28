@@ -84,7 +84,7 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. Did the operation run faster on the CPU with NumPy or on the GPU with CuPy? What happens if you re-run the script with the matrix in single precision?
+You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. What happens if you re-run the script with the matrix in single precision? Does the run time double if N is doubled? There is a CPU version of the code at the bottom of this page. Does the operation run faster on the CPU with NumPy or on the GPU with CuPy?
 
 In addition to CuPy, Python programmers looking to run their code on GPUs should also be aware of [Numba](https://numba.pydata.org/) and [JAX](https://github.com/google/jax).
 
