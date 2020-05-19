@@ -6,12 +6,9 @@ This guide provides materials for getting started with writing and running GPU c
 
 ## GPU Resources
 
-[CUDA Training Series at ORNL](https://www.olcf.ornl.gov/cuda-training-series/) 
-
-[OpenACC Training Series at ORNL](https://www.olcf.ornl.gov/openacc-training-series/) 
-
+[CUDA Training Series at ORNL](https://www.olcf.ornl.gov/cuda-training-series/)   
+[OpenACC Training Series at ORNL](https://www.olcf.ornl.gov/openacc-training-series/)   
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
-
 [Online Book Available through PU Library](https://catalog.princeton.edu/catalog/11361691)
 <!--
 ## Workshop Survey
