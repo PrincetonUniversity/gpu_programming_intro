@@ -206,7 +206,7 @@ See [this page](https://researchcomputing.princeton.edu/node/7171) to view the G
 
 # ARM DDT
 
-The general directions for using the DDT debugger are [here](https://researchcomputing.princeton.edu/faq/debugging-with-ddt-on-the).
+The general directions for using the DDT debugger are [here](https://researchcomputing.princeton.edu/faq/debugging-with-ddt-on-the). The getting started guide is [here](https://developer.arm.com/tools-and-software/server-and-hpc/debug-and-profile/arm-forge/arm-ddt).
 
 ```
 $ ssh -X <NetID>@adroit.princeton.edu
