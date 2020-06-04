@@ -61,6 +61,92 @@ traverse-k01g4  Sat Oct 19 11:31:51 2019
 
 For a comparison of various GPU tools see [this post](https://www.andrey-melentyev.com/monitoring-gpus.html).
 
+# Nsight Systems for Profiling (nsys)
+
+Nsight Systems [getting started guide](https://docs.nvidia.com/nsight-systems/) and notes on [Summit](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#profiling-gpu-code-with-nvidia-developer-tools).
+
+IMPORTANT: Do not run profiling jobs in your /home directory because it may output large files. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
+
+```
+$ ssh <YourNetID>@tigergpu.princeton.edu
+$ cd /scratch/gpfs/<YourNetID>
+$ mkdir myjob && cd myjob
+# prepare Slurm script
+$ sbatch job.slurm
+```
+
+Below is an example Slurm script:
+
+```
+#!/bin/bash
+#SBATCH --job-name=profile       # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --mem=4G                 # total memory per node
+#SBATCH --gres=gpu:1             # number of gpus per node
+#SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
+
+module purge
+module load anaconda3/2020.2
+conda activate myenv
+
+nsys profile -f true --stats=true -o myprofile python myscript.py
+```
+
+You can either download the `.qdrep` file to your local machine to use `nsight-sys` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsight-sys` on that machine. The latter approach would look like this:
+
+```
+# in a new terminal
+$ ssh -X <YourNetID>@tigressdata.princeton.edu
+$ cd /tiger/scratch/gpfs/<YourNetID>/myjob
+$ nsight-sys myprofile.sqlite
+```
+
+Run this command to see the summary statistics: `nsys stats myprofile.qdrep`. To view the help for profiling: `nsys --help profile`
+
+Note that `nsight-sys` does not exist for Traverse.
+
+# Nsight Compute for GPU Kernel Profiling (Adroit or Traverse but not TigerGPU)
+
+See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). This tool does not support the P100 GPUs of TigerGPU. To make the command available load the module:
+
+```
+module load cudatoolkit/10.2
+nv-nsight-cu-cli  # or nv-nsight-cu for GUI
+```
+
+The idea is to use `nv-nsight-cu-cli` for the profiling and `nv-nsight-cu` for examining the data in a GUI.
+
+Below is a sample slurm script:
+
+```
+#!/bin/bash
+#SBATCH --job-name=profile       # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --mem=4G                 # total memory per node
+#SBATCH --gres=gpu:1             # number of gpus per node
+#SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+module purge
+module load anaconda3/2020.2
+conda activate dark-env
+
+/usr/local/cuda-10.2/bin/nv-nsight-cu-cli -f -o my_report_${SLURM_JOBID} python -u _run_graph_net_nv.py
+```
+
+One can then use `nv-nsight-cu` to view the results:
+
+```
+# ssh -X adroit
+$ module load cudatoolkit/10.2
+$ nv-nsight-cu my_report_xxxxxx.nsight-cuprof-report
+```
+
 # nvprof
 
 This is the NVIDIA profiler. It can be used to identify the "hot spots" in the code or the parts which are running slow and need attention. `nvprof` has a summary mode and trace mode.
