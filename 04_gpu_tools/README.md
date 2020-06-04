@@ -133,10 +133,10 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2020.2
+module load anaconda3/2020.2 cudatoolkit/10.2
 conda activate dark-env
 
-/usr/local/cuda-10.2/bin/nv-nsight-cu-cli -f -o my_report_${SLURM_JOBID} python -u _run_graph_net_nv.py
+nv-nsight-cu-cli -f -o my_report_${SLURM_JOBID} python myscript.py
 ```
 
 One can then use `nv-nsight-cu` to view the results:
