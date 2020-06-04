@@ -142,14 +142,14 @@ conda activate dark-env
 One can then use `nv-nsight-cu` to view the results:
 
 ```
-# ssh -X adroit
+$ ssh -X <YourNetID>@adroit.princeton.edu
 $ module load cudatoolkit/10.2
 $ nv-nsight-cu my_report_xxxxxx.nsight-cuprof-report
 ```
 
 # nvprof
 
-This is the NVIDIA profiler. It can be used to identify the "hot spots" in the code or the parts which are running slow and need attention. `nvprof` has a summary mode and trace mode.
+This is the older NVIDIA profiler. It has been replaced by the combination of nsys and nv-nsight-cu-cli. However, `nv-nsight-cu-cli` does not support the P100 GPUs of TigerGPU so nvprof must be used if you need to get the fine-grained details of a particular CUDA kernel. `nvprof` has a summary mode and trace mode.
 
 ### Summary mode
 
