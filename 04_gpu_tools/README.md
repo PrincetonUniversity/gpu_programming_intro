@@ -63,7 +63,7 @@ For a comparison of various GPU tools see [this post](https://www.andrey-melenty
 
 # Nsight Systems for Profiling (nsys)
 
-Nsight Systems [getting started guide](https://docs.nvidia.com/nsight-systems/) and notes on [Summit](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#profiling-gpu-code-with-nvidia-developer-tools).
+See the NVIDIA Nsight Systems [getting started guide](https://docs.nvidia.com/nsight-systems/) and notes on [Summit](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#profiling-gpu-code-with-nvidia-developer-tools).
 
 IMPORTANT: Do not run profiling jobs in your /home directory because it may output large files. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
 
