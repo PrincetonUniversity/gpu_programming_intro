@@ -63,9 +63,9 @@ For a comparison of various GPU tools see [this post](https://www.andrey-melenty
 
 # Nsight Systems for Profiling (nsys)
 
-See the NVIDIA Nsight Systems [getting started guide](https://docs.nvidia.com/nsight-systems/) and notes on [Summit](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#profiling-gpu-code-with-nvidia-developer-tools).
+The `nsys` command can be used to generate a timeline of the execution of your code. See the NVIDIA Nsight Systems [getting started guide](https://docs.nvidia.com/nsight-systems/) and notes on [Summit](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#profiling-gpu-code-with-nvidia-developer-tools).
 
-IMPORTANT: Do not run profiling jobs in your /home directory because it may output large files. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
+IMPORTANT: Do not run profiling jobs in your `/home` directory because large files are often written during these jobs. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
 
 ```
 $ ssh <YourNetID>@tigergpu.princeton.edu
@@ -105,7 +105,7 @@ $ nsight-sys myprofile.sqlite
 
 Run this command to see the summary statistics: `nsys stats myprofile.qdrep`. To view the help for profiling: `nsys --help profile`
 
-Note that `nsight-sys` does not exist for Traverse.
+Note that `nsight-sys` does not exist for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # Nsight Compute for GPU Kernel Profiling (Adroit or Traverse but not TigerGPU)
 
@@ -146,6 +146,8 @@ $ ssh -X <YourNetID>@adroit.princeton.edu
 $ module load cudatoolkit/10.2
 $ nv-nsight-cu my_report_xxxxxx.nsight-cuprof-report
 ```
+
+Note that `nv-nsight-cu` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # nvprof
 
