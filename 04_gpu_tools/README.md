@@ -97,7 +97,7 @@ nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.
 For an MPI code you should use:
 
 ```
-srun --wait=0 nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} python myscript.py
+srun --wait=0 nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} ./my_mpi_exe
 ```
 
 You can either download the `.qdrep` file to your local machine to use `nsight-sys` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsight-sys` on that machine. The latter approach would look like this:
