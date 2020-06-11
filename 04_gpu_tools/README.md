@@ -91,7 +91,7 @@ module purge
 module load anaconda3/2020.2
 conda activate myenv
 
-nsys profile -f true --stats=true -o myprofile python myscript.py
+nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
 ```
 
 For an MPI code you should use:
