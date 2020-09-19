@@ -9,3 +9,5 @@ $ sbatch job.slurm
 ```
 
 On TigerGPU, replace `sm_70` with `sm_60`.
+
+See also `0_Simple/simpleMultiGPU` in the NVIDIA samples which are discussed in `06_cuda_libraries`.
