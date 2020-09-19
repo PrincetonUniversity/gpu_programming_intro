@@ -4,6 +4,8 @@ The code in the this directory illustrates the use of multiple GPUs. To compile 
 
 ```
 $ module load cudatoolkit
-$ nvcc -O3 -arch=sm_y0 -o vector_add_gpu vector_add_gpu.cu
+$ nvcc -O3 -arch=sm_70 -o multi_gpu multi_gpu.cu
 $ sbatch job.slurm
 ```
+
+On TigerGPU, replace `sm_70` with `sm_60`.
