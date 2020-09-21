@@ -155,7 +155,7 @@ Edit the Slurm script by **changing the last line** as follows:
 
 module load cudatoolkit
 
-srun ./matrixMul
+./matrixMul
 ```
 
 Submit the job:
