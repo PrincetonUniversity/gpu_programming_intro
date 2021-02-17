@@ -115,7 +115,7 @@ module show cudnn
 When you install CuPy, for instance, Conda will include a CUDA Toolkit package (not the development version):
 
 <pre>
-$ module load anaconda3
+$ module load anaconda3/2020.11
 $ conda create --prefix /scratch/network/$USER/py-gpu cupy
 
   _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
