@@ -573,4 +573,4 @@ For a cost analysis by MicroWay see [this page](https://www.microway.com/hpc-tec
 
 ## NVIDIA GPU Hackathon at Princeton
 
-If you would like to serve as a junior GPU programming mentor to help Princeton researchers port their CPU codes to GPUs then please join. The hackathon will run from June 2, 8-10, 2021.
+If you would like to serve as a junior GPU programming mentor to help Princeton researchers port their CPU codes to GPUs then please join. The hackathon will run on June 2, 8, 9, 10 in 2021.
