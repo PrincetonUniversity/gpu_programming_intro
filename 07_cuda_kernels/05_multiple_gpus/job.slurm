@@ -9,6 +9,6 @@
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit
+module load cudatoolkit/10.2
 
 ./multi_gpu
