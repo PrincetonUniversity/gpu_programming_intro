@@ -174,7 +174,7 @@ This is the older NVIDIA profiler. It has been replaced by the combination of ns
 #SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3 cudatoolkit
+module load anaconda3/2020.11 cudatoolkit/10.2
 
 srun nvprof <executable> <inputfile1>
 ```
@@ -258,7 +258,7 @@ PyTorch version:  1.3.0
 #SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3 cudatoolkit
+module load anaconda3/2020.11 cudatoolkit/10.2
 
 srun nvprof -o trace.sqlite --print-gpu-trace <executable> <inputfile1> 
 ```
@@ -294,7 +294,7 @@ The [line_prof](https://github.com/rkern/line_profiler) tool provides profiling 
 Install `line_prof` into your Conda environment:
 
 ```
-$ module load anaconda3
+$ module load anaconda3/2020.11
 $ conda activate myenv
 $ pip install line_profiler
 ```
@@ -337,7 +337,7 @@ Submit the job (sbatch job.slurm):
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3
+module load anaconda3/2020.11
 conda activate myenv
 
 kernprof -l myscript.py
@@ -346,7 +346,7 @@ kernprof -l myscript.py
 Examine the results:
 
 ```
-# module load anaconda3
+# module load anaconda3/2020.11
 # conda activate myenv
 $ python -m line_profiler myscript.py.lprof
 
@@ -398,7 +398,7 @@ The general directions for using the DDT debugger are [here](https://researchcom
 $ ssh -X <NetID>@adroit.princeton.edu
 $ git clone https://github.com/PrincetonUniversity/hpc_beginning_workshop
 $ cd hpc_beginning_workshop/RC_example_jobs/simple_gpu_kernel
-$ salloc -N 1 -n 1 -t 10:00 --gres=gpu:tesla_k40c:1 --x11
+$ salloc -N 1 -n 1 -t 10:00 --gres=gpu:1 --x11
 $ module load cudatoolkit/10.1
 $ nvcc -g -G hello_world_gpu.cu
 $ module load ddt/20.0.1
