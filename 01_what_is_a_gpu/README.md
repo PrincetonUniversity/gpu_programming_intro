@@ -68,7 +68,7 @@ This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for th
 Add this line to your Slurm script to use a V100 GPUs:
 
 ```
-#SBATCH --gres=gpu:tesla_v100:1
+#SBATCH --gres=gpu:1
 ```
 
 Here is some information about the V100 GPUs in this node:
@@ -146,7 +146,8 @@ $ nvidia-smi -q
 Add this line to your Slurm script to use a K40c GPU:
 
 ```
-#SBATCH --gres=gpu:tesla_k40c:1
+#SBATCH --gres=gpu:1
+#SBATCH --constraint=k40
 ```
 
 Here is infomation about the K40c GPUs on this node:
@@ -572,4 +573,4 @@ For a cost analysis by MicroWay see [this page](https://www.microway.com/hpc-tec
 
 ## NVIDIA GPU Hackathon at Princeton
 
-If you would like to serve as a junior GPU programming mentor to help Princeton researchers port their CPU codes to GPUs then please join. The hackathon will run from June 8-12, 2020.
+If you would like to serve as a junior GPU programming mentor to help Princeton researchers port their CPU codes to GPUs then please join. The hackathon will run from June 2, 8-10, 2021.
