@@ -1,4 +1,4 @@
-# A Primer on GPU Programming
+# Intro to GPU Programming
 
 ## About
 
