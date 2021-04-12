@@ -1,4 +1,4 @@
-# GPU Utilities
+# GPU Tools
 
 This page presents common tools and utilities to aid in using GPUs.
 
