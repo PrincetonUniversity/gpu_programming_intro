@@ -49,8 +49,7 @@ Next, compile and link the code as follows:
 
 ```
 $ module load cudatoolkit/11.0
-$ nvcc -c gesvdj_example.cpp
-$ g++ -o gesvdj_example gesvdj_example.o -lcudart -lcusolver
+$ g++ -o gesvdj_example gesvdj_example -lcudart -lcusolver
 ```
 
 Submit the job to the scheduler with:
