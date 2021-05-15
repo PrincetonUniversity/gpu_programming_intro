@@ -8,6 +8,6 @@
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load cudatoolkit
+module load cudatoolkit/11.0
 
 ./gesvdj_example
