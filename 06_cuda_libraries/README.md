@@ -136,7 +136,7 @@ Pick an example and then build and run it. For instance:
 
 ```
 $ cd 0_Simple/matrixMul
-$ make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++
+$ make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 60 on tigergpu and 80 on della-gpu
 $ cp gpu_programming_intro/06_cuda_libraries/job.slurm .
 ```
 
@@ -167,7 +167,7 @@ $ sbatch job.slurm
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Simulations/nbody` use:
 
 ```
-GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++
+GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 60 on tigergpu and 80 on della-gpu
 ```
 
 Note that `nbody` will run successfully on TigerGPU but not on Adroit since the compute nodes do not have `libglut.so`.
