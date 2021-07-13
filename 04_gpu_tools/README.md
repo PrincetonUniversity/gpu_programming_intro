@@ -388,7 +388,7 @@ $ nvcc -o hello_world hello_world.cu
 
 # TigerGPU Utilization Dashboard
 
-See [this page](https://researchcomputing.princeton.edu/node/7171) to view the GPU usage on TigerGPU.
+See [this page](https://researchcomputing.princeton.edu/tigergpu-utilization) to view the GPU usage on TigerGPU.
 
 # ARM DDT
 
