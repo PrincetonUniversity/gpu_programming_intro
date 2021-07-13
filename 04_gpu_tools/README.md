@@ -289,7 +289,7 @@ Then do `nvvp` on the output of the trace file.
 
 # line_prof for Profiling
 
-The [line_prof](https://github.com/rkern/line_profiler) tool provides profiling info for each line of a function. It can be used for Python codes that run on CPUs or GPUs.
+The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool provides profiling info for each line of a function. It can be used for Python codes that run on CPUs or GPUs.
 
 Install `line_prof` into your Conda environment:
 
