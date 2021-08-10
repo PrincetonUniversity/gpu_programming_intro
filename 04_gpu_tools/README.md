@@ -155,6 +155,51 @@ $ nv-nsight-cu my_report_xxxxxx.nsight-cuprof-report
 
 Note that `nv-nsight-cu` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
+# DLProf
+
+[`dlprof`](https://docs.nvidia.com/deeplearning/frameworks/dlprof-user-guide/) was developed by NVIDIA for profiling deep learning codes using frameworks such at PyTorch or TensorFlow. It is very useful when the code runs on an A100 GPU since in addition to profiling the code, it also gives suggestions for improvements.
+
+```
+$ ssh della-gpu
+$ conda create --name torch-env pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
+$ conda activate torch-env
+# need tensorboard at some point
+$ pip install nvidia-pyindex
+$ pip install nvidia-dlprof[pytorch]
+$ pip install nvidia-tensorboard-plugin-dlprof
+```
+
+Search for "SafeGrad" in script below to see three changes:
+
+```
+/scratch/gpfs/jdh4/safegrad/dlprof_test/install_pytorch/mnist_classify.py
+```
+
+```
+#!/bin/bash
+#SBATCH --job-name=torch-test    # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=4        # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --mem=4G                 # total memory per node (4 GB per cpu-core is default)
+#SBATCH --gres=gpu:1             # number of gpus per node
+#SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
+
+module purge
+module load anaconda3/2020.11
+conda activate torch-env
+
+export LD_LIBRARY_PATH=/scratch/gpfs/jdh4/CONDA/envs/torch-env/lib:$LD_LIBRARY_PATH
+
+dlprof --mode=pytorch --reports=detail --force=true python mnist_classify.py --epochs=1
+```
+
+To visualize:
+
+```
+$ tensorboard --logdir ./event_files
+```
+
 # nvprof
 
 This is the older NVIDIA profiler. It has been replaced by the combination of nsys and nv-nsight-cu-cli. However, `nv-nsight-cu-cli` does not support the P100 GPUs of TigerGPU so nvprof must be used if you need to get the fine-grained details of a particular CUDA kernel. `nvprof` has a summary mode and trace mode.
