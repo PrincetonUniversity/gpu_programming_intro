@@ -1,6 +1,6 @@
 # The CUDA Toolkit
 
-The [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) provides a comprehensive set of libraries and tools for creating GPU-accelerated applications.
+The [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) provides a comprehensive set of libraries and tools for developing and running GPU-accelerated applications.
 
 List the available modules that are related to CUDA:
 
@@ -121,44 +121,45 @@ There is also the CUDA Deep Neural Net library. It is external to the NVIDIA CUD
 
 ## Conda Installations
 
-When you install CuPy, for instance, Conda will include a CUDA Toolkit package (not the development version):
+When you install CuPy, for instance, Conda will include a CUDA Toolkit package (not the development version) and cuDNN:
 
 <pre>
 $ module load anaconda3/2020.11
-$ conda create --prefix /scratch/network/$USER/py-gpu cupy
+$ conda create --name py-gpu cupy
 
   _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-4.5-1_gnu
   blas               pkgs/main/linux-64::blas-1.0-mkl
-  ca-certificates    pkgs/main/linux-64::ca-certificates-2020.1.1-0
-  certifi            pkgs/main/linux-64::certifi-2020.4.5.1-py37_0
-  <b>cudatoolkit        pkgs/main/linux-64::cudatoolkit-10.0.130-0</b>
-  cudnn              pkgs/main/linux-64::cudnn-7.6.5-cuda10.0_0
-  cupy               pkgs/main/linux-64::cupy-6.0.0-py37hc0ce245_0
-  fastrlock          pkgs/main/linux-64::fastrlock-0.4-py37he6710b0_0
-  intel-openmp       pkgs/main/linux-64::intel-openmp-2020.0-166
-  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.33.1-h53a641e_7
-  libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
-  libffi             pkgs/main/linux-64::libffi-3.2.1-hd88cf55_4
-  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
-  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-7.3.0-hdf63c60_0
-  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
-  mkl                pkgs/main/linux-64::mkl-2020.0-166
-  mkl-service        pkgs/main/linux-64::mkl-service-2.3.0-py37he904b0f_0
-  mkl_fft            pkgs/main/linux-64::mkl_fft-1.0.15-py37ha843d7b_0
-  mkl_random         pkgs/main/linux-64::mkl_random-1.1.0-py37hd6b4f25_0
-  nccl               pkgs/main/linux-64::nccl-1.3.5-cuda10.0_0
-  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_0
-  numpy              pkgs/main/linux-64::numpy-1.18.1-py37h4f9e942_0
-  numpy-base         pkgs/main/linux-64::numpy-base-1.18.1-py37hde5b4d6_1
-  openssl            pkgs/main/linux-64::openssl-1.1.1g-h7b6447c_0
-  pip                pkgs/main/linux-64::pip-20.0.2-py37_1
-  python             pkgs/main/linux-64::python-3.7.7-hcf32534_0_cpython
-  readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
-  setuptools         pkgs/main/linux-64::setuptools-46.1.3-py37_0
-  six                pkgs/main/linux-64::six-1.14.0-py37_0
-  sqlite             pkgs/main/linux-64::sqlite-3.31.1-h62c20be_1
-  tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
-  wheel              pkgs/main/linux-64::wheel-0.34.2-py37_0
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2021.9.30-h06a4308_1
+  certifi            pkgs/main/linux-64::certifi-2021.5.30-py39h06a4308_0
+  cudatoolkit        pkgs/main/linux-64::cudatoolkit-10.1.243-h6bb024c_0
+  cudnn              pkgs/main/linux-64::cudnn-7.6.5-cuda10.1_0
+  cupy               pkgs/main/linux-64::cupy-8.3.0-py39hcaf9a05_0
+  fastrlock          pkgs/main/linux-64::fastrlock-0.6-py39h2531618_0
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2021.3.0-h06a4308_3350
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.35.1-h7274673_9
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.3.0-h5101ec6_17
+  libgomp            pkgs/main/linux-64::libgomp-9.3.0-h5101ec6_17
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.3.0-hd4cf53a_17
+  mkl                pkgs/main/linux-64::mkl-2021.3.0-h06a4308_520
+  mkl-service        pkgs/main/linux-64::mkl-service-2.4.0-py39h7f8727e_0
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.3.0-py39h42c9631_2
+  mkl_random         pkgs/main/linux-64::mkl_random-1.2.2-py39h51133e4_0
+  nccl               pkgs/main/linux-64::nccl-2.8.3.1-hcaf9a05_0
+  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+  numpy              pkgs/main/linux-64::numpy-1.20.3-py39hf144106_0
+  numpy-base         pkgs/main/linux-64::numpy-base-1.20.3-py39h74d4b33_0
+  openssl            pkgs/main/linux-64::openssl-1.1.1l-h7f8727e_0
+  pip                pkgs/main/linux-64::pip-21.2.4-py39h06a4308_0
+  python             pkgs/main/linux-64::python-3.9.7-h12debd9_1
+  readline           pkgs/main/linux-64::readline-8.1-h27cfd23_0
+  setuptools         pkgs/main/linux-64::setuptools-58.0.4-py39h06a4308_0
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_0
+  sqlite             pkgs/main/linux-64::sqlite-3.36.0-hc218d9a_0
+  tk                 pkgs/main/linux-64::tk-8.6.11-h1ccaba5_0
+  tzdata             pkgs/main/noarch::tzdata-2021a-h5d7bf9c_0
+  wheel              pkgs/main/noarch::wheel-0.37.0-pyhd3eb1b0_1
   xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
   zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
 </pre>
