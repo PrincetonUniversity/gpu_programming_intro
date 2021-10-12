@@ -46,7 +46,7 @@ See the "Hardware Resources" on the [GPU Computing](https://researchcomputing.pr
 
 ## Adroit
 
-There are 2 GPU nodes on Adroit: `adroit-h11g1` and `adroit-h11g4`
+There are 2 GPU nodes on Adroit: `adroit-h11g1` and `adroit-h11g2`
 
 <pre>
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
