@@ -71,7 +71,7 @@ lrwxrwxrwx. 1 root root    6 Jul 28 15:43 nv-nsight-cu -> ncu-ui
 drwxr-xr-x. 2 root root   43 Aug 20 07:56 crt
 ```
 
-`nvcc` is the Nvidia CUDA Compiler. Note that `nvcc` is built on `llvm` as [described here](https://developer.nvidia.com/cuda-llvm-compiler). To learn more about an executable, use the help option. For instance: `nvcc --help`.
+`nvcc` is the NVIDIA CUDA Compiler. Note that `nvcc` is built on `llvm` as [described here](https://developer.nvidia.com/cuda-llvm-compiler). To learn more about an executable, use the help option. For instance: `nvcc --help`.
 
 
 Let's look at the libraries:
@@ -117,7 +117,7 @@ $ ls -lL /usr/local/cuda-11.4/lib64/lib*.so
 
 ## cuDNN
 
-There is also the CUDA Deep Neural Net library. It is external to the NVIDIA CUDA Toolkit and is used with TensorFlow, for instance, to provide GPU routines for training neural nets.
+There is also the [CUDA Deep Neural Net](https://developer.nvidia.com/cudnn) (cuDNN) library. It is external to the NVIDIA CUDA Toolkit and is used with TensorFlow, for instance, to provide GPU routines for training neural nets.
 
 ## Conda Installations
 
