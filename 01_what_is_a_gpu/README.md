@@ -12,10 +12,9 @@ NVIDIA has been the leading player in GPUs for HPC. However, the GPU market land
 
 Like a CPU, a GPU has a hierarchical structure with respect to both the execution units and memory. A warp is a unit of 32 threads. NVIDIA GPUs impose a limit of 1024 threads per block. Some integral number of warps are grouped into a streaming multiprocessor (SM). There are tens of SMs per GPU. Each thread has its own memory. There is limited shared memory between a block of threads. And, finally, there is the global memory which is accessible to each grid or collection of blocks.
 
-![volta](https://devblogs.nvidia.com/wp-content/uploads/2017/05/image3.png)
 ![ampere](https://developer-blogs.nvidia.com/wp-content/uploads/2021/guc/raD52-V3yZtQ3WzOE0Cvzvt8icgGHKXPpN2PS_5MMyZLJrVxgMtLN4r2S2kp5jYI9zrA2e0Y8vAfpZia669pbIog2U9ZKdJmQ8oSBjof6gc4IrhmorT2Rr-YopMlOf1aoU3tbn5Q.png)
 
-The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA V100 GPU](https://devblogs.nvidia.com/inside-volta/). The V100 is composed of 80 SMs.
+The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA A100 GPU](https://developer.nvidia.com/blog/nvidia-ampere-architecture-in-depth/). The A100 is composed of 108 SMs.
 
 # Overview of using a GPU
 
