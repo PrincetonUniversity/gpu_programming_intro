@@ -38,7 +38,7 @@ copyFromGPU(data);            # copy the resulting output back to the CPU
 write(data, "output.dat");     # write the output to file on the CPU
 ```
 
-[NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction.
+[NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. The hardware on the other clusters do not allow for direct GPU-GPU transfers.
 
 # What GPU resources does Princeton have?
 
