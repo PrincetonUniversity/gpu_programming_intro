@@ -437,9 +437,13 @@ This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 $ nvcc -o hello_world hello_world.cu
 ```
 
-# TigerGPU Utilization Dashboard
+# stats.rc.princeton.edu
 
-See [this page](https://researchcomputing.princeton.edu/tigergpu-utilization) to view the GPU usage on TigerGPU.
+Follow [this procedure](https://researchcomputing.princeton.edu/support/knowledge-base/job-stats) to view detailed metrics for your Slurm jobs. This includes GPU utilization and memory as a function of time.
+
+# GPU Computing
+
+See [this page](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) for an overview of the hardware at Princton as well as useful commands like `gpudash` and `shownodes`.
 
 # ARM DDT
 
