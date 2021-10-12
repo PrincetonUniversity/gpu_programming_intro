@@ -9,42 +9,48 @@ This is the NVIDIA Systems Management Interface. This utility can be used to mon
 ```
 $ nvidia-smi
 
-Sun Oct 27 22:56:23 2019       
+Tue Oct 12 10:42:22 2021       
+Tue Oct 12 10:42:53 2021       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.67       Driver Version: 418.67       CUDA Version: 10.1     |
+| NVIDIA-SMI 470.57.02    Driver Version: 470.57.02    CUDA Version: 11.4     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  Tesla P100-PCIE...  On   | 00000000:03:00.0 Off |                    0 |
-| N/A   48C    P0    80W / 250W |  15757MiB / 16280MiB |     74%      Default |
+|   0  Tesla V100-PCIE...  On   | 00000000:14:00.0 Off |                    0 |
+| N/A   37C    P0    69W / 250W |   1475MiB / 32510MiB |     53%      Default |
+|                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   1  Tesla P100-PCIE...  On   | 00000000:04:00.0 Off |                    0 |
-| N/A   37C    P0    34W / 250W |  15753MiB / 16280MiB |      9%      Default |
+|   1  Tesla V100-PCIE...  On   | 00000000:39:00.0 Off |                    0 |
+| N/A   33C    P0    24W / 250W |      0MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   2  Tesla P100-PCIE...  On   | 00000000:82:00.0 Off |                    0 |
-| N/A   45C    P0    32W / 250W |  15719MiB / 16280MiB |      0%      Default |
+|   2  Tesla V100-PCIE...  On   | 00000000:88:00.0 Off |                    0 |
+| N/A   32C    P0    26W / 250W |      0MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   3  Tesla P100-PCIE...  On   | 00000000:83:00.0 Off |                    0 |
-| N/A   49C    P0    79W / 250W |  15757MiB / 16280MiB |     74%      Default |
+|   3  Tesla V100-PCIE...  On   | 00000000:B1:00.0 Off |                    0 |
+| N/A   32C    P0    26W / 250W |      0MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
 +-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
 |=============================================================================|
-|    0     32636      C   python                                     15747MiB |
-|    1     29633      C   python                                     15743MiB |
-|    2     19218      C   python                                     15709MiB |
-|    3       419      C   python                                     15747MiB |
+|    0   N/A  N/A   2183874      C   ...envs/torch-env/bin/python     1471MiB |
 +-----------------------------------------------------------------------------+
 ```
 
-`nvidia-smi` has many options. Here is an an example that produces a CSV file of various metrics:
+`nvidia-smi` has many options. Here is an an example that produces CSV output of various metrics:
 
 ```
 $ nvidia-smi --query-gpu=timestamp,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5
 ```
+
+The command above takes a reading every 5 seconds.
 
 # gpustat
 
@@ -52,11 +58,11 @@ An alternative to `nvidia-smi` is gpustat. It also pulls its data from the NVML.
 
 ```
 $ gpustat
-traverse-k01g4  Sat Oct 19 11:31:51 2019
-[0] Tesla V100-SXM2-32GB | 38'C,   0 % |     0 / 32480 MB |
-[1] Tesla V100-SXM2-32GB | 44'C,   0 % |     0 / 32480 MB |
-[2] Tesla V100-SXM2-32GB | 36'C,   0 % |     0 / 32480 MB |
-[3] Tesla V100-SXM2-32GB | 44'C,   0 % |     0 / 32480 MB |
+adroit-h11g1             Tue Oct 12 10:46:22 2021  470.57.02
+[0] Tesla V100-PCIE-32GB | 38°C,  53 % |  1475 / 32510 MB | aturing(1471M)
+[1] Tesla V100-PCIE-32GB | 33°C,   0 % |     0 / 32510 MB |
+[2] Tesla V100-PCIE-32GB | 32°C,   0 % |     0 / 32510 MB |
+[3] Tesla V100-PCIE-32GB | 32°C,   0 % |     0 / 32510 MB |
 ```
 
 For a comparison of various GPU tools see [this post](https://www.andrey-melentyev.com/monitoring-gpus.html).
