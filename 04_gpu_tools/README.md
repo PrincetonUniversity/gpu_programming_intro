@@ -175,12 +175,6 @@ $ pip install nvidia-dlprof[pytorch]
 $ pip install nvidia-tensorboard-plugin-dlprof
 ```
 
-Search for "SafeGrad" in script below to see three changes:
-
-```
-/scratch/gpfs/jdh4/safegrad/dlprof_test/install_pytorch/mnist_classify.py
-```
-
 ```
 #!/bin/bash
 #SBATCH --job-name=torch-test    # create a short name for your job
@@ -195,7 +189,7 @@ module purge
 module load anaconda3/2020.11
 conda activate torch-env
 
-export LD_LIBRARY_PATH=/scratch/gpfs/jdh4/CONDA/envs/torch-env/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/.conda/envs/torch-env/lib:$LD_LIBRARY_PATH
 
 dlprof --mode=pytorch --reports=detail --force=true python mnist_classify.py --epochs=1
 ```
