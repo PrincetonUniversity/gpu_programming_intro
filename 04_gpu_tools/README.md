@@ -54,7 +54,7 @@ The command above takes a reading every 5 seconds.
 
 # gpustat
 
-An alternative to `nvidia-smi` is gpustat. It also pulls its data from the NVML.
+An alternative to `nvidia-smi` is `gpustat`. It also pulls its data from the NVIDIA Management Library (NVML).
 
 ```
 $ gpustat
