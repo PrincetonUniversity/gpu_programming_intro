@@ -77,7 +77,7 @@ Note that `nvcc` is built on `llvm` as [described here](https://developer.nvidia
 Let's look at the libraries:
 
 ```
-$ ls -lL /usr/local/cuda-10.1/lib64/lib*.so
+$ ls -lL /usr/local/cuda-11.4/lib64/lib*.so
 
 -rwxr-xr-x. 1 root root   2111864 Jul 15 14:08 /usr/local/cuda-11.4/lib64/libaccinj64.so
 -rwxr-xr-x. 1 root root 287898200 Jul 15 00:09 /usr/local/cuda-11.4/lib64/libcublasLt.so
