@@ -35,12 +35,14 @@ data = open("input.dat");     # read the data on the CPU
 copyToGPU(data);              # copy the data to the GPU
 matrix_inverse(data.gpu);     # perform a matrix operation on the GPU
 copyFromGPU(data);            # copy the resulting output back to the CPU
-write(data, "output.dat");     # write the output to file on the CPU
+write(data, "output.dat");    # write the output to file on the CPU
 ```
 
 [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. The hardware on the other clusters do not allow for direct GPU-GPU transfers.
 
 # What GPU resources does Princeton have?
+
+See the "Hardware Resources" on the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for a complete list.
 
 ## Adroit
 
@@ -319,57 +321,6 @@ The following was obtained by running a MATLAB script:
             DeviceSelected: 1
 ```
 
-Below is the output of the `nvidia-smi` command:
-
-```
-$ hostname
-tiger-i20g7
-
-$ nvidia-smi
-Sun Oct 27 22:56:23 2019       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.67       Driver Version: 418.67       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Tesla P100-PCIE...  On   | 00000000:03:00.0 Off |                    0 |
-| N/A   48C    P0    80W / 250W |  15757MiB / 16280MiB |     74%      Default |
-+-------------------------------+----------------------+----------------------+
-|   1  Tesla P100-PCIE...  On   | 00000000:04:00.0 Off |                    0 |
-| N/A   37C    P0    34W / 250W |  15753MiB / 16280MiB |      9%      Default |
-+-------------------------------+----------------------+----------------------+
-|   2  Tesla P100-PCIE...  On   | 00000000:82:00.0 Off |                    0 |
-| N/A   45C    P0    32W / 250W |  15719MiB / 16280MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   3  Tesla P100-PCIE...  On   | 00000000:83:00.0 Off |                    0 |
-| N/A   49C    P0    79W / 250W |  15757MiB / 16280MiB |     74%      Default |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|    0     32636      C   python                                     15747MiB |
-|    1     29633      C   python                                     15743MiB |
-|    2     19218      C   python                                     15709MiB |
-|    3       419      C   python                                     15747MiB |
-+-----------------------------------------------------------------------------+
-```
-
-The `nvidia-smi` command gives the driver version: `Driver Version: 418.67`. Some software will specify a minimum driver version in order to be installed on our systems.
-
-Below is the output of the `gpustat` command:
-
-```
-$ gpustat
-tiger-i20g7  Sun Oct 27 22:56:31 2019
-[0] Tesla P100-PCIE-16GB | 48'C,  55 % | 15757 / 16280 MB | eham(15747M)
-[1] Tesla P100-PCIE-16GB | 37'C,   9 % | 15753 / 16280 MB | junyuli(15743M)
-[2] Tesla P100-PCIE-16GB | 51'C,  94 % | 15719 / 16280 MB | oahmed(15709M)
-[3] Tesla P100-PCIE-16GB | 48'C,  75 % | 15757 / 16280 MB | eham(15747M)
-```
-
 ## Traverse
 
 This [new cluster](https://www.princeton.edu/news/2019/10/07/princetons-new-supercomputer-traverse-accelerate-scientific-discovery-fusion) consists of 46 IBM Power9 nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.29 GHz. Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
@@ -379,183 +330,6 @@ Additional info:
 ```
 $ ssh traverse-k02g3
 $ nvidia-smi -q
-
-==============NVSMI LOG==============
-
-Timestamp                           : Wed Oct 30 09:52:39 2019
-Driver Version                      : 418.67
-CUDA Version                        : 10.1
-
-Attached GPUs                       : 4
-GPU 00000004:04:00.0
-    Product Name                    : Tesla V100-SXM2-32GB
-    Product Brand                   : Tesla
-    Display Mode                    : Enabled
-    Display Active                  : Disabled
-    Persistence Mode                : Enabled
-    Accounting Mode                 : Disabled
-    Accounting Mode Buffer Size     : 4000
-    Driver Model
-        Current                     : N/A
-        Pending                     : N/A
-    Serial Number                   : 0561519020531
-    GPU UUID                        : GPU-fd2f54d7-d5ed-ea23-b43e-eb240a7c7193
-    Minor Number                    : 0
-    VBIOS Version                   : 88.00.80.00.01
-    MultiGPU Board                  : No
-    Board ID                        : 0x40400
-    GPU Part Number                 : 900-2G503-0430-000
-    Inforom Version
-        Image Version               : G503.0203.00.05
-        OEM Object                  : 1.1
-        ECC Object                  : 5.0
-        Power Management Object     : N/A
-    GPU Operation Mode
-        Current                     : N/A
-        Pending                     : N/A
-    GPU Virtualization Mode
-        Virtualization mode         : None
-    IBMNPU
-        Relaxed Ordering Mode       : Disabled
-    PCI
-        Bus                         : 0x04
-        Device                      : 0x00
-        Domain                      : 0x0004
-        Device Id                   : 0x1DB510DE
-        Bus Id                      : 00000004:04:00.0
-        Sub System Id               : 0x124910DE
-        GPU Link Info
-            PCIe Generation
-                Max                 : 3
-                Current             : 3
-            Link Width
-                Max                 : 16x
-                Current             : 2x
-        Bridge Chip
-            Type                    : N/A
-            Firmware                : N/A
-        Replays Since Reset         : 0
-        Replay Number Rollovers     : 0
-        Tx Throughput               : 0 KB/s
-        Rx Throughput               : 0 KB/s
-    Fan Speed                       : N/A
-    Performance State               : P0
-    Clocks Throttle Reasons
-        Idle                        : Active
-        Applications Clocks Setting : Not Active
-        SW Power Cap                : Not Active
-        HW Slowdown                 : Not Active
-            HW Thermal Slowdown     : Not Active
-            HW Power Brake Slowdown : Not Active
-        Sync Boost                  : Not Active
-        SW Thermal Slowdown         : Not Active
-        Display Clock Setting       : Not Active
-    FB Memory Usage
-        Total                       : 32480 MiB
-        Used                        : 10 MiB
-        Free                        : 32470 MiB
-    BAR1 Memory Usage
-        Total                       : 32768 MiB
-        Used                        : 0 MiB
-        Free                        : 32768 MiB
-    Compute Mode                    : Default
-    Utilization
-        Gpu                         : 0 %
-        Memory                      : 0 %
-        Encoder                     : 0 %
-        Decoder                     : 0 %
-    Encoder Stats
-        Active Sessions             : 0
-        Average FPS                 : 0
-        Average Latency             : 0
-    FBC Stats
-        Active Sessions             : 0
-        Average FPS                 : 0
-        Average Latency             : 0
-    Ecc Mode
-        Current                     : Enabled
-        Pending                     : Enabled
-    ECC Errors
-        Volatile
-            Single Bit            
-                Device Memory       : 0
-                Register File       : 0
-                L1 Cache            : 0
-                L2 Cache            : 0
-                Texture Memory      : N/A
-                Texture Shared      : N/A
-                CBU                 : N/A
-                Total               : 0
-            Double Bit            
-                Device Memory       : 0
-                Register File       : 0
-                L1 Cache            : 0
-                L2 Cache            : 0
-                Texture Memory      : N/A
-                Texture Shared      : N/A
-                CBU                 : 0
-                Total               : 0
-        Aggregate
-            Single Bit            
-                Device Memory       : 0
-                Register File       : 0
-                L1 Cache            : 0
-                L2 Cache            : 0
-                Texture Memory      : N/A
-                Texture Shared      : N/A
-                CBU                 : N/A
-                Total               : 0
-            Double Bit            
-                Device Memory       : 0
-                Register File       : 0
-                L1 Cache            : 0
-                L2 Cache            : 0
-                Texture Memory      : N/A
-                Texture Shared      : N/A
-                CBU                 : 0
-                Total               : 0
-    Retired Pages
-        Single Bit ECC              : 0
-        Double Bit ECC              : 0
-        Pending                     : No
-    Temperature
-        GPU Current Temp            : 38 C
-        GPU Shutdown Temp           : 90 C
-        GPU Slowdown Temp           : 87 C
-        GPU Max Operating Temp      : 83 C
-        Memory Current Temp         : 34 C
-        Memory Max Operating Temp   : 85 C
-    Power Readings
-        Power Management            : Supported
-        Power Draw                  : 39.78 W
-        Power Limit                 : 300.00 W
-        Default Power Limit         : 300.00 W
-        Enforced Power Limit        : 300.00 W
-        Min Power Limit             : 150.00 W
-        Max Power Limit             : 300.00 W
-    Clocks
-        Graphics                    : 135 MHz
-        SM                          : 135 MHz
-        Memory                      : 877 MHz
-        Video                       : 555 MHz
-    Applications Clocks
-        Graphics                    : 1290 MHz
-        Memory                      : 877 MHz
-    Default Applications Clocks
-        Graphics                    : 1290 MHz
-        Memory                      : 877 MHz
-    Max Clocks
-        Graphics                    : 1530 MHz
-        SM                          : 1530 MHz
-        Memory                      : 877 MHz
-        Video                       : 1372 MHz
-    Max Customer Boost Clocks
-        Graphics                    : 1530 MHz
-    Clock Policy
-        Auto Boost                  : N/A
-        Auto Boost Default          : N/A
-    Processes                       : None
-...
 ```
 
 ## Comparison of GPU Resources
@@ -571,19 +345,7 @@ GPU 00000004:04:00.0
 
 SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix. There are differences between the V100 node on Adroit and the Traverse nodes (see [PCIe versus SXM2](https://www.nextplatform.com/micro-site-content/achieving-maximum-compute-throughput-pcie-vs-sxm2/)).
 
-## Should you buy an NVIDIA V100 for your research use?
 
-Below is the answer from one of the sys admins:
+## GPU Hackathon at Princeton
 
-> The V100 will kill you.  They are about $20k retail.  For a workstation 
-> I'd think the best nVidia GPU you could purchase would be enough to get 
-> started.  Like the GeForce line.  It supports Cuda but doesn't have the 
-> memory of a V100.  But for development and testing it should be "good 
-> enough" for ramping up to the bigger V100s.
-
-For a cost analysis by MicroWay see [this page](https://www.microway.com/hpc-tech-tips/nvidia-tesla-v100-price-analysis/).
-
-
-## NVIDIA GPU Hackathon at Princeton
-
-If you would like to serve as a junior GPU programming mentor to help Princeton researchers port their CPU codes to GPUs then please join. The hackathon will run on June 2, 8, 9, 10 in 2021.
+The next hackathon will take place in June of 2022. This is a great opportunity to get help from experts to port your code to a GPU. Or you can participant as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
