@@ -35,7 +35,7 @@ data = open("input.dat");     # read the data on the CPU
 copyToGPU(data);              # copy the data to the GPU
 matrix_inverse(data.gpu);     # perform a matrix operation on the GPU
 copyFromGPU(data);            # copy the resulting output back to the CPU
-write(data, "output.dat")     # write the output to file on the CPU
+write(data, "output.dat");     # write the output to file on the CPU
 ```
 
 [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction.
@@ -50,25 +50,26 @@ There are 2 GPU nodes on Adroit: `adroit-h11g1` and `adroit-h11g4`
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
 $ snodes
 
-HOSTNAMES     STATE    CPUS S:C:T    CPUS(A/I/O/T)   CPU_LOAD MEMORY   GRES     PARTITION          AVAIL_FEATURES
-adroit-01     idle     20   2:10:1   0/20/0/20       0.01     128000   (null)   class              ivy
-adroit-02     idle     20   2:10:1   0/20/0/20       0.01     64000    (null)   class              ivy
-adroit-03     idle     20   2:10:1   0/20/0/20       0.01     64000    (null)   class              ivy
-adroit-04     idle     20   2:10:1   0/20/0/20       0.01     64000    (null)   class              ivy
-adroit-05     idle     20   2:10:1   0/20/0/20       0.01     64000    (null)   class              ivy
-adroit-06     idle     20   2:10:1   0/20/0/20       0.01     64000    (null)   class              ivy
-adroit-07     idle     20   2:10:1   0/20/0/20       0.01     64000    (null)   class              ivy
-adroit-08     mix      32   2:16:1   30/2/0/32       19.94    384000   (null)   all*               skylake
-adroit-09     alloc    32   2:16:1   32/0/0/32       57.28    384000   (null)   all*               skylake
-adroit-10     mix      32   2:16:1   31/1/0/32       15.63    384000   (null)   all*               skylake
-adroit-11     mix      32   2:16:1   30/2/0/32       1.66     384000   (null)   all*               skylake
-adroit-12     alloc    32   2:16:1   32/0/0/32       59.14    384000   (null)   all*               skylake
-adroit-13     mix      32   2:16:1   31/1/0/32       27.33    384000   (null)   all*               skylake
-adroit-14     alloc    32   2:16:1   32/0/0/32       12.19    384000   (null)   all*               skylake
-adroit-15     alloc    32   2:16:1   32/0/0/32       31.51    384000   (null)   all*               skylake
-adroit-16     alloc    32   2:16:1   32/0/0/32       31.68    384000   (null)   all*               skylake
-<b>adroit-h11g1  mix      40   2:20:1   33/7/0/40       29.78    770000   gpu:tesl gpu                (null)</b>
-<b>adroit-h11g4  mix      16   2:8:1    1/15/0/16       0.93     64000    gpu:tesl gpu                (null)</b>
+HOSTNAMES          STATE    CPUS S:C:T    CPUS(A/I/O/T)   CPU_LOAD MEMORY   GRES                                PARTITION          AVAIL_FEATURES
+adroit-01          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
+adroit-02          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
+adroit-03          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
+adroit-04          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
+adroit-05          idle     28   2:14:1   0/28/0/28       0.26     128000   (null)                              class              broadwell
+adroit-06          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
+adroit-07          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
+adroit-08          mix      32   2:16:1   19/13/0/32      22.80    384000   (null)                              all*               skylake
+adroit-09          mix      32   2:16:1   25/7/0/32       11.09    384000   (null)                              all*               skylake
+adroit-10          mix      32   2:16:1   19/13/0/32      12.05    384000   (null)                              all*               skylake
+adroit-11          mix      32   2:16:1   2/30/0/32       0.00     384000   (null)                              all*               skylake
+adroit-12          mix      32   2:16:1   13/19/0/32      3.02     384000   (null)                              all*               skylake
+adroit-13          mix      32   2:16:1   26/6/0/32       25.25    384000   (null)                              all*               skylake
+adroit-14          mix      32   2:16:1   13/19/0/32      4.18     384000   (null)                              all*               skylake
+adroit-15          mix      32   2:16:1   1/31/0/32       1.02     384000   (null)                              all*               skylake
+adroit-16          mix      32   2:16:1   30/2/0/32       44.29    384000   (null)                              all*               skylake
+<b>adroit-h11g1       mix      40   2:20:1   1/39/0/40       1.10     770000   gpu:tesla_v100:4(S:0-1)             gpu                v100</b>
+<b>adroit-h11g2       idle     48   2:24:1   0/48/0/48       0.00     1000000  gpu:nvidia_a100:4(S:0-1)            gpu                a100</b>
+adroit-h11n1       mix      128  2:64:1   18/110/0/128    0.00     256000   (null)                              class              amd,rome
 </pre>
 
 ### adroit-h11g1
