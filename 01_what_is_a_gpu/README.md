@@ -6,7 +6,7 @@ Relative to the CPU, GPUs have a far greater number of processing cores but with
 
 Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/top500/2021/06/)).
 
-While Princeton has decided on NVIDIA, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs.
+NVIDIA has been the leading player in GPUs for HPC. However, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs. Princeton has an [MI100 GPU](https://researchcomputing.princeton.edu/amd-mi100-gpu-testing) which you can use for testing.
 
 ![cpu-vs-gpu](http://blog.itvce.com/wp-content/uploads/2016/03/032216_1532_DustFreeNVI2.png)
 
