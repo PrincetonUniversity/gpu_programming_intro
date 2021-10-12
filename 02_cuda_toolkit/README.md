@@ -121,7 +121,7 @@ There is also the [CUDA Deep Neural Net](https://developer.nvidia.com/cudnn) (cu
 
 ## Conda Installations
 
-When you install CuPy, for instance, Conda will include a CUDA Toolkit package (not the development version) and cuDNN:
+When you install [CuPy](https://cupy.dev), for instance, Conda will include a CUDA Toolkit package (not the development version) and cuDNN:
 
 <pre>
 $ module load anaconda3/2020.11
