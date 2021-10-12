@@ -35,10 +35,10 @@ append-path     -d { } LOCAL_CXXFLAGS -I/usr/local/cuda-11.4/include
 -------------------------------------------------------------------
 ```
 
-Let's look at the files in /usr/local/cuda-10.1/bin:
+Let's look at the files in /usr/local/cuda-11.4/bin:
 
 ```
-$ ls -ltrh /usr/local/cuda-10.1/bin
+$ ls -ltrh /usr/local/cuda-11.4/bin
 
 -rwxr-xr-x. 1 root root 232K May 27 22:56 cuobjdump
 -rw-r--r--. 5 root root  417 May 29 18:46 nvcc.profile
