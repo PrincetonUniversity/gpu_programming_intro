@@ -71,7 +71,7 @@ lrwxrwxrwx. 1 root root    6 Jul 28 15:43 nv-nsight-cu -> ncu-ui
 drwxr-xr-x. 2 root root   43 Aug 20 07:56 crt
 ```
 
-Note that `nvcc` is built on `llvm` as [described here](https://developer.nvidia.com/cuda-llvm-compiler). To learn more about an executable, use the help option. For instance: `nvcc --help`.
+`nvcc` is the Nvidia CUDA Compiler. Note that `nvcc` is built on `llvm` as [described here](https://developer.nvidia.com/cuda-llvm-compiler). To learn more about an executable, use the help option. For instance: `nvcc --help`.
 
 
 Let's look at the libraries:
