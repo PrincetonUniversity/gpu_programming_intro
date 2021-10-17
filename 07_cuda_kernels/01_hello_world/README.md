@@ -63,7 +63,7 @@ int main() {
 The GPU code above can be compiled and executed with:
 
 ```
-$ module load cudatoolkit/10.2
+$ module load cudatoolkit/11.4
 $ nvcc -o hello_world_gpu hello_world_gpu.cu
 $ sbatch job.slurm
 ```
@@ -75,13 +75,13 @@ Hello world from the CPU.
 Hello world from the GPU.
 ```
 
-`nvcc` is the NVIDIA CUDA Compiler. It compiles the GPU code itself and uses GNU `gcc` to compile the CPU code. CUDA provides extensions for many common programming languages (e.g., Fortran). These language extensions easily allow developers to run functions in their source code on a GPU.
+`nvcc` is the NVIDIA CUDA Compiler. It compiles the GPU code itself and uses GNU `gcc` to compile the CPU code. CUDA provides extensions for many common programming languages (e.g., C/C++/Fortran). These language extensions allow developers to write GPU functions.
 
 From this simple example we learn that GPU functions are declared with `__global__`, which is a CUDA C/C++ keyword. The triple angle brackets or so-called "triple chevron" is used to specify the execution configuration of the kernel launch which is a call from host code to device code.
 
 Here is the general form for the execution configuration: `<<<NumBlocks, NumThreadsPerBlock>>>`. In the example above we used 1 block and 1 thread per block. At a high level, the execution configuration allows programmers to specify the thread hierarchy for a kernel launch, which defines the number of thread groupings (called blocks), as well as how many threads to execute in each block.
 
-Notice the return type of `void` for GPUFunction. It is required that GPU functions defined with the `__global__` keyword return type void.
+Notice the return type of `void` for GPUFunction. It is required that GPU functions defined with the `__global__` keyword return type `void`.
 
 ### Exercises
 
