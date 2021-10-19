@@ -43,6 +43,7 @@ Instead of computing the singular value decomposition (SVD) on the CPU, this exa
 ```
 $ cd gpu_programming_intro/06_cuda_libraries
 $ cat gesvdj_example.cpp | less
+# cuSolverDN : Dense Linear Algebra Library
 ```
 
 Next, compile and link the code as follows:
