@@ -127,41 +127,38 @@ When you install [CuPy](https://cupy.dev), for instance, Conda will include a CU
 
 <pre>
 $ module load anaconda3/2020.11
-$ conda create --name py-gpu cupy
+$ conda create --name py-gpu cupy --channel conda-forge
 
-  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
-  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-4.5-1_gnu
-  blas               pkgs/main/linux-64::blas-1.0-mkl
-  ca-certificates    pkgs/main/linux-64::ca-certificates-2021.9.30-h06a4308_1
-  certifi            pkgs/main/linux-64::certifi-2021.5.30-py39h06a4308_0
-  cudatoolkit        pkgs/main/linux-64::cudatoolkit-10.1.243-h6bb024c_0
-  cudnn              pkgs/main/linux-64::cudnn-7.6.5-cuda10.1_0
-  cupy               pkgs/main/linux-64::cupy-8.3.0-py39hcaf9a05_0
-  fastrlock          pkgs/main/linux-64::fastrlock-0.6-py39h2531618_0
-  intel-openmp       pkgs/main/linux-64::intel-openmp-2021.3.0-h06a4308_3350
-  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.35.1-h7274673_9
-  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
-  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.3.0-h5101ec6_17
-  libgomp            pkgs/main/linux-64::libgomp-9.3.0-h5101ec6_17
-  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.3.0-hd4cf53a_17
-  mkl                pkgs/main/linux-64::mkl-2021.3.0-h06a4308_520
-  mkl-service        pkgs/main/linux-64::mkl-service-2.4.0-py39h7f8727e_0
-  mkl_fft            pkgs/main/linux-64::mkl_fft-1.3.0-py39h42c9631_2
-  mkl_random         pkgs/main/linux-64::mkl_random-1.2.2-py39h51133e4_0
-  nccl               pkgs/main/linux-64::nccl-2.8.3.1-hcaf9a05_0
-  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
-  numpy              pkgs/main/linux-64::numpy-1.20.3-py39hf144106_0
-  numpy-base         pkgs/main/linux-64::numpy-base-1.20.3-py39h74d4b33_0
-  openssl            pkgs/main/linux-64::openssl-1.1.1l-h7f8727e_0
-  pip                pkgs/main/linux-64::pip-21.2.4-py39h06a4308_0
-  python             pkgs/main/linux-64::python-3.9.7-h12debd9_1
-  readline           pkgs/main/linux-64::readline-8.1-h27cfd23_0
-  setuptools         pkgs/main/linux-64::setuptools-58.0.4-py39h06a4308_0
-  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_0
-  sqlite             pkgs/main/linux-64::sqlite-3.36.0-hc218d9a_0
-  tk                 pkgs/main/linux-64::tk-8.6.11-h1ccaba5_0
-  tzdata             pkgs/main/noarch::tzdata-2021a-h5d7bf9c_0
-  wheel              pkgs/main/noarch::wheel-0.37.0-pyhd3eb1b0_1
-  xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
-  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+   _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-1_gnu
+  ca-certificates    conda-forge/linux-64::ca-certificates-2021.10.8-ha878542_0
+  cudatoolkit        conda-forge/linux-64::cudatoolkit-11.4.2-h00f7ccd_9
+  cupy               conda-forge/linux-64::cupy-9.5.0-py39h499daff_0
+  fastrlock          conda-forge/linux-64::fastrlock-0.6-py39he80948d_1
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.36.1-hea4e1c9_2
+  libblas            conda-forge/linux-64::libblas-3.9.0-12_linux64_openblas
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-12_linux64_openblas
+  libffi             conda-forge/linux-64::libffi-3.4.2-h9c3ff4c_4
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-11.2.0-h1d223b6_11
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-11.2.0-h69a702a_11
+  libgfortran5       conda-forge/linux-64::libgfortran5-11.2.0-h5c6108e_11
+  libgomp            conda-forge/linux-64::libgomp-11.2.0-h1d223b6_11
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-12_linux64_openblas
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.18-pthreads_h8fe5266_0
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-11.2.0-he4da1e4_11
+  libzlib            conda-forge/linux-64::libzlib-1.2.11-h36c2ea0_1013
+  ncurses            conda-forge/linux-64::ncurses-6.2-h58526e2_4
+  numpy              conda-forge/linux-64::numpy-1.21.2-py39hdbf815f_0
+  openssl            conda-forge/linux-64::openssl-3.0.0-h7f98852_1
+  pip                conda-forge/noarch::pip-21.3-pyhd8ed1ab_0
+  python             conda-forge/linux-64::python-3.9.7-hf930737_3_cpython
+  python_abi         conda-forge/linux-64::python_abi-3.9-2_cp39
+  readline           conda-forge/linux-64::readline-8.1-h46c0cb4_0
+  setuptools         conda-forge/linux-64::setuptools-58.2.0-py39hf3d152e_0
+  sqlite             conda-forge/linux-64::sqlite-3.36.0-h9cd32fc_2
+  tk                 conda-forge/linux-64::tk-8.6.11-h27826a3_1
+  tzdata             conda-forge/noarch::tzdata-2021d-he74cb21_0
+  wheel              conda-forge/noarch::wheel-0.37.0-pyhd8ed1ab_1
+  xz                 conda-forge/linux-64::xz-5.2.5-h516909a_1
+  zlib               conda-forge/linux-64::zlib-1.2.11-h36c2ea0_1013
 </pre>
