@@ -129,7 +129,7 @@ When you install [CuPy](https://cupy.dev), for instance, Conda will include a CU
 $ module load anaconda3/2020.11
 $ conda create --name py-gpu cupy --channel conda-forge
 
-   _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
   _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-1_gnu
   ca-certificates    conda-forge/linux-64::ca-certificates-2021.10.8-ha878542_0
   cudatoolkit        conda-forge/linux-64::cudatoolkit-11.4.2-h00f7ccd_9
