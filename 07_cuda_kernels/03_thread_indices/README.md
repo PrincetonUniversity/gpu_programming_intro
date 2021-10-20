@@ -60,7 +60,7 @@ In the CPU code above, the loop is carried out in serial. That is, loop iteratio
 To get started:
 
 ```bash
-$ module load cudatoolkit/10.2
+$ module load cudatoolkit/11.4
 # edit for_loop.cu
 $ nvcc -o for_loop for_loop.cu
 $ sbatch job.slurm
