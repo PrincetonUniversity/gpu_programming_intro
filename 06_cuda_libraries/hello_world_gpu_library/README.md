@@ -11,6 +11,7 @@ $ cd 06_cuda_libraries/hello_world_gpu_library
 $ cat cumessage.h
 $ cat cumessage.cu
 $ cat myapp.cu
+```
 
 Note that `myapp.cu` only needs to know about the actual GPU function `GPUfunction` takes no arguments and, of course, returns no arguments. Nothing is said about how that function is implemented. That is done entirelly in the library.
 
