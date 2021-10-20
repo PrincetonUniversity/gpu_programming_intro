@@ -42,17 +42,16 @@ Instead of computing the singular value decomposition (SVD) on the CPU, this exa
 
 ```
 $ cd gpu_programming_intro/06_cuda_libraries
-$ cat gesvdj_example.cpp | less
-# cuSolverDN : Dense Linear Algebra Library
+$ cat gesvdj_example.cpp | less  # q to quit
 ```
 
-See the [cuSOLVER API](https://docs.nvidia.com/cuda/cusolver/index.html).
+The header file `cusolverDn.h` contains the line `cuSolverDN : Dense Linear Algebra Library` providing information about its purpose. See the [cuSOLVER API](https://docs.nvidia.com/cuda/cusolver/index.html) for more.
 
 
 Next, compile and link the code as follows:
 
 ```
-$ module load cudatoolkit/11.0
+$ module load cudatoolkit/11.4
 $ g++ -o gesvdj_example gesvdj_example.cpp -lcudart -lcusolver
 ```
 
