@@ -178,4 +178,4 @@ Note that some examples have dependencies that will not be satisfied so they wil
 GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 60 on tigergpu and 80 on della-gpu
 ```
 
-Note that `nbody` will run successfully on TigerGPU but not on Adroit since the compute nodes do not have `libglut.so`.
+Note that `nbody` will run successfully on TigerGPU and adroit-vis but not on Adroit since the compute nodes do not have `libglut.so`.
