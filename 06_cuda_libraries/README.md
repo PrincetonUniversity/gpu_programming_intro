@@ -170,7 +170,7 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-See `7_CUDALibraries` for more examples. For instance, take a look at `NVIDIA_CUDA-11.4_Samples/7_CUDALibraries/simpleCUFFT_MGPU`.
+See `7_CUDALibraries` for more examples. For instance, take a look at `NVIDIA_CUDA-11.4_Samples/7_CUDALibraries/simpleCUFFT_MGPU`. Does the resulting executable link against `libcufft.so`?
 
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Simulations/nbody` use:
 
