@@ -22,7 +22,7 @@ $ nvcc -Xcompiler -fPIC -o libcumessage.so -shared cumessage.cu
 $ ls -l
 ```
 
-This will produce `libcumessage.so` which is a GPU library with a single function. Add the option "-v" to the line beginning with `nvcc` above to see more details. You will see that `gcc` is being called in addition to `nvcc`.
+This will produce `libcumessage.so` which is a GPU library with a single function. Add the option "-v" to the line beginning with `nvcc` above to see more details. You will see that `gcc` is being called.
 
 ### Use the GPU Library
 
