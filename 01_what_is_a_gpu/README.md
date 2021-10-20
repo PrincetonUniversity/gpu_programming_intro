@@ -152,77 +152,15 @@ To see a wealth of information about the GPUs use:
 $ nvidia-smi -q
 ```
 
-### adroit-h11g4
+### adroit-h11g2
 
-`adroit-h11g4` has 2 NVIDIA K40c GPUs with 12 GB of memory per GPU. Each GPU has 15 streaming multiprocessors (SM) and 192 CUDA cores per SM. View the technical specifications for the [K40c](https://www.techpowerup.com/gpu-specs/tesla-k40c.c2505) or buy this GPU on [Amazon](https://www.amazon.com/NVIDIA-Tesla-K40c-computing-processor/dp/B06VSWDH15/ref=sr_1_3?keywords=nvidia+k40c&qid=1572468693&sr=8-3).
+`adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU.
 
-Add this line to your Slurm script to use a K40c GPU:
+Add this line to your Slurm script to use an A100 GPU:
 
 ```
 #SBATCH --gres=gpu:1
-#SBATCH --constraint=k40
-```
-
-Here is infomation about the K40c GPUs on this node:
-
-
-```
-  CUDADevice with properties:
-
-                      Name: 'Tesla K40c'
-                     Index: 1
-         ComputeCapability: '3.5'
-            SupportsDouble: 1
-             DriverVersion: 10.1000
-            ToolkitVersion: 10
-        MaxThreadsPerBlock: 1024
-          MaxShmemPerBlock: 49152
-        MaxThreadBlockSize: [1024 1024 64]
-               MaxGridSize: [2.1475e+09 65535 65535]
-                 SIMDWidth: 32
-               TotalMemory: 1.1997e+10
-           AvailableMemory: 1.1841e+10
-       MultiprocessorCount: 15
-              ClockRateKHz: 745000
-               ComputeMode: 'Default'
-      GPUOverlapsTransfers: 1
-    KernelExecutionTimeout: 0
-          CanMapHostMemory: 1
-           DeviceSupported: 1
-            DeviceSelected: 1
-```
-
-Here is infomation about the CPUs on this node:
-
-```
-$ ssh adroit-h11g1
-$ lscpu | grep -v Flags
-
-Architecture:          x86_64
-CPU op-mode(s):        32-bit, 64-bit
-Byte Order:            Little Endian
-CPU(s):                16
-On-line CPU(s) list:   0-15
-Thread(s) per core:    1
-Core(s) per socket:    8
-Socket(s):             2
-NUMA node(s):          2
-Vendor ID:             GenuineIntel
-CPU family:            6
-Model:                 63
-Model name:            Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz
-Stepping:              2
-CPU MHz:               2738.281
-CPU max MHz:           3600.0000
-CPU min MHz:           1200.0000
-BogoMIPS:              6399.96
-Virtualization:        VT-x
-L1d cache:             32K
-L1i cache:             32K
-L2 cache:              256K
-L3 cache:              20480K
-NUMA node0 CPU(s):     0-7
-NUMA node1 CPU(s):     8-15
+#SBATCH --constraint=a100
 ```
 
 To see a wealth of information about the GPUs use:
