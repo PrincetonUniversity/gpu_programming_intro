@@ -121,18 +121,19 @@ Then browse the directories:
 ```
 $ cd ~/nvidia_samples/NVIDIA_CUDA-11.4_Samples
 $ ls -ltrh
-total 84K
-drwxr-xr-x. 52 jdh4 cses 4.0K Oct 25 16:17 0_Simple
-drwxr-xr-x.  8 jdh4 cses  173 Oct 25 16:17 1_Utilities
-drwxr-xr-x. 13 jdh4 cses 4.0K Oct 25 16:17 2_Graphics
-drwxr-xr-x. 23 jdh4 cses 4.0K Oct 25 16:17 3_Imaging
-drwxr-xr-x. 10 jdh4 cses  245 Oct 25 16:17 4_Finance
-drwxr-xr-x. 10 jdh4 cses  186 Oct 25 16:17 5_Simulations
-drwxr-xr-x. 34 jdh4 cses 4.0K Oct 25 16:17 6_Advanced
-drwxr-xr-x. 40 jdh4 cses 4.0K Oct 25 16:17 7_CUDALibraries
-drwxr-xr-x.  6 jdh4 cses   95 Oct 25 16:18 common
--rw-r--r--.  1 jdh4 cses  59K Oct 25 16:18 EULA.txt
--rw-r--r--.  1 jdh4 cses 2.6K Oct 25 16:18 Makefile
+total 144K
+drwxr-xr-x. 66 jdh4 cses 4.0K Oct 20 00:06 0_Simple
+drwxr-xr-x.  8 jdh4 cses  173 Oct 20 00:06 1_Utilities
+drwxr-xr-x. 14 jdh4 cses 4.0K Oct 20 00:06 2_Graphics
+drwxr-xr-x. 25 jdh4 cses 4.0K Oct 20 00:06 3_Imaging
+drwxr-xr-x. 10 jdh4 cses  245 Oct 20 00:06 4_Finance
+drwxr-xr-x. 10 jdh4 cses  186 Oct 20 00:06 5_Simulations
+drwxr-xr-x. 36 jdh4 cses 4.0K Oct 20 00:06 6_Advanced
+drwxr-xr-x. 37 jdh4 cses 4.0K Oct 20 00:06 7_CUDALibraries
+drwxr-xr-x.  6 jdh4 cses   95 Oct 20 00:06 common
+-rw-r--r--.  1 jdh4 cses  60K Oct 20 00:06 LICENSE
+-rw-r--r--.  1 jdh4 cses  60K Oct 20 00:06 EULA.txt
+-rw-r--r--.  1 jdh4 cses 2.6K Oct 20 00:06 Makefile
 ```
 
 Pick an example and then build and run it. For instance:
