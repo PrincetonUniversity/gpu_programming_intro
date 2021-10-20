@@ -25,8 +25,8 @@ For the complete list see [GPU libraries](https://developer.nvidia.com/gpu-accel
 Run the commands below to examine the libraries:
 
 ```
-$ module show cudatoolkit/11.0
-$ ls -lL /usr/local/cuda-11.0/lib64/lib*.so
+$ module show cudatoolkit/11.4
+$ ls -lL /usr/local/cuda-11.4/lib64/lib*.so
 ```
 
 ## Example
