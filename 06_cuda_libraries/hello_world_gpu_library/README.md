@@ -14,7 +14,7 @@ $ cat cumessage.cu
 
 `cumessage.h` is the header file. It contains the signature or protocol of one function. That is, the name and the input/output types are specified but the function is not implemented here. The implementation is done in `cumessage.cu`. There is some CUDA code in that file. It will be explained in `07_cuda_kernels`.
 
-Libraries are standalone. That is, there is nothing a present waiting to use our library. We will simply create it and then write a code that can use it. Create the library by running the following commands:
+Libraries are standalone. That is, there is nothing at present waiting to use our library. We will simply create it and then write a code that can use it. Create the library by running the following commands:
 
 ```bash
 $ module load cudatoolkit/11.4
