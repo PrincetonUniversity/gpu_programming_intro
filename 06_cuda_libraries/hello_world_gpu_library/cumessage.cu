@@ -7,5 +7,7 @@ __global__ void GPUFunction_kernel() {
 
 void GPUFunction() {
   GPUFunction_kernel<<<1,1>>>();
+  
+  // kernel execution is asynchronous so sync on its completion
   cudaDeviceSynchronize();
 }
