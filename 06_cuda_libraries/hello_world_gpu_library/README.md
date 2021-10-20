@@ -37,7 +37,7 @@ Once again, note that `myapp.cu` only needs to know about the inputs and outputs
 Compile the main routine against our GPU library:
 
 ```
-$ nvcc -I. -o myapp myapp.cu -L. -lcumessage -lcudart
+$ nvcc -I. -o myapp myapp.cu -L. -lcudart -lcumessage 
 $ ls -ltr
 ```
 
