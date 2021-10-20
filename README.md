@@ -10,7 +10,7 @@ This guide provides materials for getting started with writing and running GPU c
 [OpenACC Training Series at ORNL](https://www.olcf.ornl.gov/openacc-training-series/)   
 [OpenACC Workshop at Princeton](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf)  
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
-[Online Book Available through PU Library](https://catalog.princeton.edu/catalog/11361691)
+[Online Book Available through PU Library](https://catalog.princeton.edu/catalog/99125304171206421)
 <!--
 ## Workshop Survey
 Please complete [this survey](https://forms.gle/XYXeVKLVyWCTtBFX8) toward the end of the workshop.
