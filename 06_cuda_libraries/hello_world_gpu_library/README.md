@@ -61,6 +61,6 @@ Finally, submit the job and inspect the output:
 ```
 $ sbatch job.slurm
 $ cat slurm-*.out
-Hello world from the CPU.
-Hello world from the GPU.
+  Hello world from the CPU.
+  Hello world from the GPU.
 ```
