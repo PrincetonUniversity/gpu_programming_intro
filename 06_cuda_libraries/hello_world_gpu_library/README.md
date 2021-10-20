@@ -19,7 +19,7 @@ Libraries are standalone. That is, there is nothing at present waiting to use ou
 ```bash
 $ module load cudatoolkit/11.4
 $ nvcc -Xcompiler -fPIC -o libcumessage.so -shared cumessage.cu
-$ ls -l
+$ ls -ltr
 ```
 
 This will produce `libcumessage.so` which is a GPU library with a single function. Add the option "-v" to the line beginning with `nvcc` above to see more details. You will see that `gcc` is being called.
@@ -38,6 +38,7 @@ Compile the main routine against our GPU library:
 
 ```
 $ nvcc -I. -o myapp myapp.cu -L. -lcumessage -lcudart
+$ ls -ltr
 ```
 
 This will produce `myapp` which is a GPU application that links against our GPU library `libcumessage.so`:
