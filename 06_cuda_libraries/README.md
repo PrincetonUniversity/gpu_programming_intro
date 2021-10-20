@@ -39,7 +39,7 @@ $ hostname
 adroit4
 ```
 
-Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU. First look over the source code:
+Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU using `libcusolver`. First look over the source code:
 
 ```
 $ cd gpu_programming_intro/06_cuda_libraries
