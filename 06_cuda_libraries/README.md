@@ -46,7 +46,7 @@ $ cd gpu_programming_intro/06_cuda_libraries
 $ cat gesvdj_example.cpp | less  # q to quit
 ```
 
-The header file `cusolverDn.h` contains the line `cuSolverDN : Dense Linear Algebra Library` providing information about its purpose. See the [cuSOLVER API](https://docs.nvidia.com/cuda/cusolver/index.html) for more.
+The header file `cusolverDn.h` included by `gesvdj_example.cpp` contains the line `cuSolverDN : Dense Linear Algebra Library` providing information about its purpose. See the [cuSOLVER API](https://docs.nvidia.com/cuda/cusolver/index.html) for more.
 
 
 Next, compile and link the code as follows:
