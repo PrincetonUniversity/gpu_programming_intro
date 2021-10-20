@@ -141,10 +141,11 @@ Pick an example and then build and run it. For instance:
 ```
 $ cd 0_Simple/matrixMul
 $ make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 60 on tigergpu and 80 on della-gpu
-$ cp gpu_programming_intro/06_cuda_libraries/job.slurm .
 ```
 
-Edit the Slurm script by **changing the last line** as follows:
+This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it writes the routine from scratch which is surely not as efficient as the library.
+
+Create the Slurm script below for the job:
 
 ```bash
 #!/bin/bash
@@ -157,6 +158,7 @@ Edit the Slurm script by **changing the last line** as follows:
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
+module purge
 module load cudatoolkit/11.4
 
 ./matrixMul
@@ -167,6 +169,8 @@ Submit the job:
 ```
 $ sbatch job.slurm
 ```
+
+See `7_CUDALibraries` for more examples. For instance, take a look at `NVIDIA_CUDA-11.4_Samples/7_CUDALibraries/simpleCUFFT_MGPU`.
 
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Simulations/nbody` use:
 
