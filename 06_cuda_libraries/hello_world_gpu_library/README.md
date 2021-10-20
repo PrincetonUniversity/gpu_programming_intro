@@ -34,27 +34,27 @@ $ cat myapp.cu
 
 Once again, note that `myapp.cu` only needs to know about the inputs and outputs of `GPUfunction` through the header file. Nothing is known to `myapp.cu` about how that function is implemented.
 
-Code the main routine against our GPU library:
+Compile the main routine against our GPU library:
 
 ```
 $ nvcc -I. -o myapp myapp.cu -L. -lcumessage -lcudart
 ```
 
-This will produce `myapp` which is a GPU application that links against `libcumessage.so`:
+This will produce `myapp` which is a GPU application that links against our GPU library `libcumessage.so`:
 
 ```
 $ env LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd myapp
-linux-vdso.so.1 (0x00007fffdaf61000)
-	libcumessage.so => ./libcumessage.so (0x000014d68450a000)
-	libcudart.so.11.0 => /usr/local/cuda-11.4/lib64/libcudart.so.11.0 (0x000014d684268000)
-	librt.so.1 => /lib64/librt.so.1 (0x000014d684060000)
-	libpthread.so.0 => /lib64/libpthread.so.0 (0x000014d683e40000)
-	libdl.so.2 => /lib64/libdl.so.2 (0x000014d683c3c000)
-	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x000014d6838a7000)
-	libm.so.6 => /lib64/libm.so.6 (0x000014d683525000)
-	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x000014d68330d000)
-	libc.so.6 => /lib64/libc.so.6 (0x000014d682f48000)
-	/lib64/ld-linux-x86-64.so.2 (0x000014d6847a9000)
+  linux-vdso.so.1 (0x00007fffdaf61000)
+  libcumessage.so => ./libcumessage.so (0x000014d68450a000)
+  libcudart.so.11.0 => /usr/local/cuda-11.4/lib64/libcudart.so.11.0 (0x000014d684268000)
+  librt.so.1 => /lib64/librt.so.1 (0x000014d684060000)
+  libpthread.so.0 => /lib64/libpthread.so.0 (0x000014d683e40000)
+  libdl.so.2 => /lib64/libdl.so.2 (0x000014d683c3c000)
+  libstdc++.so.6 => /lib64/libstdc++.so.6 (0x000014d6838a7000)
+  libm.so.6 => /lib64/libm.so.6 (0x000014d683525000)
+  libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x000014d68330d000)
+  libc.so.6 => /lib64/libc.so.6 (0x000014d682f48000)
+  /lib64/ld-linux-x86-64.so.2 (0x000014d6847a9000)
   ```
 Finally, submit the job and inspect the output:
   
