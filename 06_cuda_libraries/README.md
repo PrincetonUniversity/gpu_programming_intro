@@ -13,6 +13,7 @@ According to NVIDIA: "NVIDIA GPU-accelerated libraries provide highly-optimized 
 + **cuSPARSE** - GPU-accelerated BLAS for sparse matrices
 + **cuRAND** - GPU-accelerated random number generation (RNG)
 + **cuSOLVER** - Dense and sparse direct solvers for computer vision, CFD and other applications
++ **cuTENSOR** - GPU-accelerated tensor linear algebra library
 + **cuFFT** - GPU-accelerated library for Fast Fourier Transforms
 + **NPP** - GPU-accelerated image, video, and signal processing functions
 + **NCCL** - Collective Communications Library for scaling apps across multiple GPUs and nodes
@@ -110,15 +111,15 @@ number of executed sweeps = 1
 Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://docs.nvidia.com/cuda/cuda-samples/index.html):
 
 ```
-$ module load cudatoolkit/11.0
+$ module load cudatoolkit/11.4
 $ mkdir ~/nvidia_samples
-$ /usr/local/cuda-11.0/bin/cuda-install-samples-11.0.sh ~/nvidia_samples
+$ /usr/local/cuda-11.4/bin/cuda-install-samples-11.4.sh ~/nvidia_samples
 ```
 
 Then browse the directories:
 
 ```
-$ cd ~/nvidia_samples/NVIDIA_CUDA-11.0_Samples
+$ cd ~/nvidia_samples/NVIDIA_CUDA-11.4_Samples
 $ ls -ltrh
 total 84K
 drwxr-xr-x. 52 jdh4 cses 4.0K Oct 25 16:17 0_Simple
@@ -155,7 +156,7 @@ Edit the Slurm script by **changing the last line** as follows:
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load cudatoolkit/11.0
+module load cudatoolkit/11.4
 
 ./matrixMul
 ```
