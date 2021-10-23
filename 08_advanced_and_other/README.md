@@ -72,7 +72,8 @@ int main()
 The C++11 language standard introduced the `auto` keyword. To compile the code with the Intel compiler for TigerGPU:
 
 ```
-$ module load intel
+$ module load intel/19.1/64/19.1.1.217
+$ module load cudatoolkit/11.3
 $ nvcc -ccbin=icpc -std=c++11 -arch=sm_60 -o simple simple.cu
 ```
 
