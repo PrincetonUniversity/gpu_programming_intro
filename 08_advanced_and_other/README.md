@@ -15,9 +15,12 @@ See the CUDA-aware MPI modules on TigerGPU:
 $ ssh <NetID>@tigergpu.princeton.edu
 $ module avail openmpi/cuda
 
------------------------------------- /usr/local/share/Modules/modulefiles ------------------------------------
-openmpi/cuda-8.0/gcc/2.1.0/64        openmpi/cuda-8.0/intel-17.0/2.1.0/64 openmpi/cuda-9.0/gcc/3.0.0/64
-openmpi/cuda-8.0/gcc/3.0.0/64        openmpi/cuda-8.0/intel-17.0/3.0.0/64 openmpi/cuda-9.0/intel-17.0/3.0.0/64
+----------------------------- /usr/local/share/Modules/modulefiles -----------------------------
+openmpi/cuda-11.0/gcc/4.0.4/64         openmpi/cuda-8.0/intel-17.0/2.1.0/64
+openmpi/cuda-11.0/nvhpc-20.11/4.0.4/64 openmpi/cuda-8.0/intel-17.0/3.0.0/64
+openmpi/cuda-11.3/nvhpc-21.5/4.1.1/64  openmpi/cuda-9.0/gcc/3.0.0/64
+openmpi/cuda-8.0/gcc/2.1.0/64          openmpi/cuda-9.0/intel-17.0/3.0.0/64
+openmpi/cuda-8.0/gcc/3.0.0/64
 ```
 
 ## GPU Direct
