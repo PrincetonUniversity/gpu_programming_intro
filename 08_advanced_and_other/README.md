@@ -31,6 +31,8 @@ openmpi/cuda-8.0/gcc/3.0.0/64
 
 > Using GPUDirect™, multiple GPUs, network adapters, solid-state drives (SSDs) and now NVMe drives can directly read and write CUDA host and device memory, eliminating unnecessary memory copies, dramatically lowering CPU overhead, and reducing latency, resulting in significant performance improvements in data transfer times for applications running on NVIDIA Tesla™ and Quadro™ products
 
+GPUDirect is enabled on `della-gpu` and `traverse`.
+
 ## GPU Sharing
 
 Many GPU applications only use the GPU for a fraction of the time. For many years, a goal of GPU vendors has been to allow for GPU sharing between applications. Slurm is capable of supporting this through the `--gpu-mps` option.
