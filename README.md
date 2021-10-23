@@ -18,7 +18,7 @@ Please complete [this survey](https://forms.gle/XYXeVKLVyWCTtBFX8) toward the en
 
 ## Getting Help
 
-If you encounter any difficulties with building or running GPU codes on our HPC clusters then please send an email to <a href="mailto:cses@princeton.edu">cses@princeton.edu</a> or attend a <a href="https://researchcomputing.princeton.edu/education/help-sessions">help session</a>.
+If you encounter any difficulties with this material then please send an email to <a href="mailto:cses@princeton.edu">cses@princeton.edu</a> or attend a <a href="https://researchcomputing.princeton.edu/education/help-sessions">help session</a>.
 
 ## Authorship
 
