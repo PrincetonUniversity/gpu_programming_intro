@@ -40,12 +40,12 @@ The following code adds two vectors together on a CPU:
 void vecAdd(double *a, double *b, double *c, int n)
 {
     int i;
-    for(i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         c[i] = a[i] + b[i];
     }
 }
 
-int main( int argc, char* argv[] )
+int main(int argc, char* argv[])
 {
     // Size of vectors
     int n = 2000;
@@ -66,7 +66,7 @@ int main( int argc, char* argv[] )
  
     int i;
     // Initialize vectors on host
-    for( i = 0; i < n; i++ ) {
+    for (i = 0; i < n; i++) {
         h_a[i] = sin(i)*sin(i);
         h_b[i] = cos(i)*cos(i);
     }
@@ -88,7 +88,7 @@ Take a look at `vector_add_cpu.c`. You will see that it allocates three arrays o
 ```C
 void vecAdd(double *a, double *b, double *c, int n) {
     int i;
-    for(i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         c[i] = a[i] + b[i];
     }
 }
@@ -126,7 +126,7 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
       c[i] = a[i] + b[i];
 }
  
-int main( int argc, char* argv[] )
+int main(int argc, char* argv[])
 {
     // Size of vectors
     int n = 2000;
@@ -153,7 +153,7 @@ int main( int argc, char* argv[] )
 
     int i;
     // Initialize vectors on host
-    for( i = 0; i < n; i++ ) {
+    for (i = 0; i < n; i++) {
         h_a[i] = sin(i)*sin(i);
         h_b[i] = cos(i)*cos(i);
     }
@@ -179,7 +179,7 @@ int main( int argc, char* argv[] )
     vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);
  
     // Copy array back to host
-    cudaMemcpy(h_c, d_c, bytes, cudaMemcpyDeviceToHost );
+    cudaMemcpy(h_c, d_c, bytes, cudaMemcpyDeviceToHost);
  
     // Release device memory
     cudaFree(d_a);
@@ -228,7 +228,7 @@ GridSize 2 and total_threads 2048
 Performing vector addition (timer started) ... done in 0.19 s.
 ```
 
-Note that the reported time include all operations beyond those needed to carry out the operation on the GPU. This includes the time required to allocate and deallocate memory on the GPU and the time required to move the data to and from the GPU.
+Note that the reported time includes all operations beyond those needed to carry out the operation on the GPU. This includes the time required to allocate and deallocate memory on the GPU and the time required to move the data to and from the GPU.
 
 To use a GPU effectively the problem you are solving must have a vast amount of data parallelism. In the example here one can assign a different thread to each of the individual elements. For problems involving recursion or sorting or small amounts of data, it becomes difficult to take advantage of a GPU.
 
