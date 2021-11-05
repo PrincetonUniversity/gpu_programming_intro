@@ -124,8 +124,8 @@ Note that `nsight-sys` does not exist for Traverse. You will need to examine the
 See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). This tool does not support the P100 GPUs of TigerGPU. To make the command available load the module:
 
 ```
-module load cudatoolkit/10.2
-nv-nsight-cu-cli  # or nv-nsight-cu for GUI
+module load cudatoolkit/11.4
+ncu  # or ncu-ui for GUI
 ```
 
 The idea is to use `nv-nsight-cu-cli` for the profiling and `nv-nsight-cu` for examining the data in a GUI.
@@ -145,21 +145,21 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2020.2 cudatoolkit/10.2
+module load anaconda3/2020.2 cudatoolkit/11.4
 conda activate dark-env
 
-nv-nsight-cu-cli -f -o my_report_${SLURM_JOBID} python myscript.py
+ncu -f -o my_report_${SLURM_JOBID} python myscript.py
 ```
 
-One can then use `nv-nsight-cu` to view the results:
+One can then use `ncu-ui` to view the results:
 
 ```
 $ ssh -X <YourNetID>@adroit.princeton.edu
-$ module load cudatoolkit/10.2
-$ nv-nsight-cu my_report_xxxxxx.nsight-cuprof-report
+$ module load cudatoolkit/11.4
+$ ncu-ui my_report_xxxxxx.nsight-cuprof-report
 ```
 
-Note that `nv-nsight-cu` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
+Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # DLProf
 
