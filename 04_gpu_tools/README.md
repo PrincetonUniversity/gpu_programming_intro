@@ -124,8 +124,8 @@ Note that `nsight-sys` does not exist for Traverse. You will need to examine the
 See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). This tool does not support the P100 GPUs of TigerGPU. To make the command available load the module:
 
 ```
-module load cudatoolkit/11.4
-ncu  # or ncu-ui for GUI
+$ module load cudatoolkit/11.4
+$ ncu --help
 ```
 
 The idea is to use `ncu` for the profiling and `ncu-ui` for examining the data in a GUI.
@@ -152,13 +152,15 @@ conda activate dark-env
 ncu -f -o my_report_${SLURM_JOBID} python myscript.py
 ```
 
-One can then use `ncu-ui` to view the results:
+After the job finishes, one can use `ncu-ui` to view the results:
 
 ```
 $ ssh -X <YourNetID>@adroit.princeton.edu
 $ module load cudatoolkit/11.4
 $ ncu-ui my_report_xxxxxx.ncu-rep
 ```
+
+The `ncu` profiler slows down the execution time of the code.
 
 Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
