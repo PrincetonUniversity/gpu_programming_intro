@@ -114,7 +114,7 @@ For an MPI code you should use:
 srun --wait=0 nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} ./my_mpi_exe
 ```
 
-You can either download the `.qdrep` file to your local machine to use `nsight-sys` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsight-sys` on that machine. The latter approach would look like this:
+Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` file to your local machine to use `nsys-ui` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsys-ui` on that machine. The latter approach would look like this:
 
 ```
 # in a new terminal
@@ -124,8 +124,6 @@ $ nsys-ui myprofile-******.qdrep
 ```
 
 Run this command to see the summary statistics: `nsys stats myprofile_******.qdrep`.
-
-Note that `nsys-ui` does not exist for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # Nsight Compute (ncu) for GPU Kernel Profiling
 
