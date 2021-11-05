@@ -156,7 +156,7 @@ One can then use `ncu-ui` to view the results:
 ```
 $ ssh -X <YourNetID>@adroit.princeton.edu
 $ module load cudatoolkit/11.4
-$ ncu-ui my_report_xxxxxx.nsight-cuprof-report
+$ ncu-ui my_report_xxxxxx.ncu-rep
 ```
 
 Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
