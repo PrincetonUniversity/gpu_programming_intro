@@ -119,7 +119,7 @@ Run this command to see the summary statistics: `nsys stats myprofile.qdrep`. To
 
 Note that `nsight-sys` does not exist for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
-# Nsight Compute for GPU Kernel Profiling (Adroit or Traverse but not TigerGPU)
+# Nsight Compute for GPU Kernel Profiling
 
 See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). This tool does not support the P100 GPUs of TigerGPU. To make the command available load the module:
 
@@ -128,7 +128,7 @@ module load cudatoolkit/11.4
 ncu  # or ncu-ui for GUI
 ```
 
-The idea is to use `nv-nsight-cu-cli` for the profiling and `nv-nsight-cu` for examining the data in a GUI.
+The idea is to use `ncu` for the profiling and `ncu-ui` for examining the data in a GUI.
 
 Below is a sample slurm script:
 
@@ -145,7 +145,8 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2020.2 cudatoolkit/11.4
+module load anaconda3/2020.2
+module load cudatoolkit/11.4
 conda activate dark-env
 
 ncu -f -o my_report_${SLURM_JOBID} python myscript.py
