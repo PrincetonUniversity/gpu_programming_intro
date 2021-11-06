@@ -28,15 +28,7 @@ This is the essence of how every GPU is used as an accelerator:
 
 ![gpu-overview](https://tigress-web.princeton.edu/~jdh4/gpu_as_accelerator_to_cpu_diagram.png)
 
-Below is psuedocode for a matrix operation performed on the GPU:
-
-```
-data = open("input.dat");     # read the data on the CPU
-copyToGPU(data);              # copy the data to the GPU
-matrix_inverse(data.gpu);     # perform a matrix operation on the GPU
-copyFromGPU(data);            # copy the resulting output back to the CPU
-write(data, "output.dat");    # write the output to file on the CPU
-```
+The diagram above is a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will learn more about memory cache, interconnects, CUDA streams and much more.
 
 [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. The hardware on the other clusters do not allow for direct GPU-GPU transfers.
 
