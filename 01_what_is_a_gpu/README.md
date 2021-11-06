@@ -26,7 +26,7 @@ This is the essence of how every GPU is used as an accelerator:
 
 + Copy data from the GPU (device) back to the CPU (host)
 
-![gpu-overview](https://blogandcode.files.wordpress.com/2013/12/cudac-1.jpeg?w=597&h=372)
+![gpu-overview](https://tigress-web.princeton.edu/~jdh4/gpu_as_accelerator_to_cpu_diagram.png)
 
 Below is psuedocode for a matrix operation performed on the GPU:
 
