@@ -8,6 +8,7 @@ This guide provides materials for getting started with writing and running GPU c
 
 [CUDA Training Series at ORNL](https://www.olcf.ornl.gov/cuda-training-series/)   
 [CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
+[CUDA Fortran Programming Guide](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)  
 [OpenACC Training Series at ORNL](https://www.olcf.ornl.gov/openacc-training-series/)   
 [OpenACC Workshop at Princeton](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf)  
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
