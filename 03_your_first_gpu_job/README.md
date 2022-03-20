@@ -22,7 +22,7 @@ adroit4
 Then proceed as follows:
 
 ```
-$ module load anaconda3/2020.11
+$ module load anaconda3/2021.11
 $ conda create --prefix /scratch/network/$USER/py-gpu cupy
 ```
 
@@ -48,7 +48,7 @@ N = 1000
 X = cp.random.randn(N, N, dtype=np.float64)
 for _ in range(trials):
   t0 = perf_counter()
-  u, s, v = cp.linalg.decomposition.svd(X)
+  u, s, v = cp.linalg.svd(X)
   # Y = cp.matmul(X, X)
   # lu, piv = cupyx.scipy.linalg.lu_factor(X, check_finite=False)
   cp.cuda.Device(0).synchronize()
@@ -72,7 +72,7 @@ Below is a sample Slurm script:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2020.11
+module load anaconda3/2021.11
 conda activate /scratch/network/$USER/py-gpu
 
 python svd_cupy.py
@@ -102,7 +102,7 @@ adroit4
 Then proceed as follows:
 
 ```
-$ module load anaconda3/2020.11
+$ module load anaconda3/2021.11
 $ conda create --prefix /scratch/network/$USER/torch-env pytorch cudatoolkit=10.2 --channel pytorch
 ```
 
@@ -145,7 +145,7 @@ Here is a sample Slurm script:
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2020.11
+module load anaconda3/2021.11
 conda activate /scratch/network/$USER/torch-env
 
 python svd_torch.py
@@ -173,7 +173,7 @@ adroit4
 Then proceed as follows:
 
 ```
-$ module load anaconda3/2020.11
+$ module load anaconda3/2021.11
 $ conda create --prefix /scratch/network/$USER/tf2-gpu tensorflow-gpu
 ```
 
@@ -217,7 +217,7 @@ Below is a sample Slurm script:
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2020.11
+module load anaconda3/2021.11
 conda activate /scratch/network/$USER/tf2-gpu
 
 python svd_tensorflow.py
@@ -313,7 +313,7 @@ Below is a sample Slurm script:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load matlab/R2019a
+module load matlab/R2021b
 
 matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
 ```
