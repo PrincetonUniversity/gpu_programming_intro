@@ -1,6 +1,6 @@
 # GPU Tools
 
-This page presents common tools and utilities to aid in using GPUs.
+This page presents common tools and utilities for GPU computing.
 
 # nvidia-smi
 
@@ -44,7 +44,11 @@ Tue Oct 12 10:42:53 2021
 +-----------------------------------------------------------------------------+
 ```
 
-`nvidia-smi` has many options. Here is an an example that produces CSV output of various metrics:
+`nvidia-smi` has many options. Try running:
+
+```nvidia-smi --help```
+
+Here is an an example that produces CSV output of various metrics:
 
 ```
 $ nvidia-smi --query-gpu=timestamp,utilization.memory,memory.total,memory.free,memory.used --format=csv -l 5
