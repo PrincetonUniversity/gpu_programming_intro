@@ -44,9 +44,9 @@ Tue Oct 12 10:42:53 2021
 +-----------------------------------------------------------------------------+
 ```
 
-`nvidia-smi` has many options. Try running:
+To see all of the available options, view the help:
 
-```nvidia-smi --help```
+```$ nvidia-smi --help```
 
 Here is an an example that produces CSV output of various metrics:
 
@@ -69,7 +69,7 @@ adroit-h11g1             Tue Oct 12 10:46:22 2021  470.57.02
 [3] Tesla V100-PCIE-32GB | 32°C,   0 % |     0 / 32510 MB |
 ```
 
-For a comparison of various GPU tools see [this post](https://www.andrey-melentyev.com/monitoring-gpus.html).
+`gpustat` includes the NetID of the user in its output. For a comparison of various GPU tools see [this post](https://www.andrey-melentyev.com/monitoring-gpus.html).
 
 # Nsight Systems (nsys) for Profiling
 
@@ -78,15 +78,15 @@ The `nsys` command can be used to generate a timeline of the execution of your c
 To see the help menu:
 
 ```
-$ module load cudatoolkit/11.4
+$ module load cudatoolkit/11.6
 $ nsys --help
 $ nsys --help profile
 ```
 
-IMPORTANT: Do not run profiling jobs in your `/home` directory because large files are often written during these jobs. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
+IMPORTANT: Do not run profiling jobs in your `/home` directory because large files are often written during these jobs which can exceed your quota. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
 
 ```
-$ ssh <YourNetID>@tigergpu.princeton.edu
+$ ssh <YourNetID>@della-gpu.princeton.edu
 $ cd /scratch/gpfs/<YourNetID>
 $ mkdir myjob && cd myjob
 # prepare Slurm script
@@ -106,7 +106,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2020.2
+module load anaconda3/2021.11
 conda activate myenv
 
 nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -118,12 +118,12 @@ For an MPI code you should use:
 srun --wait=0 nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} ./my_mpi_exe
 ```
 
-Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` file to your local machine to use `nsys-ui` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsys-ui` on that machine. The latter approach would look like this:
+Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` file to your local machine to use `nsys-ui` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsys-ui` on that machine. The latter approach, on Della, would look like this:
 
 ```
 # in a new terminal
 $ ssh -X <YourNetID>@tigressdata.princeton.edu
-$ cd /tiger/scratch/gpfs/<YourNetID>/myjob
+$ cd /della/scratch/gpfs/<YourNetID>/myjob
 $ nsys-ui myprofile-******.qdrep
 ```
 
@@ -131,10 +131,12 @@ Run this command to see the summary statistics: `nsys stats myprofile_******.qdr
 
 # Nsight Compute (ncu) for GPU Kernel Profiling
 
-See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). This tool does not support the P100 GPUs of TigerGPU. To make the command available load the module:
+See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). This tool does not support the P100 GPUs of TigerGPU. On some clusters you will need to load a module to make the command available:
 
 ```
-$ module load cudatoolkit/11.4
+$ ncu --help
+bash: ncu: command not found
+$ module load cudatoolkit/11.6
 $ ncu --help
 ```
 
@@ -155,8 +157,8 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2020.2
-module load cudatoolkit/11.4
+module load anaconda3/2021.11
+module load cudatoolkit/11.6
 conda activate dark-env
 
 ncu -o my_report_${SLURM_JOBID} python myscript.py
@@ -165,14 +167,12 @@ ncu -o my_report_${SLURM_JOBID} python myscript.py
 After the job finishes, one can use `ncu-ui` to view the results:
 
 ```
-$ ssh -X <YourNetID>@adroit.princeton.edu
-$ module load cudatoolkit/11.4
+$ ssh -X <YourNetID>@della-vis2.princeton.edu
+$ module load cudatoolkit/11.6
 $ ncu-ui my_report_xxxxxx.ncu-rep
 ```
 
-The `ncu` profiler slows down the execution time of the code.
-
-Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
+The `ncu` profiler slows down the execution time of the code. Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # DLProf
 
@@ -354,6 +354,7 @@ The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool p
 This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 
 ```
+$ module load cudatoolkit/11.6
 $ nvcc -o hello_world hello_world.cu
 ```
 
