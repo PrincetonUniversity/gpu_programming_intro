@@ -2,9 +2,9 @@
 
 A GPU, or Graphics Processing Unit, is an electronic device originally designed for manipulating the images that appear on a computer monitor. However, beginning around 2007, GPUs have become widely used for accelerating computation in various fields including image processing and machine learning.
 
-Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp, each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available to a CPU. For instance, the P100 GPUs on TigerGPU have only 16 GB compared to 256 GB available to the CPU cores. This is an important consideration in designing algorithms and pipelines.
+Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp (NVIDIA), each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available on a CPU. For instance, the A100 GPUs on Della have 80 GB compared to 1000 GB available to the CPU cores. This is an important consideration when designing algorithms and running jobs. Furthermore, GPUs are intended for highly parallel algorithms. The CPU can often out-perform a GPU on algorithms that are not highly parallelizable such as those that rely on data caching and flow control (e.g., "if" statements).
 
-Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/top500/2021/06/)).
+Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/top500/2022/06/)).
 
 NVIDIA has been the leading player in GPUs for HPC. However, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, what is expected to be the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs. Princeton has an [MI100 GPU](https://researchcomputing.princeton.edu/amd-mi100-gpu-testing) which you can use for testing.
 
