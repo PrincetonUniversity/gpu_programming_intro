@@ -38,12 +38,11 @@ See the "Hardware Resources" on the [GPU Computing](https://researchcomputing.pr
 
 ## Adroit
 
-There are 2 GPU nodes on Adroit: `adroit-h11g1` and `adroit-h11g2`
+There are 3 GPU nodes on Adroit: `adroit-h11g1`, `adroit-h11g2` and `adroit-h11g3`
 
 <pre>
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
 $ snodes
-
 HOSTNAMES          STATE    CPUS S:C:T    CPUS(A/I/O/T)   CPU_LOAD MEMORY   GRES                     PARTITION          AVAIL_FEATURES
 adroit-08          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
 adroit-09          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
@@ -71,7 +70,7 @@ adroit-h11n6       alloc    64   2:32:1   64/0/0/64       37.75    512000   (nul
 
 ### adroit-h11g1
 
-This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
+This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each V100 GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
 
 Add this line to your Slurm script to use a V100 GPUs:
 
@@ -151,7 +150,7 @@ $ nvidia-smi -q
 
 `adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU.
 
-Add this line to your Slurm script to use an A100 GPU:
+Add this line to your Slurm script to explicitly use an A100 GPU:
 
 ```
 #SBATCH --gres=gpu:1
@@ -163,6 +162,10 @@ To see a wealth of information about the GPUs use:
 ```
 $ nvidia-smi -q
 ```
+
+### adroit-h11g3
+
+The GPUs on this node are the same as those on `adroit-h11g1`.
 
 ### Compute Capability and Building Optimized Codes
 
