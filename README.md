@@ -2,7 +2,7 @@
 
 ## About
 
-This guide provides materials for getting started with running GPU codes on the Princeton HPC clusters. It also covers the NVIDIA GPU-accelerated libraries and it provides an introduction to writing CUDA kernels.
+This guide provides materials for getting started with running GPU codes on the Princeton Research Computing clusters. It also covers the NVIDIA GPU-accelerated libraries and it provides an introduction to writing CUDA kernels.
 
 ## Resources for Learning GPU Computing
 
