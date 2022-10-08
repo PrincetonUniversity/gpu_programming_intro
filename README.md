@@ -6,14 +6,13 @@ This guide provides materials for getting started with running GPU codes on the 
 
 ## Resources for Learning GPU Computing
 
+[GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
-[CUDA Fortran Programming Guide by NVIDIA](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)  
-[OpenACC Training Series at ORNL](https://www.olcf.ornl.gov/openacc-training-series/)   
+[CUDA Fortran Programming Guide by NVIDIA](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)     
 [OpenACC Workshop at Princeton](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf)  
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
 [Online Book Available through PU Library](https://catalog.princeton.edu/catalog/99125304171206421)
-[GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)
 
 ## Workshop Survey
 Please complete [this survey](https://forms.gle/ggJdBz5prNhQdxq28) toward the end of the workshop.
