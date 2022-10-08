@@ -1,4 +1,4 @@
-# Introduction to GPU Programming
+# Introduction to GPU Computing
 
 ## Setup for live workshop
 
