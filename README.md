@@ -7,6 +7,7 @@ This guide provides materials for getting started with running GPU codes on the 
 ## Learning Resources
 
 [GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)  
+[Resource List by Open Hackathons](https://www.openhackathons.org/s/technical-resources)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
 [CUDA Fortran Programming Guide by NVIDIA](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)     
