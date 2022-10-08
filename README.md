@@ -6,7 +6,7 @@ This guide provides materials for getting started with running GPU codes on the 
 
 ## Resources for Learning GPU Computing
 
-[CUDA Training Series at ORNL](https://www.olcf.ornl.gov/cuda-training-series/)   
+[Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
 [CUDA Fortran Programming Guide by NVIDIA](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)  
 [OpenACC Training Series at ORNL](https://www.olcf.ornl.gov/openacc-training-series/)   
