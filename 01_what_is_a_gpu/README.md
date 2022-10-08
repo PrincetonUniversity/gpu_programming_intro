@@ -72,12 +72,6 @@ adroit-h11n6       alloc    64   2:32:1   64/0/0/64       37.75    512000   (nul
 
 This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each V100 GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
 
-Add this line to your Slurm script to use a V100 GPUs:
-
-```
-#SBATCH --gres=gpu:1
-```
-
 Here is some information about the V100 GPUs in this node:
 
 ```
@@ -108,11 +102,10 @@ Here is some information about the V100 GPUs in this node:
 
 Here is infomation about the CPUs on this node:
 
-```
-$ ssh <NetID>@adroit.princeton.edu
+<pre>
+$ ssh &lt;NetID&gt;@adroit.princeton.edu
 $ ssh adroit-h11g1
 $ lscpu | grep -v Flags
-
 Architecture:          x86_64
 CPU op-mode(s):        32-bit, 64-bit
 Byte Order:            Little Endian
@@ -138,13 +131,8 @@ L2 cache:              1024K
 L3 cache:              22528K
 NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30
 NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31
-```
+</pre>
 
-To see a wealth of information about the GPUs use:
-
-```
-$ nvidia-smi -q
-```
 
 ### adroit-h11g2
 
