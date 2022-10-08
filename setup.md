@@ -10,7 +10,7 @@
 
 + Please SSH to Adroit in the terminal: `ssh <YourNetID>@adroit.princeton.edu` [click [here](https://researchcomputing.princeton.edu/faq/why-cant-i-login-to-a-clu) for help]
 
-+ If you are new to Linux then consider using the MyAdroit web portal: [https://myadroit.princeton.edu](https://myadroit.princeton.edu)
++ If you are new to Linux then consider using the MyAdroit web portal: [https://myadroit.princeton.edu](https://myadroit.princeton.edu) (VPN required from off-campus)
 
 + Clone this repo on Adroit:
 
