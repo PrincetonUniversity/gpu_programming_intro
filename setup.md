@@ -1,4 +1,4 @@
-# A Primer on GPU Programming
+# Introduction to GPU Programming
 
 ## Setup for live workshop
 
@@ -12,7 +12,7 @@
 
 + If you are new to Linux then consider using the MyAdroit web portal: [https://myadroit.princeton.edu](https://myadroit.princeton.edu)
 
-+ Clone this repo on your chosen HPC cluster (e.g., Adroit):
++ Clone this repo on Adroit:
 
    ```
    $ cd /scratch/network/$USER
