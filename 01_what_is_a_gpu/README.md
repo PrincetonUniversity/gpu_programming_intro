@@ -28,7 +28,7 @@ This is the essence of how every GPU is used as an accelerator:
 
 ![gpu-overview](https://tigress-web.princeton.edu/~jdh4/gpu_as_accelerator_to_cpu_diagram.png)
 
-The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will learn more about memory cache, interconnects, CUDA streams and much more.
+The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will need to learn more about memory cache, interconnects, CUDA streams and much more.
 
 [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. The hardware on the other clusters do not allow for direct GPU-GPU transfers.
 
@@ -44,26 +44,29 @@ There are 2 GPU nodes on Adroit: `adroit-h11g1` and `adroit-h11g2`
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
 $ snodes
 
-HOSTNAMES          STATE    CPUS S:C:T    CPUS(A/I/O/T)   CPU_LOAD MEMORY   GRES                                PARTITION          AVAIL_FEATURES
-adroit-01          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
-adroit-02          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
-adroit-03          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
-adroit-04          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
-adroit-05          idle     28   2:14:1   0/28/0/28       0.26     128000   (null)                              class              broadwell
-adroit-06          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
-adroit-07          idle     28   2:14:1   0/28/0/28       0.00     128000   (null)                              class              broadwell
-adroit-08          mix      32   2:16:1   19/13/0/32      22.80    384000   (null)                              all*               skylake
-adroit-09          mix      32   2:16:1   25/7/0/32       11.09    384000   (null)                              all*               skylake
-adroit-10          mix      32   2:16:1   19/13/0/32      12.05    384000   (null)                              all*               skylake
-adroit-11          mix      32   2:16:1   2/30/0/32       0.00     384000   (null)                              all*               skylake
-adroit-12          mix      32   2:16:1   13/19/0/32      3.02     384000   (null)                              all*               skylake
-adroit-13          mix      32   2:16:1   26/6/0/32       25.25    384000   (null)                              all*               skylake
-adroit-14          mix      32   2:16:1   13/19/0/32      4.18     384000   (null)                              all*               skylake
-adroit-15          mix      32   2:16:1   1/31/0/32       1.02     384000   (null)                              all*               skylake
-adroit-16          mix      32   2:16:1   30/2/0/32       44.29    384000   (null)                              all*               skylake
-<b>adroit-h11g1       mix      40   2:20:1   1/39/0/40       1.10     770000   gpu:tesla_v100:4(S:0-1)             gpu                v100</b>
-<b>adroit-h11g2       idle     48   2:24:1   0/48/0/48       0.00     1000000  gpu:nvidia_a100:4(S:0-1)            gpu                a100</b>
-adroit-h11n1       mix      128  2:64:1   18/110/0/128    0.00     256000   (null)                              class              amd,rome
+HOSTNAMES          STATE    CPUS S:C:T    CPUS(A/I/O/T)   CPU_LOAD MEMORY   GRES                     PARTITION          AVAIL_FEATURES
+adroit-08          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
+adroit-09          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
+adroit-10          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
+adroit-11          mix      32   2:16:1   10/22/0/32      0.00     384000   (null)                    class              skylake,intel
+adroit-12          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
+adroit-13          mix      32   2:16:1   8/24/0/32       8.07     384000   (null)                    all*               skylake,intel
+adroit-13          mix      32   2:16:1   8/24/0/32       8.07     384000   (null)                    class              skylake,intel
+adroit-14          mix      32   2:16:1   8/24/0/32       8.06     384000   (null)                    all*               skylake,intel
+adroit-14          mix      32   2:16:1   8/24/0/32       8.06     384000   (null)                    class              skylake,intel
+adroit-15          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    all*               skylake,intel
+adroit-15          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
+adroit-16          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    all*               skylake,intel
+adroit-16          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
+adroit-h11g1       idle     40   2:20:1   0/40/0/40       0.02     770000   gpu:tesla_v100:4(S:0-1)   gpu                v100,intel
+adroit-h11g2       mix      48   2:24:1   17/31/0/48      3.00     1000000  gpu:nvidia_a100:4(S:0-1)  gpu                a100,intel
+adroit-h11g3       idle     56   4:14:1   0/56/0/56       0.09     760000   gpu:tesla_v100:4(S:0-3)   gpu                v100,intel
+adroit-h11n1       idle     128  2:64:1   0/128/0/128     0.00     256000   (null)                    class              amd,rome
+adroit-h11n2       mix      64   2:32:1   32/32/0/64      29.09    512000   (null)                    all*               intel,ice
+adroit-h11n3       down     64   2:32:1   0/0/64/64       0.00     512000   (null)                    all*               intel,ice
+adroit-h11n4       mix      64   2:32:1   48/16/0/64      32.02    512000   (null)                    all*               intel,ice
+adroit-h11n5       mix      64   2:32:1   2/62/0/64       2.00     512000   (null)                    all*               intel,ice
+adroit-h11n6       alloc    64   2:32:1   64/0/0/64       37.75    512000   (null)                    all*               intel,ice
 </pre>
 
 ### adroit-h11g1
