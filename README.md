@@ -4,7 +4,7 @@
 
 This guide provides materials for getting started with running GPU codes on the Princeton Research Computing clusters. It also covers the NVIDIA GPU-accelerated libraries and it provides an introduction to writing CUDA kernels.
 
-## Resources for Learning GPU Computing
+## Learning Resources
 
 [GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
