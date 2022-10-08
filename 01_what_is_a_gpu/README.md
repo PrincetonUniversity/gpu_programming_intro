@@ -30,7 +30,7 @@ This is the essence of how every GPU is used as an accelerator:
 
 The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will need to learn more about memory cache, interconnects, CUDA streams and much more.
 
-[NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. The hardware on the other clusters do not allow for direct GPU-GPU transfers.
+[NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. Della has this fast GPU-GPU interconnect on each pair of GPUs on 70 of the 90 GPU nodes.
 
 # What GPU resources does Princeton have?
 
