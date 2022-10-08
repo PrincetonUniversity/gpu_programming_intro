@@ -16,7 +16,7 @@
 
    ```
    $ cd /scratch/network/$USER
-   $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro
+   $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro.git
    ```
 
 + For the live workshop, to get access to the GPU nodes on Adroit, add this line to your Slurm scripts:
