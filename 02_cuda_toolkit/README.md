@@ -139,7 +139,7 @@ $ conda create --name py-gpu cupy --channel conda-forge
   _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
   bzip2              conda-forge/linux-64::bzip2-1.0.8-h7f98852_4
   ca-certificates    conda-forge/linux-64::ca-certificates-2022.9.24-ha878542_0
-  cudatoolkit        conda-forge/linux-64::cudatoolkit-11.7.0-hd8887f6_10
+  <b>cudatoolkit        conda-forge/linux-64::cudatoolkit-11.7.0-hd8887f6_10</b>
   cupy               conda-forge/linux-64::cupy-11.2.0-py310h9216885_0
   fastrlock          conda-forge/linux-64::fastrlock-0.8-py310hd8f1fbe_2
   ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.36.1-hea4e1c9_2
