@@ -129,7 +129,7 @@ $ module avail cudnn
 
 ## Conda Installations
 
-When you install [CuPy](https://cupy.dev), for instance, Conda will include a CUDA Toolkit package (not the development version) and cuDNN:
+When you install [CuPy](https://cupy.dev), for instance, which is like NumPy for GPUs, Conda will include a CUDA Toolkit package:
 
 <pre>
 $ module load anaconda3/2022.5
@@ -170,3 +170,5 @@ $ conda create --name py-gpu cupy --channel conda-forge
   wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0
   xz                 conda-forge/linux-64::xz-5.2.6-h166bdaf_0
 </pre>
+
+When using `pip` to do the installation, one needs to load the `cudatoolkit` module since that dependency is assumed to be available on the local system. The Conda approach installs all the dependencies so one does not load the module.
