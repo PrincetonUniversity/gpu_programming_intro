@@ -26,17 +26,17 @@ For the complete list see [GPU libraries](https://developer.nvidia.com/gpu-accel
 Run the commands below to examine the libraries:
 
 ```
-$ module show cudatoolkit/11.4
-$ ls -lL /usr/local/cuda-11.4/lib64/lib*.so
+$ module show cudatoolkit/11.7
+$ ls -lL /usr/local/cuda-11.7/lib64/lib*.so
 ```
 
 ## Example
 
-Make sure that you are on the head node:
+Make sure that you are on the `adroit5` login node :
 
 ```
 $ hostname
-adroit4
+adroit5
 ```
 
 Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU using `libcusolver`. First look over the source code:
@@ -52,7 +52,7 @@ The header file `cusolverDn.h` included by `gesvdj_example.cpp` contains the lin
 Next, compile and link the code as follows:
 
 ```
-$ module load cudatoolkit/11.4
+$ module load cudatoolkit/11.7
 $ g++ -o gesvdj_example gesvdj_example.cpp -lcudart -lcusolver
 ```
 
@@ -111,15 +111,15 @@ number of executed sweeps = 1
 Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://docs.nvidia.com/cuda/cuda-samples/index.html):
 
 ```
-$ module load cudatoolkit/11.4
+$ module load cudatoolkit/11.7
 $ mkdir ~/nvidia_samples
-$ /usr/local/cuda-11.4/bin/cuda-install-samples-11.4.sh ~/nvidia_samples
+$ /usr/local/cuda-11.7/bin/cuda-install-samples-11.7.sh ~/nvidia_samples
 ```
 
 Then browse the directories:
 
 ```
-$ cd ~/nvidia_samples/NVIDIA_CUDA-11.4_Samples
+$ cd ~/nvidia_samples/NVIDIA_CUDA-11.7_Samples
 $ ls -ltrh
 total 144K
 drwxr-xr-x. 66 jdh4 cses 4.0K Oct 20 00:06 0_Simple
@@ -140,7 +140,7 @@ Pick an example and then build and run it. For instance:
 
 ```
 $ cd 0_Simple/matrixMul
-$ make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 60 on tigergpu and 80 on della-gpu
+$ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
 ```
 
 This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it writes the routine from scratch which is surely not as efficient as the library.
@@ -159,7 +159,7 @@ Create the Slurm script below for the job:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit/11.4
+module load cudatoolkit/11.7
 
 ./matrixMul
 ```
@@ -170,12 +170,12 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-See `7_CUDALibraries` for more examples. For instance, take a look at `NVIDIA_CUDA-11.4_Samples/7_CUDALibraries/simpleCUFFT_MGPU`. Does the resulting executable link against `libcufft.so`?
+See `7_CUDALibraries` for more examples. For instance, take a look at `NVIDIA_CUDA-11.7_Samples/7_CUDALibraries/simpleCUFFT_MGPU`. Does the resulting executable link against `libcufft.so`?
 
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Simulations/nbody` use:
 
 ```
-GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 60 on tigergpu and 80 on della-gpu
+GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
 ```
 
 Note that `nbody` will run successfully on TigerGPU and adroit-vis but not on Adroit since the compute nodes do not have `libglut.so`.
