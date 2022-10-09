@@ -51,12 +51,12 @@ $ cat job.slurm
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --mem=4G                 # total memory (RAM) per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --constraint=a100        # choose a100 or v100 on adroit
+#SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load anaconda3/2022.5
-conda activate /scratch/network/jdh4/gpu_computing_wksp/py-gpu
+conda activate /scratch/network/jdh4/.gpu_workshop/envs/cupy-env
 
 python svd.py
 ```
