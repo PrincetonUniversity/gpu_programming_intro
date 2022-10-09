@@ -69,7 +69,7 @@ adroit-h11g1             Tue Oct 12 10:46:22 2021  470.57.02
 [3] Tesla V100-PCIE-32GB | 32°C,   0 % |     0 / 32510 MB |
 ```
 
-`gpustat` includes the NetID of the user in its output. For a comparison of various GPU tools see [this post](https://www.andrey-melentyev.com/monitoring-gpus.html).
+`gpustat` includes the NetID of the user in its output.
 
 # Nsight Systems (nsys) for Profiling
 
