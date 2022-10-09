@@ -74,7 +74,7 @@ In addition to CuPy, Python programmers looking to run their code on GPUs should
 
 ## PyTorch
 
-[PyTorch](https://pytorch.org) is a popular deep learning framework. See its documentation for [Tensor operations](https://pytorch.org/docs/stable/tensors.html). This example is set to use the CuPy installation of the workshop instructor. If you use PyTorch for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/pytorch) into your account.
+[PyTorch](https://pytorch.org) is a popular deep learning framework. See its documentation for [Tensor operations](https://pytorch.org/docs/stable/tensors.html). This example is set to use the PyTorch installation of the workshop instructor. If you use PyTorch for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/pytorch) into your account.
 
 Examine the Python script before running the code:
 
@@ -128,32 +128,13 @@ You can monitor the progress of the job with `squeue -u $USER`. Once the job com
 
 ## TensorFlow
 
-[TensorFlow](https://www.tensorflow.org) is popular library for training deep neural networks. It can also be used for various numerical computations (see [documentation](https://www.tensorflow.org/api_docs/python/tf)). The installation requires 3.0 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
-
-Before installing the software make sure that you are on the head node:
-
-```
-$ hostname
-adroit4
-```
-
-Then proceed as follows:
-
-```
-$ module load anaconda3/2021.11
-$ conda create --prefix /scratch/network/$USER/tf2-gpu tensorflow-gpu
-```
+[TensorFlow](https://www.tensorflow.org) is popular library for training deep neural networks. It can also be used for various numerical computations (see [documentation](https://www.tensorflow.org/api_docs/python/tf)). This example is set to use the TensorFlow installation of the workshop instructor. If you use TensorFlow for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/tensorflow) into your account.
 
 Examine the Python script before running the code:
 
-```bash
-$ cd gpu_programming_intro/03_your_first_gpu_job/tensorflow
-$ cat svd_tensorflow.py
-```
-
-Here is the Python script:
-
 ```python
+$ cd gpu_programming_intro/03_your_first_gpu_job/tensorflow
+$ cat svd.py
 from time import perf_counter
 
 import os
@@ -174,6 +155,7 @@ print("Result: ", tf.reduce_sum(s).numpy())
 Below is a sample Slurm script:
 
 ```bash
+$ cat job.slurm
 #!/bin/bash
 #SBATCH --job-name=svd-tf        # create a short name for your job
 #SBATCH --nodes=1                # node count
@@ -182,12 +164,13 @@ Below is a sample Slurm script:
 #SBATCH --mem=4G                 # total memory (RAM) per node
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
+#SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2021.11
-conda activate /scratch/network/$USER/tf2-gpu
+module load anaconda3/2022.5
+conda activate /scratch/network/jdh4/.gpu_workshop/envs/tf-gpu
 
-python svd_tensorflow.py
+python svd.py
 ```
 
 Submit the job:
