@@ -197,7 +197,9 @@ Follow [this procedure](https://researchcomputing.princeton.edu/support/knowledg
 
 See [this page](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) for an overview of the hardware at Princton as well as useful commands like `gpudash` and `shownodes`.
 
-# ARM DDT
+# Debuggers
+
+## ARM DDT
 
 The general directions for using the DDT debugger are [here](https://researchcomputing.princeton.edu/faq/debugging-with-ddt-on-the). The getting started guide is [here](https://developer.arm.com/tools-and-software/server-and-hpc/debug-and-profile/arm-forge/arm-ddt).
 
@@ -217,3 +219,7 @@ $ ddt
 The `-g` debugging flag is for CPU code while the `-G` flag is for GPU code. `-G` turns off compiler optimizations. Note that as of February 2020 CUDA Toolkit 10.2 is not supported.
 
 If the graphics are not displaying fast enough then consider using [TurboVNC](https://researchcomputing.princeton.edu/faq/how-do-i-use-vnc-on-tigre).
+
+## `cuda-gdb`
+
+`cuda-gdb` is a free debugger available as part of the CUDA Toolkit.
