@@ -20,18 +20,15 @@ $ cat svd_cupy.py
 from time import perf_counter
 import numpy as np
 import cupy as cp
-# import cupyx.scipy.linalg
-
-trials = 5
-times = []
 
 N = 1000
 X = cp.random.randn(N, N, dtype=np.float64)
+
+trials = 5
+times = []
 for _ in range(trials):
   t0 = perf_counter()
-  u, s, v = cp.linalg.svd(X)
-  # Y = cp.matmul(X, X)
-  # lu, piv = cupyx.scipy.linalg.lu_factor(X, check_finite=False)
+  u, s, v = cp.linalg.decomposition.svd(X)
   cp.cuda.Device(0).synchronize()
   times.append(perf_counter() - t0)
 print("Execution time: ", min(times))
