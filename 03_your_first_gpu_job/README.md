@@ -10,7 +10,7 @@ $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro.git
 
 ## CuPy
 
-[CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). You can roughly think of CuPy as NumPy for GPUs. This example is set to use the CuPy installation of the workshop instructor. If you use CuPy for your research work then you should install it into your account.
+[CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). You can roughly think of CuPy as NumPy for GPUs. This example is set to use the CuPy installation of the workshop instructor. If you use CuPy for your research work then you should [install it](https://github.com/PrincetonUniversity/gpu_programming_intro/tree/master/02_cuda_toolkit#conda-installations) into your account.
 
 Examine the Python script before running the code:
 
