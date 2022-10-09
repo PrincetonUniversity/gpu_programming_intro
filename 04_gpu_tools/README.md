@@ -199,7 +199,7 @@ See [this page](https://researchcomputing.princeton.edu/support/knowledge-base/g
 
 # Debuggers
 
-## ARM DDT
+### ARM DDT
 
 The general directions for using the DDT debugger are [here](https://researchcomputing.princeton.edu/faq/debugging-with-ddt-on-the). The getting started guide is [here](https://developer.arm.com/tools-and-software/server-and-hpc/debug-and-profile/arm-forge/arm-ddt).
 
@@ -220,6 +220,6 @@ The `-g` debugging flag is for CPU code while the `-G` flag is for GPU code. `-G
 
 If the graphics are not displaying fast enough then consider using [TurboVNC](https://researchcomputing.princeton.edu/faq/how-do-i-use-vnc-on-tigre).
 
-## `cuda-gdb`
+### `cuda-gdb`
 
 `cuda-gdb` is a free debugger available as part of the CUDA Toolkit.
