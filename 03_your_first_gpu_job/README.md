@@ -5,37 +5,18 @@ Using the GPUs on the Princeton HPC clusters is easy. Pick one of the applicatio
 ```
 $ ssh <YourNetID>@adroit.princeton.edu
 $ cd /scratch/network/<NetID>
-$ git clone https://github.com/PrincetonUniversity/gpu_programming_intro
+$ git clone https://github.com/PrincetonUniversity/gpu_programming_intro.git
 ```
 
 ## CuPy
 
-[CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). You can roughly think of CuPy as NumPy for GPUs. Note that the installation requires 3.5 GB of space. In general, software is installed in `/home` but because of the large size, the installation will be done on `/scratch/network` (see below).
-
-Before installing the software make sure that you are on the head node:
-
-```
-$ hostname
-adroit4
-```
-
-Then proceed as follows:
-
-```
-$ module load anaconda3/2021.11
-$ conda create --prefix /scratch/network/$USER/py-gpu cupy
-```
+[CuPy](https://cupy.chainer.org) provides a Python interface to set of common numerical routines (e.g., matrix factorizations) which are executed on a GPU (see the [Reference Manual](https://docs-cupy.chainer.org/en/stable/reference/index.html)). You can roughly think of CuPy as NumPy for GPUs. This example is set to use the CuPy installation of the workshop instructor. If you use CuPy for your research work then you should install it into your account.
 
 Examine the Python script before running the code:
 
-```bash
+```python
 $ cd gpu_programming_intro/03_your_first_gpu_job/cupy
 $ cat svd_cupy.py
-```
-
-Here is the Python script:
-
-```python
 from time import perf_counter
 import numpy as np
 import cupy as cp
@@ -72,11 +53,13 @@ Below is a sample Slurm script:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2021.11
-conda activate /scratch/network/$USER/py-gpu
+module load anaconda3/2022.5
+conda activate /scratch/network/jdh4/gpu_computing_wksp/py-gpu
 
 python svd_cupy.py
 ```
+
+A GPU is allocated using the Slurm directive `#SBATCH --gres=gpu:1`.
 
 Submit the job:
 
