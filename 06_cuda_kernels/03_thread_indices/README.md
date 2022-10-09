@@ -32,7 +32,7 @@ int main() {
 Run the CPU code above by following these commands:
 
 ```bash
-$ cd gpu_programming_intro/07_cuda_kernels/03_thread_indices
+$ cd gpu_programming_intro/06_cuda_kernels/03_thread_indices
 $ nvcc -o for_loop for_loop.c
 $ ./for_loop
 ```
@@ -60,7 +60,7 @@ In the CPU code above, the loop is carried out in serial. That is, loop iteratio
 To get started:
 
 ```bash
-$ module load cudatoolkit/11.4
+$ module load cudatoolkit/11.7
 # edit for_loop.cu
 $ nvcc -o for_loop for_loop.cu
 $ sbatch job.slurm
