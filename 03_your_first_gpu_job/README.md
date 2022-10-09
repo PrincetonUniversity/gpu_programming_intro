@@ -74,32 +74,13 @@ In addition to CuPy, Python programmers looking to run their code on GPUs should
 
 ## PyTorch
 
-[PyTorch](https://pytorch.org) is a popular alternative to TensorFlow for deep learning researchers. See its documentation for [Tensor operations](https://pytorch.org/docs/stable/tensors.html). The installation requires 2.7 GB of space. In general, software is installed in `/home` but because of the large size the installation will be done on `/scratch/network`.
-
-Before installing the software make sure that you are on the head node:
-
-```
-$ hostname
-adroit4
-```
-
-Then proceed as follows:
-
-```
-$ module load anaconda3/2021.11
-$ conda create --prefix /scratch/network/$USER/torch-env pytorch cudatoolkit=10.2 --channel pytorch
-```
+[PyTorch](https://pytorch.org) is a popular deep learning framework. See its documentation for [Tensor operations](https://pytorch.org/docs/stable/tensors.html). This example is set to use the CuPy installation of the workshop instructor. If you use PyTorch for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/pytorch) into your account.
 
 Examine the Python script before running the code:
 
-```bash
-$ cd gpu_programming_intro/03_your_first_gpu_job/pytorch
-$ cat svd_torch.py
-```
-
-Here is the application script:
-
 ```python
+$ cd gpu_programming_intro/03_your_first_gpu_job/pytorch
+$ cat svd.py
 from time import perf_counter
 import torch
 
@@ -119,6 +100,7 @@ print("PyTorch version: ", torch.__version__)
 Here is a sample Slurm script:
 
 ```bash
+$ cat job.slurm
 #!/bin/bash
 #SBATCH --job-name=torch-svd     # create a short name for your job
 #SBATCH --nodes=1                # node count
@@ -127,12 +109,13 @@ Here is a sample Slurm script:
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
+#SBATCH --constraint=a100        # choose a100 or v100 on adroit
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2021.11
-conda activate /scratch/network/$USER/torch-env
+module load anaconda3/2022.5
+conda activate /scratch/network/jdh4/.gpu_workshop/envs/torch-env
 
-python svd_torch.py
+python svd.py
 ```
 
 Submit the job:
