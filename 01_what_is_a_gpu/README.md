@@ -138,6 +138,65 @@ NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31
 
 `adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU.
 
+Below is information about the A100 GPUs:
+
+```
+Using a NVIDIA A100-PCIE-40GB GPU.
+  CUDADevice with properties:
+
+                      Name: 'NVIDIA A100-PCIE-40GB'
+                     Index: 1
+         ComputeCapability: '8.0'
+            SupportsDouble: 1
+             DriverVersion: 11.7000
+            ToolkitVersion: 11.2000
+        MaxThreadsPerBlock: 1024
+          MaxShmemPerBlock: 49152
+        MaxThreadBlockSize: [1024 1024 64]
+               MaxGridSize: [2.1475e+09 65535 65535]
+                 SIMDWidth: 32
+               TotalMemory: 4.2351e+10
+           AvailableMemory: 4.1703e+10
+       MultiprocessorCount: 108
+              ClockRateKHz: 1410000
+               ComputeMode: 'Default'
+      GPUOverlapsTransfers: 1
+    KernelExecutionTimeout: 0
+          CanMapHostMemory: 1
+           DeviceSupported: 1
+           DeviceAvailable: 1
+            DeviceSelected: 1
+```
+
+Below is information about the CPUs:
+
+```
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              48
+On-line CPU(s) list: 0-47
+Thread(s) per core:  1
+Core(s) per socket:  24
+Socket(s):           2
+NUMA node(s):        2
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               106
+Model name:          Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz
+Stepping:            6
+CPU MHz:             3499.996
+CPU max MHz:         3500.0000
+CPU min MHz:         800.0000
+BogoMIPS:            5600.00
+L1d cache:           48K
+L1i cache:           32K
+L2 cache:            1280K
+L3 cache:            36864K
+NUMA node0 CPU(s):   0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46
+NUMA node1 CPU(s):   1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47
+```
+
 Add this line to your Slurm script to explicitly use an A100 GPU:
 
 ```
