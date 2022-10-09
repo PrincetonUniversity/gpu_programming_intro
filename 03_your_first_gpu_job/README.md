@@ -4,7 +4,7 @@ Using the GPUs on the Princeton HPC clusters is easy. Pick one of the applicatio
 
 ```
 $ ssh <YourNetID>@adroit.princeton.edu
-$ cd /scratch/network/<NetID>
+$ cd /scratch/network/<YourNetID>
 $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro.git
 ```
 
