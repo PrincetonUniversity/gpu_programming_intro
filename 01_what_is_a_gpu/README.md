@@ -157,15 +157,15 @@ The GPUs on this node are the same as those on `adroit-h11g1`.
 
 ### Compute Capability and Building Optimized Codes
 
-Some software will only run on a GPU of a given compute capability. To find these values for a given NVIDIA Telsa card see [this page](https://en.wikipedia.org/wiki/Nvidia_Tesla). The compute capability of the V100's in Adroit is 7.0. For various build systems this translates to `sm_70`.
+Some software will only run on a GPU of a given compute capability. To find these values for a given NVIDIA Telsa card see [this page](https://en.wikipedia.org/wiki/Nvidia_Tesla). The compute capability of the A100's on Della is 8.0. For various build systems this translates to `sm_80`.
 
-The following is from `$ nvcc --help`:
+The following is from `$ nvcc --help` after loading a `cudatoolkit` module:
 
 ```
 Options for steering GPU code generation.
 =========================================
 
---gpu-architecture <arch>                  (-arch)                         
+--gpu-architecture <arch>                       (-arch)                         
         Specify the name of the class of NVIDIA 'virtual' GPU architecture for which
         the CUDA input files must be compiled.
         With the exception as described for the shorthand below, the architecture
@@ -183,13 +183,27 @@ Options for steering GPU code generation.
         'virtual' architecture as effective architecture values.  For example, 'nvcc
         --gpu-architecture=sm_50' is equivalent to 'nvcc --gpu-architecture=compute_50
         --gpu-code=sm_50,compute_50'.
-        Allowed values for this option:  'compute_30','compute_32','compute_35',
-        'compute_37','compute_50','compute_52','compute_53','compute_60','compute_61',
-        'compute_62','compute_70','compute_72','sm_30','sm_32','sm_35','sm_37','sm_50',
-        'sm_52','sm_53','sm_60','sm_61','sm_62','sm_70','sm_72'.
+        -arch=all         build for all supported architectures (sm_*), and add PTX
+        for the highest major architecture to the generated code.
+        -arch=all-major   build for just supported major versions (sm_*0), plus the
+        earliest supported, and add PTX for the highest major architecture to the
+        generated code.
+        -arch=native      build for all architectures (sm_*) on the current system
+        Note: -arch=native, -arch=all, -arch=all-major cannot be used with the -code
+        option, but can be used with -gencode options
+        Note: the values compute_30, compute_32, compute_35, compute_37, compute_50,
+        sm_30, sm_32, sm_35, sm_37 and sm_50 are deprecated and may be removed in
+        a future release.
+        Allowed values for this option:  'all','all-major','compute_35','compute_37',
+        'compute_50','compute_52','compute_53','compute_60','compute_61','compute_62',
+        'compute_70','compute_72','compute_75','compute_80','compute_86','compute_87',
+        'lto_35','lto_37','lto_50','lto_52','lto_53','lto_60','lto_61','lto_62',
+        'lto_70','lto_72','lto_75','lto_80','lto_86','lto_87','native','sm_35','sm_37',
+        'sm_50','sm_52','sm_53','sm_60','sm_61','sm_62','sm_70','sm_72','sm_75',
+        'sm_80','sm_86','sm_87'.
 ```
 
-Hence, a starting point for optimization flags for the A100 GPUs on della-gpu and Adroit:
+Hence, a starting point for optimization flags for the A100 GPUs on Della and Adroit:
 
 ```
 nvcc -O3 --use_fast_math --gpu-architecture=sm_80 -o myapp myapp.cu
@@ -201,21 +215,9 @@ For the V100's on Adroit or Traverse would be:
 nvcc -O3 --use_fast_math --gpu-architecture=sm_70 -o myapp myapp.cu
 ```
 
-For the P100 GPUs on TigerGPU:
-
-```
-nvcc -O3 --use_fast_math --gpu-architecture=sm_60 -o myapp myapp.cu
-```
-
 ## TigerGPU
 
-TigerGPU is composed of 80 Intel Broadwell nodes each with four NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU has 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM.
-
-All the GPUs are the same so to request a GPU add this line to your Slurm script:
-
-```
-#SBATCH --gres=gpu:1
-```
+TigerGPU was composed of 80 Intel Broadwell nodes each with 4 NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU had 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM.
 
 The following was obtained by running a MATLAB script:
 
@@ -247,12 +249,13 @@ The following was obtained by running a MATLAB script:
 
 ## Traverse
 
-This [new cluster](https://www.princeton.edu/news/2019/10/07/princetons-new-supercomputer-traverse-accelerate-scientific-discovery-fusion) consists of 46 IBM Power9 nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.29 GHz. Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
+The [Traverse cluster](https://www.princeton.edu/news/2019/10/07/princetons-new-supercomputer-traverse-accelerate-scientific-discovery-fusion) consists of 46 IBM Power9 nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.29 GHz. Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
 
 Additional info:
 
 ```
-$ ssh traverse-k02g3
+$ ssh <NetID>@traverse.princeton.edu
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:10:00 --gres=gpu:1
 $ nvidia-smi -q
 ```
 
@@ -260,17 +263,17 @@ $ nvidia-smi -q
 
 |   Cluster  | Number of Nodes | GPUs per Node | NVIDIA GPU Model  | Number of FP32 Cores| SM Count | GPU Memory (GB) |
 |:----------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|
-| Adroit     |      1           |     4         |  V100            | 5120   | 80  | 32 |
+| Adroit     |      2           |     4         |  V100            | 5120   | 80  | 32 |
 | Adroit     |      1           |     4         |  A100            | 6912   | 108  | 40 |     
-| TigerGPU   |     80           |     4         |  P100            | 3584   | 56  | 16 |
-| Traverse   |     46           |     4         |  V100            | 5120   | 80  | 32 | 
+| Della      |     70           |     4         |  A100            | 6912   | 108  | 80 |
 | Della      |     20           |     2         |  A100            | 6912   | 108  | 40 |
 | Stella     |     6            |     2         |  A100            | 6912   | 108  | 40 |
-
+| TigerGPU   |     80           |     4         |  P100            | 3584   | 56  | 16 |
+| Traverse   |     46           |     4         |  V100            | 5120   | 80  | 32 | 
 
 SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix. There are differences between the V100 node on Adroit and the Traverse nodes (see [PCIe versus SXM2](https://www.nextplatform.com/micro-site-content/achieving-maximum-compute-throughput-pcie-vs-sxm2/)).
 
 
 ## GPU Hackathon at Princeton
 
-The next hackathon will take place in June of 2022. This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
+The next hackathon will take place in June of 2023. This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
