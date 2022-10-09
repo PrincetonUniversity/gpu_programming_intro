@@ -108,42 +108,41 @@ number of executed sweeps = 1
 
 ## NVIDIA CUDA Samples
 
-Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://docs.nvidia.com/cuda/cuda-samples/index.html):
+Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://github.com/NVIDIA/cuda-samples):
 
 ```
-$ module load cudatoolkit/11.7
-$ mkdir ~/nvidia_samples
-$ /usr/local/cuda-11.7/bin/cuda-install-samples-11.7.sh ~/nvidia_samples
+$ cd gpu_programming_intro
+$ git clone https://github.com/NVIDIA/cuda-samples.git
+$ cd Samples
 ```
 
 Then browse the directories:
 
 ```
-$ cd ~/nvidia_samples/NVIDIA_CUDA-11.7_Samples
 $ ls -ltrh
-total 144K
-drwxr-xr-x. 66 jdh4 cses 4.0K Oct 20 00:06 0_Simple
-drwxr-xr-x.  8 jdh4 cses  173 Oct 20 00:06 1_Utilities
-drwxr-xr-x. 14 jdh4 cses 4.0K Oct 20 00:06 2_Graphics
-drwxr-xr-x. 25 jdh4 cses 4.0K Oct 20 00:06 3_Imaging
-drwxr-xr-x. 10 jdh4 cses  245 Oct 20 00:06 4_Finance
-drwxr-xr-x. 10 jdh4 cses  186 Oct 20 00:06 5_Simulations
-drwxr-xr-x. 36 jdh4 cses 4.0K Oct 20 00:06 6_Advanced
-drwxr-xr-x. 37 jdh4 cses 4.0K Oct 20 00:06 7_CUDALibraries
-drwxr-xr-x.  6 jdh4 cses   95 Oct 20 00:06 common
--rw-r--r--.  1 jdh4 cses  60K Oct 20 00:06 LICENSE
--rw-r--r--.  1 jdh4 cses  60K Oct 20 00:06 EULA.txt
--rw-r--r--.  1 jdh4 cses 2.6K Oct 20 00:06 Makefile
+total 20K
+drwxr-xr-x. 55 jdh4 cses 4.0K Oct  9 18:23 0_Introduction
+drwxr-xr-x.  6 jdh4 cses  130 Oct  9 18:23 1_Utilities
+drwxr-xr-x. 36 jdh4 cses 4.0K Oct  9 18:23 2_Concepts_and_Techniques
+drwxr-xr-x. 25 jdh4 cses 4.0K Oct  9 18:23 3_CUDA_Features
+drwxr-xr-x. 40 jdh4 cses 4.0K Oct  9 18:23 4_CUDA_Libraries
+drwxr-xr-x. 52 jdh4 cses 4.0K Oct  9 18:23 5_Domain_Specific
+drwxr-xr-x.  5 jdh4 cses  105 Oct  9 18:23 6_Performance
 ```
 
 Pick an example and then build and run it. For instance:
 
 ```
-$ cd 0_Simple/matrixMul
+$ module load cudatoolkit/11.7
+$ cd 0_Introduction/matrixMul
 $ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
 ```
 
 This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it writes the routine from scratch which is surely not as efficient as the library.
+
+```
+cp <PATH/TO>/05_cuda_libraries/matrixMul/job.slurm .
+```
 
 Create the Slurm script below for the job:
 
