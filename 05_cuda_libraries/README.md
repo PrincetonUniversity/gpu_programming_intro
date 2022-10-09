@@ -138,29 +138,10 @@ $ cd 0_Introduction/matrixMul
 $ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
 ```
 
-This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it writes the routine from scratch which is surely not as efficient as the library.
+This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it uses a naive implementation of the routine which is surely not as efficient as the library implementation.
 
 ```
-cp <PATH/TO>/05_cuda_libraries/matrixMul/job.slurm .
-```
-
-Create the Slurm script below for the job:
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=cuda-libs     # create a short name for your job
-#SBATCH --nodes=1                # node count
-#SBATCH --ntasks=1               # total number of tasks across all nodes
-#SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
-#SBATCH --mem-per-cpu=16G        # memory per cpu-core (4G is default)
-#SBATCH --gres=gpu:1             # number of gpus per node
-#SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
-
-module purge
-module load cudatoolkit/11.7
-
-./matrixMul
+$ cp <PATH/TO>/gpu_programming_intro/05_cuda_libraries/matrixMul/job.slurm .
 ```
 
 Submit the job:
@@ -169,12 +150,12 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-See `7_CUDALibraries` for more examples. For instance, take a look at `NVIDIA_CUDA-11.7_Samples/7_CUDALibraries/simpleCUFFT_MGPU`. Does the resulting executable link against `libcufft.so`?
+See `4_CUDA_Libraries` for more examples. For instance, take a look at `4_CUDA_Libraries/simpleCUFFT_MGPU`. Does the resulting executable link against `libcufft.so`?
 
-Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Simulations/nbody` use:
+Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Domain_Specific/nbody` use:
 
 ```
-GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="70" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
+GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
 ```
 
-Note that `nbody` will run successfully on TigerGPU and adroit-vis but not on Adroit since the compute nodes do not have `libglut.so`.
+Note that `nbody` will not run successfully on adroit since the GPU nodes do not have `libglut.so`. The the library could be added if needed. One can compile and run this code on adroit-vis using `TARGET_ARCH=x86_64 SMS="35"`.
