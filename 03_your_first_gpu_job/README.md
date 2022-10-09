@@ -277,11 +277,13 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
+You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. Learn more about [MATLAB on the Research Computing clusters](https://researchcomputing.princeton.edu/support/knowledge-base/matlab).
+
 Here is an [intro](https://www.mathworks.com/help/parallel-computing/run-matlab-functions-on-a-gpu.html) to using MATLAB with GPUs.
 
 ## Julia
 
-See the section on "Julia Environments and GPU Packages" on [this page](https://researchcomputing.princeton.edu/julia).
+See the section on "Julia Environments and GPU Packages" on [this page](https://researchcomputing.princeton.edu/support/knowledge-base/julia).
 
 ## Monitoring GPU Usage
 
