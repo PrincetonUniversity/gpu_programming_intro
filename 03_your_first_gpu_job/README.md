@@ -262,12 +262,13 @@ Below is a sample Slurm script:
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
 #SBATCH --time=00:02:00          # total run time limit (HH:MM:SS)
 #SBATCH --gres=gpu:1             # number of gpus per node
+#SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load matlab/R2021b
+module load matlab/R2022a
 
-matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
+matlab -singleCompThread -nodisplay -nosplash -r svd
 ```
 
 Submit the job:
@@ -283,18 +284,6 @@ Here is an [intro](https://www.mathworks.com/help/parallel-computing/run-matlab-
 See the section on "Julia Environments and GPU Packages" on [this page](https://researchcomputing.princeton.edu/julia).
 
 ## Monitoring GPU Usage
-
-To monitor the GPU usage:
-
-```
-$ ssh adroit-h11g1   # 4x V100
-$ nvidia-smi
-```
-
-```
-$ ssh adroit-h11g4   # 2x K40c
-$ nvidia-smi
-```
 
 To monitor jobs in our reservation:
 
@@ -405,6 +394,8 @@ print(times)
 print("Result: ", tf.reduce_sum(p).numpy())
 ```
 
+SVD with NumPy:
+
 ```
 from time import perf_counter
 
@@ -417,13 +408,14 @@ X = np.random.randn(N, N).astype(np.float64)
 for _ in range(cpu_runs):
   t0 = perf_counter()
   u, s, v = np.linalg.svd(X)
-  # Y = np.matmul(X, X)
   times.append(perf_counter() - t0)
 print("CPU time: ", min(times))
 print("NumPy version: ", np.__version__)
 print(s.sum())
 print(times)
 ```
+
+Performing benchmarks with R:
 
 ```
 # install.packages("microbenchmark")
