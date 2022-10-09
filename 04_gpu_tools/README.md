@@ -8,9 +8,7 @@ This is the NVIDIA Systems Management Interface. This utility can be used to mon
 
 ```
 $ nvidia-smi
-
-Tue Oct 12 10:42:22 2021       
-Tue Oct 12 10:42:53 2021       
+       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 470.57.02    Driver Version: 470.57.02    CUDA Version: 11.4     |
 |-------------------------------+----------------------+----------------------+
@@ -106,7 +104,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2021.11
+module load anaconda3/2022.5
 conda activate myenv
 
 nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -124,10 +122,10 @@ Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` f
 # in a new terminal
 $ ssh -X <YourNetID>@tigressdata.princeton.edu
 $ cd /della/scratch/gpfs/<YourNetID>/myjob
-$ nsys-ui myprofile-******.qdrep
+$ nsys-ui myprofile-*.qdrep
 ```
 
-Run this command to see the summary statistics: `nsys stats myprofile_******.qdrep`.
+Run this command to see the summary statistics: `nsys stats myprofile_*.qdrep`.
 
 # Nsight Compute (ncu) for GPU Kernel Profiling
 
