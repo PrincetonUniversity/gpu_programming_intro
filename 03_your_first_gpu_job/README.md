@@ -16,7 +16,7 @@ Examine the Python script before running the code:
 
 ```python
 $ cd gpu_programming_intro/03_your_first_gpu_job/cupy
-$ cat svd_cupy.py
+$ cat svd.py
 from time import perf_counter
 import numpy as np
 import cupy as cp
