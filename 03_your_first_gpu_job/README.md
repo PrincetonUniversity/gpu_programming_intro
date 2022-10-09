@@ -42,6 +42,7 @@ print("CuPy version: ", cp.__version__)
 Below is a sample Slurm script:
 
 ```bash
+$ cat job.slurm
 #!/bin/bash
 #SBATCH --job-name=cupy-job      # create a short name for your job
 #SBATCH --nodes=1                # node count
@@ -50,13 +51,14 @@ Below is a sample Slurm script:
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --mem=4G                 # total memory (RAM) per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
+#SBATCH --constraint=a100        # choose a100 or v100 on adroit
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
 module load anaconda3/2022.5
 conda activate /scratch/network/jdh4/gpu_computing_wksp/py-gpu
 
-python svd_cupy.py
+python svd.py
 ```
 
 A GPU is allocated using the Slurm directive `#SBATCH --gres=gpu:1`.
@@ -67,7 +69,7 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. What happens if you re-run the script with the matrix in single precision? Does the run time double if N is doubled? There is a CPU version of the code at the bottom of this page. Does the operation run faster on the CPU with NumPy or on the GPU with CuPy?
+You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. What happens if you re-run the script with the matrix in single precision? Does the run time double if N is doubled? There is a CPU version of the code at the bottom of this page. Does the operation run faster on the CPU with NumPy or on the GPU with CuPy? Try [this exercise](https://github.com/PrincetonUniversity/a100_workshop/tree/main/06_cupy#cupy-uses-tensor-cores) where the Tensor Cores are utilized by using less than single precision (TensorFloat32).
 
 In addition to CuPy, Python programmers looking to run their code on GPUs should also be aware of [Numba](https://numba.pydata.org/) and [JAX](https://github.com/google/jax).
 
