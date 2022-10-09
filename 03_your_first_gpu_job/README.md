@@ -229,13 +229,14 @@ Take a look at [this page](https://github.com/PrincetonUniversity/HPC_R_Workshop
 $ git clone https://github.com/PrincetonUniversity/HPC_R_Workshop
 $ cd HPC_R_Workshop/07_NVBLAS
 $ mv nvblas.conf ~
-# edit 07_NVBLAS.cmd by adding your email address
 $ sbatch 07_NVBLAS.cmd
 ```
 
 Here is the sample output:
 
 ```
+$ cat slurm-*.out
+...
 [1] "Matrix multiply:"
    user  system elapsed 
   0.166   0.137   0.304 
@@ -256,6 +257,7 @@ Here is the sample output:
    user  system elapsed 
  25.955   3.080  20.830 
 [1] "----"
+...
 ```
 
 See the [user guide](https://docs.nvidia.com/cuda/nvblas/index.html) for NVBLAS.
