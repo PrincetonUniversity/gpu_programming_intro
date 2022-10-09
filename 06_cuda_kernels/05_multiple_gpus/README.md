@@ -3,11 +3,11 @@
 The code in the this directory illustrates the use of multiple GPUs. To compile and execute the example, run the following commands:
 
 ```
-$ module load cudatoolkit/11.4
-$ nvcc -O3 -arch=sm_70 -o multi_gpu multi_gpu.cu
+$ module load cudatoolkit/11.7
+$ nvcc -O3 -arch=sm_80 -o multi_gpu multi_gpu.cu
 $ sbatch job.slurm
 ```
 
-On TigerGPU, replace `sm_70` with `sm_60`. Use `sm_80` on della-gpu.
+On Traverse and the Adroit V100 nodes, replace `sm_80` with `sm_70`.
 
-See also `0_Simple/simpleMultiGPU` in the NVIDIA samples which are discussed in `06_cuda_libraries`.
+See also `Samples/0_Introduction/simpleMultiGPU` in the NVIDIA samples which are discussed in `05_cuda_libraries`.
