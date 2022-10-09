@@ -98,7 +98,7 @@ void vecAdd(double *a, double *b, double *c, int n) {
 The output reports the time taken to perform the addition ignoring the memory allocation and initialization. Build and run the code:
 
 ```
-$ cd gpu_programming_intro/07_cuda_kernels/04_vector_addition
+$ cd gpu_programming_intro/06_cuda_kernels/04_vector_addition
 $ gcc -O3 -march=native -o vector_add_cpu vector_add_cpu.c -lm
 $ ./vector_add_cpu
 ```
@@ -216,8 +216,8 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
 The kernel uses special variables which are CUDA extensions to allow threads to distinguish themselves and operate on different data. Specifically, `blockIdx.x` is the block index within a grid, `blockDim.x` is the number of threads per block and `threadIdx.x` is the thread index within a block. Let's build and run the code. The `nvcc` compiler will compile the kernel function while `gcc` will be used in the background to compile the CPU code.
 
 ```
-$ module load cudatoolkit/11.4
-$ nvcc -O3 -arch=sm_70 -o vector_add_gpu vector_add_gpu.cu  # use 60 on tigergpu and 80 on della-gpu
+$ module load cudatoolkit/11.7
+$ nvcc -O3 -arch=sm_80 -o vector_add_gpu vector_add_gpu.cu  # use 70 on traverse or adroit v100 nodes
 $ sbatch job.slurm
 ```
 
@@ -234,4 +234,4 @@ To use a GPU effectively the problem you are solving must have a vast amount of 
 
 ## Advanced Examples
 
-For more advanced examples return to the NVIDIA CUDA samples at the bottom of [this page](https://github.com/PrincetonUniversity/gpu_programming_intro/tree/master/06_cuda_libraries).
+For more advanced examples return to the NVIDIA CUDA samples at the bottom of [this page](https://github.com/PrincetonUniversity/gpu_programming_intro/tree/master/05_cuda_libraries).
