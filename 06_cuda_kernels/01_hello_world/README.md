@@ -22,7 +22,7 @@ int main() {
 This can be compiled and run with:
 
 ```
-$ cd gpu_programming_intro/07_cuda_kernels/01_hello_world
+$ cd gpu_programming_intro/06_cuda_kernels/01_hello_world
 $ gcc -o hello_world hello_world.c
 $ ./hello_world
 ```
@@ -63,7 +63,7 @@ int main() {
 The GPU code above can be compiled and executed with:
 
 ```
-$ module load cudatoolkit/11.4
+$ module load cudatoolkit/11.7
 $ nvcc -o hello_world_gpu hello_world_gpu.cu
 $ sbatch job.slurm
 ```
