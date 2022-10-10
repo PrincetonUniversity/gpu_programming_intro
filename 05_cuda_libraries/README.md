@@ -113,7 +113,7 @@ Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://
 ```
 $ cd gpu_programming_intro
 $ git clone https://github.com/NVIDIA/cuda-samples.git
-$ cd Samples
+$ cd cuda-samples/Samples
 ```
 
 Then browse the directories:
