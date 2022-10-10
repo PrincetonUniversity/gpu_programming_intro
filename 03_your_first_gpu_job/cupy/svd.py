@@ -9,7 +9,7 @@ trials = 5
 times = []
 for _ in range(trials):
   t0 = perf_counter()
-  u, s, v = cp.linalg.decomposition.svd(X)
+  u, s, v = cp.linalg.svd(X)
   cp.cuda.Device(0).synchronize()
   times.append(perf_counter() - t0)
 print("Execution time: ", min(times))
