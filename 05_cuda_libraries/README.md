@@ -150,7 +150,15 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
-See `4_CUDA_Libraries` for more examples. For instance, take a look at `4_CUDA_Libraries/simpleCUFFT_MGPU`. Does the resulting executable link against `libcufft.so`?
+See `4_CUDA_Libraries` for more examples. For instance, take a look at `4_CUDA_Libraries/matrixMulCUBLAS`. Does the resulting executable link against `libcublas.so`?
+
+```
+$ cd 4_CUDA_Libraries/matrixMulCUBLAS
+$ make
+$ ldd matrixMulCUBLAS
+```
+
+Does the code in `4_CUDA_Libraries/simpleCUFFT_MGPU` link against `libcufft.so`?
 
 To run code that uses the Tensor Cores see examples such as `cuda-samples/Samples/3_CUDA_Features/bf16TensorCoreGemm`. That example uses the bfloat16 floating-point format.
 
