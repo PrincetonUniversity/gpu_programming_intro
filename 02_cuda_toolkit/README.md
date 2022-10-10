@@ -133,7 +133,7 @@ When you install [CuPy](https://cupy.dev), for instance, which is like NumPy for
 
 <pre>
 $ module load anaconda3/2022.5
-$ conda create --name py-gpu cupy --channel conda-forge
+$ conda create --name cupy-env cupy --channel conda-forge
 ...
   _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
   _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
