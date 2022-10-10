@@ -234,4 +234,4 @@ To use a GPU effectively the problem you are solving must have a vast amount of 
 
 ## Advanced Examples
 
-For more advanced examples return to the NVIDIA CUDA samples at the bottom of [this page](https://github.com/PrincetonUniversity/gpu_programming_intro/tree/master/05_cuda_libraries).
+For more advanced examples return to the NVIDIA CUDA samples at the bottom of [this page](https://github.com/PrincetonUniversity/gpu_programming_intro/tree/master/05_cuda_libraries#nvidia-cuda-samples).
