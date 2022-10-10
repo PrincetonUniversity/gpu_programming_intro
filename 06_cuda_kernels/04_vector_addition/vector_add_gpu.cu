@@ -97,7 +97,7 @@ int main( int argc, char* argv[] )
         sum += h_c[i];
     double tol = 1e-6;
     //printf("\nout is %f\n", sum/n);
-    if (fabs(sum/n - 1.0) > tol) printf("Warning: potential numerical problems.\n");
+    //if (fabs(sum/n - 1.0) > tol) printf("Warning: potential numerical problems.\n");
  
     // Release host memory
     free(h_a);
