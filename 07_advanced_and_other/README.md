@@ -2,25 +2,21 @@
 
 ## CUDA-Aware MPI
 
-On TigerGPU you will see MPI modules that have been built against CUDA. These modules enable [CUDA-aware MPI](https://developer.nvidia.com/mpi-solutions-gpus) where
+On Della you will see MPI modules that have been built against CUDA. These modules enable [CUDA-aware MPI](https://developer.nvidia.com/mpi-solutions-gpus) where
 memory on a GPU can be sent to another GPU without concerning a CPU. According to NVIDIA:
 
 > Regular MPI implementations pass pointers to host memory, staging GPU buffers through host memory using cudaMemcopy.
 
 > With [CUDA-aware MPI](https://developer.nvidia.com/mpi-solutions-gpus), the MPI library can send and receive GPU buffers directly, without having to first stage them in host memory. Implementation of CUDA-aware MPI was simplified by Unified Virtual Addressing (UVA) in CUDA 4.0 – which enables a single address space for all CPU and GPU memory. CUDA-aware implementations of MPI have several advantages.
 
-See the CUDA-aware MPI modules on TigerGPU:
+See the CUDA-aware MPI modules on Della:
 
 ```
-$ ssh <NetID>@tigergpu.princeton.edu
+$ ssh <NetID>@della.princeton.edu
 $ module avail openmpi/cuda
 
------------------------------ /usr/local/share/Modules/modulefiles -----------------------------
-openmpi/cuda-11.0/gcc/4.0.4/64         openmpi/cuda-8.0/intel-17.0/2.1.0/64
-openmpi/cuda-11.0/nvhpc-20.11/4.0.4/64 openmpi/cuda-8.0/intel-17.0/3.0.0/64
-openmpi/cuda-11.3/nvhpc-21.5/4.1.1/64  openmpi/cuda-9.0/gcc/3.0.0/64
-openmpi/cuda-8.0/gcc/2.1.0/64          openmpi/cuda-9.0/intel-17.0/3.0.0/64
-openmpi/cuda-8.0/gcc/3.0.0/64
+------------- /usr/local/share/Modules/modulefiles -------------
+openmpi/cuda-11.1/gcc/4.1.1  openmpi/cuda-11.3/nvhpc-21.5/4.1.1
 ```
 
 ## GPU Direct
