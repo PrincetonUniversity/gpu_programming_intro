@@ -234,7 +234,7 @@ MATLAB is already installed on the cluster. Simply follow these steps:
 
 ```bash
 $ cd gpu_programming_intro/03_your_first_gpu_job/matlab
-$ cat svd_matlab.m
+$ cat svd.m
 ```
 
 Here is the MATLAB script:
