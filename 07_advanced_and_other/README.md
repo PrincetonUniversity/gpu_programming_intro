@@ -63,12 +63,12 @@ int main()
 }
 ```
 
-The C++11 language standard introduced the `auto` keyword. To compile the code with the Intel compiler for TigerGPU:
+The C++11 language standard introduced the `auto` keyword. To compile the code with the Intel compiler for Della:
 
 ```
-$ module load intel/19.1/64/19.1.1.217
-$ module load cudatoolkit/11.3
-$ nvcc -ccbin=icpc -std=c++11 -arch=sm_60 -o simple simple.cu
+$ module load intel/19.1.1.217
+$ module load cudatoolkit/11.7
+$ nvcc -ccbin=icpc -std=c++11 -arch=sm_80 -o simple simple.cu
 ```
 
-Note that you may need to also load the `rh` module to get the compilation to work. The `rh` module makes a newer GCC available. The Intel compiler depends on GCC. In general, NVIDIA engineers recommend using GCC and not the Intel compiler.
+In general, NVIDIA engineers strongly recommend using GCC over the Intel compiler.
