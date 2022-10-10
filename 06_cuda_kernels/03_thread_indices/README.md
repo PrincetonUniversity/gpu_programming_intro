@@ -1,6 +1,6 @@
 # Built-in Thread and Block Indices
 
-Each thread is given an index within its thread block, starting at 0. Additionally, each block is given an index, starting at 0. Just as threads are grouped into thread blocks, blocks are grouped into a grid, which is the highest entity in the CUDA thread hierarchy.
+Each thread is given an index within its thread block, starting at 0. Additionally, each block is given an index, starting at 0. Threads are grouped into thread blocks, blocks are grouped into grids, and grids can be grouped into a cluster, which is the highest entity in the CUDA hierarchy.
 
 ![intrinic-indices](https://devblogs.nvidia.com/wp-content/uploads/2017/01/cuda_indexing.png)
 
