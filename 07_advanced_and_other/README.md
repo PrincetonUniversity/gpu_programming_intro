@@ -27,15 +27,11 @@ openmpi/cuda-11.1/gcc/4.1.1  openmpi/cuda-11.3/nvhpc-21.5/4.1.1
 
 > Using GPUDirect™, multiple GPUs, network adapters, solid-state drives (SSDs) and now NVMe drives can directly read and write CUDA host and device memory, eliminating unnecessary memory copies, dramatically lowering CPU overhead, and reducing latency, resulting in significant performance improvements in data transfer times for applications running on NVIDIA Tesla™ and Quadro™ products
 
-GPUDirect is enabled on `della-gpu` and `traverse`.
+GPUDirect is enabled on `della` and `traverse`.
 
 ## GPU Sharing
 
 Many GPU applications only use the GPU for a fraction of the time. For many years, a goal of GPU vendors has been to allow for GPU sharing between applications. Slurm is capable of supporting this through the `--gpu-mps` option.
-
-## OpenCL/SYCL
-
-NVIDIA is a private company. If you chose to organize your GPU software and hardware around CUDA then you are locked in to a single vendor. A non-proprietary alternative to NVIDIA CUDA is the Open Computing Language or [OpenCL](https://www.khronos.org/opencl/).
 
 ## OpenMP 4.5+
 
@@ -43,7 +39,7 @@ Recent implementations of [OpenMP](https://www.openmp.org/) support GPU programm
 
 ## CUDA Kernels versus OpenACC on the Long Term
 
-CUDA kernels are written at a low level. OpenACC is a high-level programmaing model. Because GPU hardware is changing rapidly, some argue that writing GPU codes with OpenACC is a better choice because there is much less work do to when new hardware comes out.
+CUDA kernels are written at a low level. OpenACC is a high-level programmaing model. Because GPU hardware is changing rapidly, some argue that writing GPU codes with OpenACC is a better choice because there is much less work do to when new hardware comes out. The sames holds true for Kokkos.
 
 [See the materials](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf) for an OpenACC workshop by Stephane Ethier. Be aware of the Slack channel for OpenACC for getting help.
 
