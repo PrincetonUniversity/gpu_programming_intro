@@ -168,4 +168,4 @@ Note that some examples have dependencies that will not be satisfied so they wil
 GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
 ```
 
-Note that `nbody` will not run successfully on adroit since the GPU nodes do not have `libglut.so`. The the library could be added if needed. One can compile and run this code on adroit-vis using `TARGET_ARCH=x86_64 SMS="35"`.
+Note that `nbody` will not run successfully on adroit since the GPU nodes do not have `libglut.so`. The library could be added if needed. One can compile and run this code on adroit-vis using `TARGET_ARCH=x86_64 SMS="35"`.
