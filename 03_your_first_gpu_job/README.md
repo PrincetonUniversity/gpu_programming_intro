@@ -8,13 +8,13 @@ $ cd /scratch/network/<YourNetID>
 $ git clone https://github.com/PrincetonUniversity/gpu_programming_intro.git
 ```
 
-The key line to add a GPU to your Slurm allocation is:
+To add a GPU to your Slurm allocation:
 
 ```
 #SBATCH --gres=gpu:1             # number of gpus per node
 ```
 
-For Adroit only, to choose an a100 or v100 GPU:
+For Adroit only, to choose the gpu:
 
 ```
 #SBATCH --constraint=a100        # set to a100 or v100
