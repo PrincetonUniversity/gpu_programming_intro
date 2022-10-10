@@ -6,7 +6,7 @@ This guide provides materials for getting started with running GPU codes on the 
 
 ## GPU Training in October
 
-[How GPUs Transformed My Research](https://cglink.me/2gi/r1701714), Wednesday, October 12 at 4:30 PM 
+[How GPUs Transformed My Research](https://cglink.me/2gi/r1701714), Wednesday, October 12 at 4:30 PM  
 [Fall Break Parallel Programming Bootcamp](https://researchcomputing.princeton.edu/fall-break-2022-bootcamp), October 17-19 at 10:00 AM-5:00 PM
 
 ## Learning Resources
