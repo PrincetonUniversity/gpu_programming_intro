@@ -293,12 +293,6 @@ To monitor jobs in our reservation:
 $ watch -n 1 squeue -R <reservation-name>
 ```
 
-## A Reminder About the Filesystems
-
-![hpc-filesystems](https://camo.githubusercontent.com/ed86150645340521984b71a82ca6c4afb75565be/68747470733a2f2f746967726573732d7765622e7072696e6365746f6e2e6564752f7e6a6468342f6870635f7072696e6365746f6e5f66696c6573797374656d732e706e67)
-
-The directions above indicate to perform the installations on `/scratch/network`. In general, one should store executables and source files in `/home`.
-
 ## Benchmarks
 
 ### Matrix Multiplication
