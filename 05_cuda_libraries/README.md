@@ -158,9 +158,9 @@ $ make
 $ ldd matrixMulCUBLAS
 ```
 
-Does the code in `4_CUDA_Libraries/simpleCUFFT_MGPU` link against `libcufft.so`?
+Similarly, does the code in `4_CUDA_Libraries/simpleCUFFT_MGPU` link against `libcufft.so`?
 
-To run code that uses the Tensor Cores see examples such as `cuda-samples/Samples/3_CUDA_Features/bf16TensorCoreGemm`. That example uses the bfloat16 floating-point format.
+To run code that uses the Tensor Cores see examples such as `3_CUDA_Features/bf16TensorCoreGemm`. That example uses the bfloat16 floating-point format.
 
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Domain_Specific/nbody` use:
 
