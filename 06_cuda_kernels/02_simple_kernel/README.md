@@ -30,11 +30,11 @@ int main()
 ## Exercise: GPU implementation
 
 ```
-# rewrite the CPU code above so that it runs on a GPU
+# rewrite the CPU code above so that it runs on a GPU using multiple threads
 # save your file as first_parallel.cu (a starting file by this name is given -- see below)
 ```
 
-To be clear, you are trying to write a GPU code with one kernel launch that produces something like the following:
+The objective is to write a GPU code with one kernel launch that produces the following 6 lines of output:
 
 ```
 This should be running in parallel.
@@ -53,7 +53,5 @@ $ cd gpu_programming_intro/06_cuda_kernels/02_simple_kernel
 $ nvcc -o first_parallel first_parallel.cu
 $ sbatch job.slurm
 ```
-
-Run your GPU code with different values of `NUMBER_OF_BLOCKS` and `NUMBER_OF_THREADS_PER_BLOCK` to see how the execution configuration works.
 
 One possible solution to this exercise is [here](solution.cu) (try for yourself first).
