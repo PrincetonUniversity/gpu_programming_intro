@@ -156,7 +156,7 @@ See `4_CUDA_Libraries` for more examples. For instance, take a look at `4_CUDA_L
 
 ```
 $ cd ../../4_CUDA_Libraries/matrixMulCUBLAS
-$ make
+$ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++
 $ ldd matrixMulCUBLAS
 ```
 
