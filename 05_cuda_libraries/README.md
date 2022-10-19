@@ -56,6 +56,8 @@ $ module load cudatoolkit/11.7
 $ g++ -o gesvdj_example gesvdj_example.cpp -lcudart -lcusolver
 ```
 
+Run `ldd gesvdj_example` to check the linking against cuSOLVER (i.e., `libcusolver.so`).
+
 Submit the job to the scheduler with:
 
 ```
