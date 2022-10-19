@@ -42,7 +42,7 @@ adroit5
 Instead of computing the singular value decomposition (SVD) on the CPU, this example computes it on the GPU using `libcusolver`. First look over the source code:
 
 ```
-$ cd gpu_programming_intro/06_cuda_libraries
+$ cd gpu_programming_intro/05_cuda_libraries
 $ cat gesvdj_example.cpp | less  # q to quit
 ```
 
