@@ -6,10 +6,10 @@
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G per cpu-core is default)
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --time=00:01:00          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=fallgpu    # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit/11.4
+module load cudatoolkit/11.7
 export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
 ./myapp
