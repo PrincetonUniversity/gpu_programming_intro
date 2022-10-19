@@ -155,7 +155,7 @@ $ sbatch job.slurm
 See `4_CUDA_Libraries` for more examples. For instance, take a look at `4_CUDA_Libraries/matrixMulCUBLAS`. Does the resulting executable link against `libcublas.so`?
 
 ```
-$ cd 4_CUDA_Libraries/matrixMulCUBLAS
+$ cd ../..4_CUDA_Libraries/matrixMulCUBLAS
 $ make
 $ ldd matrixMulCUBLAS
 ```
