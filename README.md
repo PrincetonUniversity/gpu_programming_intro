@@ -12,6 +12,7 @@ This guide provides materials for getting started with running GPU codes on the 
 ## Learning Resources
 
 [GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)  
+[2023 Princeton GPU Hackathon](https://www.openhackathons.org/s/siteevent/a0C5e000005Va4hEAC/se000162)  
 [Resource List by Open Hackathons](https://www.openhackathons.org/s/technical-resources)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
