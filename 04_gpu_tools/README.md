@@ -104,7 +104,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2022.5
+module load anaconda3/2023.3
 conda activate myenv
 
 nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -155,7 +155,7 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2022.5
+module load anaconda3/2023.3
 module load cudatoolkit/11.7
 conda activate dark-env
 
@@ -185,7 +185,7 @@ The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool p
 This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 
 ```
-$ module load cudatoolkit/11.6
+$ module load cudatoolkit/11.7
 $ nvcc -o hello_world hello_world.cu
 ```
 
