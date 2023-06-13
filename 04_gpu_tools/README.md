@@ -8,29 +8,29 @@ This is the NVIDIA Systems Management Interface. This utility can be used to mon
 
 ```
 $ nvidia-smi
-       
+Mon Jun 12 20:15:21 2023       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 470.57.02    Driver Version: 470.57.02    CUDA Version: 11.4     |
+| NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  Tesla V100-PCIE...  On   | 00000000:14:00.0 Off |                    0 |
-| N/A   37C    P0    69W / 250W |   1475MiB / 32510MiB |     53%      Default |
-|                               |                      |                  N/A |
+|   0  NVIDIA A100 80G...  On   | 00000000:17:00.0 Off |                    0 |
+| N/A   37C    P0    52W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
-|   1  Tesla V100-PCIE...  On   | 00000000:39:00.0 Off |                    0 |
-| N/A   33C    P0    24W / 250W |      0MiB / 32510MiB |      0%      Default |
-|                               |                      |                  N/A |
+|   1  NVIDIA A100 80G...  On   | 00000000:65:00.0 Off |                    0 |
+| N/A   40C    P0    59W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
-|   2  Tesla V100-PCIE...  On   | 00000000:88:00.0 Off |                    0 |
-| N/A   32C    P0    26W / 250W |      0MiB / 32510MiB |      0%      Default |
-|                               |                      |                  N/A |
+|   2  NVIDIA A100 80G...  On   | 00000000:CA:00.0 Off |                    0 |
+| N/A   40C    P0    56W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
-|   3  Tesla V100-PCIE...  On   | 00000000:B1:00.0 Off |                    0 |
-| N/A   32C    P0    26W / 250W |      0MiB / 32510MiB |      0%      Default |
-|                               |                      |                  N/A |
+|   3  NVIDIA A100 80G...  On   | 00000000:E3:00.0 Off |                    0 |
+| N/A   38C    P0    53W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
                                                                                
 +-----------------------------------------------------------------------------+
@@ -38,7 +38,7 @@ $ nvidia-smi
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
 |        ID   ID                                                   Usage      |
 |=============================================================================|
-|    0   N/A  N/A   2183874      C   ...envs/torch-env/bin/python     1471MiB |
+|  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ```
 
@@ -76,9 +76,8 @@ The `nsys` command can be used to generate a timeline of the execution of your c
 To see the help menu:
 
 ```
-$ module load cudatoolkit/11.7
-$ nsys --help
-$ nsys --help profile
+$ /usr/local/bin/nsys --help
+$ /usr/local/bin/nsys --help profile
 ```
 
 IMPORTANT: Do not run profiling jobs in your `/home` directory because large files are often written during these jobs which can exceed your quota. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
@@ -107,13 +106,13 @@ module purge
 module load anaconda3/2023.3
 conda activate myenv
 
-nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
+/usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
 ```
 
 For an MPI code you should use:
 
 ```
-srun --wait=0 nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} ./my_mpi_exe
+srun --wait=0 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} ./my_mpi_exe
 ```
 
 Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` file to your local machine to use `nsys-ui` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsys-ui` on that machine. The latter approach, on Della, would look like this:
@@ -122,7 +121,7 @@ Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` f
 # in a new terminal
 $ ssh -X <YourNetID>@tigressdata.princeton.edu
 $ cd /della/scratch/gpfs/<YourNetID>/myjob
-$ nsys-ui myprofile-*.qdrep
+$ /usr/local/bin/nsys-ui myprofile-*.qdrep
 ```
 
 Run this command to see the summary statistics: `nsys stats myprofile_*.qdrep`.
@@ -132,10 +131,7 @@ Run this command to see the summary statistics: `nsys stats myprofile_*.qdrep`.
 The `ncu` command is used for detailed profiling of GPU kernels. See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). On some clusters you will need to load a module to make the command available:
 
 ```
-$ ncu --help
-bash: ncu: command not found
-$ module load cudatoolkit/11.7
-$ ncu --help
+$ /usr/local/bin/ncu --help
 ```
 
 The idea is to use `ncu` for the profiling and `ncu-ui` for examining the data in a GUI.
@@ -156,27 +152,25 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
 module load anaconda3/2023.3
-module load cudatoolkit/11.7
 conda activate dark-env
 
-ncu -o my_report_${SLURM_JOBID} python myscript.py
+/usr/local/bin/ncu -o my_report_${SLURM_JOBID} python myscript.py
 ```
 
 After the job finishes, one can use `ncu-ui` to view the results:
 
 ```
-$ ssh -X <YourNetID>@della-vis2.princeton.edu
-$ module load cudatoolkit/11.7
-$ ncu-ui my_report_*.ncu-rep
+$ ssh -X <YourNetID>@della-vis1.princeton.edu
+$ /usr/local/bin/ncu-ui my_report_*.ncu-rep
 ```
 
 The `ncu` profiler slows down the execution time of the code. Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # nvprof
 
-This is the older NVIDIA profiler. It has been replaced by the combination of nsys and nv-nsight-cu-cli.
+This is the older NVIDIA profiler. It has been replaced by the combination of nsys and nsys-ui.
 
-# line_prof for Profiling
+# line_prof for Python Profiling
 
 The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool provides profiling info for each line of a function. It is easy to use and it can be used for Python codes that run on CPUs and/or GPUs.
 
@@ -189,7 +183,7 @@ $ module load cudatoolkit/11.7
 $ nvcc -o hello_world hello_world.cu
 ```
 
-# stats.rc.princeton.edu
+# Job Statistics
 
 Follow [this procedure](https://researchcomputing.princeton.edu/support/knowledge-base/job-stats) to view detailed metrics for your Slurm jobs. This includes GPU utilization and memory as a function of time.
 
