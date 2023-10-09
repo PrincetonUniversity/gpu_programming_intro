@@ -1,13 +1,13 @@
-# Introduction to GPU Computing
+# Intro to GPU Computing
 
 ## About
 
 This guide provides materials for getting started with running GPU codes on the Princeton Research Computing clusters. It also covers the NVIDIA GPU-accelerated libraries and it provides an introduction to writing CUDA kernels.
 
-## GPU Training in October
+## GPU Training in October and November 2023
 
-[How GPUs Transformed My Research](https://cglink.me/2gi/r1701714), Wednesday, October 12 at 4:30 PM  
-[Fall Break Parallel Programming Bootcamp](https://researchcomputing.princeton.edu/fall-break-2022-bootcamp), October 17-19 at 10:00 AM-5:00 PM
+[Fall Break Parallel Programming Bootcamp](https://cglink.me/2gi/r1937302), October 16-17 at 10:00 AM-4:00 PM
+[How GPUs Transformed My Research](https://cglink.me/2gi/r1935910), Thursday, November 9 at 4:30-6:00 PM  
 
 ## Learning Resources
 
@@ -23,7 +23,7 @@ This guide provides materials for getting started with running GPU codes on the 
 [Princeton A100 GPU Workshop](https://github.com/PrincetonUniversity/a100_workshop)
 
 ## Workshop Survey
-Please complete [this survey](https://forms.gle/ggJdBz5prNhQdxq28) toward the end of the workshop.
+Please complete [this survey](https://forms.gle/K7aJrFaUB4DPW4FC8) toward the end of the workshop.
 
 ## Getting Help
 
