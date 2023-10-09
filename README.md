@@ -6,7 +6,7 @@ This guide provides materials for getting started with running GPU codes on the 
 
 ## GPU Training in October and November 2023
 
-[Fall Break Parallel Programming Bootcamp](https://cglink.me/2gi/r1937302), October 16-17 at 10:00 AM-4:00 PM
+[Fall Break Parallel Programming Bootcamp](https://cglink.me/2gi/r1937302), October 16-17 at 10:00 AM-4:00 PM  
 [Multi-GPU Training in PyTorch: Data and Model Parallelism](https://cglink.me/2gi/r1935910), Thursday, November 9 at 4:30-6:00 PM  
 
 ## Learning Resources
