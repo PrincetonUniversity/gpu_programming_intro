@@ -7,9 +7,9 @@
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
 #SBATCH --constraint=a100        # choose a100 or v100
-#SBATCH --reservation=fallgpu    # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit/11.7
+module load cudatoolkit/12.2
 
 ./matrixMul
