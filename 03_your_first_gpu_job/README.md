@@ -181,8 +181,8 @@ $ cat job.slurm
 #SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2022.5
-conda activate /scratch/network/jdh4/.gpu_workshop/envs/tf-gpu
+module load anaconda3/2023.9
+conda activate /scratch/network/jdh4/.gpu_workshop/envs/tf2-gpu
 
 python svd.py
 ```
@@ -274,7 +274,7 @@ Below is a sample Slurm script:
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
-#SBATCH --time=00:02:00          # total run time limit (HH:MM:SS)
+#SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
@@ -297,7 +297,7 @@ Here is an [intro](https://www.mathworks.com/help/parallel-computing/run-matlab-
 
 ## Julia
 
-See the section on "Julia Environments and GPU Packages" on [this page](https://researchcomputing.princeton.edu/support/knowledge-base/julia).
+Install the `CUDA` package then run the script in `03_your_first_gpu_job/julia`. See our [Julia webage](https://researchcomputing.princeton.edu/support/knowledge-base/julia).
 
 ## Monitoring GPU Usage
 
