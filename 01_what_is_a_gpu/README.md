@@ -42,7 +42,7 @@ The diagram above and the accompanying pseudocode present a simplified view of h
 
 [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. Della has this fast GPU-GPU interconnect on each pair of GPUs on 70 of the 90 GPU nodes.
 
-Given the significant performance penalty for moving data between the CPU and GPU, it is natural to work toward "unifying" the CPU and GPU. For instance, read about the [NVIDIA Grace Superchip](https://developer.nvidia.com/blog/nvidia-grace-hopper-superchip-architecture-in-depth/).
+Given the significant performance penalty for moving data between the CPU and GPU, it is natural to work toward "unifying" the CPU and GPU. For instance, read about the [NVIDIA Grace Hopper Superchip](https://developer.nvidia.com/blog/nvidia-grace-hopper-superchip-architecture-in-depth/).
 
 # What GPU resources does Princeton have?
 
@@ -296,7 +296,7 @@ nvcc -O3 --use_fast_math --gpu-architecture=sm_70 -o myapp myapp.cu
 
 ## TigerGPU
 
-TigerGPU was composed of 80 Intel Broadwell nodes each with 4 NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888) or buy on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Passive-Accelerator-900-2H400-0000-000/dp/B0792FXS2S/ref=sr_1_1?keywords=nvidia+p100&qid=1572465106&sr=8-1). Each GPU had 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM.
+TigerGPU was composed of 80 Intel Broadwell nodes each with 4 NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888). Each GPU had 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM. TigerGPU has been retired.
 
 The following was obtained by running a MATLAB script:
 
@@ -342,10 +342,12 @@ $ nvidia-smi -q
 
 |   Cluster  | Number of Nodes | GPUs per Node | NVIDIA GPU Model  | Number of FP32 Cores| SM Count | GPU Memory (GB) |
 |:----------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|
-| Adroit     |      2           |     4         |  V100            | 5120   | 80  | 32 |
-| Adroit     |      1           |     4         |  A100            | 6912   | 108  | 40 |     
-| Della      |     70           |     4         |  A100            | 6912   | 108  | 80 |
+| Adroit     |      1           |     4         |  A100            | 6912   | 108  | 80 |
+| Adroit     |      1           |     4         |  A100            | 6912   | 108  | 40 |
+| Adroit     |      1           |     4         |  V100            | 5120   | 80  | 32 |     
+| Della      |     69           |     4         |  A100            | 6912   | 108  | 80 |
 | Della      |     20           |     2         |  A100            | 6912   | 108  | 40 |
+| Della      |     2            |    28         |  A100            | --     | --   | 10 |  
 | Stella     |     6            |     2         |  A100            | 6912   | 108  | 40 |
 | TigerGPU   |     80           |     4         |  P100            | 3584   | 56  | 16 |
 | Traverse   |     46           |     4         |  V100            | 5120   | 80  | 32 | 
@@ -355,4 +357,4 @@ SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](
 
 ## GPU Hackathon at Princeton
 
-The next hackathon will take place in June of 2023. This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
+The next hackathon will take place in June of 2024. This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
