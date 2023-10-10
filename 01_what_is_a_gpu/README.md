@@ -22,6 +22,10 @@ Like a CPU, a GPU has a hierarchical structure with respect to both the executio
 
 The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA A100 GPU](https://developer.nvidia.com/blog/nvidia-ampere-architecture-in-depth/). The A100 is composed of 108 SMs.
 
+# Princeton Language and Intelligence
+
+The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster will provide 37 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models.
+
 # Overview of using a GPU
 
 This is the essence of how every GPU is used as an accelerator for compute:
