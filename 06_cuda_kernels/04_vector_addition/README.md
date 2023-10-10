@@ -239,7 +239,7 @@ Performing vector addition (timer started) ... done in 0.09 s.
 
 Note that the reported time includes all operations beyond those needed to carry out the operation on the GPU. This includes the time required to allocate and deallocate memory on the GPU and the time required to move the data to and from the GPU.
 
-To use a GPU effectively the problem you are solving must have a vast amount of data parallelism and an overall amount of computation. In the example here the parallelism is high (one can assign a different thread to each of the individual elements) but the overall amount of computation is low so the CPU wins out in performance. Contrast this with a large matrix-matrix multiple where both conditions are satisfied and the GPU wins. For problems involving recursion or sorting or small amounts of data, it becomes difficult to take advantage of a GPU.
+To use a GPU effectively the problem you are solving must have a vast amount of data parallelism and an overall amount of computation. In the example here the parallelism is high (one can assign a different thread to each of the individual elements) but the overall amount of computation is low so the CPU wins out in performance. Contrast this with a large matrix-matrix multiply where both conditions are satisfied and the GPU wins. For problems involving recursion or sorting or small amounts of data, it becomes difficult to take advantage of a GPU.
 
 ## Advanced Examples
 
