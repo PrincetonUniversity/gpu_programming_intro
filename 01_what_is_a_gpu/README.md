@@ -84,33 +84,34 @@ adroit-h11g3  mixed              48/56      7.99    607647/760000Mb   3/4 tesla_
   
 ### adroit-h11g1
 
-This node has 4 NVIDIA A100 GPUs with 80 GB of memory each. Each A100 GPU has 108 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
+This node has 4 NVIDIA A100 GPUs with 80 GB of memory each. Each A100 GPU has 108 streaming multiprocessors (SM) and 64 FP32 CUDA cores per SM.
 
-Here is some information about the V100 GPUs in this node:
+Here is some information about the A100 GPUs on this node:
 
 ```
   CUDADevice with properties:
 
-                      Name: 'Tesla V100-PCIE-32GB'
+                      Name: 'NVIDIA A100 80GB PCIe'
                      Index: 1
-         ComputeCapability: '7.0'
+         ComputeCapability: '8.0'
             SupportsDouble: 1
-             DriverVersion: 10.1000
-            ToolkitVersion: 10
+             DriverVersion: 12.2000
+            ToolkitVersion: 11.2000
         MaxThreadsPerBlock: 1024
           MaxShmemPerBlock: 49152
         MaxThreadBlockSize: [1024 1024 64]
                MaxGridSize: [2.1475e+09 65535 65535]
                  SIMDWidth: 32
-               TotalMemory: 3.4058e+10
-           AvailableMemory: 3.3552e+10
-       MultiprocessorCount: 80
-              ClockRateKHz: 1380000
+               TotalMemory: 8.5175e+10
+           AvailableMemory: 8.4519e+10
+       MultiprocessorCount: 108
+              ClockRateKHz: 1410000
                ComputeMode: 'Default'
       GPUOverlapsTransfers: 1
     KernelExecutionTimeout: 0
           CanMapHostMemory: 1
            DeviceSupported: 1
+           DeviceAvailable: 1
             DeviceSelected: 1
 ```
 
@@ -217,17 +218,12 @@ NUMA node0 CPU(s):   0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,4
 NUMA node1 CPU(s):   1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47
 ```
 
-Add these lines to your Slurm script to explicitly use an A100 GPU:
-
-```
-#SBATCH --gres=gpu:1
-#SBATCH --constraint=a100
-```
+See the necessary Slurm directives to [run on specific GPUs](https://researchcomputing.princeton.edu/systems/adroit#gpus) on Adroit.
 
 To see a wealth of information about the GPUs use:
 
 ```
-$ nvidia-smi -q
+$ nvidia-smi -q | less
 ```
 
 ### adroit-h11g3
