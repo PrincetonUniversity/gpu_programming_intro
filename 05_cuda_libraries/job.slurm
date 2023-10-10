@@ -6,9 +6,10 @@
 #SBATCH --mem-per-cpu=4G         # memory per cpu-core (4G is default)
 #SBATCH --gres=gpu:1             # number of gpus per node
 #SBATCH --time=00:00:30          # total run time limit (HH:MM:SS)
-#SBATCH --reservation=fallgpu    # REMOVE THIS LINE AFTER THE WORKSHOP
+#SBATCH --constraint=a100        # choose gpu80, a100 or v100
+#SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit/11.7
+module load cudatoolkit/12.2
 
 ./gesvdj_example
