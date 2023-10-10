@@ -4,7 +4,7 @@ Let's say you have a CPU code and you are thinking about writing GPU kernels to 
 
 According to NVIDIA: "NVIDIA GPU-accelerated libraries provide highly-optimized functions that perform 2x-10x faster than CPU-only alternatives. Using drop-in interfaces, you can replace CPU-only libraries such as MKL, IPP and FFTW with GPU-accelerated versions with almost no code changes. The libraries can optimally scale your application across multiple GPUs."
 
-![NVIDIA-GPU-Libraries](https://developer.nvidia.com/sites/default/files/pictures/2017/acceleration.png)
+![NVIDIA-GPU-Libraries](https://tigress-web.princeton.edu/~jdh4/nv_libraries.jpeg)
 
 ### Selected libraries
 
@@ -26,8 +26,8 @@ For the complete list see [GPU libraries](https://developer.nvidia.com/gpu-accel
 Run the commands below to examine the libraries:
 
 ```
-$ module show cudatoolkit/11.7
-$ ls -lL /usr/local/cuda-11.7/lib64/lib*.so
+$ module show cudatoolkit/12.2
+$ ls -lL /usr/local/cuda-12.2/lib64/lib*.so
 ```
 
 ## Example
