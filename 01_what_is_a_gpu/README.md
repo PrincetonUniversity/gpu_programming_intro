@@ -24,7 +24,7 @@ The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA
 
 # Princeton Language and Intelligence
 
-The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster will provide 37 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models.
+The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster will provide 37 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models. [Learn more](https://pli.princeton.edu/about-pli/directors-message) about this.
 
 # Overview of using a GPU
 
