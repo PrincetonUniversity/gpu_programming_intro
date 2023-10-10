@@ -24,7 +24,7 @@ The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA
 
 # Overview of using a GPU
 
-This is the essence of how every GPU is used as an accelerator:
+This is the essence of how every GPU is used as an accelerator for compute:
 
 + Copy data from the CPU (host) to the GPU (device)
 
@@ -37,6 +37,8 @@ This is the essence of how every GPU is used as an accelerator:
 The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will need to learn more about memory cache, interconnects, CUDA streams and much more.
 
 [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction. Della has this fast GPU-GPU interconnect on each pair of GPUs on 70 of the 90 GPU nodes.
+
+Given the significant performance penalty for moving data between the CPU and GPU, it is natural to work toward "unifying" the CPU and GPU. For instance, read about the [NVIDIA Grace Superchip](https://developer.nvidia.com/blog/nvidia-grace-hopper-superchip-architecture-in-depth/).
 
 # What GPU resources does Princeton have?
 
