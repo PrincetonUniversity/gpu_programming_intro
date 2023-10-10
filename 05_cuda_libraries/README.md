@@ -52,7 +52,7 @@ The header file `cusolverDn.h` included by `gesvdj_example.cpp` contains the lin
 Next, compile and link the code as follows:
 
 ```
-$ module load cudatoolkit/11.7
+$ module load cudatoolkit/12.2
 $ g++ -o gesvdj_example gesvdj_example.cpp -lcudart -lcusolver
 ```
 
@@ -69,10 +69,10 @@ The ouput should appears as:
 ```
 $ cat slurm-*.out
 
-example of gesvdj 
-tol = 1.000000E-07, default value is machine zero 
+example of gesvdj
+tol = 1.000000E-07, default value is machine zero
 max. sweeps = 15, default value is 100
-econ = 0 
+econ = 0
 A = (matlab base-1)
 A(1,1) = 1.0000000000000000E+00
 A(1,2) = 2.0000000000000000E+00
@@ -81,13 +81,13 @@ A(2,2) = 5.0000000000000000E+00
 A(3,1) = 2.0000000000000000E+00
 A(3,2) = 1.0000000000000000E+00
 =====
-gesvdj converges 
+gesvdj converges
 S = singular values (matlab base-1)
 S(1,1) = 7.0652834970827287E+00
 S(2,1) = 1.0400812977120775E+00
 =====
 U = left singular vectors (matlab base-1)
-U(1,1) = 3.0821892063278467E-01
+U(1,1) = 3.0821892063278472E-01
 U(1,2) = -4.8819507401989848E-01
 U(1,3) = 8.1649658092772659E-01
 U(2,1) = 9.0613333377729299E-01
@@ -103,8 +103,8 @@ V(1,2) = 7.6950910814953477E-01
 V(2,1) = 7.6950910814953477E-01
 V(2,2) = -6.3863583713639760E-01
 =====
-|S - S_exact|_sup = 4.440892E-16 
-residual |A - U*S*V**H|_F = 3.511066E-16 
+|S - S_exact|_sup = 4.440892E-16
+residual |A - U*S*V**H|_F = 3.511066E-16
 number of executed sweeps = 1
 ```
 
@@ -135,9 +135,9 @@ drwxr-xr-x.  5 jdh4 cses  105 Oct  9 18:23 6_Performance
 Pick an example and then build and run it. For instance:
 
 ```
-$ module load cudatoolkit/11.7
+$ module load cudatoolkit/12.2
 $ cd 0_Introduction/matrixMul
-$ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
+$ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 node
 ```
 
 This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it uses a naive implementation of the routine which is surely not as efficient as the library implementation.
@@ -167,7 +167,7 @@ To run code that uses the Tensor Cores see examples such as `3_CUDA_Features/bf1
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Domain_Specific/nbody` use:
 
 ```
-GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 nodes
+GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 node
 ```
 
-Note that `nbody` will not run successfully on adroit since the GPU nodes do not have `libglut.so`. The library could be added if needed. One can compile and run this code on adroit-vis using `TARGET_ARCH=x86_64 SMS="35"`.
+Note that `nbody` will not run successfully on adroit since the GPU nodes do not have `libglut.so`. The library could be added if needed. One can compile and run this code on adroit-vis using `TARGET_ARCH=x86_64 SMS="80"`.
