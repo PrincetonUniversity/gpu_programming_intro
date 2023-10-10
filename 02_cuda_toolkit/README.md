@@ -38,7 +38,7 @@ setenv          CUDA_HOME /usr/local/cuda-12.2
 -------------------------------------------------------------------
 ```
 
-Let's look at the files in /usr/local/cuda-12.2/bin:
+Let's look at the files in `/usr/local/cuda-12.2/bin`:
 
 ```
 $ ls -ltrh /usr/local/cuda-12.2/bin
