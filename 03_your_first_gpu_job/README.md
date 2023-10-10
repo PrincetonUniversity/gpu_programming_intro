@@ -14,10 +14,11 @@ To add a GPU to your Slurm allocation:
 #SBATCH --gres=gpu:1             # number of gpus per node
 ```
 
-For Adroit only, to choose the gpu:
+For Adroit, one can specify a specific GPU using a constraint:
 
 ```
-#SBATCH --constraint=a100        # set to a100 or v100
+#SBATCH --constraint=a100        # set to gpu80, a100 or v100
+#SBATCH --gres=gpu:1             # number of gpus per node
 ```
 
 ## CuPy
@@ -44,7 +45,7 @@ for _ in range(trials):
   cp.cuda.Device(0).synchronize()
   times.append(perf_counter() - t0)
 print("Execution time: ", min(times))
-print(cp.asnumpy(s).sum())
+print("sum(s) = ", cp.asnumpy(s).sum())
 print("CuPy version: ", cp.__version__)
 ```
 
@@ -64,7 +65,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2022.5
+module load anaconda3/2023.9
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/cupy-env
 
 python svd.py
