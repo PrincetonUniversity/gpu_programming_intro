@@ -216,7 +216,7 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
 The kernel uses special variables which are CUDA extensions to allow threads to distinguish themselves and operate on different data. Specifically, `blockIdx.x` is the block index within a grid, `blockDim.x` is the number of threads per block and `threadIdx.x` is the thread index within a block. Let's build and run the code. The `nvcc` compiler will compile the kernel function while `gcc` will be used in the background to compile the CPU code.
 
 ```
-$ module load cudatoolkit/11.7
+$ module load cudatoolkit/12.2
 $ nvcc -O3 -arch=sm_80 -o vector_add_gpu vector_add_gpu.cu  # use 70 on traverse or adroit v100 nodes
 $ sbatch job.slurm
 ```
