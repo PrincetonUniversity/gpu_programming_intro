@@ -50,35 +50,41 @@ There are 3 GPU nodes on Adroit: `adroit-h11g1`, `adroit-h11g2` and `adroit-h11g
 
 <pre>
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
-$ snodes
-HOSTNAMES          STATE    CPUS S:C:T    CPUS(A/I/O/T)   CPU_LOAD MEMORY   GRES                     PARTITION          AVAIL_FEATURES
-adroit-08          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
-adroit-09          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
-adroit-10          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
-adroit-11          mix      32   2:16:1   10/22/0/32      0.00     384000   (null)                    class              skylake,intel
-adroit-12          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
-adroit-13          mix      32   2:16:1   8/24/0/32       8.07     384000   (null)                    all*               skylake,intel
-adroit-13          mix      32   2:16:1   8/24/0/32       8.07     384000   (null)                    class              skylake,intel
-adroit-14          mix      32   2:16:1   8/24/0/32       8.06     384000   (null)                    all*               skylake,intel
-adroit-14          mix      32   2:16:1   8/24/0/32       8.06     384000   (null)                    class              skylake,intel
-adroit-15          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    all*               skylake,intel
-adroit-15          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
-adroit-16          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    all*               skylake,intel
-adroit-16          idle     32   2:16:1   0/32/0/32       0.00     384000   (null)                    class              skylake,intel
-adroit-h11g1       idle     40   2:20:1   0/40/0/40       0.02     770000   gpu:tesla_v100:4(S:0-1)   gpu                v100,intel
-adroit-h11g2       mix      48   2:24:1   17/31/0/48      3.00     1000000  gpu:nvidia_a100:4(S:0-1)  gpu                a100,intel
-adroit-h11g3       idle     56   4:14:1   0/56/0/56       0.09     760000   gpu:tesla_v100:4(S:0-3)   gpu                v100,intel
-adroit-h11n1       idle     128  2:64:1   0/128/0/128     0.00     256000   (null)                    class              amd,rome
-adroit-h11n2       mix      64   2:32:1   32/32/0/64      29.09    512000   (null)                    all*               intel,ice
-adroit-h11n3       down     64   2:32:1   0/0/64/64       0.00     512000   (null)                    all*               intel,ice
-adroit-h11n4       mix      64   2:32:1   48/16/0/64      32.02    512000   (null)                    all*               intel,ice
-adroit-h11n5       mix      64   2:32:1   2/62/0/64       2.00     512000   (null)                    all*               intel,ice
-adroit-h11n6       alloc    64   2:32:1   64/0/0/64       37.75    512000   (null)                    all*               intel,ice
+$ shownodes
+NODELIST      PART   STATE        FREE/TOTAL CPUs  CPU_LOAD  FREE/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
+adroit-08     class  idle                   32/32      0.01    376911/384000Mb                      skylake,intel
+adroit-09     class  idle                   32/32      0.01    382495/384000Mb                      skylake,intel
+adroit-10     class  idle                   32/32      0.00    381901/384000Mb                      skylake,intel
+adroit-11     class  mixed                   8/32      0.00    357886/384000Mb                      skylake,intel
+adroit-12     class  idle                   32/32      0.00    382242/384000Mb                      skylake,intel
+adroit-13     all    allocated               0/32     32.33    279722/384000Mb                      skylake,intel
+adroit-14     all    mixed                   8/32     17.45    217066/384000Mb                      skylake,intel
+adroit-15     all    allocated               0/32     32.05    211596/384000Mb                      skylake,intel
+adroit-16     class  mixed                   6/32     14.70    349978/384000Mb                      skylake,intel
+adroit-h11g1  gpu    idle                   48/48      0.00   902550/1000000Mb  4/4 nvidia_a100  a100,intel,gpu80
+adroit-h11g2  gpu    mixed                  42/48      2.05   832854/1000000Mb  1/4 nvidia_a100        a100,intel
+adroit-h11g3  gpu    mixed                  48/56      7.99    607647/760000Mb   3/4 tesla_v100        v100,intel
+adroit-h11n1  class  idle                 128/128      0.00    250889/256000Mb                           amd,rome
+adroit-h11n2  all    mixed                   4/64     40.74    244458/512000Mb                          intel,ice
+adroit-h11n3  all    mixed                   2/64     41.16    156131/512000Mb                          intel,ice
+adroit-h11n4  all    mixed                   8/64     56.03    149451/512000Mb                          intel,ice
+adroit-h11n5  all    mixed                   8/64     51.12    283062/512000Mb                          intel,ice
+adroit-h11n6  all    mixed                   7/64     48.30    158202/512000Mb                          intel,ice
 </pre>
 
+To only see the GPU nodes:
+
+<pre>
+$ shownodes -p gpu
+NODELIST      STATE    FREE/TOTAL CPUs  CPU_LOAD  FREE/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
+adroit-h11g1  idle               48/48      0.00   902550/1000000Mb  4/4 nvidia_a100  a100,intel,gpu80
+adroit-h11g2  mixed              42/48      2.05   832854/1000000Mb  1/4 nvidia_a100        a100,intel
+adroit-h11g3  mixed              48/56      7.99    607647/760000Mb   3/4 tesla_v100        v100,intel
+</pre>
+  
 ### adroit-h11g1
 
-This node has 4 NVIDIA V100 GPUs with 32 GB of memory each. See the specs for the [V100](https://www.techpowerup.com/gpu-specs/tesla-v100-pcie-32-gb.c3184) or consider buying on [Amazon](https://www.amazon.com/NVIDIA-Tesla-Volta-Accelerator-Graphics/dp/B07JVNHFFX/ref=sr_1_2?keywords=nvidia+v100&qid=1572464893&sr=8-2). Each V100 GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
+This node has 4 NVIDIA A100 GPUs with 80 GB of memory each. Each A100 GPU has 108 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
 
 Here is some information about the V100 GPUs in this node:
 
@@ -112,39 +118,44 @@ Here is infomation about the CPUs on this node:
 
 <pre>
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
-$ ssh adroit-h11g1
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --constraint=gpu80
 $ lscpu | grep -v Flags
-Architecture:          x86_64
-CPU op-mode(s):        32-bit, 64-bit
-Byte Order:            Little Endian
-CPU(s):                32
-On-line CPU(s) list:   0-31
-Thread(s) per core:    1
-Core(s) per socket:    <b>16</b>
-Socket(s):             2
-NUMA node(s):          2
-Vendor ID:             GenuineIntel
-CPU family:            6
-Model:                 85
-Model name:            Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz
-Stepping:              4
-CPU MHz:               1526.293
-CPU max MHz:           3700.0000
-CPU min MHz:           1000.0000
-BogoMIPS:              5200.00
-Virtualization:        VT-x
-L1d cache:             32K
-L1i cache:             32K
-L2 cache:              1024K
-L3 cache:              22528K
-NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30
-NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              48
+On-line CPU(s) list: 0-47
+Thread(s) per core:  1
+Core(s) per socket:  24
+Socket(s):           2
+NUMA node(s):        2
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               143
+Model name:          Intel(R) Xeon(R) Gold 6442Y
+Stepping:            8
+CPU MHz:             3707.218
+CPU max MHz:         4000.0000
+CPU min MHz:         800.0000
+BogoMIPS:            5200.00
+Virtualization:      VT-x
+L1d cache:           48K
+L1i cache:           32K
+L2 cache:            2048K
+L3 cache:            61440K
+NUMA node0 CPU(s):   0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46
+NUMA node1 CPU(s):   1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47
+$ exit
 </pre>
 
 
 ### adroit-h11g2
 
-`adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU.
+`adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU. To connect to this node use:
+
+```
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2
+```
 
 Below is information about the A100 GPUs:
 
@@ -179,6 +190,7 @@ Using a NVIDIA A100-PCIE-40GB GPU.
 Below is information about the CPUs:
 
 ```
+$ lscpu | grep -v Flags
 Architecture:        x86_64
 CPU op-mode(s):      32-bit, 64-bit
 Byte Order:          Little Endian
@@ -205,7 +217,7 @@ NUMA node0 CPU(s):   0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,4
 NUMA node1 CPU(s):   1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47
 ```
 
-Add this line to your Slurm script to explicitly use an A100 GPU:
+Add these lines to your Slurm script to explicitly use an A100 GPU:
 
 ```
 #SBATCH --gres=gpu:1
@@ -220,7 +232,7 @@ $ nvidia-smi -q
 
 ### adroit-h11g3
 
-The GPUs on this node are the same as those on `adroit-h11g1`.
+This node offers the older V100 GPUs.
 
 ### Compute Capability and Building Optimized Codes
 
