@@ -13,5 +13,5 @@ for _ in range(trials):
   cp.cuda.Device(0).synchronize()
   times.append(perf_counter() - t0)
 print("Execution time: ", min(times))
-print(cp.asnumpy(s).sum())
+print("sum(s) = ", cp.asnumpy(s).sum())
 print("CuPy version: ", cp.__version__)
