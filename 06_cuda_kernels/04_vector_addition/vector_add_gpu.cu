@@ -95,7 +95,7 @@ int main( int argc, char* argv[] )
     double sum = 0;
     for(i=0; i<n; i++)
         sum += h_c[i];
-    double tol = 1e-6;
+    //double tol = 1e-6;
     //printf("\nout is %f\n", sum/n);
     //if (fabs(sum/n - 1.0) > tol) printf("Warning: potential numerical problems.\n");
  
