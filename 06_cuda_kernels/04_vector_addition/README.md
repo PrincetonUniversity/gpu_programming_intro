@@ -27,6 +27,15 @@ Note that we write `d_a` for the GPU case instead of `a` to remind ourselves tha
 
 ![add-arrays](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/images/Array.png)
 
+The vectors `a` and `b` are added elementwise to produce the vector `c`:
+
+```
+c[0] = a[0] + b[0]
+c[1] = a[1] + b[1]
+...
+c[N-1] = a[N-1] + b[N-1]
+```
+
 ## CPU
 
 The following code adds two vectors together on a CPU:
