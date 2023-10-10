@@ -103,7 +103,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2023.3
+module load anaconda3/2023.9
 conda activate myenv
 
 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -151,7 +151,7 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2023.3
+module load anaconda3/2023.9
 conda activate dark-env
 
 /usr/local/bin/ncu -o my_report_${SLURM_JOBID} python myscript.py
@@ -204,7 +204,7 @@ $ cd hpc_beginning_workshop/RC_example_jobs/simple_gpu_kernel
 $ salloc -N 1 -n 1 -t 10:00 --gres=gpu:1 --x11
 $ module load cudatoolkit/10.1
 $ nvcc -g -G hello_world_gpu.cu
-$ module load ddt/20.0.1
+$ module load ddt/22.0
 $ export ALLINEA_FORCE_CUDA_VERSION=10.1
 $ ddt
 # check cuda, uncheck "submit to queue", and click on "Run"
