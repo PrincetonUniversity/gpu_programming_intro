@@ -8,6 +8,8 @@ Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://
 
 NVIDIA has been the leading player in GPUs for HPC. However, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs. Princeton has a two [MI210 GPUs](https://researchcomputing.princeton.edu/amd-mi100-gpu-testing) which you can use for testing. Intel will soon be a new player when the [Aurora supercomputer](https://en.wikipedia.org/wiki/Aurora_(supercomputer)) is completed.
 
+All laptops have a GPU for graphics. It is becoming standard for a laptop to have a second GPU dedicated for compute (see the latest [MacBook Pro](https://www.apple.com/macbook-pro/)).
+
 ![cpu-vs-gpu](http://blog.itvce.com/wp-content/uploads/2016/03/032216_1532_DustFreeNVI2.png)
 
 The image below emphasizes the cache sizes and flow control:
