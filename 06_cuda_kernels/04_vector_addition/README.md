@@ -217,7 +217,7 @@ The kernel uses special variables which are CUDA extensions to allow threads to 
 
 ```
 $ module load cudatoolkit/12.2
-$ nvcc -O3 -arch=sm_80 -o vector_add_gpu vector_add_gpu.cu  # use 70 on traverse or adroit v100 nodes
+$ nvcc -O3 -arch=sm_80 -o vector_add_gpu vector_add_gpu.cu  # use 70 on traverse or adroit v100 node
 $ sbatch job.slurm
 ```
 
@@ -225,7 +225,7 @@ The output of the code will be something like:
 ```
 Allocating CPU memory and populating arrays of length 2000 ... done.
 GridSize 2 and total_threads 2048
-Performing vector addition (timer started) ... done in 0.19 s.
+Performing vector addition (timer started) ... done in 0.09 s.
 ```
 
 Note that the reported time includes all operations beyond those needed to carry out the operation on the GPU. This includes the time required to allocate and deallocate memory on the GPU and the time required to move the data to and from the GPU.
