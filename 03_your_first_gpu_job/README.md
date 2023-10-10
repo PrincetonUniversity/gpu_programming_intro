@@ -125,7 +125,8 @@ $ cat job.slurm
 #SBATCH --constraint=a100        # choose a100 or v100 on adroit
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2022.5
+module purge
+module load anaconda3/2023.9
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/torch-env
 
 python svd.py
