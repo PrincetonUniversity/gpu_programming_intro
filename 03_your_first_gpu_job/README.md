@@ -31,21 +31,20 @@ Examine the Python script before running the code:
 $ cd gpu_programming_intro/03_your_first_gpu_job/cupy
 $ cat svd.py
 from time import perf_counter
-import numpy as np
 import cupy as cp
 
 N = 1000
-X = cp.random.randn(N, N, dtype=np.float64)
+X = cp.random.randn(N, N, dtype=cp.float32)
 
 trials = 5
 times = []
 for _ in range(trials):
-  t0 = perf_counter()
-  u, s, v = cp.linalg.svd(X)
-  cp.cuda.Device(0).synchronize()
-  times.append(perf_counter() - t0)
+    t0 = perf_counter()
+    u, s, v = cp.linalg.svd(X)
+    cp.cuda.Device(0).synchronize()
+    times.append(perf_counter() - t0)
 print("Execution time: ", min(times))
-print("sum(s) = ", cp.asnumpy(s).sum())
+print("sum(s) = ", s.sum())
 print("CuPy version: ", cp.__version__)
 ```
 
