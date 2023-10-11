@@ -3,7 +3,7 @@
 The code in the this directory illustrates the use of multiple GPUs. To compile and execute the example, run the following commands:
 
 ```
-$ module load cudatoolkit/11.7
+$ module load cudatoolkit/12.2
 $ nvcc -O3 -arch=sm_80 -o multi_gpu multi_gpu.cu
 $ sbatch job.slurm
 ```
