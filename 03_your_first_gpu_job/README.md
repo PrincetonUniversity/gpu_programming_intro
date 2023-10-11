@@ -14,12 +14,14 @@ To add a GPU to your Slurm allocation:
 #SBATCH --gres=gpu:1             # number of gpus per node
 ```
 
-For Adroit, one can specify a specific GPU using a constraint:
+For Adroit, one can specify the GPU type using a constraint:
 
 ```
 #SBATCH --constraint=a100        # set to gpu80, a100 or v100
 #SBATCH --gres=gpu:1             # number of gpus per node
 ```
+
+For more on specifying the GPU type on Adroit [see this page](https://researchcomputing.princeton.edu/systems/adroit#gpus).
 
 ## CuPy
 
