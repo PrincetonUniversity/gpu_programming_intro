@@ -23,7 +23,7 @@ int *d_a;
 cudaMalloc(&d_a, size);
 cudaFree(d_a);
 ```
-Note that we write `d_a` for the GPU case instead of `a` to remind ourselves that we are allocating memory on the "device" or GPU. Sometimes developers with prefix CPU variables with 'h' to denote "host".
+Note that we write `d_a` for the GPU case instead of `a` to remind ourselves that we are allocating memory on the "device" or GPU. Sometimes developers will prefix CPU variables with 'h' to denote "host".
 
 ![add-arrays](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/images/Array.png)
 
