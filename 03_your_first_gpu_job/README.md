@@ -34,7 +34,7 @@ from time import perf_counter
 import cupy as cp
 
 N = 1000
-X = cp.random.randn(N, N, dtype=cp.float32)
+X = cp.random.randn(N, N, dtype=cp.float64)
 
 trials = 5
 times = []
