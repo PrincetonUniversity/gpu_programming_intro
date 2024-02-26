@@ -22,6 +22,6 @@
 
 + For the live workshop, to get access to the GPU nodes on Adroit, add this line to your Slurm scripts:
 
-   `#SBATCH --reservation=gpuprimer`
+   `$ sbatch --reservation=gpuprimer job.slurm`
 
 + Go to the [main page](https://github.com/PrincetonUniversity/gpu_programming_intro) of this repo
