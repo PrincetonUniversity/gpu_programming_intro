@@ -1,29 +1,25 @@
-# Intro to GPU Computing
+# Introduction to GPU Computing
 
 ## About
 
-This guide provides materials for getting started with running GPU codes on the Princeton Research Computing clusters. It also covers the NVIDIA GPU-accelerated libraries and it provides an introduction to writing CUDA kernels.
+This guide provides materials for getting started with running GPU codes on the Princeton Research Computing clusters. It also provides an introduction to writing CUDA kernels and examples of using the NVIDIA GPU-accelerated libraries (e.g., cuBLAS).
 
-## GPU Training in October and November 2023
+## GPU Training in February and March 2024
 
-[Fall Break Parallel Programming Bootcamp](https://researchcomputing.princeton.edu/fall-break-2023-bootcamp), October 16-17 at 10:00 AM-4:00 PM  
-[Multi-GPU Training in PyTorch: Data and Model Parallelism](https://cglink.me/2gi/r1935910), Thursday, November 9 at 4:30-6:00 PM  
+[Kokkos: A Parallel, Portable Programming Model for CPUs and GPUs](https://cglink.me/2gi/r1940682), Tuesday, February 27 at 4:30-6:00 PM  
+[High-Performance Python for GPUs](https://cglink.me/2gi/r1941019), Tuesday, March 19 at 4:30-6:00 PM  
 
 ## Learning Resources
 
 [GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)  
-[2023 Princeton GPU Hackathon](https://www.openhackathons.org/s/siteevent/a0C5e000005Va4hEAC/se000162)  
+[2024 Princeton GPU Hackathon](https://www.openhackathons.org/s/siteevent/a0C5e000008dWhxEAE/se000286)  
 [Resource List by Open Hackathons](https://www.openhackathons.org/s/technical-resources)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
 [CUDA Fortran Programming Guide by NVIDIA](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)     
 [Intro to CUDA Blog Post](https://devblogs.nvidia.com/even-easier-introduction-cuda/)   
 [Online Book Available through PU Library](https://catalog.princeton.edu/catalog/99125304171206421)  
-[OpenACC Workshop at Princeton](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf)  
-[Princeton A100 GPU Workshop](https://github.com/PrincetonUniversity/a100_workshop)
-
-## Workshop Survey
-Please complete [this survey](https://forms.gle/K7aJrFaUB4DPW4FC8) toward the end of the workshop.
+[Princeton A100 GPU Workshop](https://github.com/PrincetonUniversity/a100_workshop)  
 
 ## Getting Help
 
