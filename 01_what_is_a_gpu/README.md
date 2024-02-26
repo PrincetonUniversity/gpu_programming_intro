@@ -358,4 +358,4 @@ SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](
 
 ## GPU Hackathon at Princeton
 
-The next hackathon will take place in June of 2024. This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
+The next hackathon will take place in [June of 2024](https://www.openhackathons.org/s/siteevent/a0C5e000008dWhxEAE/se000286). This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
