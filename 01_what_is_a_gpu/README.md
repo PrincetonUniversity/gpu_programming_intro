@@ -123,7 +123,7 @@ Here is infomation about the CPUs on this node:
 
 <pre>
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
-$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --constraint=gpu80
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --constraint=gpu80 --reservation=gpuprimer
 $ lscpu | grep -v Flags
 Architecture:        x86_64
 CPU op-mode(s):      32-bit, 64-bit
@@ -159,7 +159,7 @@ $ exit
 `adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU. To connect to this node use:
 
 ```
-$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2 --reservation=gpuprimer
 ```
 
 Below is information about the A100 GPUs:
