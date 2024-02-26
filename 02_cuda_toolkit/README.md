@@ -10,7 +10,7 @@ List the available modules that are related to CUDA:
 $ module avail cudatoolkit
 -------------------- /usr/local/share/Modules/modulefiles --------------------
 cudatoolkit/10.2  cudatoolkit/11.3  cudatoolkit/11.7  cudatoolkit/12.2
-cudatoolkit/11.1  cudatoolkit/11.4  cudatoolkit/12.0
+cudatoolkit/11.1  cudatoolkit/11.4  cudatoolkit/12.0  cudatoolkit/12.3
 ```
 
 Run the following command to see which environment variables the `cudatoolkit` module is modifying:
