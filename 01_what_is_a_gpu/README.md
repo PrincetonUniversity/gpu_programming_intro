@@ -541,6 +541,271 @@ NIC Legend:
   NIC5: mlx5_5
 ```
 
+### Grace Hopper Superchip
+
+```
+jdh4@della-gh:~$ nvidia-smi -a
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Mon Apr 22 11:24:41 2024
+Driver Version                            : 545.23.08
+CUDA Version                              : 12.3
+
+Attached GPUs                             : 1
+GPU 00000009:01:00.0
+    Product Name                          : GH200 480GB
+    Product Brand                         : NVIDIA
+    Product Architecture                  : Hopper
+    Display Mode                          : Disabled
+    Display Active                        : Disabled
+    Persistence Mode                      : Enabled
+    Addressing Mode                       : ATS
+    MIG Mode
+        Current                           : Disabled
+        Pending                           : Disabled
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
+    Driver Model
+        Current                           : N/A
+        Pending                           : N/A
+    Serial Number                         : 1654223016127
+    GPU UUID                              : GPU-1986864f-4424-33ea-42a0-3ef03cc494ed
+    Minor Number                          : 0
+    VBIOS Version                         : 96.00.7E.00.02
+    MultiGPU Board                        : No
+    Board ID                              : 0x90100
+    Board Part Number                     : 900-2G530-0060-000
+    GPU Part Number                       : 2342-888-A1
+    FRU Part Number                       : N/A
+    Module ID                             : 1
+    Inforom Version
+        Image Version                     : G530.0206.00.02
+        OEM Object                        : 2.1
+        ECC Object                        : 7.16
+        Power Management Object           : N/A
+    Inforom BBX Object Flush
+        Latest Timestamp                  : 2024/04/22 06:59:20.040
+        Latest Duration                   : 120422 us
+    GPU Operation Mode
+        Current                           : N/A
+        Pending                           : N/A
+    GSP Firmware Version                  : 545.23.08
+    GPU C2C Mode                          : Enabled
+    GPU Virtualization Mode
+        Virtualization Mode               : None
+        Host VGPU Mode                    : N/A
+    GPU Reset Status
+        Reset Required                    : No
+        Drain and Reset Recommended       : No
+    IBMNPU
+        Relaxed Ordering Mode             : N/A
+    PCI
+        Bus                               : 0x01
+        Device                            : 0x00
+        Domain                            : 0x0009
+        Device Id                         : 0x234210DE
+        Bus Id                            : 00000009:01:00.0
+        Sub System Id                     : 0x180910DE
+        GPU Link Info
+            PCIe Generation
+                Max                       : 4
+                Current                   : 4
+                Device Current            : 4
+                Device Max                : 5
+                Host Max                  : 4
+            Link Width
+                Max                       : 1x
+                Current                   : 1x
+        Bridge Chip
+            Type                          : N/A
+            Firmware                      : N/A
+        Replays Since Reset               : 0
+        Replay Number Rollovers           : 0
+        Tx Throughput                     : 593 KB/s
+        Rx Throughput                     : 613 KB/s
+        Atomic Caps Inbound               : N/A
+        Atomic Caps Outbound              : N/A
+    Fan Speed                             : N/A
+    Performance State                     : P0
+    Clocks Event Reasons
+        Idle                              : Active
+        Applications Clocks Setting       : Not Active
+        SW Power Cap                      : Not Active
+        HW Slowdown                       : Not Active
+            HW Thermal Slowdown           : Not Active
+            HW Power Brake Slowdown       : Not Active
+        Sync Boost                        : Not Active
+        SW Thermal Slowdown               : Not Active
+        Display Clock Setting             : Not Active
+    FB Memory Usage
+        Total                             : 97871 MiB
+        Reserved                          : 591 MiB
+        Used                              : 4 MiB
+        Free                              : 97275 MiB
+    BAR1 Memory Usage
+        Total                             : N/A
+        Used                              : N/A
+        Free                              : N/A
+    Conf Compute Protected Memory Usage
+        Total                             : 0 MiB
+        Used                              : 0 MiB
+        Free                              : 0 MiB
+    Compute Mode                          : Default
+    Utilization
+        Gpu                               : 0 %
+        Memory                            : 0 %
+        Encoder                           : 0 %
+        Decoder                           : 0 %
+        JPEG                              : 0 %
+        OFA                               : 0 %
+    Encoder Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    FBC Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    ECC Mode
+        Current                           : Enabled
+        Pending                           : Enabled
+    ECC Errors
+        Volatile
+            SRAM Correctable              : 0
+            SRAM Uncorrectable            : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+        Aggregate
+            SRAM Correctable              : 0
+            SRAM Uncorrectable            : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+    Retired Pages
+        Single Bit ECC                    : N/A
+        Double Bit ECC                    : N/A
+        Pending Page Blacklist            : N/A
+    Remapped Rows
+        Correctable Error                 : 0
+        Uncorrectable Error               : 0
+        Pending                           : No
+        Remapping Failure Occurred        : No
+        Bank Remap Availability Histogram
+            Max                           : 3072 bank(s)
+            High                          : 0 bank(s)
+            Partial                       : 0 bank(s)
+            Low                           : 0 bank(s)
+            None                          : 0 bank(s)
+    Temperature
+        GPU Current Temp                  : 31 C
+        GPU T.Limit Temp                  : 54 C
+        GPU Shutdown T.Limit Temp         : -8 C
+        GPU Slowdown T.Limit Temp         : -2 C
+        GPU Max Operating T.Limit Temp    : 0 C
+        GPU Target Temperature            : N/A
+        Memory Current Temp               : 41 C
+        Memory Max Operating T.Limit Temp : 0 C
+    GPU Power Readings
+        Power Draw                        : 69.54 W
+        Current Power Limit               : 900.00 W
+        Requested Power Limit             : 900.00 W
+        Default Power Limit               : 900.00 W
+        Min Power Limit                   : 1.00 W
+        Max Power Limit                   : 900.00 W
+    GPU Memory Power Readings 
+        Power Draw                        : 13.08 W
+    Module Power Readings
+        Power Draw                        : 151.15 W
+        Current Power Limit               : 900.00 W
+        Requested Power Limit             : 900.00 W
+        Default Power Limit               : 1000.00 W
+        Min Power Limit                   : 200.00 W
+        Max Power Limit                   : 1000.00 W
+    Clocks
+        Graphics                          : 345 MHz
+        SM                                : 345 MHz
+        Memory                            : 2619 MHz
+        Video                             : 765 MHz
+    Applications Clocks
+        Graphics                          : 1980 MHz
+        Memory                            : 2619 MHz
+    Default Applications Clocks
+        Graphics                          : 1980 MHz
+        Memory                            : 2619 MHz
+    Deferred Clocks
+        Memory                            : N/A
+    Max Clocks
+        Graphics                          : 1980 MHz
+        SM                                : 1980 MHz
+        Memory                            : 2619 MHz
+        Video                             : 1545 MHz
+    Max Customer Boost Clocks
+        Graphics                          : 1980 MHz
+    Clock Policy
+        Auto Boost                        : N/A
+        Auto Boost Default                : N/A
+    Voltage
+        Graphics                          : 725.000 mV
+    Fabric
+        State                             : N/A
+        Status                            : N/A
+    Processes                             : None
+```
+
+The CPU on the GH Superchip:
+
+```
+jdh4@della-gh:~$ lscpu
+Architecture:           aarch64
+  CPU op-mode(s):       64-bit
+  Byte Order:           Little Endian
+CPU(s):                 72
+  On-line CPU(s) list:  0-71
+Vendor ID:              ARM
+  Model name:           Neoverse-V2
+    Model:              0
+    Thread(s) per core: 1
+    Core(s) per socket: 72
+    Socket(s):          1
+    Stepping:           r0p0
+    Frequency boost:    disabled
+    CPU max MHz:        3510.0000
+    CPU min MHz:        81.0000
+    BogoMIPS:           2000.00
+    Flags:              fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm di
+                        t uscat ilrcpc flagm ssbs sb dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16 dgh
+Caches (sum of all):    
+  L1d:                  4.5 MiB (72 instances)
+  L1i:                  4.5 MiB (72 instances)
+  L2:                   72 MiB (72 instances)
+  L3:                   114 MiB (1 instance)
+NUMA:                   
+  NUMA node(s):         9
+  NUMA node0 CPU(s):    0-71
+  NUMA node1 CPU(s):    
+  NUMA node2 CPU(s):    
+  NUMA node3 CPU(s):    
+  NUMA node4 CPU(s):    
+  NUMA node5 CPU(s):    
+  NUMA node6 CPU(s):    
+  NUMA node7 CPU(s):    
+  NUMA node8 CPU(s):    
+Vulnerabilities:        
+  Gather data sampling: Not affected
+  Itlb multihit:        Not affected
+  L1tf:                 Not affected
+  Mds:                  Not affected
+  Meltdown:             Not affected
+  Mmio stale data:      Not affected
+  Retbleed:             Not affected
+  Spec rstack overflow: Not affected
+  Spec store bypass:    Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:           Mitigation; __user pointer sanitization
+  Spectre v2:           Not affected
+  Srbds:                Not affected
+  Tsx async abort:      Not affected
+```
+
 ### Compute Capability and Building Optimized Codes
 
 Some software will only run on a GPU of a given compute capability. To find these values for a given NVIDIA Telsa card see [this page](https://en.wikipedia.org/wiki/Nvidia_Tesla). The compute capability of the A100's on Della is 8.0. For various build systems this translates to `sm_80`.
