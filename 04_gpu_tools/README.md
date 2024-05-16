@@ -8,38 +8,26 @@ This is the NVIDIA Systems Management Interface. This utility can be used to mon
 
 ```
 $ nvidia-smi
-Mon Jun 12 20:15:21 2023       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA A100 80G...  On   | 00000000:17:00.0 Off |                    0 |
-| N/A   37C    P0    52W / 300W |      0MiB / 81920MiB |      0%      Default |
-|                               |                      |             Disabled |
-+-------------------------------+----------------------+----------------------+
-|   1  NVIDIA A100 80G...  On   | 00000000:65:00.0 Off |                    0 |
-| N/A   40C    P0    59W / 300W |      0MiB / 81920MiB |      0%      Default |
-|                               |                      |             Disabled |
-+-------------------------------+----------------------+----------------------+
-|   2  NVIDIA A100 80G...  On   | 00000000:CA:00.0 Off |                    0 |
-| N/A   40C    P0    56W / 300W |      0MiB / 81920MiB |      0%      Default |
-|                               |                      |             Disabled |
-+-------------------------------+----------------------+----------------------+
-|   3  NVIDIA A100 80G...  On   | 00000000:E3:00.0 Off |                    0 |
-| N/A   38C    P0    53W / 300W |      0MiB / 81920MiB |      0%      Default |
-|                               |                      |             Disabled |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
-+-----------------------------------------------------------------------------+
+Thu May 16 15:19:11 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.54.15              Driver Version: 550.54.15      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:41:00.0 Off |                    0 |
+| N/A   30C    P0             61W /  500W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
 ```
 
 To see all of the available options, view the help:
@@ -103,7 +91,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2023.9
+module load anaconda3/2024.2
 conda activate myenv
 
 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -115,16 +103,17 @@ For an MPI code you should use:
 srun --wait=0 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofile_${SLURM_JOBID} ./my_mpi_exe
 ```
 
-Note that `nsys-ui` does not exist for Traverse. You can download the `.qdrep` file to your local machine to use `nsys-ui` to view the data or do `ssh -X tigressdata.princeton.edu` and use `nsys-ui` on that machine. The latter approach, on Della, would look like this:
+Run this command to see the summary statistics:
 
 ```
-# in a new terminal
-$ ssh -X <YourNetID>@tigressdata.princeton.edu
-$ cd /della/scratch/gpfs/<YourNetID>/myjob
-$ /usr/local/bin/nsys-ui myprofile-*.qdrep
+nsys stats myprofile_*.qdrep
 ```
 
-Run this command to see the summary statistics: `nsys stats myprofile_*.qdrep`.
+To work the the graphical interface (nsys-ui) you can either (1) download the `.qdrep` file to your local machine or (2) create a graphical desktop session on [https://mydella.princeton.edu](https://mydella.princeton.edu/) or [https://mystellar.princeton.edu](https://mystellar.princeton.edu/). To create the graphical desktop, choose "Interactive Apps" then "Desktop of Della/Stellar Vis Nodes". Once the session starts, click on the black terminal icon and then run:
+
+```
+$ /usr/local/bin/nsys-ui
+```
 
 # Nsight Compute (ncu) for GPU Kernel Profiling
 
