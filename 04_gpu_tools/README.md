@@ -106,7 +106,7 @@ srun --wait=0 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofil
 Run this command to see the summary statistics:
 
 ```
-nsys stats myprofile_*.qdrep
+$ /usr/local/bin/nsys stats myprofile_*.qdrep
 ```
 
 To work the the graphical interface (nsys-ui) you can either (1) download the `.qdrep` file to your local machine or (2) create a graphical desktop session on [https://mydella.princeton.edu](https://mydella.princeton.edu/) or [https://mystellar.princeton.edu](https://mystellar.princeton.edu/). To create the graphical desktop, choose "Interactive Apps" then "Desktop of Della/Stellar Vis Nodes". Once the session starts, click on the black terminal icon and then run:
@@ -120,7 +120,8 @@ $ /usr/local/bin/nsys-ui
 The `ncu` command is used for detailed profiling of GPU kernels. See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). On some clusters you will need to load a module to make the command available:
 
 ```
-$ /usr/local/bin/ncu --help
+$ module load cudatoolkit/12.4
+$ ncu --help
 ```
 
 The idea is to use `ncu` for the profiling and `ncu-ui` for examining the data in a GUI.
@@ -140,20 +141,21 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load anaconda3/2023.9
-conda activate dark-env
+module load anaconda3/2024.2
+module load cudatoolkit/12.4
+conda activate myenv
 
-/usr/local/bin/ncu -o my_report_${SLURM_JOBID} python myscript.py
+ncu -o my_report_${SLURM_JOBID} python myscript.py
 ```
 
-After the job finishes, one can use `ncu-ui` to view the results:
+The `ncu` profiler can significantly slow down the execution time of the code.
+
+To work the the graphical interface (ncu-ui) you can either (1) download the `.ncu-rep` file to your local machine or (2) create a graphical desktop session on [https://mydella.princeton.edu](https://mydella.princeton.edu/) or [https://mystellar.princeton.edu](https://mystellar.princeton.edu/). To create the graphical desktop, choose "Interactive Apps" then "Desktop of Della/Stellar Vis Nodes". Once the session starts, click on the black terminal icon and then run:
 
 ```
-$ ssh -X <YourNetID>@della-vis1.princeton.edu
-$ /usr/local/bin/ncu-ui my_report_*.ncu-rep
+$ module load cudatoolkit/12.4
+$ ncu-ui my_report_*.ncu-rep
 ```
-
-The `ncu` profiler slows down the execution time of the code. Note that `ncu-ui` is not available for Traverse. You will need to examine the report file on a different machine like Tigressdata or your laptop.
 
 # nvprof
 
