@@ -86,6 +86,8 @@ Why are multiple trials used when measuring the execution time? `CuPy` compiles 
 
 In addition to CuPy, Python programmers looking to run their code on GPUs should also be aware of [Numba](https://numba.pydata.org/) and [JAX](https://github.com/google/jax).
 
+To see performance comparison between the CPU and GPU, see `matmul_numpy.py` and `matmul_cupy.py` in [this repo](https://github.com/jdh4/python-gpu/tree/main/cupy).
+
 ## PyTorch
 
 [PyTorch](https://pytorch.org) is a popular deep learning framework. See its documentation for [Tensor operations](https://pytorch.org/docs/stable/tensors.html). This example is set to use the PyTorch installation of the workshop instructor. If you use PyTorch for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/pytorch) into your account.
