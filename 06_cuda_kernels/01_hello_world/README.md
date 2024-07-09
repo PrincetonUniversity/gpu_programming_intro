@@ -30,7 +30,6 @@ $ ./hello_world
 The output is
 
 ```
-$ cat slurm-*.out
 Hello world from the CPU.
 ```
 
