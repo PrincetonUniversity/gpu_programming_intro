@@ -543,7 +543,9 @@ NIC Legend:
 
 ### Grace Hopper Superchip
 
-See the [Grace Hopper Superchip webpage](https://www.nvidia.com/en-us/data-center/grace-hopper-superchip/) by NVIDIA. 
+See the [Grace Hopper Superchip webpage](https://www.nvidia.com/en-us/data-center/grace-hopper-superchip/) by NVIDIA. Here is a schematic diagram of the superchip:
+
+![grace](https://developer-blogs.nvidia.com/wp-content/uploads/2022/11/grace-hopper-overview.png)
 
 ```
 jdh4@della-gh:~$ nvidia-smi -a
