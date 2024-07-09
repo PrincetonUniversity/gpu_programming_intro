@@ -281,7 +281,7 @@ Below is a sample Slurm script:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load matlab/R2022a
+module load matlab/R2023a
 
 matlab -singleCompThread -nodisplay -nosplash -r svd
 ```
