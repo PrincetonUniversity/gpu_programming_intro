@@ -11,6 +11,6 @@
 
 module purge
 module load anaconda3/2023.9
-conda activate /scratch/network/jdh4/.gpu_workshop/envs/hf-env
+conda activate /scratch/network/jdh4/.gpu_workshop/envs/torch-env
 
 python svd.py
