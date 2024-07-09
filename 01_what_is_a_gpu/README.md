@@ -4,7 +4,7 @@ A GPU, or Graphics Processing Unit, is an electronic device originally designed 
 
 Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp (NVIDIA), each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available on a CPU. For instance, the A100 GPUs on Della have 80 GB compared to 1000 GB available to the CPU cores. This is an important consideration when designing algorithms and running jobs. Furthermore, GPUs are intended for highly parallel algorithms. The CPU can often out-perform a GPU on algorithms that are not highly parallelizable such as those that rely on data caching and flow control (e.g., "if" statements).
 
-Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://www.top500.org/lists/top500/2023/11/)). How many of the top 10 supercomputers use GPUs?
+Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://top500.org/lists/top500/2024/06/)). How many of the top 10 supercomputers use GPUs?
 
 NVIDIA has been the leading player in GPUs for HPC. However, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs. Princeton has a two [MI210 GPUs](https://researchcomputing.princeton.edu/amd-mi100-gpu-testing) which you can use for testing. Intel will soon be a new player when the [Aurora supercomputer](https://en.wikipedia.org/wiki/Aurora_(supercomputer)) is completed.
 
