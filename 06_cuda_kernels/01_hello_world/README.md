@@ -30,6 +30,7 @@ $ ./hello_world
 The output is
 
 ```
+$ cat slurm-*.out
 Hello world from the CPU.
 ```
 
@@ -71,6 +72,7 @@ $ sbatch job.slurm
 The output should be:
 
 ```
+$ cat slurm-*.out
 Hello world from the CPU.
 Hello world from the GPU.
 ```
