@@ -246,7 +246,7 @@ See the [Grace Hopper Superchip webpage](https://www.nvidia.com/en-us/data-cente
 ![grace](https://developer-blogs.nvidia.com/wp-content/uploads/2022/11/grace-hopper-overview.png)
 
 ```
-jdh4@della-gh:~$ nvidia-smi -a
+aturing@della-gh:~$ nvidia-smi -a
 
 ==============NVSMI LOG==============
 
@@ -266,192 +266,7 @@ GPU 00000009:01:00.0
     MIG Mode
         Current                           : Disabled
         Pending                           : Disabled
-    Accounting Mode                       : Disabled
-    Accounting Mode Buffer Size           : 4000
-    Driver Model
-        Current                           : N/A
-        Pending                           : N/A
-    Serial Number                         : 1654223016127
-    GPU UUID                              : GPU-1986864f-4424-33ea-42a0-3ef03cc494ed
-    Minor Number                          : 0
-    VBIOS Version                         : 96.00.7E.00.02
-    MultiGPU Board                        : No
-    Board ID                              : 0x90100
-    Board Part Number                     : 900-2G530-0060-000
-    GPU Part Number                       : 2342-888-A1
-    FRU Part Number                       : N/A
-    Module ID                             : 1
-    Inforom Version
-        Image Version                     : G530.0206.00.02
-        OEM Object                        : 2.1
-        ECC Object                        : 7.16
-        Power Management Object           : N/A
-    Inforom BBX Object Flush
-        Latest Timestamp                  : 2024/04/22 06:59:20.040
-        Latest Duration                   : 120422 us
-    GPU Operation Mode
-        Current                           : N/A
-        Pending                           : N/A
-    GSP Firmware Version                  : 545.23.08
-    GPU C2C Mode                          : Enabled
-    GPU Virtualization Mode
-        Virtualization Mode               : None
-        Host VGPU Mode                    : N/A
-    GPU Reset Status
-        Reset Required                    : No
-        Drain and Reset Recommended       : No
-    IBMNPU
-        Relaxed Ordering Mode             : N/A
-    PCI
-        Bus                               : 0x01
-        Device                            : 0x00
-        Domain                            : 0x0009
-        Device Id                         : 0x234210DE
-        Bus Id                            : 00000009:01:00.0
-        Sub System Id                     : 0x180910DE
-        GPU Link Info
-            PCIe Generation
-                Max                       : 4
-                Current                   : 4
-                Device Current            : 4
-                Device Max                : 5
-                Host Max                  : 4
-            Link Width
-                Max                       : 1x
-                Current                   : 1x
-        Bridge Chip
-            Type                          : N/A
-            Firmware                      : N/A
-        Replays Since Reset               : 0
-        Replay Number Rollovers           : 0
-        Tx Throughput                     : 593 KB/s
-        Rx Throughput                     : 613 KB/s
-        Atomic Caps Inbound               : N/A
-        Atomic Caps Outbound              : N/A
-    Fan Speed                             : N/A
-    Performance State                     : P0
-    Clocks Event Reasons
-        Idle                              : Active
-        Applications Clocks Setting       : Not Active
-        SW Power Cap                      : Not Active
-        HW Slowdown                       : Not Active
-            HW Thermal Slowdown           : Not Active
-            HW Power Brake Slowdown       : Not Active
-        Sync Boost                        : Not Active
-        SW Thermal Slowdown               : Not Active
-        Display Clock Setting             : Not Active
-    FB Memory Usage
-        Total                             : 97871 MiB
-        Reserved                          : 591 MiB
-        Used                              : 4 MiB
-        Free                              : 97275 MiB
-    BAR1 Memory Usage
-        Total                             : N/A
-        Used                              : N/A
-        Free                              : N/A
-    Conf Compute Protected Memory Usage
-        Total                             : 0 MiB
-        Used                              : 0 MiB
-        Free                              : 0 MiB
-    Compute Mode                          : Default
-    Utilization
-        Gpu                               : 0 %
-        Memory                            : 0 %
-        Encoder                           : 0 %
-        Decoder                           : 0 %
-        JPEG                              : 0 %
-        OFA                               : 0 %
-    Encoder Stats
-        Active Sessions                   : 0
-        Average FPS                       : 0
-        Average Latency                   : 0
-    FBC Stats
-        Active Sessions                   : 0
-        Average FPS                       : 0
-        Average Latency                   : 0
-    ECC Mode
-        Current                           : Enabled
-        Pending                           : Enabled
-    ECC Errors
-        Volatile
-            SRAM Correctable              : 0
-            SRAM Uncorrectable            : 0
-            DRAM Correctable              : 0
-            DRAM Uncorrectable            : 0
-        Aggregate
-            SRAM Correctable              : 0
-            SRAM Uncorrectable            : 0
-            DRAM Correctable              : 0
-            DRAM Uncorrectable            : 0
-    Retired Pages
-        Single Bit ECC                    : N/A
-        Double Bit ECC                    : N/A
-        Pending Page Blacklist            : N/A
-    Remapped Rows
-        Correctable Error                 : 0
-        Uncorrectable Error               : 0
-        Pending                           : No
-        Remapping Failure Occurred        : No
-        Bank Remap Availability Histogram
-            Max                           : 3072 bank(s)
-            High                          : 0 bank(s)
-            Partial                       : 0 bank(s)
-            Low                           : 0 bank(s)
-            None                          : 0 bank(s)
-    Temperature
-        GPU Current Temp                  : 31 C
-        GPU T.Limit Temp                  : 54 C
-        GPU Shutdown T.Limit Temp         : -8 C
-        GPU Slowdown T.Limit Temp         : -2 C
-        GPU Max Operating T.Limit Temp    : 0 C
-        GPU Target Temperature            : N/A
-        Memory Current Temp               : 41 C
-        Memory Max Operating T.Limit Temp : 0 C
-    GPU Power Readings
-        Power Draw                        : 69.54 W
-        Current Power Limit               : 900.00 W
-        Requested Power Limit             : 900.00 W
-        Default Power Limit               : 900.00 W
-        Min Power Limit                   : 1.00 W
-        Max Power Limit                   : 900.00 W
-    GPU Memory Power Readings 
-        Power Draw                        : 13.08 W
-    Module Power Readings
-        Power Draw                        : 151.15 W
-        Current Power Limit               : 900.00 W
-        Requested Power Limit             : 900.00 W
-        Default Power Limit               : 1000.00 W
-        Min Power Limit                   : 200.00 W
-        Max Power Limit                   : 1000.00 W
-    Clocks
-        Graphics                          : 345 MHz
-        SM                                : 345 MHz
-        Memory                            : 2619 MHz
-        Video                             : 765 MHz
-    Applications Clocks
-        Graphics                          : 1980 MHz
-        Memory                            : 2619 MHz
-    Default Applications Clocks
-        Graphics                          : 1980 MHz
-        Memory                            : 2619 MHz
-    Deferred Clocks
-        Memory                            : N/A
-    Max Clocks
-        Graphics                          : 1980 MHz
-        SM                                : 1980 MHz
-        Memory                            : 2619 MHz
-        Video                             : 1545 MHz
-    Max Customer Boost Clocks
-        Graphics                          : 1980 MHz
-    Clock Policy
-        Auto Boost                        : N/A
-        Auto Boost Default                : N/A
-    Voltage
-        Graphics                          : 725.000 mV
-    Fabric
-        State                             : N/A
-        Status                            : N/A
-    Processes                             : None
+...
 ```
 
 The CPU on the GH Superchip:
@@ -617,13 +432,14 @@ $ nvidia-smi -q
 |   Cluster  | Number of Nodes | GPUs per Node | NVIDIA GPU Model  | Number of FP32 Cores| SM Count | GPU Memory (GB) |
 |:----------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|
 | Adroit     |      1           |     4         |  A100            | 6912   | 108  | 80 |
-| Adroit     |      1           |     4         |  A100            | 6912   | 108  | 40 |
+| Adroit     |      1           |     8         |  A100            | --   | --  | 20 |
 | Adroit     |      1           |     4         |  V100            | 5120   | 80  | 32 |    
 | Della      |     37           |     8         |  H100            | 14592  | 132 | 80 |
 | Della      |     69           |     4         |  A100            | 6912   | 108  | 80 |
 | Della      |     20           |     2         |  A100            | 6912   | 108  | 40 |
 | Della      |     2            |    28         |  A100            | --     | --   | 10 |  
 | Stella     |     6            |     2         |  A100            | 6912   | 108  | 40 |
+| Tiger3     |     10           |     4         |  H100            | 14592  | 132  | 80 |
 | TigerGPU   |     80           |     4         |  P100            | 3584   | 56  | 16 |
 | Traverse   |     46           |     4         |  V100            | 5120   | 80  | 32 | 
 
@@ -632,4 +448,4 @@ SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](
 
 ## GPU Hackathon at Princeton
 
-The next hackathon will take place in June of 2025. The most event took place in [June of 2024](https://www.openhackathons.org/s/siteevent/a0C5e000008dWhxEAE/se000286). This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
+The next hackathon will take place in [June of 2025](https://www.openhackathons.org/s/siteevent/a0CUP00000rwmKa2AI/se000356). This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
