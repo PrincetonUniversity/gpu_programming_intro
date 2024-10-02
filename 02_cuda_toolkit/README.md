@@ -8,66 +8,74 @@ List the available modules that are related to CUDA:
 
 ```
 $ module avail cudatoolkit
--------------------------- /usr/local/share/Modules/modulefiles --------------------------
-cudatoolkit/10.2  cudatoolkit/11.3  cudatoolkit/11.7  cudatoolkit/12.2  cudatoolkit/12.4  
-cudatoolkit/11.1  cudatoolkit/11.4  cudatoolkit/12.0  cudatoolkit/12.3
+------------ /usr/local/share/Modules/modulefiles -------------
+cudatoolkit/10.2  cudatoolkit/11.7  cudatoolkit/12.4  
+cudatoolkit/11.1  cudatoolkit/12.0  cudatoolkit/12.5  
+cudatoolkit/11.3  cudatoolkit/12.2  cudatoolkit/12.6  
+cudatoolkit/11.4  cudatoolkit/12.3  
 ```
 
 Run the following command to see which environment variables the `cudatoolkit` module is modifying:
 
 ```
-$ module show cudatoolkit/12.2
+$ $ module show cudatoolkit/12.5
 -------------------------------------------------------------------
-/usr/local/share/Modules/modulefiles/cudatoolkit/12.4:
+/usr/local/share/Modules/modulefiles/cudatoolkit/12.5:
 
-module-whatis   {Sets up cudatoolkit124 12.4 in your environment}
-prepend-path    PATH /usr/local/cuda-12.4/bin
-prepend-path    LD_LIBRARY_PATH /usr/local/cuda-12.4/lib64
-prepend-path    LIBRARY_PATH /usr/local/cuda-12.4/lib64
-prepend-path    MANPATH /usr/local/cuda-12.4/doc/man
-append-path     -d { } LDFLAGS -L/usr/local/cuda-12.4/lib64
-append-path     -d { } INCLUDE -I/usr/local/cuda-12.4/include
-append-path     CPATH /usr/local/cuda-12.4/include
-append-path     -d { } FFLAGS -I/usr/local/cuda-12.4/include
-append-path     -d { } LOCAL_LDFLAGS -L/usr/local/cuda-12.4/lib64
-append-path     -d { } LOCAL_INCLUDE -I/usr/local/cuda-12.4/include
-append-path     -d { } LOCAL_CFLAGS -I/usr/local/cuda-12.4/include
-append-path     -d { } LOCAL_FFLAGS -I/usr/local/cuda-12.4/include
-append-path     -d { } LOCAL_CXXFLAGS -I/usr/local/cuda-12.4/include
-setenv          CUDA_HOME /usr/local/cuda-12.4
+module-whatis   {Sets up cudatoolkit125 12.5 in your environment}
+prepend-path    PATH /usr/local/cuda-12.5/bin
+prepend-path    LD_LIBRARY_PATH /usr/local/cuda-12.5/lib64
+prepend-path    LIBRARY_PATH /usr/local/cuda-12.5/lib64
+prepend-path    MANPATH /usr/local/cuda-12.5/doc/man
+append-path     -d { } LDFLAGS -L/usr/local/cuda-12.5/lib64
+append-path     -d { } INCLUDE -I/usr/local/cuda-12.5/include
+append-path     CPATH /usr/local/cuda-12.5/include
+append-path     -d { } FFLAGS -I/usr/local/cuda-12.5/include
+append-path     -d { } LOCAL_LDFLAGS -L/usr/local/cuda-12.5/lib64
+append-path     -d { } LOCAL_INCLUDE -I/usr/local/cuda-12.5/include
+append-path     -d { } LOCAL_CFLAGS -I/usr/local/cuda-12.5/include
+append-path     -d { } LOCAL_FFLAGS -I/usr/local/cuda-12.5/include
+append-path     -d { } LOCAL_CXXFLAGS -I/usr/local/cuda-12.5/include
+setenv          CUDA_HOME /usr/local/cuda-12.5
 -------------------------------------------------------------------
 ```
 
-Let's look at the files in `/usr/local/cuda-12.4/bin`:
+Let's look at the files in `/usr/local/cuda-12.5/bin`:
 
 ```
-$ ls -ltrh /usr/local/cuda-12.2/bin
-total 161M
--rwxr-xr-x. 9 root root 1.6K Mar 15 17:58 nsight_ee_plugins_manage.sh
-lrwxrwxrwx. 1 root root    4 Mar 15 20:26 computeprof -> nvvp
--rwxr-xr-x. 3 root root  112 Mar 15 21:24 compute-sanitizer
--rwxr-xr-x. 1 root root  833 Mar 28 15:57 nsys-ui
--rwxr-xr-x. 1 root root  743 Mar 28 15:57 nsys
--rwxr-xr-x. 2 root root  197 Mar 28 15:57 nsight-sys
--rwxr-xr-x. 3 root root 3.6K Mar 28 15:57 ncu-ui
--rwxr-xr-x. 3 root root 3.8K Mar 28 15:57 ncu
--rwxr-xr-x. 2 root root 644K May 17 18:50 cuobjdump
--rw-r--r--. 7 root root  417 May 17 18:50 nvcc.profile
--rwxr-xr-x. 4 root root  11K May 17 18:50 __nvcc_device_query
--rwxr-xr-x. 2 root root  22M May 17 18:50 nvcc
--rwxr-xr-x. 2 root root 1.2M May 17 18:50 fatbinary
--rwxr-xr-x. 2 root root  75K May 17 18:50 cu++filt
--rwxr-xr-x. 2 root root 803K May 17 18:50 cuda-gdbserver
--rwxr-xr-x. 2 root root  17M May 17 18:50 cuda-gdb
--rwxr-xr-x. 2 root root 7.1M May 17 18:50 cudafe++
--rwxr-xr-x. 2 root root  87K May 17 18:50 bin2c
--rwxr-xr-x. 2 root root  29M May 17 18:50 ptxas
--rwxr-xr-x. 2 root root  30M May 17 18:50 nvlink
--rwxr-xr-x. 2 root root 107K May 17 18:50 nvprune
--rwxr-xr-x. 2 root root 5.8M May 17 18:50 nvprof
--rwxr-xr-x. 2 root root  49M May 17 18:50 nvdisasm
--rwxr-xr-x. 7 root root  285 May 17 18:50 nvvp
-drwxr-xr-x. 2 root root   43 May 23 18:50 crt
+$ ls -ltrh /usr/local/cuda-12.5/bin
+total 243M
+-rwxr-xr-x.  1 root root  49M Apr 15 22:46 nvdisasm
+-rwxr-xr-x.  1 root root 688K Apr 15 22:47 cuobjdump
+-rwxr-xr-x.  6 root root  11K May 17 18:50 __nvcc_device_query
+-rwxr-xr-x. 14 root root  285 May 17 18:50 nvvp
+-rwxr-xr-x.  1 root root 111K Jun  6 06:03 nvprune
+-rwxr-xr-x.  1 root root  75K Jun  6 06:09 cu++filt
+-rwxr-xr-x.  1 root root  30M Jun  6 06:12 ptxas
+-rwxr-xr-x.  1 root root  30M Jun  6 06:12 nvlink
+-rw-r--r--.  1 root root  465 Jun  6 06:12 nvcc.profile
+-rwxr-xr-x.  1 root root  22M Jun  6 06:12 nvcc
+-rwxr-xr-x.  1 root root 1.2M Jun  6 06:12 fatbinary
+-rwxr-xr-x.  1 root root 7.1M Jun  6 06:12 cudafe++
+-rwxr-xr-x.  1 root root  87K Jun  6 06:12 bin2c
+-rwxr-xr-x.  1 root root 803K Jun  6 07:25 cuda-gdbserver
+-rwxr-xr-x.  1 root root  17M Jun  6 07:25 cuda-gdb-python3.9-tui
+-rwxr-xr-x.  1 root root  17M Jun  6 07:25 cuda-gdb-python3.8-tui
+-rwxr-xr-x.  1 root root  17M Jun  6 07:25 cuda-gdb-python3.12-tui
+-rwxr-xr-x.  1 root root  17M Jun  6 07:25 cuda-gdb-python3.11-tui
+-rwxr-xr-x.  1 root root  17M Jun  6 07:25 cuda-gdb-python3.10-tui
+-rwxr-xr-x.  1 root root  15M Jun  6 07:25 cuda-gdb-minimal
+-rwxr-xr-x.  1 root root 1.9K Jun  6 07:25 cuda-gdb
+-rwxr-xr-x.  1 root root 5.8M Jun  6 07:56 nvprof
+lrwxrwxrwx.  1 root root    4 Jun  6 08:04 computeprof -> nvvp
+-rwxr-xr-x. 11 root root 1.6K Jun 14 19:56 nsight_ee_plugins_manage.sh
+-rwxr-xr-x.  1 root root  833 Jun 25 17:54 nsys-ui
+-rwxr-xr-x.  1 root root  743 Jun 25 17:54 nsys
+-rwxr-xr-x.  5 root root  112 Jul 12 02:21 compute-sanitizer
+-rwxr-xr-x.  5 root root 3.6K Jul 26 18:06 ncu-ui
+-rwxr-xr-x.  5 root root 3.8K Jul 26 18:06 ncu
+-rwxr-xr-x.  4 root root  197 Jul 26 18:06 nsight-sys
+drwxr-xr-x.  2 root root   43 Aug 28 10:24 crt
 ```
 
 `nvcc` is the NVIDIA CUDA Compiler. Note that `nvcc` is built on `llvm` as [described here](https://developer.nvidia.com/cuda-llvm-compiler). To learn more about an executable, use the help option. For instance: `nvcc --help`.
@@ -76,44 +84,44 @@ drwxr-xr-x. 2 root root   43 May 23 18:50 crt
 Let's look at the libraries:
 
 ```
-$ ls -lL /usr/local/cuda-12.4/lib64/lib*.so
--rwxr-xr-x. 2 root root   2408088 May 17 18:50 /usr/local/cuda-12.4/lib64/libaccinj64.so
--rwxr-xr-x. 2 root root   1501336 May 17 18:50 /usr/local/cuda-12.4/lib64/libcheckpoint.so
--rwxr-xr-x. 1 root root 441938896 Mar 26 06:48 /usr/local/cuda-12.4/lib64/libcublasLt.so
--rwxr-xr-x. 1 root root 109604768 Mar 26 06:48 /usr/local/cuda-12.4/lib64/libcublas.so
--rwxr-xr-x. 2 root root    707904 May 17 18:50 /usr/local/cuda-12.4/lib64/libcudart.so
--rwxr-xr-x. 2 root root 292889192 May 17 18:44 /usr/local/cuda-12.4/lib64/libcufft.so
--rwxr-xr-x. 2 root root    974888 May 17 18:45 /usr/local/cuda-12.4/lib64/libcufftw.so
--rwxr-xr-x. 4 root root     43320 Mar 13 17:18 /usr/local/cuda-12.4/lib64/libcufile_rdma.so
--rwxr-xr-x. 1 root root   2993816 Mar 13 17:18 /usr/local/cuda-12.4/lib64/libcufile.so
--rwxr-xr-x. 2 root root   2828544 May 17 18:50 /usr/local/cuda-12.4/lib64/libcuinj64.so
--rwxr-xr-x. 2 root root   7748112 May 17 18:50 /usr/local/cuda-12.4/lib64/libcupti.so
--rwxr-xr-x. 2 root root  96525744 May 17 18:45 /usr/local/cuda-12.4/lib64/libcurand.so
--rwxr-xr-x. 2 root root  82251176 May 17 18:45 /usr/local/cuda-12.4/lib64/libcusolverMg.so
--rwxr-xr-x. 2 root root 120126976 May 17 18:45 /usr/local/cuda-12.4/lib64/libcusolver.so
--rwxr-xr-x. 2 root root 281295680 May 17 18:45 /usr/local/cuda-12.4/lib64/libcusparse.so
--rwxr-xr-x. 2 root root   1647088 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppc.so
--rwxr-xr-x. 2 root root  17736496 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppial.so
--rwxr-xr-x. 2 root root   7549768 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppicc.so
--rwxr-xr-x. 2 root root  11244696 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppidei.so
--rwxr-xr-x. 2 root root 101210184 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppif.so
--rwxr-xr-x. 2 root root  41223056 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppig.so
--rwxr-xr-x. 2 root root  10355528 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppim.so
--rwxr-xr-x. 2 root root  37852240 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppist.so
--rwxr-xr-x. 2 root root    720264 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppisu.so
--rwxr-xr-x. 2 root root   5591664 May 17 18:50 /usr/local/cuda-12.4/lib64/libnppitc.so
--rwxr-xr-x. 2 root root  14165240 May 17 18:50 /usr/local/cuda-12.4/lib64/libnpps.so
--rwxr-xr-x. 1 root root    757496 Mar 26 06:48 /usr/local/cuda-12.4/lib64/libnvblas.so
--rwxr-xr-x. 1 root root   2381192 Mar 15 19:09 /usr/local/cuda-12.4/lib64/libnvfatbin.so
--rwxr-xr-x. 2 root root  53594512 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvJitLink.so
--rwxr-xr-x. 2 root root   6722352 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvjpeg.so
--rwxr-xr-x. 2 root root  28132984 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvperf_host.so
--rwxr-xr-x. 2 root root   5592368 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvperf_target.so
--rwxr-xr-x. 2 root root   5343112 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvrtc-builtins.so
--rwxr-xr-x. 2 root root  60409520 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvrtc.so
--rwxr-xr-x. 6 root root     40136 May 17 18:50 /usr/local/cuda-12.4/lib64/libnvToolsExt.so
--rwxr-xr-x. 6 root root     30856 May 17 18:50 /usr/local/cuda-12.4/lib64/libOpenCL.so
--rwxr-xr-x. 2 root root    912728 May 17 18:50 /usr/local/cuda-12.4/lib64/libpcsamplingutil.so
+$ ls -lL /usr/local/cuda-12.5/lib64/lib*.so
+-rwxr-xr-x.  1 root root   2412216 Jun  6 07:56 /usr/local/cuda-12.5/lib64/libaccinj64.so
+-rwxr-xr-x.  1 root root   1505608 Jun  6 07:30 /usr/local/cuda-12.5/lib64/libcheckpoint.so
+-rwxr-xr-x.  1 root root 446820528 Jun  6 06:10 /usr/local/cuda-12.5/lib64/libcublasLt.so
+-rwxr-xr-x.  1 root root 104128480 Jun  6 06:10 /usr/local/cuda-12.5/lib64/libcublas.so
+-rwxr-xr-x.  1 root root    712032 Jun  6 06:07 /usr/local/cuda-12.5/lib64/libcudart.so
+-rwxr-xr-x.  1 root root 276080616 Jun  6 06:16 /usr/local/cuda-12.5/lib64/libcufft.so
+-rwxr-xr-x.  1 root root    974920 Jun  6 06:16 /usr/local/cuda-12.5/lib64/libcufftw.so
+-rwxr-xr-x.  6 root root     43320 Jun  5 13:57 /usr/local/cuda-12.5/lib64/libcufile_rdma.so
+-rwxr-xr-x.  1 root root   2993816 Jun  6 06:53 /usr/local/cuda-12.5/lib64/libcufile.so
+-rwxr-xr-x.  1 root root   2832640 Jun  6 07:56 /usr/local/cuda-12.5/lib64/libcuinj64.so
+-rwxr-xr-x.  1 root root   7807144 Jun  6 07:30 /usr/local/cuda-12.5/lib64/libcupti.so
+-rwxr-xr-x.  1 root root  96529840 Jun  6 06:14 /usr/local/cuda-12.5/lib64/libcurand.so
+-rwxr-xr-x.  1 root root  82234792 Jun  6 06:55 /usr/local/cuda-12.5/lib64/libcusolverMg.so
+-rwxr-xr-x.  1 root root 122162688 Jun  6 06:55 /usr/local/cuda-12.5/lib64/libcusolver.so
+-rwxr-xr-x.  1 root root 294682616 Jun  6 06:29 /usr/local/cuda-12.5/lib64/libcusparse.so
+-rwxr-xr-x.  1 root root   1651184 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppc.so
+-rwxr-xr-x.  1 root root  17736496 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppial.so
+-rwxr-xr-x.  1 root root   7689032 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppicc.so
+-rwxr-xr-x.  1 root root  11248792 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppidei.so
+-rwxr-xr-x.  1 root root 101120104 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppif.so
+-rwxr-xr-x.  1 root root  41165712 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppig.so
+-rwxr-xr-x.  1 root root  10703688 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppim.so
+-rwxr-xr-x.  1 root root  37897296 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppist.so
+-rwxr-xr-x.  1 root root    724392 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppisu.so
+-rwxr-xr-x.  1 root root   5595760 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnppitc.so
+-rwxr-xr-x.  1 root root  14169336 Jun  6 06:37 /usr/local/cuda-12.5/lib64/libnpps.so
+-rwxr-xr-x.  1 root root    757496 Jun  6 06:10 /usr/local/cuda-12.5/lib64/libnvblas.so
+-rwxr-xr-x.  1 root root   2409960 Jun  6 06:08 /usr/local/cuda-12.5/lib64/libnvfatbin.so
+-rwxr-xr-x.  1 root root  54560656 Jun  6 06:11 /usr/local/cuda-12.5/lib64/libnvJitLink.so
+-rwxr-xr-x.  1 root root   6726448 Jun  6 06:07 /usr/local/cuda-12.5/lib64/libnvjpeg.so
+-rwxr-xr-x.  1 root root  28139320 Jun  6 07:30 /usr/local/cuda-12.5/lib64/libnvperf_host.so
+-rwxr-xr-x.  1 root root   5579216 Jun  6 07:30 /usr/local/cuda-12.5/lib64/libnvperf_target.so
+-rwxr-xr-x.  1 root root   5322632 Jun  6 06:07 /usr/local/cuda-12.5/lib64/libnvrtc-builtins.so
+-rwxr-xr-x.  1 root root  61401616 Jun  6 06:07 /usr/local/cuda-12.5/lib64/libnvrtc.so
+-rwxr-xr-x. 10 root root     40136 May 17 18:50 /usr/local/cuda-12.5/lib64/libnvToolsExt.so
+-rwxr-xr-x. 10 root root     30856 May 17 18:50 /usr/local/cuda-12.5/lib64/libOpenCL.so
+-rwxr-xr-x.  1 root root    920920 Jun  6 07:30 /usr/local/cuda-12.5/lib64/libpcsamplingutil.so
 ```
 
 ## cuDNN
@@ -129,7 +137,7 @@ $ module avail cudnn
 When you install [CuPy](https://cupy.dev), for instance, which is like NumPy for GPUs, Conda will include the CUDA libraries:
 
 <pre>
-$ module load anaconda3/2024.2
+$ module load anaconda3/2024.6
 $ conda create --name cupy-env cupy --channel conda-forge
 ...
   _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
