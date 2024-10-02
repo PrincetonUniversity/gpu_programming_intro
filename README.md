@@ -7,14 +7,14 @@ This guide provides materials for getting started with running GPU codes on the 
 ## Upcoming GPU Training
 
 [Princeton GPU User Group](https://researchcomputing.princeton.edu/learn/user-groups/gpu)  
-Fall Break Parallel Programming Bootcamp (October 14-15, 2024) [[see 2023 schedule](https://researchcomputing.princeton.edu/fall-break-2023-bootcamp)]  
+[Fall Break Parallel Programming Bootcamp (October 14-15, 2024)](https://researchcomputing.princeton.edu/fall-break-2024-bootcamp)  
 [See all PICSciE/RC workshops](https://researchcomputing.princeton.edu/learn/workshops-live-training)  
 [Subscribe to PICSciE/RC Mailing List](https://researchcomputing.princeton.edu/subscribe)  
 
 ## Learning Resources
 
 [GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)  
-[2024 Princeton GPU Hackathon](https://www.openhackathons.org/s/siteevent/a0C5e000008dWhxEAE/se000286)  
+[2025 Princeton GPU Hackathon](https://www.openhackathons.org/s/siteevent/a0CUP00000rwmKa2AI/se000356)  
 [Resource List by Open Hackathons](https://www.openhackathons.org/s/technical-resources)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)  
