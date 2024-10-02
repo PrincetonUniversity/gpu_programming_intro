@@ -156,7 +156,7 @@ $ conda create --name cupy-env cupy --channel conda-forge
   <b>libcufft           conda-forge/linux-64::libcufft-11.2.3.61-he02047a_0 
   <b>libcurand          conda-forge/linux-64::libcurand-10.3.6.82-he02047a_0 
   <b>libcusolver        conda-forge/linux-64::libcusolver-11.6.3.83-he02047a_0 
-  <b>libcusparse        conda-forge/linux-64::libcusparse-12.5.1.3-he02047a_0 
+  <b>libcusparse        conda-forge/linux-64::libcusparse-12.5.1.3-he02047a_0 </b>
   libexpat           conda-forge/linux-64::libexpat-2.6.2-h59595ed_0 
   libffi             conda-forge/linux-64::libffi-3.4.2-h7f98852_5 
   libgcc-ng          conda-forge/linux-64::libgcc-ng-14.1.0-h77fa898_0 
