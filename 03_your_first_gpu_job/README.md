@@ -66,7 +66,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2023.9
+module load anaconda3/2024.6
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/cupy-env
 
 python svd.py
@@ -129,7 +129,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2023.9
+module load anaconda3/2024.6
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/torch-env
 
 python svd.py
@@ -184,7 +184,7 @@ $ cat job.slurm
 #SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2023.9
+module load anaconda3/2024.6
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/tf2-gpu
 
 python svd.py
@@ -307,7 +307,7 @@ Install the `CUDA` package then run the script in `03_your_first_gpu_job/julia`.
 To monitor jobs in our reservation:
 
 ```
-$ watch -n 1 squeue -R <reservation-name>
+$ watch -n 1 squeue -R gpuprimer
 ```
 
 ## Benchmarks
