@@ -82,7 +82,7 @@ From this simple example we learn that GPU functions are declared with `__global
 
 Here is the general form for the execution configuration: `<<<NumBlocks, NumThreadsPerBlock>>>`. In the example above we used 1 block and 1 thread per block. At a high level, the execution configuration allows programmers to specify the thread hierarchy for a kernel launch, which defines the number of thread groupings (called blocks), as well as how many threads to execute in each block.
 
-Notice the return type of `void` for GPUFunction. It is required that GPU functions defined with the `__global__` keyword return type `void`.
+Notice the return type of `void` for GPUFunction. It is required that GPU functions are defined with the `__global__` keyword return type `void`.
 
 ### Exercises
 
