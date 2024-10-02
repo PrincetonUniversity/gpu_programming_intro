@@ -151,12 +151,12 @@ $ conda create --name cupy-env cupy --channel conda-forge
   fastrlock          conda-forge/linux-64::fastrlock-0.8.2-py312h30efb56_2 
   ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.40-hf3520f5_7 
   <b>libblas            conda-forge/linux-64::libblas-3.9.0-22_linux64_openblas 
-  <b>libcblas           conda-forge/linux-64::libcblas-3.9.0-22_linux64_openblas 
-  <b>libcublas          conda-forge/linux-64::libcublas-12.5.3.2-he02047a_0 
-  <b>libcufft           conda-forge/linux-64::libcufft-11.2.3.61-he02047a_0 
-  <b>libcurand          conda-forge/linux-64::libcurand-10.3.6.82-he02047a_0 
-  <b>libcusolver        conda-forge/linux-64::libcusolver-11.6.3.83-he02047a_0 
-  <b>libcusparse        conda-forge/linux-64::libcusparse-12.5.1.3-he02047a_0 </b>
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-22_linux64_openblas 
+  libcublas          conda-forge/linux-64::libcublas-12.5.3.2-he02047a_0 
+  libcufft           conda-forge/linux-64::libcufft-11.2.3.61-he02047a_0 
+  libcurand          conda-forge/linux-64::libcurand-10.3.6.82-he02047a_0 
+  libcusolver        conda-forge/linux-64::libcusolver-11.6.3.83-he02047a_0 
+  libcusparse        conda-forge/linux-64::libcusparse-12.5.1.3-he02047a_0 </b>
   libexpat           conda-forge/linux-64::libexpat-2.6.2-h59595ed_0 
   libffi             conda-forge/linux-64::libffi-3.4.2-h7f98852_5 
   libgcc-ng          conda-forge/linux-64::libgcc-ng-14.1.0-h77fa898_0 
