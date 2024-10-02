@@ -18,9 +18,9 @@ The image below emphasizes the cache sizes and flow control:
 
 Like a CPU, a GPU has a hierarchical structure with respect to both the execution units and memory. A warp is a unit of 32 threads. NVIDIA GPUs impose a limit of 1024 threads per block. Some integral number of warps are grouped into a streaming multiprocessor (SM). There are tens of SMs per GPU. Each thread has its own memory. There is limited shared memory between a block of threads. And, finally, there is the global memory which is accessible to each grid or collection of blocks.
 
-![ampere]([https://developer-blogs.nvidia.com/wp-content/uploads/2021/guc/raD52-V3yZtQ3WzOE0Cvzvt8icgGHKXPpN2PS_5MMyZLJrVxgMtLN4r2S2kp5jYI9zrA2e0Y8vAfpZia669pbIog2U9ZKdJmQ8oSBjof6gc4IrhmorT2Rr-YopMlOf1aoU3tbn5Q.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdeveloper.nvidia.com%2Fblog%2Fnvidia-hopper-architecture-in-depth%2F&psig=AOvVaw1SOYfXWQIQlWVaA5lBiYmR&ust=1727985048944000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKjW7om88IgDFQAAAAAdAAAAABAE))
+![ampere](https://developer-blogs.nvidia.com/wp-content/uploads/2022/03/H100-Streaming-Multiprocessor-SM-625x869.png)
 
-The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA H100 GPU](https://developer.nvidia.com/blog/nvidia-ampere-architecture-in-depth/). The A100 is composed of 108 SMs.
+The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA H100 GPU](https://www.nvidia.com/en-us/data-center/h100/). The H100 is composed of up to 132 SMs.
 
 # Princeton Language and Intelligence
 
@@ -54,36 +54,40 @@ There are 3 GPU nodes on Adroit: `adroit-h11g1`, `adroit-h11g2` and `adroit-h11g
 
 <pre>
 $ ssh &lt;NetID&gt;@adroit.princeton.edu
-$ shownodes
-NODELIST      PART   STATE        FREE/TOTAL CPUs  CPU_LOAD  FREE/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
-adroit-08     class  idle                   32/32      0.01    376911/384000Mb                      skylake,intel
-adroit-09     class  idle                   32/32      0.01    382495/384000Mb                      skylake,intel
-adroit-10     class  idle                   32/32      0.00    381901/384000Mb                      skylake,intel
-adroit-11     class  mixed                   8/32      0.00    357886/384000Mb                      skylake,intel
-adroit-12     class  idle                   32/32      0.00    382242/384000Mb                      skylake,intel
-adroit-13     all    allocated               0/32     32.33    279722/384000Mb                      skylake,intel
-adroit-14     all    mixed                   8/32     17.45    217066/384000Mb                      skylake,intel
-adroit-15     all    allocated               0/32     32.05    211596/384000Mb                      skylake,intel
-adroit-16     class  mixed                   6/32     14.70    349978/384000Mb                      skylake,intel
-adroit-h11g1  gpu    idle                   48/48      0.00   902550/1000000Mb  4/4 nvidia_a100  a100,intel,gpu80
-adroit-h11g2  gpu    mixed                  42/48      2.05   832854/1000000Mb  1/4 nvidia_a100        a100,intel
-adroit-h11g3  gpu    mixed                  48/56      7.99    607647/760000Mb   3/4 tesla_v100        v100,intel
-adroit-h11n1  class  idle                 128/128      0.00    250889/256000Mb                           amd,rome
-adroit-h11n2  all    mixed                   4/64     40.74    244458/512000Mb                          intel,ice
-adroit-h11n3  all    mixed                   2/64     41.16    156131/512000Mb                          intel,ice
-adroit-h11n4  all    mixed                   8/64     56.03    149451/512000Mb                          intel,ice
-adroit-h11n5  all    mixed                   8/64     51.12    283062/512000Mb                          intel,ice
-adroit-h11n6  all    mixed                   7/64     48.30    158202/512000Mb                          intel,ice
+$ snodes
+HOSTNAMES      STATE  CPUS S:C:T  CPUS(A/I/O/T) CPU_LOAD MEMORY  PARTITION  AVAIL_FEATURES
+adroit-08      alloc  32   2:16:1 32/0/0/32     1.27     384000  class      skylake,intel
+adroit-09      alloc  32   2:16:1 32/0/0/32     0.75     384000  class      skylake,intel
+adroit-10      alloc  32   2:16:1 32/0/0/32     0.63     384000  class      skylake,intel
+adroit-11      mix    32   2:16:1 29/3/0/32     0.28     384000  class      skylake,intel
+adroit-12      mix    32   2:16:1 16/16/0/32    0.28     384000  class      skylake,intel
+adroit-13      mix    32   2:16:1 25/7/0/32     0.22     384000  all*       skylake,intel
+adroit-13      mix    32   2:16:1 25/7/0/32     0.22     384000  class      skylake,intel
+adroit-14      alloc  32   2:16:1 32/0/0/32     32.29    384000  all*       skylake,intel
+adroit-14      alloc  32   2:16:1 32/0/0/32     32.29    384000  class      skylake,intel
+adroit-15      mix    32   2:16:1 22/10/0/32    9.68     384000  all*       skylake,intel
+adroit-15      mix    32   2:16:1 22/10/0/32    9.68     384000  class      skylake,intel
+adroit-16      alloc  32   2:16:1 32/0/0/32     24.13    384000  all*       skylake,intel
+adroit-16      alloc  32   2:16:1 32/0/0/32     24.13    384000  class      skylake,intel
+adroit-h11g1   plnd   48   2:24:1 0/48/0/48     0.00     1000000 gpu        a100,intel,gpu80
+adroit-h11g2   plnd   48   2:24:1 0/48/0/48     0.76     1000000 gpu        a100,intel
+adroit-h11g3   mix    56   4:14:1 5/51/0/56     1.05     760000  gpu        v100,intel
+adroit-h11n1   idle   128  2:64:1 0/128/0/128   0.00     256000  class      amd,rome
+adroit-h11n2   alloc  64   2:32:1 64/0/0/64     49.07    500000  all*       intel,ice
+adroit-h11n3   mix    64   2:32:1 50/14/0/64    40.54    500000  all*       intel,ice
+adroit-h11n4   mix    64   2:32:1 48/16/0/64    40.33    500000  all*       intel,ice
+adroit-h11n5   mix    64   2:32:1 32/32/0/64    32.94    500000  all*       intel,ice
+adroit-h11n6   mix    64   2:32:1 62/2/0/64     38.95    500000  all*       intel,ice
 </pre>
 
 To only see the GPU nodes:
 
 <pre>
 $ shownodes -p gpu
-NODELIST      STATE    FREE/TOTAL CPUs  CPU_LOAD  FREE/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
-adroit-h11g1  idle               48/48      0.00   902550/1000000Mb  4/4 nvidia_a100  a100,intel,gpu80
-adroit-h11g2  mixed              42/48      2.05   832854/1000000Mb  1/4 nvidia_a100        a100,intel
-adroit-h11g3  mixed              48/56      7.99    607647/760000Mb   3/4 tesla_v100        v100,intel
+NODELIST      STATE      FREE/TOTAL CPUs  CPU_LOAD  AVAIL/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
+adroit-h11g1  planned              48/48      0.00   1000000/1000000MB  4/4 nvidia_a100  a100,intel,gpu80
+adroit-h11g2  planned              48/48      0.76   1000000/1000000MB      8/8 3g.20gb        a100,intel
+adroit-h11g3  mixed                51/56      1.05     736960/760000MB   0/4 tesla_v100        v100,intel
 </pre>
   
 ### adroit-h11g1
@@ -156,7 +160,7 @@ $ exit
 
 ### adroit-h11g2
 
-`adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU. To connect to this node use:
+`adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU. The 4 GPUs have been divided into 8 less powerful GPUs with 20 GB of memory each. To connect to this node use:
 
 ```
 $ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2 --reservation=gpuprimer
@@ -165,6 +169,7 @@ $ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=a
 Below is information about the A100 GPUs:
 
 ```
+$ nvidia-smi -a
 Using a NVIDIA A100-PCIE-40GB GPU.
   CUDADevice with properties:
 
