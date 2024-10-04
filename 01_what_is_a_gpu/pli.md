@@ -274,6 +274,8 @@ node   0   1
   1:  21  10 
 ```
 
+## Intra-Node Topology
+
 ```
 jdh4@della-k17g3:~$ nvidia-smi topo -m
 	GPU0	GPU1	GPU2	GPU3	GPU4	GPU5	GPU6	GPU7	NIC0	NIC1	NIC2	NIC3	NIC4	NIC5	CPU Affinity	NUMA Affinity	GPU NUMA ID
