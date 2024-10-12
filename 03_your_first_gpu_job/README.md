@@ -80,6 +80,12 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
+Wait a few seconds for the job to run. Inspect the output:
+
+```
+$ cat slurm-*.out
+```
+
 You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. What happens if you re-run the script with the matrix in single precision? Does the execution time double if N is doubled? There is a CPU version of the code at the bottom of this page. Does the operation run faster on the CPU with NumPy or on the GPU with CuPy? Try [this exercise](https://github.com/PrincetonUniversity/a100_workshop/tree/main/06_cupy#cupy-uses-tensor-cores) where the Tensor Cores are utilized by using less than single precision (i.e., TensorFloat32).
 
 Why are multiple trials used when measuring the execution time? `CuPy` compiles a custom GPU kernel for each GPU operation (e.g., SVD). This means the first time a `CuPy` function is called the measured time is the sum of the compile time plus the time to execute the operation. The second and later calls only include the time to execute the operation.
@@ -141,6 +147,12 @@ Submit the job:
 $ sbatch job.slurm
 ```
 
+Wait a few seconds for the job to run. Inspect the output:
+
+```
+$ cat slurm-*.out
+```
+
 You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`.
 
 ## TensorFlow
@@ -194,6 +206,12 @@ Submit the job:
 
 ```
 $ sbatch job.slurm
+```
+
+Wait a few seconds for the job to run. Inspect the output:
+
+```
+$ cat slurm-*.out
 ```
 
 You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`.
@@ -292,6 +310,12 @@ Submit the job:
 
 ```
 $ sbatch job.slurm
+```
+
+Wait a few seconds for the job to run. Inspect the output:
+
+```
+$ cat slurm-*.out
 ```
 
 You can monitor the progress of the job with `squeue -u $USER`. Once the job completes, view the output with `cat slurm-*.out`. Learn more about [MATLAB on the Research Computing clusters](https://researchcomputing.princeton.edu/support/knowledge-base/matlab).
