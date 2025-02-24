@@ -157,10 +157,6 @@ $ module load cudatoolkit/12.4
 $ ncu-ui my_report_*.ncu-rep
 ```
 
-# nvprof
-
-This is the older NVIDIA profiler. It has been replaced by the combination of nsys and nsys-ui.
-
 # line_prof for Python Profiling
 
 The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool provides profiling info for each line of a function. It is easy to use and it can be used for Python codes that run on CPUs and/or GPUs.
