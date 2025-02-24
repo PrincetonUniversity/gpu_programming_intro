@@ -7,7 +7,6 @@ This guide provides materials for getting started with running GPU codes on the 
 ## Upcoming GPU Training
 
 [Princeton GPU User Group](https://researchcomputing.princeton.edu/learn/user-groups/gpu)  
-[Fall Break Parallel Programming Bootcamp (October 14-15, 2024)](https://researchcomputing.princeton.edu/fall-break-2024-bootcamp)  
 [See all PICSciE/RC workshops](https://researchcomputing.princeton.edu/learn/workshops-live-training)  
 [Subscribe to PICSciE/RC Mailing List](https://researchcomputing.princeton.edu/subscribe)  
 
