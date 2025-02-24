@@ -4,7 +4,7 @@ A GPU, or Graphics Processing Unit, is an electronic device originally designed 
 
 Relative to the CPU, GPUs have a far greater number of processing cores but with slower clock speeds. Within a block of threads called a warp (NVIDIA), each thread carries out the same operation on a different piece of data. This is the SIMT paradigm (single instruction, multiple threads). GPUs tend to have much less memory than what is available on a CPU. For instance, the H100 GPUs on Della have 80 GB compared to 1000 GB available to the CPU cores. This is an important consideration when designing algorithms and running jobs. Furthermore, GPUs are intended for highly parallel algorithms. The CPU can often out-perform a GPU on algorithms that are not highly parallelizable such as those that rely on data caching and flow control (e.g., "if" statements).
 
-Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://top500.org/lists/top500/2024/06/)). How many of the top 10 supercomputers use GPUs?
+Many of the fastest supercomputers in the world use GPUs (see [Top 500](https://top500.org/lists/top500/2024/11/)). How many of the top 10 supercomputers use GPUs?
 
 NVIDIA has been the leading player in GPUs for HPC. However, the GPU market landscape changed in May 2019 when the US DoE announced that Frontier, the first exascale supercomputer in the US, would be based on [AMD GPUs](https://www.hpcwire.com/2019/05/07/cray-amd-exascale-frontier-at-oak-ridge/) and CPUs. Princeton has a two [MI210 GPUs](https://researchcomputing.princeton.edu/amd-mi100-gpu-testing) which you can use for testing. Intel is also a GPU producer with the [Aurora supercomputer](https://en.wikipedia.org/wiki/Aurora_(supercomputer)) being an example.
 
@@ -24,7 +24,7 @@ The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA
 
 # Princeton Language and Intelligence
 
-The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster will provide 37 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models. [Learn more](https://pli.princeton.edu/about-pli/directors-message) about this.
+The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster provides 37 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models. [Learn more](https://pli.princeton.edu/about-pli/directors-message) about this.
 
 # Overview of using a GPU
 
@@ -89,7 +89,7 @@ adroit-h11g1  planned              48/48      0.00   1000000/1000000MB  4/4 nvid
 adroit-h11g2  planned              48/48      0.76   1000000/1000000MB      8/8 3g.20gb        a100,intel
 adroit-h11g3  mixed                51/56      1.05     736960/760000MB   0/4 tesla_v100        v100,intel
 </pre>
-  
+
 ### adroit-h11g1
 
 This node has 4 NVIDIA A100 GPUs with 80 GB of memory each. Each A100 GPU has 108 streaming multiprocessors (SM) and 64 FP32 CUDA cores per SM.
@@ -377,54 +377,10 @@ Hence, a starting point for optimization flags for the A100 GPUs on Della and Ad
 nvcc -O3 --use_fast_math --gpu-architecture=sm_80 -o myapp myapp.cu
 ```
 
-For the V100's on Adroit or Traverse would be:
+For the H100 GPUs on Della:
 
 ```
-nvcc -O3 --use_fast_math --gpu-architecture=sm_70 -o myapp myapp.cu
-```
-
-## TigerGPU
-
-TigerGPU was composed of 80 Intel Broadwell nodes each with 4 NVIDIA P100 GPUs. See the P100 [technical specs](https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888). Each GPU had 56 streaming multiprocessors (SM) and 64 CUDA FP32 cores per SM. TigerGPU has been retired.
-
-The following was obtained by running a MATLAB script:
-
-```
-  CUDADevice with properties:
-
-                      Name: 'Tesla P100-PCIE-16GB'
-                     Index: 1
-         ComputeCapability: '6.0'
-            SupportsDouble: 1
-             DriverVersion: 10.1000
-            ToolkitVersion: 9.1000
-        MaxThreadsPerBlock: 1024
-          MaxShmemPerBlock: 49152
-        MaxThreadBlockSize: [1024 1024 64]
-               MaxGridSize: [2.1475e+09 65535 65535]
-                 SIMDWidth: 32
-               TotalMemory: 1.7072e+10
-           AvailableMemory: 1.6695e+10
-       MultiprocessorCount: 56
-              ClockRateKHz: 1328500
-               ComputeMode: 'Default'
-      GPUOverlapsTransfers: 1
-    KernelExecutionTimeout: 0
-          CanMapHostMemory: 1
-           DeviceSupported: 1
-            DeviceSelected: 1
-```
-
-## Traverse
-
-The [Traverse cluster](https://www.princeton.edu/news/2019/10/07/princetons-new-supercomputer-traverse-accelerate-scientific-discovery-fusion) consists of 46 IBM Power9 nodes with 4 NVIDIA V100 GPUs. It is a smaller version of the [Sierra](https://en.wikipedia.org/wiki/Sierra_(supercomputer)) supercomputer. The GPUs on Traverse have 32 GB of memory each and a clock rate of 1.29 GHz. Each GPU has 80 streaming multiprocessors (SM) and 64 CUDA cores per SM (and 8 Tensor Cores per SM).
-
-Additional info:
-
-```
-$ ssh <NetID>@traverse.princeton.edu
-$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:10:00 --gres=gpu:1
-$ nvidia-smi -q
+nvcc -O3 --use_fast_math --gpu-architecture=sm_90 -o myapp myapp.cu
 ```
 
 ## Comparison of GPU Resources
@@ -438,10 +394,9 @@ $ nvidia-smi -q
 | Della      |     69           |     4         |  A100            | 6912   | 108  | 80 |
 | Della      |     20           |     2         |  A100            | 6912   | 108  | 40 |
 | Della      |     2            |    28         |  A100            | --     | --   | 10 |  
-| Stella     |     6            |     2         |  A100            | 6912   | 108  | 40 |
-| Tiger3     |     10           |     4         |  H100            | 14592  | 132  | 80 |
-| TigerGPU   |     80           |     4         |  P100            | 3584   | 56  | 16 |
-| Traverse   |     46           |     4         |  V100            | 5120   | 80  | 32 | 
+| Stellar     |     6            |     2         |  A100            | 6912   | 108  | 40 |
+| Stellar     |     1            |     8         |  A100            | 6912   | 108  | 40 |
+| Tiger     |     12           |     4         |  H100            | 14592  | 132  | 80 |
 
 SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix. There are differences between the V100 node on Adroit and the Traverse nodes (see [PCIe versus SXM2](https://www.nextplatform.com/micro-site-content/achieving-maximum-compute-throughput-pcie-vs-sxm2/)).
 
