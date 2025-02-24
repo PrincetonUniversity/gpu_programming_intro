@@ -137,7 +137,7 @@ Pick an example and then build and run it. For instance:
 ```
 $ module load cudatoolkit/12.2
 $ cd 0_Introduction/matrixMul
-$ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 node
+$ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 90 for H100 GPUs on Tiger and Della (PLI)
 ```
 
 This will produce `matrixMul`. If you run the `ldd` command on `matrixMul` you will see that it does not link against `cublas.so`. Instead it uses a naive implementation of the routine which is surely not as efficient as the library implementation.
@@ -167,7 +167,7 @@ To run code that uses the Tensor Cores see examples such as `3_CUDA_Features/bf1
 Note that some examples have dependencies that will not be satisfied so they will not build. This can be resolved if it relates to your research work. For instance, to build `5_Domain_Specific/nbody` use:
 
 ```
-GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 70 on traverse and adroit v100 node
+GLPATH=/lib64 make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 90 for H100 GPUs on Tiger and Della (PLI)
 ```
 
 Note that `nbody` will not run successfully on adroit since the GPU nodes do not have `libglut.so`. The library could be added if needed. One can compile and run this code on adroit-vis using `TARGET_ARCH=x86_64 SMS="80"`.
