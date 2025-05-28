@@ -8,22 +8,22 @@ This is the NVIDIA Systems Management Interface. This utility can be used to mon
 
 ```
 $ nvidia-smi
-Thu May 16 15:19:11 2024       
+Wed May 28 09:39:23 2025       
 +-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 550.54.15              Driver Version: 550.54.15      CUDA Version: 12.4     |
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
 |-----------------------------------------+------------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:41:00.0 Off |                    0 |
-| N/A   30C    P0             61W /  500W |       0MiB /  81920MiB |      0%      Default |
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:17:00.0 Off |                    0 |
+| N/A   39C    P0             57W /  300W |       0MiB /  81920MiB |      0%      Default |
 |                                         |                        |             Disabled |
 +-----------------------------------------+------------------------+----------------------+
                                                                                          
 +-----------------------------------------------------------------------------------------+
 | Processes:                                                                              |
-|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
 |        ID   ID                                                               Usage      |
 |=========================================================================================|
 |  No running processes found                                                             |
@@ -91,7 +91,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2024.2
+module load anaconda3/2024.10
 conda activate myenv
 
 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -120,7 +120,7 @@ $ /usr/local/bin/nsys-ui myprofile_*.nsys-rep
 The `ncu` command is used for detailed profiling of GPU kernels. See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). On some clusters you will need to load a module to make the command available:
 
 ```
-$ module load cudatoolkit/12.4
+$ module load cudatoolkit/12.9
 $ ncu --help
 ```
 
@@ -141,8 +141,8 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load cudatoolkit/12.4
-module load anaconda3/2024.2
+module load cudatoolkit/12.9
+module load anaconda3/2024.10
 conda activate myenv
 
 ncu -o my_report_${SLURM_JOBID} python myscript.py
@@ -153,7 +153,7 @@ Note: the `ncu` profiler can significantly slow down the execution time of the c
 To work the the graphical interface (ncu-ui) you can either (1) download the `.ncu-rep` file to your local machine or (2) create a graphical desktop session on [https://mydella.princeton.edu](https://mydella.princeton.edu/) or [https://mystellar.princeton.edu](https://mystellar.princeton.edu/). To create the graphical desktop, choose "Interactive Apps" then "Desktop of Della/Stellar Vis Nodes". Once the session starts, click on the black terminal icon and then run:
 
 ```
-$ module load cudatoolkit/12.4
+$ module load cudatoolkit/12.9
 $ ncu-ui my_report_*.ncu-rep
 ```
 
@@ -166,7 +166,7 @@ The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool p
 This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 
 ```
-$ module load cudatoolkit/11.7
+$ module load cudatoolkit/12.9
 $ nvcc -o hello_world hello_world.cu
 ```
 
@@ -185,19 +185,19 @@ See [this page](https://researchcomputing.princeton.edu/support/knowledge-base/g
 The general directions for using the DDT debugger are [here](https://researchcomputing.princeton.edu/faq/debugging-with-ddt-on-the). The getting started guide is [here](https://developer.arm.com/tools-and-software/server-and-hpc/debug-and-profile/arm-forge/arm-ddt).
 
 ```
-$ ssh -X <NetID>@adroit.princeton.edu
+$ ssh -X <NetID>@adroit.princeton.edu  # better to use graphical desktop via myadroit
 $ git clone https://github.com/PrincetonUniversity/hpc_beginning_workshop
 $ cd hpc_beginning_workshop/RC_example_jobs/simple_gpu_kernel
 $ salloc -N 1 -n 1 -t 10:00 --gres=gpu:1 --x11
-$ module load cudatoolkit/10.1
+$ module load cudatoolkit/12.9
 $ nvcc -g -G hello_world_gpu.cu
-$ module load ddt/22.0
-$ export ALLINEA_FORCE_CUDA_VERSION=10.1
+$ module load ddt/24.1
+$ #export ALLINEA_FORCE_CUDA_VERSION=10.1
 $ ddt
 # check cuda, uncheck "submit to queue", and click on "Run"
 ```
 
-The `-g` debugging flag is for CPU code while the `-G` flag is for GPU code. `-G` turns off compiler optimizations. Note that as of February 2020 CUDA Toolkit 10.2 is not supported.
+The `-g` debugging flag is for CPU code while the `-G` flag is for GPU code. `-G` turns off compiler optimizations.
 
 If the graphics are not displaying fast enough then consider using [TurboVNC](https://researchcomputing.princeton.edu/faq/how-do-i-use-vnc-on-tigre).
 
