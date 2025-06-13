@@ -157,7 +157,7 @@ $ nvcc -o hello_world hello_world.cu
 
 # Job Statistics
 
-Follow [this procedure](https://researchcomputing.princeton.edu/support/knowledge-base/job-stats) to view detailed metrics for your Slurm jobs. This includes GPU utilization and memory as a function of time.
+Follow [this procedure](https://researchcomputing.princeton.edu/support/knowledge-base/jobstats) to view detailed metrics for your Slurm jobs. This includes GPU utilization and memory as a function of time.
 
 # GPU Computing
 
