@@ -6,7 +6,7 @@
 
 + Connect to the eduroam wireless network
 
-+ Open a terminal (e.g., Terminal, PowerShell, PuTTY) [<a href="https://researchcomputing.princeton.edu/education/training/hardware-and-software-requirements-picscie-workshops" target="_blank">click here</a> for help]
++ Open a terminal (e.g., Terminal, PowerShell, PuTTY)
 
 + Request an [account on Adroit](https://forms.rc.princeton.edu/registration/?q=adroit).
 
@@ -22,7 +22,7 @@
    $ cd gpu_programming_intro
    ```
 
-+ For the live workshop, to get access to the GPU nodes on Adroit, add this line to your Slurm scripts:
++ For the live workshop, to get priority access to the GPU nodes on Adroit, add this line to your Slurm scripts:
 
    `$ sbatch --reservation=gpuprimer job.slurm`
 
