@@ -24,7 +24,7 @@ The figure above is a diagram of a streaming multiprocessor (SM) for the [NVIDIA
 
 # Princeton Language and Intelligence
 
-The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster provides 37 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models. [Learn more](https://pli.princeton.edu/about-pli/directors-message) about this.
+The university spent $9.6M on a new [NVIDIA H100](https://www.nvidia.com/en-us/data-center/h100/) cluster for research involving large AI models. The cluster provides 42 nodes with 8 GPUs per node. The H100 GPU is optimized for training transformer models. [Learn more](https://pli.princeton.edu/about-pli/directors-message) about this.
 
 # Overview of using a GPU
 
@@ -390,17 +390,18 @@ nvcc -O3 --use_fast_math --gpu-architecture=sm_90 -o myapp myapp.cu
 | Adroit     |      1           |     4         |  A100            | 6912   | 108  | 80 |
 | Adroit     |      1           |     8         |  A100            | --   | --  | 20 |
 | Adroit     |      1           |     4         |  V100            | 5120   | 80  | 32 |    
-| Della      |     37           |     8         |  H100            | 14592  | 132 | 80 |
+| Della      |     42           |     8         |  H100            | 16896  | 132 | 80 |
 | Della      |     69           |     4         |  A100            | 6912   | 108  | 80 |
 | Della      |     20           |     2         |  A100            | 6912   | 108  | 40 |
 | Della      |     2            |    28         |  A100            | --     | --   | 10 |  
-| Stellar     |     6            |     2         |  A100            | 6912   | 108  | 40 |
-| Stellar     |     1            |     8         |  A100            | 6912   | 108  | 40 |
-| Tiger     |     12           |     4         |  H100            | 14592  | 132  | 80 |
+| Stellar    |     6            |     2         |  A100            | 6912   | 108  | 40 |
+| Stellar    |     1            |     8         |  A100            | 6912   | 108  | 40 |
+| Tiger      |     1            |     8         |  H200            | 16896  | 144  | 141 |
+| Tiger      |     12           |     4         |  H100            | 14592  | 132  | 80 |
+| Tiger      |     40           |     1         |  L40S            | 18176  | 142  | 48 |
 
-SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix. There are differences between the V100 node on Adroit and the Traverse nodes (see [PCIe versus SXM2](https://www.nextplatform.com/micro-site-content/achieving-maximum-compute-throughput-pcie-vs-sxm2/)).
-
+SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix.
 
 ## GPU Hackathon at Princeton
 
-The next hackathon will take place in [June of 2025](https://www.openhackathons.org/s/siteevent/a0CUP00000rwmKa2AI/se000356). This is a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
+The previous hackathon took place in [June of 2025](https://www.openhackathons.org/s/siteevent/a0CUP00000rwmKa2AI/se000356). These events are a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [GPU Computing](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing) page for details.
