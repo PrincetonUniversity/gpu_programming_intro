@@ -13,7 +13,7 @@ This guide provides materials for getting started with running GPU codes on the 
 ## Learning Resources
 
 [GPU Computing at Princeton](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing)  
-[2025 Princeton GPU Hackathon](https://www.openhackathons.org/s/siteevent/a0CUP00000rwmKa2AI/se000356)  
+[Princeton Open Hackathon](https://researchcomputing.princeton.edu/hackathon)  
 [Resource List by Open Hackathons](https://www.openhackathons.org/s/technical-resources)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
 [LeetGPU - Free GPU Simulator](https://leetgpu.com/)  
