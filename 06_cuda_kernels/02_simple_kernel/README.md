@@ -48,6 +48,7 @@ This should be running in parallel.
 To get started:
 
 ```
+$ module load cudatoolkit/12.8
 $ cd gpu_programming_intro/06_cuda_kernels/02_simple_kernel
 # edit first_parallel.cu   (use a text editor of your choice)
 $ nvcc -o first_parallel first_parallel.cu
