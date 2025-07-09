@@ -26,8 +26,8 @@ For the complete list see [GPU libraries](https://developer.nvidia.com/gpu-accel
 Run the commands below to examine the libraries:
 
 ```
-$ module show cudatoolkit/12.2
-$ ls -lL /usr/local/cuda-12.2/lib64/lib*.so
+$ module show cudatoolkit/12.8
+$ ls -lL /usr/local/cuda-12.8/lib64/lib*.so
 ```
 
 ## Example
@@ -52,7 +52,7 @@ The header file `cusolverDn.h` included by `gesvdj_example.cpp` contains the lin
 Next, compile and link the code as follows:
 
 ```
-$ module load cudatoolkit/12.2
+$ module load cudatoolkit/12.8
 $ g++ -o gesvdj_example gesvdj_example.cpp -lcudart -lcusolver
 ```
 
@@ -135,7 +135,7 @@ drwxr-xr-x.  5 jdh4 cses  105 Oct  9 18:23 6_Performance
 Pick an example and then build and run it. For instance:
 
 ```
-$ module load cudatoolkit/12.2
+$ module load cudatoolkit/12.8
 $ cd 0_Introduction/matrixMul
 $ make TARGET_ARCH=x86_64 SMS="80" HOST_COMPILER=g++  # use 90 for H100 GPUs on Tiger and Della (PLI)
 ```
