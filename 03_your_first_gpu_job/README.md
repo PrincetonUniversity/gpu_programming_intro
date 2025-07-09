@@ -92,7 +92,7 @@ Why are multiple trials used when measuring the execution time? `CuPy` compiles 
 
 In addition to CuPy, Python programmers looking to run their code on GPUs should also be aware of [Numba](https://numba.pydata.org/) and [JAX](https://github.com/google/jax).
 
-To see performance comparison between the CPU and GPU, see `matmul_numpy.py` and `matmul_cupy.py` in [this repo](https://github.com/jdh4/python-gpu/tree/main/cupy).
+To see a performance comparison between the CPU and GPU, see `matmul_numpy.py` and `matmul_cupy.py` in [this repo](https://github.com/jdh4/python-gpu/tree/main/cupy).
 
 ## PyTorch
 
