@@ -10,6 +10,6 @@
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit/12.2
+module load cudatoolkit/12.8
 
 ./matrixMul
