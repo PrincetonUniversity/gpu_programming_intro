@@ -63,7 +63,7 @@ int main() {
 The GPU code above can be compiled and executed with:
 
 ```
-$ module load cudatoolkit/12.2
+$ module load cudatoolkit/12.8
 $ nvcc -o hello_world_gpu hello_world_gpu.cu
 $ sbatch job.slurm
 ```
