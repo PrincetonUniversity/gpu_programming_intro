@@ -90,6 +90,12 @@ adroit-h11g2  planned              48/48      0.76   1000000/1000000MB      8/8 
 adroit-h11g3  mixed                51/56      1.05     736960/760000MB   0/4 tesla_v100        v100,intel
 </pre>
 
+One can also run:
+
+```
+$ gfree
+```
+
 ### adroit-h11g1
 
 This node has 4 NVIDIA A100 GPUs with 80 GB of memory each. Each A100 GPU has 108 streaming multiprocessors (SM) and 64 FP32 CUDA cores per SM.
