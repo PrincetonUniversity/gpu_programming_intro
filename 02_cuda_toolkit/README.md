@@ -1,6 +1,6 @@
 # NVIDIA CUDA Toolkit
 
-![NVIDIA CUDA](https://en.wikipedia.org/wiki/CUDA#/media/File:Nvidia_CUDA_Logo.jpg)
+![NVIDIA CUDA](https://upload.wikimedia.org/wikipedia/commons/b/b9/Nvidia_CUDA_Logo.jpg)
 
 The [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) provides a comprehensive set of libraries and tools for developing and running GPU-accelerated applications.
 
