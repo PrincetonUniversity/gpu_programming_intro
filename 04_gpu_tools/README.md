@@ -155,6 +155,34 @@ $ module load cudatoolkit/12.9
 $ nvcc -o hello_world hello_world.cu
 ```
 
+# gfree
+
+See the number of free GPUs and how to allocate them with Slurm:
+
+```
+aturing@della:~$ gfree
+
+---------------------------------------------------------------------------------------------
+    GPU Model       Free/Total   Cores/GPU   CPU-Mem/GPU   Slurm Directive
+---------------------------------------------------------------------------------------------
+80 GB A100            1/236         12         240 GB      #SBATCH --constraint=gpu80
+40 GB A100            1/40          64         360 GB      #SBATCH --constraint="nomig&gpu40"
+40 GB MIG A100        1/80           6         120 GB      #SBATCH --constraint="intel&gpu40"
+10 GB MIG A100        3/56           1          32 GB      #SBATCH --constraint=mig
+96 GB Grace Hopper    1/1           72         525 GB      #SBATCH --partition=grace
+80 GB H100 (pli)      22/336        12         120 GB      (restricted access)
+80 GB A100 (cryoem)   5/80          12         240 GB      (restricted access)
+32 GB V100 (cryoem)   54/68         14         190 GB      (restricted access)
+
+Please request the smallest set of hardware resources for a given job. That is,
+choose the least powerful GPU model, the smallest number of CPU-cores, and the
+least amount of CPU memory that is sufficient to carry out the job. The values of
+"Cores/GPU" and "CPU-Mem/GPU" are soft limits so choices lower or higher are
+possible.
+
+More info: https://researchcomputing.princeton.edu/systems/della#GPU-Jobs
+```
+
 # Job Statistics
 
 Follow [this procedure](https://researchcomputing.princeton.edu/support/knowledge-base/jobstats) to view detailed metrics for your Slurm jobs. This includes GPU utilization and memory as a function of time.
