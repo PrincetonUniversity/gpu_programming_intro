@@ -14,7 +14,7 @@ All laptops have a GPU for graphics. It is becoming standard for a laptop to hav
 
 The image below emphasizes the cache sizes and flow control:
 
-![cache_flow_control](https://tigress-web.princeton.edu/~jdh4/gpu-devotes-more-transistors-to-data-processing.png)
+![cache_flow_control](https://tigress-web.princeton.edu/CSES/jdh4/gpu-devotes-more-transistors-to-data-processing.png)
 
 Like a CPU, a GPU has a hierarchical structure with respect to both the execution units and memory. A warp is a unit of 32 threads. NVIDIA GPUs impose a limit of 1024 threads per block. Some integral number of warps are grouped into a streaming multiprocessor (SM). There are tens of SMs per GPU. Each thread has its own memory. There is limited shared memory between a block of threads. And, finally, there is the global memory which is accessible to each grid or collection of blocks.
 
@@ -36,7 +36,7 @@ This is the essence of how every GPU is used as an accelerator for compute:
 
 + Copy data from the GPU (device) back to the CPU (host)
 
-![gpu-overview](https://tigress-web.princeton.edu/~jdh4/gpu_as_accelerator_to_cpu_diagram.png)
+![gpu-overview](https://tigress-web.princeton.edu/CSES/jdh4/gpu_as_accelerator_to_cpu_diagram.png)
 
 The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will need to learn more about memory cache, interconnects, CUDA streams and much more.
 
