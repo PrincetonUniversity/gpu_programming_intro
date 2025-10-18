@@ -397,22 +397,12 @@ nvcc -O3 --use_fast_math --gpu-architecture=sm_90 -o myapp myapp.cu
 
 ## Comparison of GPU Resources
 
-|   Cluster  | Number of Nodes | GPUs per Node | NVIDIA GPU Model  | Number of FP32 Cores| SM Count | GPU Memory (GB) |
-|:----------:|:----------:|:---------:|:-------:|:-------:|:-------:|:-------:|
-| Adroit     |      1           |     4         |  A100            | 6912   | 108  | 80 |
-| Adroit     |      1           |     8         |  A100            | --   | --  | 20 |
-| Adroit     |      1           |     4         |  V100            | 5120   | 80  | 32 |    
-| Della      |     42           |     8         |  H100            | 16896  | 132 | 80 |
-| Della      |     69           |     4         |  A100            | 6912   | 108  | 80 |
-| Della      |     20           |     2         |  A100            | 6912   | 108  | 40 |
-| Della      |     2            |    28         |  A100            | --     | --   | 10 |  
-| Stellar    |     6            |     2         |  A100            | 6912   | 108  | 40 |
-| Stellar    |     1            |     8         |  A100            | 6912   | 108  | 40 |
-| Tiger      |     1            |     8         |  H200            | 16896  | 144  | 141 |
-| Tiger      |     12           |     4         |  H100            | 14592  | 132  | 80 |
-| Tiger      |     40           |     1         |  L40S            | 18176  | 142  | 48 |
+See the GPU Computing webpage for [a table of GPU resources](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing#Hardware-Resources).
+
+The L40S has 142 SMs, 18176 FP32 cores, and 48 GB of memory. The H100 GPUs on PLI provide 132 SMs, 16896 FP32 cores, and 80 GB of memory. The A100 provides 108 SMS, 6912 FP32 cores, and 80 GB of memory.
 
 SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix.
+
 
 ## GPU Hackathon at Princeton
 
