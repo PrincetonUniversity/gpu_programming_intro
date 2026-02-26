@@ -1,4 +1,4 @@
-# Introduction to GPU Computing
+# A Hands-On Introduction to GPU Computing
 
 ## About
 
