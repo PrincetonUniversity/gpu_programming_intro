@@ -175,7 +175,7 @@ $ exit
 `adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU. The 4 GPUs have been divided into 8 less powerful GPUs with 20 GB of memory each. To connect to this node use:
 
 ```
-$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2 --reservation=gpuprimer
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2
 ```
 
 Below is information about the A100 GPUs:
