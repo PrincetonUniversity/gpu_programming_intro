@@ -4,7 +4,7 @@ Let's say you have a CPU code and you are thinking about writing GPU kernels to 
 
 According to NVIDIA: "NVIDIA GPU-accelerated libraries provide highly-optimized functions that perform 2x-10x faster than CPU-only alternatives. Using drop-in interfaces, you can replace CPU-only libraries such as MKL, IPP and FFTW with GPU-accelerated versions with almost no code changes. The libraries can optimally scale your application across multiple GPUs."
 
-![NVIDIA-GPU-Libraries](https://tigress-web.princeton.edu/~jdh4/nv_libraries.jpeg)
+![NVIDIA-GPU-Libraries](https://tigress-web.princeton.edu/CSES/dh4/nv_libraries.jpeg)
 
 ### Selected libraries
 
