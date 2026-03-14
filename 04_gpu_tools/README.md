@@ -79,7 +79,7 @@ module purge
 module load anaconda3/2024.10
 conda activate myenv
 
-/usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
+nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
 ```
 
 For an MPI code you should use:
@@ -91,13 +91,13 @@ srun --wait=0 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt,mpi -o myprofil
 Run this command to see the summary statistics:
 
 ```
-$ /usr/local/bin/nsys stats myprofile_*.nsys-rep
+$ nsys stats myprofile_*.nsys-rep
 ```
 
 To work the the graphical interface (nsys-ui) you can either (1) download the `.qdrep` file to your local machine or (2) create a graphical desktop session on [https://mydella.princeton.edu](https://mydella.princeton.edu/) or [https://mystellar.princeton.edu](https://mystellar.princeton.edu/). To create the graphical desktop, choose "Interactive Apps" then "Desktop of Della/Stellar Vis Nodes". Once the session starts, click on the black terminal icon and then run:
 
 ```
-$ /usr/local/bin/nsys-ui myprofile_*.nsys-rep
+$ nsys-ui myprofile_*.nsys-rep
 ```
 
 # Nsight Compute (ncu) for GPU Kernel Profiling
