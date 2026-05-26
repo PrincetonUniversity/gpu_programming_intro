@@ -53,7 +53,7 @@ $ /usr/local/bin/nsys --help
 $ /usr/local/bin/nsys --help profile
 ```
 
-IMPORTANT: Do not run profiling jobs in your `/home` directory because large files are often written during these jobs which can exceed your quota. Instead launch jobs from `/scratch/gpfs/<YourNetID>` where you have lots of space. Here's an example:
+IMPORTANT: Do not run profiling jobs in your `/home` directory because large files are often written during these jobs which can exceed your quota. Instead launch jobs from a path such as `/scratch/gpfs/<ResearchGroup>/<YourNetID>` where you have lots of space. Here's an example:
 
 ```
 $ ssh <YourNetID>@della-gpu.princeton.edu
@@ -76,7 +76,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2024.10
+module load anaconda3/2025.12
 conda activate myenv
 
 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -105,7 +105,7 @@ $ /usr/local/bin/nsys-ui myprofile_*.nsys-rep
 The `ncu` command is used for detailed profiling of GPU kernels. See the NVIDIA [documentation](https://docs.nvidia.com/nsight-compute/). On some clusters you will need to load a module to make the command available:
 
 ```
-$ module load cudatoolkit/12.9
+$ module load cudatoolkit/13.2
 $ ncu --help
 ```
 
@@ -126,8 +126,8 @@ Below is a sample slurm script:
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
-module load cudatoolkit/12.9
-module load anaconda3/2024.10
+module load cudatoolkit/13.2
+module load anaconda3/2025.12
 conda activate myenv
 
 ncu -o my_report_${SLURM_JOBID} python myscript.py
@@ -138,7 +138,7 @@ Note: the `ncu` profiler can significantly slow down the execution time of the c
 To work the the graphical interface (ncu-ui) you can either (1) download the `.ncu-rep` file to your local machine or (2) create a graphical desktop session on [https://mydella.princeton.edu](https://mydella.princeton.edu/) or [https://mystellar.princeton.edu](https://mystellar.princeton.edu/). To create the graphical desktop, choose "Interactive Apps" then "Desktop of Della/Stellar Vis Nodes". Once the session starts, click on the black terminal icon and then run:
 
 ```
-$ module load cudatoolkit/12.9
+$ module load cudatoolkit/13.2
 $ ncu-ui my_report_*.ncu-rep
 ```
 
@@ -151,7 +151,7 @@ The [line_prof](https://researchcomputing.princeton.edu/python-profiling) tool p
 This is the NVIDIA CUDA compiler. It is based on LLVM. To compile a simple code:
 
 ```
-$ module load cudatoolkit/12.9
+$ module load cudatoolkit/13.2
 $ nvcc -o hello_world hello_world.cu
 ```
 
