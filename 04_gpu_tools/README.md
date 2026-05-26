@@ -57,7 +57,7 @@ IMPORTANT: Do not run profiling jobs in your `/home` directory because large fil
 
 ```
 $ ssh <YourNetID>@della-gpu.princeton.edu
-$ cd /scratch/gpfs/<YourNetID>
+$ cd /scratch/gpfs/<ResearchGroup>/<YourNetID>
 $ mkdir myjob && cd myjob
 # prepare Slurm script
 $ sbatch job.slurm
