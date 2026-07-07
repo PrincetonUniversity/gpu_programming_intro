@@ -10,7 +10,7 @@
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2024.6
+module load anaconda3/2025.12
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/cupy-env
 
 python svd.py
