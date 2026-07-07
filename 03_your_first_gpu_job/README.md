@@ -66,7 +66,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2024.6
+module load anaconda3/2025.12
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/cupy-env
 
 python svd.py
@@ -135,7 +135,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2024.6
+module load anaconda3/2025.12
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/torch-env
 
 python svd.py
@@ -301,7 +301,7 @@ Below is a sample Slurm script:
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load matlab/R2023a
+module load matlab/R2025a
 
 matlab -singleCompThread -nodisplay -nosplash -r svd
 ```
