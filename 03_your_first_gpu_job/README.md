@@ -170,7 +170,7 @@ import jax.numpy as jnp
 
 print("JAX version: ", jax.__version__)
 
-N = 1000
+N = 4000
 key = jax.random.PRNGKey(42)
 A = jax.random.normal(key, (N, N))
 t0 = perf_counter()
