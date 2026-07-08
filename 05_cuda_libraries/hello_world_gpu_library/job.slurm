@@ -9,7 +9,7 @@
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load cudatoolkit/11.7
+module load cudatoolkit/13.2
 export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
 ./myapp
