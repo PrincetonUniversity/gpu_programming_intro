@@ -115,21 +115,25 @@ Run the following command to obtain a copy of the [NVIDIA CUDA Samples](https://
 ```
 $ cd gpu_programming_intro
 $ git clone https://github.com/NVIDIA/cuda-samples.git
-$ cd cuda-samples/Samples
+$ cd cuda-samples/cpp
 ```
 
 Then browse the directories:
 
 ```
 $ ls -ltrh
-total 20K
-drwxr-xr-x. 55 jdh4 cses 4.0K Oct  9 18:23 0_Introduction
-drwxr-xr-x.  6 jdh4 cses  130 Oct  9 18:23 1_Utilities
-drwxr-xr-x. 36 jdh4 cses 4.0K Oct  9 18:23 2_Concepts_and_Techniques
-drwxr-xr-x. 25 jdh4 cses 4.0K Oct  9 18:23 3_CUDA_Features
-drwxr-xr-x. 40 jdh4 cses 4.0K Oct  9 18:23 4_CUDA_Libraries
-drwxr-xr-x. 52 jdh4 cses 4.0K Oct  9 18:23 5_Domain_Specific
-drwxr-xr-x.  5 jdh4 cses  105 Oct  9 18:23 6_Performance
+total 36K
+drwxr-xr-x. 48 jdh4 cses 4.0K Jul  8 13:27 0_Introduction
+drwxr-xr-x.  5 jdh4 cses  131 Jul  8 13:27 1_Utilities
+drwxr-xr-x. 34 jdh4 cses 4.0K Jul  8 13:27 2_Concepts_and_Techniques
+drwxr-xr-x. 26 jdh4 cses 4.0K Jul  8 13:27 3_CUDA_Features
+drwxr-xr-x. 41 jdh4 cses 4.0K Jul  8 13:27 4_CUDA_Libraries
+drwxr-xr-x. 38 jdh4 cses 4.0K Jul  8 13:27 5_Domain_Specific
+drwxr-xr-x.  7 jdh4 cses 4.0K Jul  8 13:27 6_Performance
+drwxr-xr-x. 11 jdh4 cses 4.0K Jul  8 13:27 7_libNVVM
+drwxr-xr-x.  3 jdh4 cses   27 Jul  8 13:27 8_Platform_Specific
+drwxr-xr-x. 12 jdh4 cses 4.0K Jul  8 13:27 9_CUDA_Tile
+-rw-r--r--.  1 jdh4 cses  930 Jul  8 13:27 CMakeLists.txt
 ```
 
 Pick an example and then build and run it. For instance:
