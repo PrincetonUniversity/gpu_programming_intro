@@ -1,5 +1,6 @@
-using CUDA
+using CUDA, LinearAlgebra
 N = 8000
-F = CUDA.svd(CUDA.rand(N, N))
+A = CUDA.rand(N, N)
+F = svd(A)
 println(sum(F.S))
 println("completed")
