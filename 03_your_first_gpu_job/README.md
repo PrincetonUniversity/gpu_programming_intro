@@ -318,7 +318,7 @@ Here is an [intro](https://www.mathworks.com/help/parallel-computing/run-matlab-
 
 ## Julia
 
-Install the `CUDA` package then run the script in `03_your_first_gpu_job/julia`. See our [Julia webage](https://researchcomputing.princeton.edu/support/knowledge-base/julia).
+Install the `CUDA` and `LinearAlgebra` packages then run the script in `03_your_first_gpu_job/julia`. See our [Julia webage](https://researchcomputing.princeton.edu/support/knowledge-base/julia).
 
 ## Monitoring GPU Usage
 
