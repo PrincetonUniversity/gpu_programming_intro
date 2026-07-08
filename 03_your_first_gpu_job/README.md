@@ -155,30 +155,30 @@ $ cat slurm-*.out
 
 You can monitor the progress of the job with `squeue --me`. Once the job completes, view the output with `cat slurm-*.out`.
 
-## TensorFlow
+## JAX
 
-[TensorFlow](https://www.tensorflow.org) is popular library for training deep neural networks. It can also be used for various numerical computations (see [documentation](https://www.tensorflow.org/api_docs/python/tf)). This example is set to use the TensorFlow installation of the workshop instructor. If you use TensorFlow for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/tensorflow) into your account.
+[JAX](https://docs.jax.dev/en/latest/index.html) is popular machine learning library. It is used by Google to train Gemini. This example is set to use the JAX installation of the workshop instructor. If you use JAX for your research work then you should [install it](https://researchcomputing.princeton.edu/support/knowledge-base/jax) into your account.
 
 Examine the Python script before running the code:
 
 ```python
-$ cd gpu_programming_intro/03_your_first_gpu_job/tensorflow
+$ cd gpu_programming_intro/03_your_first_gpu_job/jax
 $ cat svd.py
 from time import perf_counter
+import jax
+import jax.numpy as jnp
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
+print("JAX version: ", jax.__version__)
 
-import tensorflow as tf
-print("TensorFlow version: ", tf.__version__)
-
-N = 100
-x = tf.random.normal((N, N), dtype=tf.dtypes.float64)
+N = 1000
+key = jax.random.PRNGKey(42)
+A = jax.random.normal(key, (N, N))
 t0 = perf_counter()
-s, u, v = tf.linalg.svd(x)
+U, S, Vt = jnp.linalg.svd(A, full_matrices=False)
 elapsed_time = perf_counter() - t0
+
 print("Execution time: ", elapsed_time)
-print("Result: ", tf.reduce_sum(s).numpy())
+print("Result: ", jnp.sum(s))
 ```
 
 Below is a sample Slurm script:
@@ -186,7 +186,7 @@ Below is a sample Slurm script:
 ```bash
 $ cat job.slurm
 #!/bin/bash
-#SBATCH --job-name=svd-tf        # create a short name for your job
+#SBATCH --job-name=svd-jax       # create a short name for your job
 #SBATCH --nodes=1                # node count
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
@@ -196,8 +196,8 @@ $ cat job.slurm
 #SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2024.6
-conda activate /scratch/network/jdh4/.gpu_workshop/envs/tf2-gpu
+module load anaconda3/2025.12
+conda activate /scratch/network/jdh4/.gpu_workshop/envs/jax-gpu
 
 python svd.py
 ```
@@ -215,12 +215,6 @@ $ cat slurm-*.out
 ```
 
 You can monitor the progress of the job with `squeue --me`. Once the job completes, view the output with `cat slurm-*.out`.
-
-<!--### Benchmarks
-
-Below is benchmark data for the SVD of an N x N matrix in double precision using NumPy with a single CPU-core on Adroit versus TensorFlow on Traverse using a single CPU-core and a V100 GPU:
-
-![svd-data](svd_adroit_traverse_log_log.png)-->
 
 ## R with NVBLAS
 
