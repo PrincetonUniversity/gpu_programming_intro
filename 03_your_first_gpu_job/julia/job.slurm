@@ -10,6 +10,6 @@
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load julia/1.8.2
+module load julia/1.12.2
 
 julia svd.jl
