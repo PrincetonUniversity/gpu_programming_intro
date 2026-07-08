@@ -17,7 +17,7 @@ $ cat cumessage.cu
 Libraries are standalone. That is, there is nothing at present waiting to use our library. We will simply create it and then write a code that can use it. Create the library by running the following commands:
 
 ```bash
-$ module load cudatoolkit/11.7
+$ module load cudatoolkit/13.2
 $ nvcc -Xcompiler -fPIC -o libcumessage.so -shared cumessage.cu
 $ ls -ltr
 ```
