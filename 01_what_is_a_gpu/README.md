@@ -90,10 +90,10 @@ To only see the GPU nodes:
 
 <pre>
 $ shownodes -p gpu
-NODELIST      STATE      FREE/TOTAL CPUs  CPU_LOAD  AVAIL/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
-adroit-h11g1  planned              48/48      0.00   1000000/1000000MB  4/4 nvidia_a100  a100,intel,gpu80
-adroit-h11g2  planned              48/48      0.76   1000000/1000000MB      8/8 3g.20gb        a100,intel
-adroit-h11g3  mixed                51/56      1.05     736960/760000MB   0/4 tesla_v100        v100,intel
+NODELIST      STATE   FREE/TOTAL CPUs  CPU_LOAD  AVAIL/TOTAL MEMORY  FREE/TOTAL GPUs          FEATURES
+adroit-h11g1  mixed-            30/48      3.10    459328/1000000MB  0/4 nvidia_a100  a100,intel,gpu80
+adroit-h11g2  mixed             40/48      2.03    950848/1000000MB      7/8 3g.20gb        a100,intel
+adroit-h11g3  mixed             80/96      2.23    868928/1000000MB   0/2 nvidia_a40           a40,amd
 </pre>
 
 One can also run:
@@ -249,7 +249,7 @@ $ nvidia-smi -q | less
 
 ### adroit-h11g3
 
-This node offers the older V100 GPUs.
+This node offers two A40 GPUs.
 
 ### Grace Hopper Superchip
 
