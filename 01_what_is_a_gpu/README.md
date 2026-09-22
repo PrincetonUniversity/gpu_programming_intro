@@ -44,9 +44,7 @@ This is the essence of how every GPU is used as an accelerator for compute:
 
 ![gpu-overview](https://tigress-web.princeton.edu/CSES/jdh4/gpu_as_accelerator_to_cpu_diagram.png)
 
-The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will need to learn more about memory cache, interconnects, CUDA streams and much more.
-
-[NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) on Traverse enables fast CPU-to-GPU and GPU-to-GPU data transfers with a peak rate of 75 GB/s per direction.
+The diagram above and the accompanying pseudocode present a simplified view of how GPUs are used in scientific computing. To fully understand how things work you will need to learn about memory cache, interconnects, CUDA and more.
 
 Given the significant performance penalty for moving data between the CPU and GPU, it is natural to work toward "unifying" the CPU and GPU. For instance, read about the [NVIDIA Grace Hopper Superchip](https://developer.nvidia.com/blog/nvidia-grace-hopper-superchip-architecture-in-depth/).
 
@@ -175,7 +173,7 @@ $ exit
 `adroit-h11g2` has 4 NVIDIA A100 GPUs with 40 GB of memory per GPU. The 4 GPUs have been divided into 8 less powerful GPUs with 20 GB of memory each. To connect to this node use:
 
 ```
-$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2
+$ salloc --nodes=1 --ntasks=1 --mem=4G --time=00:05:00 --gres=gpu:1 --nodelist=adroit-h11g2 --reservation=gpuprimer
 ```
 
 Below is information about the A100 GPUs:
@@ -249,7 +247,7 @@ $ nvidia-smi -q | less
 
 ### adroit-h11g3
 
-This node offers two A40 GPUs.
+This node offers two [NVIDIA A40 GPUs](https://www.nvidia.com/en-us/data-center/a40/).
 
 ### Grace Hopper Superchip
 
@@ -337,7 +335,7 @@ Vulnerabilities:
 
 ### Compute Capability and Building Optimized Codes
 
-Some software will only run on a GPU of a given compute capability. To find these values for a given NVIDIA Telsa card see [this page](https://en.wikipedia.org/wiki/Nvidia_Tesla). The compute capability of the A100's on Della is 8.0. For various build systems this translates to `sm_80`.
+Some software will only run on a GPU of a given "compute capability". The compute capability of the A100's on Della is 8.0. For various build systems this translates to `sm_80`. For H100 one uses `sm_90` while for H200 it is `sm_90a`.
 
 The following is from `$ nvcc --help` after loading a `cudatoolkit` module:
 
@@ -345,11 +343,11 @@ The following is from `$ nvcc --help` after loading a `cudatoolkit` module:
 Options for steering GPU code generation.
 =========================================
 
---gpu-architecture <arch>                       (-arch)                         
+--gpu-architecture <arch>                           (-arch)                     
         Specify the name of the class of NVIDIA 'virtual' GPU architecture for which
         the CUDA input files must be compiled.
         With the exception as described for the shorthand below, the architecture
-        specified with this option must be a 'virtual' architecture (such as compute_50).
+        specified with this option must be a 'virtual' architecture (such as compute_100).
         Normally, this option alone does not trigger assembly of the generated PTX
         for a 'real' architecture (that is the role of nvcc option '--gpu-code',
         see below); rather, its purpose is to control preprocessing and compilation
@@ -358,11 +356,11 @@ Options for steering GPU code generation.
         is supported.  If no value for option '--gpu-code' is specified, then the
         value of this option defaults to the value of '--gpu-architecture'.  In this
         situation, as only exception to the description above, the value specified
-        for '--gpu-architecture' may be a 'real' architecture (such as a sm_50),
+        for '--gpu-architecture' may be a 'real' architecture (such as a sm_100),
         in which case nvcc uses the specified 'real' architecture and its closest
         'virtual' architecture as effective architecture values.  For example, 'nvcc
-        --gpu-architecture=sm_50' is equivalent to 'nvcc --gpu-architecture=compute_50
-        --gpu-code=sm_50,compute_50'.
+        --gpu-architecture=sm_100' is equivalent to 'nvcc --gpu-architecture=compute_100
+        --gpu-code=sm_100,compute_100'.
         -arch=all         build for all supported architectures (sm_*), and add PTX
         for the highest major architecture to the generated code.
         -arch=all-major   build for just supported major versions (sm_*0), plus the
@@ -370,17 +368,18 @@ Options for steering GPU code generation.
         generated code.
         -arch=native      build for all architectures (sm_*) on the current system
         Note: -arch=native, -arch=all, -arch=all-major cannot be used with the -code
-        option, but can be used with -gencode options
-        Note: the values compute_30, compute_32, compute_35, compute_37, compute_50,
-        sm_30, sm_32, sm_35, sm_37 and sm_50 are deprecated and may be removed in
-        a future release.
-        Allowed values for this option:  'all','all-major','compute_35','compute_37',
-        'compute_50','compute_52','compute_53','compute_60','compute_61','compute_62',
-        'compute_70','compute_72','compute_75','compute_80','compute_86','compute_87',
-        'lto_35','lto_37','lto_50','lto_52','lto_53','lto_60','lto_61','lto_62',
-        'lto_70','lto_72','lto_75','lto_80','lto_86','lto_87','native','sm_35','sm_37',
-        'sm_50','sm_52','sm_53','sm_60','sm_61','sm_62','sm_70','sm_72','sm_75',
-        'sm_80','sm_86','sm_87'.
+        option, but can be used with -gencode options.
+        Allowed values for this option:  'all','all-major','compute_100','compute_100a',
+        'compute_100f','compute_103','compute_103a','compute_103f','compute_110',
+        'compute_110a','compute_110f','compute_120','compute_120a','compute_120f',
+        'compute_121','compute_121a','compute_121f','compute_75','compute_80','compute_86',
+        'compute_87','compute_88','compute_89','compute_90','compute_90a','lto_100',
+        'lto_100a','lto_100f','lto_103','lto_103a','lto_103f','lto_110','lto_110a',
+        'lto_110f','lto_120','lto_120a','lto_120f','lto_121','lto_121a','lto_121f',
+        'lto_75','lto_80','lto_86','lto_87','lto_88','lto_89','lto_90','lto_90a',
+        'native','sm_100','sm_100a','sm_100f','sm_103','sm_103a','sm_103f','sm_110',
+        'sm_110a','sm_110f','sm_120','sm_120a','sm_120f','sm_121','sm_121a','sm_121f',
+        'sm_75','sm_80','sm_86','sm_87','sm_88','sm_89','sm_90','sm_90a'.
 ```
 
 Hence, a starting point for optimization flags for the A100 GPUs on Della and Adroit:
@@ -399,11 +398,11 @@ nvcc -O3 --use_fast_math --gpu-architecture=sm_90 -o myapp myapp.cu
 
 See the GPU Computing webpage for [a table of GPU resources](https://researchcomputing.princeton.edu/support/knowledge-base/gpu-computing#Hardware-Resources).
 
-The L40S has 142 SMs, 18176 FP32 cores, and 48 GB of memory. The H100 GPUs on PLI provide 132 SMs, 16896 FP32 cores, and 80 GB of memory. The A100 provides 108 SMS, 6912 FP32 cores, and 80 GB of memory.
+The L40S has 142 SMs, 18176 FP32 cores, and 48 GB of memory. The H100 GPUs on PLI provide 132 SMs, 16896 FP32 cores, and 80 GB of memory. The A100 provides 108 SMS, 6912 FP32 cores, and 40 or 80 GB of memory.
 
-SM is streaming multiprocessor. Note that the V100 GPUs have 640 [Tensor Cores](https://devblogs.nvidia.com/cuda-9-features-revealed/) (8 per SM) where half-precision Warp Matrix-Matrix and Accumulate (WMMA) operations can be carried out. That is, each core can perform a 4x4 matrix-matrix multiply and add the result to a third matrix.
+SM is streaming multiprocessor. Note that the H100 GPUs have 528 [Tensor Cores](https://www.nvidia.com/en-us/data-center/tensor-cores/) (4 per SM) where fast matrix math can be carried out such as a matrix-matrix multiply and accumulate (MMA). The fourth-generation Tensor Cores in H100 support several data types, including FP8, FP16, BF16, TF32, FP64, and INT8.
 
 
 ## GPU Hackathon at Princeton
 
-The previous hackathon took place in [June of 2025](https://www.openhackathons.org/s/siteevent/a0CUP00000rwmKa2AI/se000356). These events are a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [Open Hackathon](https://researchcomputing.princeton.edu/hackathon) page for details.
+The previous hackathon took place in [June of 2026](https://www.openhackathons.org/s/siteevent/a0CUP00002xOlbw2AC/se000441). These events are a great opportunity to get help from experts in porting your code to a GPU. Or you can participate as a mentor and help a team rework their code. See the [Open Hackathon](https://researchcomputing.princeton.edu/hackathon) page for details.
