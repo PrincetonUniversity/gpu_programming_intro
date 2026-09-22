@@ -6,7 +6,7 @@ This guide provides materials for getting started with running GPU codes on the 
 
 ## Upcoming GPU Training
 
-[Fall Break 2026 Parallel Programming & GPU Bootcamp](https://researchcomputing.princeton.edu/fall-break-2026-parallel-programming-gpu-bootcamp)
+[Fall Break 2026 Parallel Programming & GPU Bootcamp](https://researchcomputing.princeton.edu/fall-break-2026-parallel-programming-gpu-bootcamp)  
 [Princeton GPU User Group](https://researchcomputing.princeton.edu/learn/user-groups/gpu)  
 [See all Research Computing workshops](https://researchcomputing.princeton.edu/learn/workshops-live-training)  
 [Subscribe to Research Computing Mailing List](https://researchcomputing.princeton.edu/subscribe)  
