@@ -77,7 +77,7 @@ adroit-16      alloc  32   2:16:1 32/0/0/32     24.13    384000  all*       skyl
 adroit-16      alloc  32   2:16:1 32/0/0/32     24.13    384000  class      skylake,intel
 adroit-h11g1   plnd   48   2:24:1 0/48/0/48     0.00     1000000 gpu        a100,intel,gpu80
 adroit-h11g2   plnd   48   2:24:1 0/48/0/48     0.76     1000000 gpu        a100,intel
-adroit-h11g3   mix    56   4:14:1 5/51/0/56     1.05     760000  gpu        v100,intel
+adroit-h11g3   mix    96   2:48:1 16/80/0/96    2.12     1000000 gpu        a40,amd
 adroit-h11n1   idle   128  2:64:1 0/128/0/128   0.00     256000  class      amd,rome
 adroit-h11n2   alloc  64   2:32:1 64/0/0/64     49.07    500000  all*       intel,ice
 adroit-h11n3   mix    64   2:32:1 50/14/0/64    40.54    500000  all*       intel,ice
