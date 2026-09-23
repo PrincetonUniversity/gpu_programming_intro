@@ -17,7 +17,7 @@ To add a GPU to your Slurm allocation:
 For Adroit, one can specify the GPU type using a constraint:
 
 ```
-#SBATCH --constraint=a100        # set to gpu80, a100 or v100
+#SBATCH --constraint=a100        # set to gpu80, a100 or a40
 #SBATCH --gres=gpu:1             # number of gpus per node
 ```
 
@@ -66,7 +66,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2025.12
+module load anaconda3/2026.7
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/cupy-env
 
 python svd.py
@@ -135,7 +135,7 @@ $ cat job.slurm
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
 module purge
-module load anaconda3/2025.12
+module load anaconda3/2026.7
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/torch-env
 
 python svd.py
@@ -196,7 +196,7 @@ $ cat job.slurm
 #SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2025.12
+module load anaconda3/2026.7
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/jax-gpu
 
 python svd.py
@@ -326,133 +326,4 @@ To monitor jobs in our reservation:
 
 ```
 $ watch -n 1 squeue -R gpuprimer
-```
-
-## Benchmarks
-
-### Matrix Multiplication
-
-| cluster              | code |  CPU-cores  | time (s) |
-|:--------------------:|:----:|:-----------:|:--------:|
-|  adroit (CPU)        | NumPy |    1       |  24.2    |
-|  adroit (CPU)        | NumPy |    2       |  15.5    |
-|  adroit (CPU)        | NumPy |    4       |   5.3    |  
-|  adroit (V100)       | CuPy  |    1       |   0.3   |
-|  adroit (K40c)       | CuPy  |    1       |   1.7   |
-
-Times are best of 5 for a square matrix with N=10000 in double precision.
-
-### LU Decomposition
-
-| cluster              | code        |  CPU-cores | time (s) |
-|:--------------------:|:-----------:|:----------:|:--------:|
-|  adroit (CPU)        | SciPy       |    1       |   9.4   |
-|  adroit (CPU)        | SciPy       |    2       |   7.9   |
-|  adroit (CPU)        | SciPy       |    4       |   6.5   |  
-|  adroit (V100)       | CuPy        |    1       |   0.3   |
-|  adroit (K40c)       | CuPy        |    1       |   1.1   |
-|  adroit (V100)       | Tensorflow  |    1       |   0.3   |
-|  adroit (K40c)       | Tensorflow  |    1       |   1.1   |
-|  adroit (CPU)        | Tensorflow  |    1       |  50.8   |
-
-Times are best of 5 for a square matrix with N=10000 in double precision.
-
-### Singular Value Decomposition
-
-| cluster              | code       |  CPU-cores | time (s) |
-|:--------------------:|:----------:|:----------:|:--------:|
-|  adroit (CPU)        | NumPy      |    1       |    3.6   |
-|  adroit (CPU)        | NumPy      |    2       |    3.0   |
-|  adroit (CPU)        | NumPy      |    4       |    1.2   |
-|  adroit (V100)       | CuPy       |    1       |   24.7   |
-|  adroit (K40c)       | CuPy       |    1       |   30.5   |
-|  adroit (V100)       | Torch      |    1       |   0.9    |
-|  adroit (K40c)       | Torch      |    1       |   1.5    |
-|  adroit (CPU)        | Torch      |    1       |   3.0    |
-|  adroit (V100)       | TensorFlow |    1       |   24.8   |
-|  adroit (K40c)       | TensorFlow |    1       |   29.7   |
-|  adroit (CPU)        | TensorFlow |    1       |    9.2   |
-
-Times are best of 5 for a square matrix with N=2000 in double precision.
-
-For the LU decomposition using SciPy:
-
-```
-from time import perf_counter
-
-import numpy as np
-import scipy as sp
-from scipy.linalg import lu
-
-N = 10000
-cpu_runs = 5
-
-times = []
-X = np.random.randn(N, N).astype(np.float64)
-for _ in range(cpu_runs):
-  t0 = perf_counter()
-  p, l, u = lu(X, check_finite=False)
-  times.append(perf_counter() - t0)
-print("CPU time: ", min(times))
-print("NumPy version: ", np.__version__)
-print("SciPy version: ", sp.__version__)
-print(p.sum())
-print(times)
-```
-
-For the LU decomposition on the CPU:
-
-```
-from time import perf_counter
-
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
-
-import tensorflow as tf
-print("TensorFlow version: ", tf.__version__)
-
-times = []
-N = 10000
-with tf.device("/cpu:0"):
-  x = tf.random.normal((N, N), dtype=tf.dtypes.float64)
-  for _ in range(5):
-    t0 = perf_counter()
-    lu, p = tf.linalg.lu(x)
-    elapsed_time = perf_counter() - t0
-    times.append(elapsed_time)
-print("Execution time: ", min(times))
-print(times)
-print("Result: ", tf.reduce_sum(p).numpy())
-```
-
-SVD with NumPy:
-
-```
-from time import perf_counter
-
-N = 2000
-cpu_runs = 5
-
-times = []
-import numpy as np
-X = np.random.randn(N, N).astype(np.float64)
-for _ in range(cpu_runs):
-  t0 = perf_counter()
-  u, s, v = np.linalg.svd(X)
-  times.append(perf_counter() - t0)
-print("CPU time: ", min(times))
-print("NumPy version: ", np.__version__)
-print(s.sum())
-print(times)
-```
-
-Performing benchmarks with R:
-
-```
-# install.packages("microbenchmark")
-library(microbenchmark)
-library(Matrix)
-
-N <- 10000
-microbenchmark(lu(matrix(rnorm(N*N), N, N)), times=5, unit="s")
 ```
