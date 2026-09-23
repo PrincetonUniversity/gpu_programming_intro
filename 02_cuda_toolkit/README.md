@@ -10,7 +10,7 @@ List the available modules that are related to CUDA:
 $ module avail cudatoolkit
 -- /usr/local/share/Modules/modulefiles --
 cudatoolkit/11.8  cudatoolkit/12.6  cudatoolkit/12.8
-cudatoolkit/13.0  cudatoolkit/13.2
+cudatoolkit/13.0  cudatoolkit/13.2  cudatoolkit/13.3
 ```
 
 Run the following command to see which environment variables the `cudatoolkit` module is modifying:
@@ -124,7 +124,7 @@ $ ls -lL /usr/local/cuda-13.2/lib64/lib*.so
 When you install [CuPy](https://cupy.dev), for instance, which is like NumPy for GPUs, Conda will include the CUDA libraries:
 
 <pre>
-$ module load anaconda3/2025.12
+$ module load anaconda3/2026.7
 $ conda create --name cupy-env cupy --channel conda-forge
 ...
   _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
@@ -173,5 +173,3 @@ $ conda create --name cupy-env cupy --channel conda-forge
   tzdata             conda-forge/noarch::tzdata-2025c-hc9c84f9_1 
   zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6
 </pre>
-
-When using `pip` to do the installation, one needs to load the `cudatoolkit` module since that dependency is assumed to be available on the local system. The Conda approach installs all the dependencies so one does not load the module.
