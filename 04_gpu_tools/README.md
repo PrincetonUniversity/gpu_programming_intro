@@ -162,17 +162,19 @@ See the number of free GPUs and how to allocate them with Slurm:
 ```
 aturing@della:~$ gfree
 
----------------------------------------------------------------------------------------------
+──────────────────────────────────────────────────────────────────────────────────────────────
     GPU Model       Free/Total   Cores/GPU   CPU-Mem/GPU   Slurm Directive
----------------------------------------------------------------------------------------------
-80 GB A100            1/236         12         240 GB      #SBATCH --constraint=gpu80
-40 GB A100            1/40          64         360 GB      #SBATCH --constraint="nomig&gpu40"
-40 GB MIG A100        1/80           6         120 GB      #SBATCH --constraint="intel&gpu40"
-10 GB MIG A100        3/56           1          32 GB      #SBATCH --constraint=mig
-96 GB Grace Hopper    1/1           72         525 GB      #SBATCH --partition=grace
-80 GB H100 (pli)      22/336        12         120 GB      (restricted access)
-80 GB A100 (cryoem)   5/80          12         240 GB      (restricted access)
-32 GB V100 (cryoem)   54/68         14         190 GB      (restricted access)
+──────────────────────────────────────────────────────────────────────────────────────────────
+ 80 GB A100            0/228         12         240 GB      #SBATCH --constraint=gpu80
+ 40 GB A100            0/40          64         360 GB      #SBATCH --constraint="nomig&gpu40"
+ 40 GB MIG A100        0/80           6         120 GB      #SBATCH --constraint="intel&gpu40"
+ 10 GB MIG A100        0/56           1          32 GB      #SBATCH --constraint=mig
+ 96 GB Grace Hopper    0/1           72         525 GB      #SBATCH -p grace -w della-l06g13
+144 GB Grace Hopper    0/2           72         600 GB      #SBATCH -p grace -w della-h23g2
+141 GB H200 (ailab)    11/144         8         185 GB      (restricted access)
+ 80 GB H100 (pli)      4/328         12         120 GB      (restricted access)
+ 80 GB H100 (cryoem)   16/52         16         245 GB      (restricted access)
+ 80 GB A100 (cryoem)   1/48          12         245 GB      (restricted access)
 
 Please request the smallest set of hardware resources for a given job. That is,
 choose the least powerful GPU model, the smallest number of CPU-cores, and the
