@@ -9,7 +9,7 @@
 #SBATCH --constraint=a100        # choose a100 or v100
 #SBATCH --reservation=gpuprimer  # REMOVE THIS LINE AFTER THE WORKSHOP
 
-module load anaconda3/2026.7
+module load anaconda3/2025.12
 conda activate /scratch/network/jdh4/.gpu_workshop/envs/jax-gpu
 
 python svd.py
