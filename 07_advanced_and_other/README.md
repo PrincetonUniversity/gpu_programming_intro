@@ -1,5 +1,13 @@
 # Advanced and Other
 
+## CUDA vs. Other GPU Programming Models
+
+CUDA kernels are written at a low level. OpenMP, Kokkos and OpenACC are a high-level programmaing models. Because GPU hardware is changing rapidly, some argue that writing GPU codes with a high-level programmaing model is a better choice because there is much less work do to when new hardware comes out.
+
+The figure below shows a comparison of popular GPU programming models:
+
+![GPU Programming](cuda_kokkos_openmp_openacc.jpg)
+
 ## CUDA-Aware MPI
 
 On Della you will see MPI modules that have been built against CUDA. These modules enable [CUDA-aware MPI](https://developer.nvidia.com/mpi-solutions-gpus) where
@@ -29,19 +37,6 @@ openmpi/cuda-11.1/gcc/4.1.1  openmpi/cuda-11.3/nvhpc-21.5/4.1.1
 
 GPUDirect is enabled on `della` and `traverse`.
 
-## GPU Sharing
-
-Many GPU applications only use the GPU for a fraction of the time. For many years, a goal of GPU vendors has been to allow for GPU sharing between applications. Slurm is capable of supporting this through the `--gpu-mps` option.
-
-## OpenMP 4.5+
-
-Recent implementations of [OpenMP](https://www.openmp.org/) support GPU programming. However, they are not mature and should not be favored.
-
-## CUDA Kernels versus OpenACC on the Long Term
-
-CUDA kernels are written at a low level. OpenACC is a high-level programmaing model. Because GPU hardware is changing rapidly, some argue that writing GPU codes with OpenACC is a better choice because there is much less work do to when new hardware comes out. The sames holds true for Kokkos.
-
-[See the materials](http://w3.pppl.gov/~ethier/PICSCIE/Intro_to_OpenACC_Nov_2019.pdf) for an OpenACC workshop by Stephane Ethier. Be aware of the Slack channel for OpenACC for getting help.
 
 ## Using the Intel Compiler
 
