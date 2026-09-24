@@ -76,7 +76,7 @@ Below is an example Slurm script:
 #SBATCH --time=00:10:00          # total run time limit (HH:MM:SS)
 
 module purge
-module load anaconda3/2025.12
+module load anaconda3/2026.7
 conda activate myenv
 
 /usr/local/bin/nsys profile --trace=cuda,nvtx,osrt -o myprofile_${SLURM_JOBID} python myscript.py
@@ -127,7 +127,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module purge
 module load cudatoolkit/13.2
-module load anaconda3/2025.12
+module load anaconda3/2026.7
 conda activate myenv
 
 ncu -o my_report_${SLURM_JOBID} python myscript.py
