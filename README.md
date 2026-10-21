@@ -18,6 +18,8 @@ This guide provides materials for getting started with running GPU codes on the 
 [Princeton Open Hackathon](https://researchcomputing.princeton.edu/hackathon)  
 [Resource List by Open Hackathons](https://www.openhackathons.org/s/technical-resources)  
 [Training Archive at Oak Ridge National Laboratory](https://docs.olcf.ornl.gov/training/training_archive.html)   
+[PantheonSim](https://pantheonsim.com/)  
+[WebGPU](https://icui.github.io/gpu-demo/)  
 [LeetGPU - Free GPU Simulator](https://leetgpu.com/)  
 [CUDA C++ Programming Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-programming-guide/)  
 [CUDA Fortran Programming Guide by NVIDIA](https://docs.nvidia.com/hpc-sdk/compilers/cuda-fortran-prog-guide/index.html)     
